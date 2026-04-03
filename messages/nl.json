@@ -1,0 +1,550 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "Over Ons",
+    "services": "Diensten",
+    "ourServices": "Onze Diensten",
+    "wayWeWork": "Onze Aanpak",
+    "vacancies": "Vacatures",
+    "uploadCv": "CV Uploaden",
+    "ndt": "NDT",
+    "news": "Nieuws",
+    "contact": "Contact",
+    "findTalent": "Ik Zoek Werk",
+    "findProject": "Zoek je een project?"
+  },
+  "home": {
+    "hero": {
+      "tagline": "Technisch Talent voor Kritieke Projecten",
+      "slogan": "Ervaar het Q4S verschil – waar kwaliteit en betrouwbaarheid samenkomen, elke keer weer.",
+      "intro": "Bij Q4S leveren wij meer dan diensten — wij worden een betrouwbare projectpartner die kwaliteit, compliance en prestaties van begin tot einde borgt.",
+      "ctaEmployer": "Zoek je talent?",
+      "ctaCandidate": "Zoek je een project?",
+      "ctaEmployerSub": "Vind de juiste QA/QC specialist",
+      "ctaCandidateSub": "Ontdek openstaande opdrachten"
+    },
+    "why": {
+      "title": "Waarom Q4S?",
+      "body": "Opdrachtgevers kiezen voor Q4S omdat wij waarde toevoegen, geen complexiteit. Wij begrijpen dat elk project uniek is en passen ons daar volledig op aan. Van source inspection tot NDT-consultancy — ons netwerk van hooggekwalificeerde professionals staat klaar voor uw meest kritieke opdrachten.",
+      "items": [
+        {
+          "title": "Bewezen expertise",
+          "desc": "Jarenlange ervaring in QA/QC, source inspection en technische inspectie in complexe industriële omgevingen."
+        },
+        {
+          "title": "Snelle inzet",
+          "desc": "Wij leveren snel de juiste specialist, ook voor urgente of kortlopende opdrachten."
+        },
+        {
+          "title": "Volledige ontzorging",
+          "desc": "Van werving tot detachering — wij regelen alles zodat u zich kunt focussen op uw project."
+        },
+        {
+          "title": "Kwaliteit gewaarborgd",
+          "desc": "Elke professional is zorgvuldig gescreend op kennis, ervaring en referenties."
+        }
+      ]
+    },
+    "services": {
+      "title": "Onze Expertise",
+      "items": [
+        {
+          "title": "Werving & Selectie",
+          "desc": "Gerichte werving van QA/QC professionals, veldinspecteurs en technische specialisten."
+        },
+        {
+          "title": "Detachering",
+          "desc": "Flexibele inzet van hooggekwalificeerd technisch personeel voor de duur van uw project."
+        },
+        {
+          "title": "Source Inspection",
+          "desc": "Gespecialiseerde inspectors die leveranciersprestaties bewaken op locatie wereldwijd."
+        },
+        {
+          "title": "NDT Consultancy",
+          "desc": "Experts in Non-Destructive Testing voor lascontroles, materiaalonderzoek en systeem-audits."
+        }
+      ],
+      "learnMore": "Meer over onze diensten"
+    },
+    "clients": {
+      "label": "Vertrouwd door toonaangevende bedrijven in de industrie"
+    },
+    "cta": {
+      "title": "Klaar om samen te werken?",
+      "body": "Of u nu op zoek bent naar technisch talent of uw volgende uitdaging als specialist — Q4S verbindt u met de juiste partij.",
+      "employer": "Neem contact op",
+      "candidate": "Bekijk vacatures"
+    }
+  },
+  "about": {
+    "hero": {
+      "title": "Over Q4S",
+      "subtitle": "Quality Force — ons fundament, onze belofte."
+    },
+    "story": {
+      "title": "Ons Verhaal",
+      "body": "Q4S B.V. is opgericht vanuit een passie voor kwaliteit en een diepgeworteld begrip van de technische industrie. Als gespecialiseerd recruitment- en projectpartnerbureau verbinden wij hooggekwalificeerde technische professionals met de meest complexe industriële en infrastructuurprojecten in Nederland en daarbuiten.\n\nOnze naam staat voor Quality Force — een filosofie die doorklinkt in alles wat wij doen. Wij geloven dat de juiste persoon op de juiste plek het verschil maakt tussen een goed project en een uitmuntend project."
+    },
+    "mission": {
+      "title": "Missie & Visie",
+      "mission": "Wij verbinden hooggekwalificeerde technische professionals met kritieke projecten, waarbij kwaliteit, naleving en prestaties centraal staan.",
+      "vision": "Wij streven ernaar de meest vertrouwde partner te zijn voor technische werving en projectondersteuning in de industriële sector."
+    },
+    "values": {
+      "title": "Onze Kernwaarden",
+      "items": [
+        {
+          "title": "Kwaliteit",
+          "desc": "Wij leveren geen compromissen. Elke professional die wij plaatsen, voldoet aan de hoogste standaarden."
+        },
+        {
+          "title": "Betrouwbaarheid",
+          "desc": "Onze opdrachtgevers en kandidaten kunnen op ons rekenen. Altijd, in elke fase van het project."
+        },
+        {
+          "title": "Expertise",
+          "desc": "Diepgaande kennis van QA/QC, inspectie en technische recruitment is onze kracht."
+        },
+        {
+          "title": "Partnerschap",
+          "desc": "Wij zijn geen leverancier, maar een verlengstuk van uw organisatie."
+        }
+      ]
+    },
+    "team": {
+      "title": "Onze Aanpak",
+      "body": "Het Q4S-team bestaat uit ervaren professionals met een achtergrond in de technische industrie. Wij spreken de taal van onze opdrachtgevers én onze kandidaten. Dat maakt het verschil."
+    }
+  },
+  "services": {
+    "hero": {
+      "title": "Onze Diensten",
+      "subtitle": "Specialistisch technisch talent voor uw meest kritieke projecten."
+    },
+    "intro": "Q4S biedt een volledig spectrum aan recruitment- en detacheringsoplossingen voor de industriële en infrastructuursector. Wij leveren professionals die niet alleen de techniek beheersen, maar ook begrijpen wat er op het spel staat.",
+    "items": [
+      {
+        "id": "recruitment",
+        "title": "Werving & Selectie",
+        "desc": "Gerichte werving van QA/QC professionals, veldinspecteurs en technische specialisten voor vaste en tijdelijke posities. Wij begrijpen uw eisen en leveren kandidaten die direct inzetbaar zijn.",
+        "features": [
+          "Uitgebreid netwerk van technische specialisten",
+          "Screening op kennis, ervaring en referenties",
+          "Snelle doorlooptijd — ook voor urgente vacatures",
+          "Plaatsing zowel nationaal als internationaal"
+        ]
+      },
+      {
+        "id": "detachering",
+        "title": "Detachering",
+        "desc": "Flexibele inzet van hooggekwalificeerd technisch personeel voor de duur van uw project. Q4S verzorgt alle contractuele en administratieve zaken, zodat u zich kunt focussen op uw project.",
+        "features": [
+          "Korte en lange termijn opdrachten",
+          "Volledig ontzorgd — contract, loon, verzekering",
+          "Snel schakelbaar bij projectwijzigingen",
+          "Continue ondersteuning tijdens de opdracht"
+        ]
+      },
+      {
+        "id": "source-inspection",
+        "title": "Source Inspection & Expediting",
+        "desc": "Onze source inspectors bewaken leveranciersprestaties op locatie, wereldwijd. Zij verzekeren dat materialen en componenten voldoen aan uw specificaties vóór verzending.",
+        "features": [
+          "Inspecties bij leveranciers wereldwijd",
+          "Expediting en voortgangsrapportage",
+          "Bewaking van kwaliteitseisen en normen",
+          "Onafhankelijke derde-partij inspectie"
+        ]
+      },
+      {
+        "id": "ndt-consultancy",
+        "title": "NDT & Las-consultancy",
+        "desc": "Gespecialiseerde professionals in Non-Destructive Testing, lascontroles en materiaalonderzoek. Onze NDT-experts werken conform de hoogste internationale normen.",
+        "features": [
+          "UT, RT, MT, PT, ET en visuele inspectie",
+          "Weld inspection en lascoördinatie",
+          "Systeem-audits en procedure-review",
+          "Gecertificeerde NDT Level II & III inspectors"
+        ]
+      },
+      {
+        "id": "qa-qc",
+        "title": "QA/QC Projectondersteuning",
+        "desc": "Wij treden op als verlengstuk van uw kwaliteitsorganisatie. Onze QA/QC-specialisten zorgen dat uw project voldoet aan alle kwaliteits- en compliance-eisen.",
+        "features": [
+          "Ontwikkeling van kwaliteitsplannen (ITP)",
+          "Audits en inspecties tijdens productie",
+          "Documentatiebeheer en traceerbaarheid",
+          "Ondersteuning bij certificering en normen"
+        ]
+      }
+    ],
+    "cta": {
+      "title": "Specifieke behoefte?",
+      "body": "Iedere opdracht is anders. Neem contact op en wij bespreken hoe Q4S uw project kan ondersteunen.",
+      "button": "Neem contact op"
+    }
+  },
+  "wayWeWork": {
+    "hero": {
+      "title": "Onze Aanpak",
+      "subtitle": "Transparant, efficiënt en altijd gericht op het beste resultaat."
+    },
+    "intro": "Bij Q4S geloven wij in een heldere en transparante werkwijze. Van de eerste kennismaking tot de succesvolle afronding van een plaatsing — wij houden u in elke stap op de hoogte.",
+    "steps": [
+      {
+        "step": "01",
+        "title": "Intake & Briefing",
+        "desc": "Wij beginnen met een uitgebreid intakegesprek om uw project, organisatie en exacte behoeften volledig te begrijpen. Geen aannames — alleen feiten.",
+        "forEmployer": true
+      },
+      {
+        "step": "02",
+        "title": "Selectie & Screening",
+        "desc": "Op basis van uw briefing selecteren wij de meest geschikte kandidaten uit ons netwerk. Elke kandidaat wordt grondig gescreend op technische kennis, werkervaring en referenties.",
+        "forEmployer": true
+      },
+      {
+        "step": "03",
+        "title": "Presentatie",
+        "desc": "Wij presenteren u een shortlist van de beste kandidaten, compleet met uitgebreide profielen en onze eigen beoordeling. U beslist wie u wilt ontmoeten.",
+        "forEmployer": true
+      },
+      {
+        "step": "04",
+        "title": "Matching & Plaatsing",
+        "desc": "Na de gesprekken begeleiden wij het selectieproces en zorgen wij voor een soepele contractafhandeling. De professional start klaar om direct bij te dragen aan uw project.",
+        "forEmployer": true
+      },
+      {
+        "step": "05",
+        "title": "Begeleiding & Nazorg",
+        "desc": "Tijdens en na de plaatsing blijven wij betrokken. Wij monitoren de voortgang en zijn het eerste aanspreekpunt voor zowel opdrachtgever als professional.",
+        "forEmployer": true
+      }
+    ],
+    "forCandidates": {
+      "title": "Voor Kandidaten",
+      "steps": [
+        {
+          "step": "01",
+          "title": "Registreer & Upload CV",
+          "desc": "Maak een profiel aan en upload uw CV. Onze recruiters nemen contact op zodra er een passende opdracht beschikbaar is."
+        },
+        {
+          "step": "02",
+          "title": "Kennismakingsgesprek",
+          "desc": "Wij leren u kennen — uw expertise, ambities en wensen. Zo kunnen wij u optimaal matchen."
+        },
+        {
+          "step": "03",
+          "title": "Matching",
+          "desc": "Wij koppelen uw profiel aan passende opdrachten. Wij houden u actief op de hoogte van nieuwe kansen."
+        },
+        {
+          "step": "04",
+          "title": "Introductie & Start",
+          "desc": "Na een succesvolle match zorgen wij voor een vlotte introductie bij de opdrachtgever en een goede start."
+        }
+      ]
+    }
+  },
+  "vacancies": {
+    "hero": {
+      "title": "Vacatures & Opdrachten",
+      "subtitle": "Ontdek openstaande posities voor technische specialists wereldwijd."
+    },
+    "search": {
+      "placeholder": "Zoek op functietitel, locatie of discipline...",
+      "filter": "Filteren",
+      "allDisciplines": "Alle disciplines",
+      "allLocations": "Alle locaties",
+      "allTypes": "Alle contractvormen"
+    },
+    "noResults": "Geen vacatures gevonden voor uw zoekopdracht.",
+    "applyNow": "Direct solliciteren",
+    "learnMore": "Meer informatie",
+    "disciplines": {
+      "qaqc": "QA/QC",
+      "ndt": "NDT",
+      "inspection": "Inspectie",
+      "welding": "Lassen",
+      "engineering": "Engineering"
+    },
+    "types": {
+      "contract": "Contract",
+      "permanent": "Vast",
+      "freelance": "Freelance"
+    },
+    "openApplication": {
+      "title": "Staat uw functie er niet bij?",
+      "body": "Upload uw CV en word onderdeel van ons netwerk. Wij nemen contact op zodra er een passende opdracht beschikbaar is.",
+      "button": "Open sollicitatie"
+    }
+  },
+  "uploadCv": {
+    "hero": {
+      "title": "CV Uploaden & Inschrijven",
+      "subtitle": "Word onderdeel van het Q4S-netwerk en ontdek uw volgende uitdaging."
+    },
+    "intro": "Bent u een ervaren QA/QC professional, NDT-inspector, veldinspecteur of technisch specialist? Laat uw gegevens achter en wij nemen contact op zodra er een passende opdracht beschikbaar is.",
+    "form": {
+      "firstName": "Voornaam",
+      "lastName": "Achternaam",
+      "email": "E-mailadres",
+      "phone": "Telefoonnummer",
+      "discipline": "Discipline / Vakgebied",
+      "experience": "Jaren ervaring",
+      "availability": "Beschikbaarheid",
+      "location": "Huidige locatie",
+      "message": "Aanvullende informatie (optioneel)",
+      "cvUpload": "Upload uw CV",
+      "cvUploadDesc": "PDF, DOC of DOCX, max. 5 MB",
+      "submit": "Verstuur aanmelding",
+      "submitting": "Versturen...",
+      "success": "Bedankt voor uw aanmelding! Wij nemen zo snel mogelijk contact met u op.",
+      "error": "Er is iets misgegaan. Probeer het opnieuw of neem direct contact op.",
+      "required": "Verplicht veld",
+      "disciplines": [
+        "QA/QC Inspector",
+        "NDT Inspector",
+        "Welding Inspector",
+        "Source Inspector",
+        "Expeditor",
+        "QC Engineer",
+        "Inspection Coordinator",
+        "Anders"
+      ],
+      "availabilities": [
+        "Direct beschikbaar",
+        "Binnen 1 maand",
+        "Binnen 3 maanden",
+        "Op zoek naar vast dienstverband"
+      ]
+    },
+    "why": {
+      "title": "Waarom inschrijven bij Q4S?",
+      "items": [
+        "Toegang tot exclusieve opdrachten in de industriële sector",
+        "Persoonlijke begeleiding door ervaren recruiters",
+        "Zowel korte als lange termijn opdrachten nationaal en internationaal",
+        "Snel en transparant proces"
+      ]
+    }
+  },
+  "ndt": {
+    "hero": {
+      "title": "NDT — Non-Destructive Testing",
+      "subtitle": "Specialistisch NDT-talent voor de meest veeleisende industriële omgevingen."
+    },
+    "intro": "Non-Destructive Testing is een kritieke discipline in de industriële kwaliteitsbewaking. Q4S levert gecertificeerde NDT-inspectors en -consultants die de meest complexe inspecties kunnen uitvoeren — van offshore platforms tot petrochemische installaties.",
+    "methods": {
+      "title": "NDT-methoden",
+      "items": [
+        {
+          "code": "UT",
+          "title": "Ultrasone Inspectie",
+          "desc": "Detectie van interne onvolkomenheden in materialen met behulp van geluidsgolven."
+        },
+        {
+          "code": "RT",
+          "title": "Radiografische Inspectie",
+          "desc": "Röntgen- of gammastraling voor het detecteren van inwendige defecten."
+        },
+        {
+          "code": "MT",
+          "title": "Magnetisch Poederonderzoek",
+          "desc": "Detectie van oppervlakte- en bijna-oppervlaktedefecten in ferromagnetische materialen."
+        },
+        {
+          "code": "PT",
+          "title": "Penetrantonderzoek",
+          "desc": "Detectie van oppervlaktedefecten met behulp van vloeibare penetranten."
+        },
+        {
+          "code": "ET",
+          "title": "Wervelstoominspectie",
+          "desc": "Detectie van defecten in geleidende materialen met behulp van elektromagnetische inductie."
+        },
+        {
+          "code": "VT",
+          "title": "Visuele Inspectie",
+          "desc": "Systematische beoordeling van materialen, verbindingen en constructies."
+        }
+      ]
+    },
+    "expertise": {
+      "title": "Onze NDT-expertise",
+      "items": [
+        "Level II & III gecertificeerde inspectors (CSWIP, PCN, ASNT)",
+        "Weld inspection en lascoördinatie (IWI, CWI)",
+        "Procedure-review en kwalificatie van lasprocedures (WPS/PQR)",
+        "Systeem-audits en NDT-procedure verificatie",
+        "Inspecties conform ASME, EN, API, ISO normen",
+        "Ondersteuning bij offshore, onshore en petrochemische projecten"
+      ]
+    },
+    "sectors": {
+      "title": "Sectoren",
+      "items": [
+        "Oil & Gas",
+        "Offshore & Marine",
+        "Petrochemie",
+        "Energie & Nutsbedrijven",
+        "Shipbuilding",
+        "Constructie & Infrastructuur"
+      ]
+    },
+    "cta": {
+      "title": "Op zoek naar een NDT-specialist?",
+      "body": "Neem contact op met Q4S en wij leveren de juiste gecertificeerde professional voor uw project.",
+      "button": "Neem contact op"
+    }
+  },
+  "news": {
+    "hero": {
+      "title": "Nieuws & Inzichten",
+      "subtitle": "Updates uit de industrie, Q4S-nieuws en inzichten van onze experts."
+    },
+    "readMore": "Lees meer",
+    "publishedOn": "Gepubliceerd op",
+    "categories": {
+      "all": "Alles",
+      "industry": "Industrie",
+      "company": "Q4S Nieuws",
+      "insights": "Inzichten"
+    },
+    "articles": [
+      {
+        "id": "1",
+        "title": "De groeiende vraag naar NDT-inspectors in de energiesector",
+        "excerpt": "De energietransitie zorgt voor een toenemende vraag naar gekwalificeerde NDT-inspectors. Q4S ziet deze trend en speelt hierop in met een groeiend netwerk van gecertificeerde professionals.",
+        "date": "2026-03-15",
+        "category": "industry",
+        "readTime": "4 min",
+        "content": "De energietransitie is een van de grootste drijfveren achter de groeiende vraag naar NDT-inspectors. Windparken, zonnecentrales en waterstofinstallaties vereisen strakke kwaliteitscontroles, en de vraag naar gecertificeerde NDT-professionals overtreft inmiddels het aanbod.\n\nQ4S signaleert deze trend al een aantal jaar. Ons netwerk van gecertificeerde NDT-inspectors is in 2025 met meer dan 30% gegroeid. Toch blijft de markt voor gespecialiseerd technisch talent krap — zeker voor specialisten met Level III-certificeringen in UT en RT.\n\n**Waarom de vraag toeneemt**\n\nDe energietransitie brengt nieuwe projecten met zich mee, maar ook oudere infrastructuur vraagt om meer inspectie. Strengere regelgeving vanuit de EU en de Inspectie Leefomgeving en Transport (ILT) dwingt bedrijven tot vaker en grondiger inspecteren. Tezelfdertijd heeft een grote golf van gepensioneerde inspectors een gat geslagen in het aanbod.\n\n**Wat dit betekent voor opdrachtgevers**\n\nBedrijven die afhankelijk zijn van NDT-inspectors voor hun projectplanning doen er verstandig aan vroeg te schakelen met een gespecialiseerd bureau zoals Q4S. Wij adviseren opdrachtgevers om NDT-resources minimaal 8 weken voor aanvang van een project vast te leggen.\n\nQ4S helpt u graag bij het vinden van de juiste NDT-specialist voor uw project. Neem contact op voor een vrijblijvend gesprek."
+      },
+      {
+        "id": "2",
+        "title": "Q4S versterkt aanwezigheid in de offshore-markt",
+        "excerpt": "Q4S heeft haar netwerk uitgebreid met meer dan 50 gecertificeerde offshore-inspectors. Dit stelt ons in staat om snel en effectief te reageren op opdrachten in de North Sea-regio.",
+        "date": "2026-02-28",
+        "category": "company",
+        "readTime": "3 min",
+        "content": "Q4S heeft de afgelopen 12 maanden haar positie in de offshore-sector aanzienlijk versterkt. Met de toevoeging van meer dan 50 gecertificeerde offshore-inspectors aan ons netwerk zijn wij beter dan ooit in staat om snel en flexibel te reageren op opdrachten in de Noordzee-regio en daarbuiten.\n\n**Nieuwe partnerships**\n\nNaast uitbreiding van ons freelancenetwerk hebben wij strategische samenwerkingsverbanden gesloten met meerdere Tier 1-aannemers actief in de Britse en Noorse offshore-sector. Dit stelt ons in staat om ook voor internationale opdrachten snel de juiste professionals te leveren.\n\n**Focus op gecertificeerd talent**\n\nQ4S screent alle offshore-professionals op geldige offshore-certificaten (BOSIET, HUET, OPITO) en medische keuringen. Wij beschikken inmiddels over een pool van meer dan 80 offshore-gekwalificeerde inspectors in QA/QC, NDT en Source Inspection.\n\n**Toekomstplannen**\n\nIn 2026 breidt Q4S haar activiteiten verder uit naar de Skandinavische markt. Wij verwelkomen de contacten met nieuwe opdrachtgevers en kandidaten in dit segment. Bent u actief in offshore en op zoek naar technisch talent? Neem gerust contact op."
+      },
+      {
+        "id": "3",
+        "title": "Waarom source inspection cruciaal is voor uw supply chain",
+        "excerpt": "Source inspection voorkomt kostbare vertragingen en kwaliteitsproblemen. In dit artikel leggen onze experts uit waarom third-party inspectie een onmisbaar onderdeel is van uw leveranciersmanagement.",
+        "date": "2026-02-10",
+        "category": "insights",
+        "readTime": "6 min",
+        "content": "In complexe industriële projecten is de kwaliteit van componenten en materialen bepalend voor het succes van het eindresultaat. Source inspection — het inspecteren van goederen bij de leverancier vóór verzending — is een van de meest effectieve instrumenten om kwaliteitsproblemen vroegtijdig te onderscheppen.\n\n**Wat is source inspection?**\n\nSource inspection (ook wel 'third-party inspection' of 'vendor inspection' genoemd) is het proces waarbij een onafhankelijke inspector namens de opdrachtgever de fabricage en kwaliteit van bestelde goederen bij de leverancier beoordeelt. Dit kan gaan om drukvaatwerk, pijpleidingen, elektrische apparatuur, staalconstructies en vrijwel elk ander industrieel component.\n\n**De voordelen**\n\nDe voordelen van source inspection zijn legio:\n\n- **Vroegtijdige probleemdetectie**: Afwijkingen worden ontdekt vóór verzending, niet bij ontvangst. Dit bespaart aanzienlijke herstel- en vertragingskosten.\n- **Onafhankelijke verificatie**: Een derde partij heeft geen belang bij het door de vingers zien van fouten.\n- **Leveranciersmanagement**: Leveranciers presteren beter wanneer zij weten dat er onafhankelijke controle plaatsvindt.\n- **Documentatie**: De inspector stelt gedetailleerde rapporten op die de kwaliteitsketen aantoonbaar maken voor certificerende instanties.\n\n**Wanneer source inspection inzetten?**\n\nSource inspection is met name waardevol bij kritieke componenten, lange levertijden, leveranciers met wie u voor het eerst samenwerkt, of projecten waarbij non-conformiteiten bijzonder kostbaar zijn.\n\nQ4S beschikt over een wereldwijd netwerk van source inspectors met diepgaande kennis van industriële normen. Onze inspectors zijn actief in Europa, Azië, het Midden-Oosten en Noord-Amerika. Neem contact op voor meer informatie over onze source inspection-diensten."
+      },
+      {
+        "id": "4",
+        "title": "Q4S verwelkomt nieuwe recruiter gespecialiseerd in QA/QC",
+        "excerpt": "Om onze groeiende klantenportefeuille optimaal te bedienen, heeft Q4S een nieuwe recruiter aangesteld met meer dan 10 jaar ervaring in technische werving voor de industriële sector.",
+        "date": "2026-01-20",
+        "category": "company",
+        "readTime": "2 min",
+        "content": "Q4S groeit en wij zijn verheugd te melden dat wij ons team hebben versterkt met een nieuwe senior recruiter. Met meer dan 10 jaar ervaring in technische werving voor de QA/QC en inspectiesector brengt onze nieuwe collega een breed netwerk en diepgaande vakkennis mee.\n\n**Uitbreiding van capaciteit**\n\nDe groei van onze klantenportefeuille vroeg om extra capaciteit aan de recruitmentzijde. Met de komst van onze nieuwe recruiter kunnen wij nog sneller en zorgvuldiger reageren op aanvragen van opdrachtgevers, ook voor urgente en complexe vacatures.\n\n**Expertise in QA/QC en NDT**\n\nOnze nieuwe teamgenoot is gespecialiseerd in de werving van QA/QC Engineers, Welding Inspectors, NDT-specialisten en Source Inspectors. Dankzij haar uitgebreide netwerk in de sector verwachten wij onze plaatsingstijden verder te verkorten en de kwaliteit van onze matches te verhogen.\n\nBent u op zoek naar technisch talent of een nieuwe uitdaging? Wij horen graag van u. Stuur een e-mail naar info@q4s.nl of bel ons op +31 (0) 85 7826818."
+      },
+      {
+        "id": "5",
+        "title": "Trends in technische werving 2026: wat te verwachten",
+        "excerpt": "De arbeidsmarkt voor technische professionals blijft krap. Wij analyseren de belangrijkste trends en bieden praktische adviezen voor opdrachtgevers en kandidaten.",
+        "date": "2026-01-05",
+        "category": "insights",
+        "readTime": "5 min",
+        "content": "2026 belooft opnieuw een uitdagend jaar te worden op de arbeidsmarkt voor technische professionals. Q4S deelt haar observaties en adviezen voor zowel opdrachtgevers als kandidaten.\n\n**Trend 1: Toenemende krapte in gespecialiseerde functies**\n\nDe vraag naar QA/QC inspectors, NDT-specialisten en Source Inspectors overtreft het aanbod al enige jaren. In 2026 verwachten wij dat deze trend aanhoudt, mede door de opstart van grote infrastructuurprojecten en energietransitie-gerelateerde investeringen. Opdrachtgevers die vroeg beginnen met werven hebben een aanzienlijk voordeel.\n\n**Trend 2: Internationalisering van de arbeidsmarkt**\n\nSteeds meer technische professionals zijn bereid om voor opdrachten in het buitenland te werken. Q4S signaleert een stijgende interesse in opdrachten in Scandinavië, het Midden-Oosten en Azië. Voor opdrachtgevers opent dit deuren naar een breder talentenpool.\n\n**Trend 3: Belang van certificeringen**\n\nOpdrachtgevers stellen steeds hogere eisen aan certificeringen. CSWIP, PCN, IWI en ASNT Level III certificaten zijn praktisch een vereiste geworden voor senior posities. Kandidaten die investeren in hun certificeringen hebben een duidelijk competitief voordeel.\n\n**Advies voor opdrachtgevers**\n\nBegin vroeg met uw wervingstraject. Werk samen met een gespecialiseerd bureau dat toegang heeft tot een breed en gecertificeerd kandidatennetwerk. Q4S staat klaar om u te ondersteunen.\n\n**Advies voor kandidaten**\n\nHoud uw certificeringen actueel en wees open voor internationale opdrachten. Een sterk CV met aantoonbare projectervaring in de zware industrie blijft de beste investering."
+      },
+      {
+        "id": "6",
+        "title": "Het belang van gecertificeerde weld inspectors bij grote projecten",
+        "excerpt": "Lasverbindingen zijn kritieke componenten in infrastructurele en industriële projecten. Ontdek waarom gecertificeerde weld inspectors onmisbaar zijn.",
+        "date": "2025-12-18",
+        "category": "industry",
+        "readTime": "5 min",
+        "content": "Lasverbindingen zijn de ruggengraat van industriële constructies. Of het nu gaat om pijpleidingen, drukvaatwerk, offshore platforms of bruggen — de kwaliteit van de lassen bepaalt in hoge mate de veiligheid en levensduur van de installatie. Gecertificeerde weld inspectors spelen hierin een cruciale rol.\n\n**Wat doet een weld inspector?**\n\nEen Welding Inspector (ook wel lasinspecteur of Welding Quality Inspector) controleert alle las-gerelateerde activiteiten op een project. Dit omvat:\n\n- **Voorkwalificatie**: Verificatie van lasserprocedures (WPS) en kwalificatiecertificaten (PQR, WQT)\n- **In-process inspectie**: Controle van voorverwarming, doorverwarming, lasvolgorde en gebruikte materialen\n- **Post-weld inspectie**: Visuele inspectie conform EN 5817 of AWS D1.1, gevolgd door eventueel NDT\n- **Documentatie**: Bijhouden van lasregisters, weld maps en inspectierapporten\n\n**Gecertificeerd vs. niet gecertificeerd**\n\nHet verschil tussen een gecertificeerde en niet-gecertificeerde weld inspector kan groot zijn. Certificeringen zoals IWI (International Welding Inspector) van het IIW of CWI (Certified Welding Inspector) van de AWS garanderen dat de inspector voldoende technische kennis heeft en op de hoogte is van de laatste normen.\n\nVoor grote industriële en infrastructurele projecten is een gecertificeerde weld inspector in veel gevallen contractueel verplicht. Q4S beschikt over een uitgebreid netwerk van gecertificeerde Welding Inspectors met ervaring in diverse sectoren. Neem contact op voor meer informatie."
+      }
+    ]
+  },
+  "contact": {
+    "hero": {
+      "title": "Contact",
+      "subtitle": "Wij zijn er voor opdrachtgevers en kandidaten. Neem gerust contact met ons op."
+    },
+    "details": {
+      "title": "Contactgegevens",
+      "address": "Arnhemseweg 12, 2994LA Barendrecht, Nederland",
+      "email": "info@q4s.nl",
+      "phone": "+31 (0) 85 7826818",
+      "kvk": "KvK: 69073287",
+      "btw": "BTW: NL857718137B01"
+    },
+    "form": {
+      "title": "Stuur ons een bericht",
+      "name": "Naam",
+      "email": "E-mailadres",
+      "subject": "Onderwerp",
+      "subjects": [
+        "Ik zoek talent",
+        "Ik zoek een opdracht",
+        "Vraag over NDT",
+        "Overig"
+      ],
+      "message": "Uw bericht",
+      "submit": "Verstuur bericht",
+      "submitting": "Versturen...",
+      "success": "Uw bericht is verstuurd. Wij nemen zo snel mogelijk contact met u op.",
+      "error": "Er is iets misgegaan. Probeer het opnieuw of stuur een e-mail naar info@q4s.nl."
+    },
+    "forEmployers": {
+      "title": "Voor opdrachtgevers",
+      "body": "Bent u op zoek naar technisch talent voor uw project? Neem direct contact op en wij bespreken uw specifieke behoeften."
+    },
+    "forCandidates": {
+      "title": "Voor kandidaten",
+      "body": "Bent u een technische specialist op zoek naar een nieuwe uitdaging? Upload uw CV of neem contact op voor een kennismakingsgesprek."
+    }
+  },
+  "footer": {
+    "tagline": "Technical Talent for Critical Projects",
+    "company": "Q4S B.V.",
+    "address": "Arnhemseweg 12, 2994LA Barendrecht",
+    "netherlands": "Nederland",
+    "email": "info@q4s.nl",
+    "phone": "+31 (0) 85 7826818",
+    "kvk": "KvK: 69073287",
+    "btw": "BTW: NL857718137B01",
+    "links": {
+      "title": "Navigatie",
+      "home": "Home",
+      "about": "Over Ons",
+      "services": "Diensten",
+      "wayWeWork": "Onze Aanpak",
+      "vacancies": "Vacatures",
+      "ndt": "NDT",
+      "news": "Nieuws",
+      "contact": "Contact"
+    },
+    "forEmployers": {
+      "title": "Opdrachtgevers",
+      "findTalent": "Vind talent",
+      "services": "Onze diensten",
+      "contact": "Neem contact op"
+    },
+    "forCandidates": {
+      "title": "Kandidaten",
+      "vacancies": "Bekijk vacatures",
+      "uploadCv": "CV uploaden",
+      "ndt": "NDT expertise"
+    },
+    "copyright": "© {year} Q4S B.V. Alle rechten voorbehouden.",
+    "privacy": "Privacybeleid",
+    "terms": "Algemene Voorwaarden"
+  }
+}

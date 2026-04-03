@@ -1,0 +1,423 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "services": "Services",
+    "ourServices": "Our Services",
+    "wayWeWork": "Way We Work",
+    "vacancies": "Vacancies",
+    "uploadCv": "Upload CV",
+    "ndt": "NDT",
+    "news": "News",
+    "contact": "Contact",
+    "findTalent": "Find Work",
+    "findProject": "Looking for a project?"
+  },
+  "home": {
+    "hero": {
+      "tagline": "Technical Talent for Critical Projects",
+      "slogan": "Experience the Q4S difference – where excellence meets reliability, every time.",
+      "intro": "At Q4S, we don't just provide services — we become a trusted project partner in driving quality, compliance, and performance from start to finish.",
+      "ctaEmployer": "Looking for talent?",
+      "ctaCandidate": "Looking for a project?",
+      "ctaEmployerSub": "Find the right QA/QC specialist",
+      "ctaCandidateSub": "Discover open assignments"
+    },
+    "why": {
+      "title": "Why Q4S?",
+      "body": "Clients choose Q4S because we bring value, not complexity. We understand that every project is unique, and we adapt accordingly. From source inspection to NDT consultancy — our network of highly qualified professionals is ready for your most critical assignments.",
+      "items": [
+        { "title": "Proven Expertise", "desc": "Years of experience in QA/QC, source inspection and technical inspection in complex industrial environments." },
+        { "title": "Fast Deployment", "desc": "We deliver the right specialist quickly, even for urgent or short-term assignments." },
+        { "title": "Complete Peace of Mind", "desc": "From recruitment to secondment — we handle everything so you can focus on your project." },
+        { "title": "Quality Guaranteed", "desc": "Every professional is carefully screened on knowledge, experience and references." }
+      ]
+    },
+    "services": {
+      "title": "Our Expertise",
+      "items": [
+        { "title": "Recruitment & Selection", "desc": "Targeted recruitment of QA/QC professionals, field inspectors and technical specialists." },
+        { "title": "Secondment", "desc": "Flexible deployment of highly qualified technical personnel for the duration of your project." },
+        { "title": "Source Inspection", "desc": "Specialised inspectors monitoring supplier performance on-site worldwide." },
+        { "title": "NDT Consultancy", "desc": "Experts in Non-Destructive Testing for weld inspection, material testing and system audits." }
+      ],
+      "learnMore": "More about our services"
+    },
+    "clients": {
+      "label": "Trusted by leading companies in the industry"
+    },
+    "cta": {
+      "title": "Ready to work together?",
+      "body": "Whether you're looking for technical talent or your next challenge as a specialist — Q4S connects you with the right party.",
+      "employer": "Get in touch",
+      "candidate": "View vacancies"
+    }
+  },
+  "about": {
+    "hero": {
+      "title": "About Q4S",
+      "subtitle": "Quality Force — our foundation, our promise."
+    },
+    "story": {
+      "title": "Our Story",
+      "body": "Q4S B.V. was founded from a passion for quality and a deep understanding of the technical industry. As a specialised recruitment and project partner agency, we connect highly qualified technical professionals with the most complex industrial and infrastructure projects in the Netherlands and beyond.\n\nOur name stands for Quality Force — a philosophy that resonates in everything we do. We believe that the right person in the right place makes the difference between a good project and an outstanding one."
+    },
+    "mission": {
+      "title": "Mission & Vision",
+      "mission": "We connect highly qualified technical professionals with critical projects, with quality, compliance and performance at the centre.",
+      "vision": "We strive to be the most trusted partner for technical recruitment and project support in the industrial sector."
+    },
+    "values": {
+      "title": "Our Core Values",
+      "items": [
+        { "title": "Quality", "desc": "We deliver no compromises. Every professional we place meets the highest standards." },
+        { "title": "Reliability", "desc": "Our clients and candidates can rely on us. Always, at every stage of the project." },
+        { "title": "Expertise", "desc": "In-depth knowledge of QA/QC, inspection and technical recruitment is our strength." },
+        { "title": "Partnership", "desc": "We are not a supplier, but an extension of your organisation." }
+      ]
+    },
+    "team": {
+      "title": "Our Approach",
+      "body": "The Q4S team consists of experienced professionals with a background in the technical industry. We speak the language of our clients and our candidates. That makes the difference."
+    }
+  },
+  "services": {
+    "hero": {
+      "title": "Our Services",
+      "subtitle": "Specialist technical talent for your most critical projects."
+    },
+    "intro": "Q4S offers a full spectrum of recruitment and secondment solutions for the industrial and infrastructure sector. We deliver professionals who not only master the technology, but also understand what is at stake.",
+    "items": [
+      {
+        "id": "recruitment",
+        "title": "Recruitment & Selection",
+        "desc": "Targeted recruitment of QA/QC professionals, field inspectors and technical specialists for permanent and temporary positions. We understand your requirements and deliver candidates who are immediately deployable.",
+        "features": ["Extensive network of technical specialists", "Screening on knowledge, experience and references", "Fast turnaround — including urgent vacancies", "Placement both nationally and internationally"]
+      },
+      {
+        "id": "detachering",
+        "title": "Secondment",
+        "desc": "Flexible deployment of highly qualified technical personnel for the duration of your project. Q4S handles all contractual and administrative matters, so you can focus on your project.",
+        "features": ["Short and long-term assignments", "Fully managed — contract, payroll, insurance", "Quick to adjust for project changes", "Ongoing support throughout the assignment"]
+      },
+      {
+        "id": "source-inspection",
+        "title": "Source Inspection & Expediting",
+        "desc": "Our source inspectors monitor supplier performance on-site, worldwide. They ensure that materials and components meet your specifications before shipment.",
+        "features": ["Inspections at suppliers worldwide", "Expediting and progress reporting", "Monitoring quality requirements and standards", "Independent third-party inspection"]
+      },
+      {
+        "id": "ndt-consultancy",
+        "title": "NDT & Welding Consultancy",
+        "desc": "Specialised professionals in Non-Destructive Testing, weld inspection and materials testing. Our NDT experts work in accordance with the highest international standards.",
+        "features": ["UT, RT, MT, PT, ET and visual inspection", "Weld inspection and welding coordination", "System audits and procedure review", "Certified NDT Level II & III inspectors"]
+      },
+      {
+        "id": "qa-qc",
+        "title": "QA/QC Project Support",
+        "desc": "We act as an extension of your quality organisation. Our QA/QC specialists ensure that your project meets all quality and compliance requirements.",
+        "features": ["Development of quality plans (ITP)", "Audits and inspections during production", "Documentation management and traceability", "Support with certification and standards"]
+      }
+    ],
+    "cta": {
+      "title": "Specific requirement?",
+      "body": "Every assignment is different. Get in touch and we'll discuss how Q4S can support your project.",
+      "button": "Get in touch"
+    }
+  },
+  "wayWeWork": {
+    "hero": {
+      "title": "Way We Work",
+      "subtitle": "Transparent, efficient and always focused on the best result."
+    },
+    "intro": "At Q4S we believe in a clear and transparent approach. From first contact to successful placement — we keep you informed at every step.",
+    "steps": [
+      {
+        "step": "01",
+        "title": "Intake & Briefing",
+        "desc": "We start with a comprehensive intake meeting to fully understand your project, organisation and exact requirements. No assumptions — just facts.",
+        "forEmployer": true
+      },
+      {
+        "step": "02",
+        "title": "Selection & Screening",
+        "desc": "Based on your briefing, we select the most suitable candidates from our network. Every candidate is thoroughly screened on technical knowledge, work experience and references.",
+        "forEmployer": true
+      },
+      {
+        "step": "03",
+        "title": "Presentation",
+        "desc": "We present you with a shortlist of the best candidates, complete with comprehensive profiles and our own assessment. You decide who you want to meet.",
+        "forEmployer": true
+      },
+      {
+        "step": "04",
+        "title": "Matching & Placement",
+        "desc": "After the interviews, we guide the selection process and ensure smooth contract handling. The professional starts ready to immediately contribute to your project.",
+        "forEmployer": true
+      },
+      {
+        "step": "05",
+        "title": "Support & Follow-up",
+        "desc": "During and after the placement, we remain involved. We monitor progress and are the first point of contact for both client and professional.",
+        "forEmployer": true
+      }
+    ],
+    "forCandidates": {
+      "title": "For Candidates",
+      "steps": [
+        { "step": "01", "title": "Register & Upload CV", "desc": "Create a profile and upload your CV. Our recruiters will contact you as soon as a suitable assignment is available." },
+        { "step": "02", "title": "Introduction Meeting", "desc": "We get to know you — your expertise, ambitions and wishes. This allows us to match you optimally." },
+        { "step": "03", "title": "Matching", "desc": "We link your profile to suitable assignments. We keep you actively informed of new opportunities." },
+        { "step": "04", "title": "Introduction & Start", "desc": "After a successful match, we ensure a smooth introduction at the client and a good start." }
+      ]
+    }
+  },
+  "vacancies": {
+    "hero": {
+      "title": "Vacancies & Assignments",
+      "subtitle": "Discover open positions for technical specialists worldwide."
+    },
+    "search": {
+      "placeholder": "Search by job title, location or discipline...",
+      "filter": "Filter",
+      "allDisciplines": "All disciplines",
+      "allLocations": "All locations",
+      "allTypes": "All contract types"
+    },
+    "noResults": "No vacancies found for your search.",
+    "applyNow": "Apply now",
+    "learnMore": "More information",
+    "disciplines": {
+      "qaqc": "QA/QC",
+      "ndt": "NDT",
+      "inspection": "Inspection",
+      "welding": "Welding",
+      "engineering": "Engineering"
+    },
+    "types": {
+      "contract": "Contract",
+      "permanent": "Permanent",
+      "freelance": "Freelance"
+    },
+    "openApplication": {
+      "title": "Don't see your role?",
+      "body": "Upload your CV and become part of our network. We will contact you as soon as a suitable assignment is available.",
+      "button": "Open application"
+    }
+  },
+  "uploadCv": {
+    "hero": {
+      "title": "Upload CV & Register",
+      "subtitle": "Join the Q4S network and discover your next challenge."
+    },
+    "intro": "Are you an experienced QA/QC professional, NDT inspector, field inspector or technical specialist? Leave your details and we will contact you as soon as a suitable assignment is available.",
+    "form": {
+      "firstName": "First name",
+      "lastName": "Last name",
+      "email": "Email address",
+      "phone": "Phone number",
+      "discipline": "Discipline / Field",
+      "experience": "Years of experience",
+      "availability": "Availability",
+      "location": "Current location",
+      "message": "Additional information (optional)",
+      "cvUpload": "Upload your CV",
+      "cvUploadDesc": "PDF, DOC or DOCX, max. 5 MB",
+      "submit": "Submit registration",
+      "submitting": "Submitting...",
+      "success": "Thank you for your registration! We will contact you as soon as possible.",
+      "error": "Something went wrong. Please try again or contact us directly.",
+      "required": "Required field",
+      "disciplines": ["QA/QC Inspector", "NDT Inspector", "Welding Inspector", "Source Inspector", "Expeditor", "QC Engineer", "Inspection Coordinator", "Other"],
+      "availabilities": ["Immediately available", "Within 1 month", "Within 3 months", "Looking for permanent position"]
+    },
+    "why": {
+      "title": "Why register with Q4S?",
+      "items": [
+        "Access to exclusive assignments in the industrial sector",
+        "Personal guidance from experienced recruiters",
+        "Both short and long-term assignments nationally and internationally",
+        "Fast and transparent process"
+      ]
+    }
+  },
+  "ndt": {
+    "hero": {
+      "title": "NDT — Non-Destructive Testing",
+      "subtitle": "Specialist NDT talent for the most demanding industrial environments."
+    },
+    "intro": "Non-Destructive Testing is a critical discipline in industrial quality surveillance. Q4S delivers certified NDT inspectors and consultants who can perform the most complex inspections — from offshore platforms to petrochemical installations.",
+    "methods": {
+      "title": "NDT Methods",
+      "items": [
+        { "code": "UT", "title": "Ultrasonic Testing", "desc": "Detection of internal flaws in materials using sound waves." },
+        { "code": "RT", "title": "Radiographic Testing", "desc": "X-ray or gamma radiation for detecting internal defects." },
+        { "code": "MT", "title": "Magnetic Particle Testing", "desc": "Detection of surface and near-surface defects in ferromagnetic materials." },
+        { "code": "PT", "title": "Liquid Penetrant Testing", "desc": "Detection of surface defects using liquid penetrants." },
+        { "code": "ET", "title": "Eddy Current Testing", "desc": "Detection of defects in conductive materials using electromagnetic induction." },
+        { "code": "VT", "title": "Visual Inspection", "desc": "Systematic assessment of materials, joints and structures." }
+      ]
+    },
+    "expertise": {
+      "title": "Our NDT Expertise",
+      "items": [
+        "Level II & III certified inspectors (CSWIP, PCN, ASNT)",
+        "Weld inspection and welding coordination (IWI, CWI)",
+        "Procedure review and weld procedure qualification (WPS/PQR)",
+        "System audits and NDT procedure verification",
+        "Inspections per ASME, EN, API, ISO standards",
+        "Support for offshore, onshore and petrochemical projects"
+      ]
+    },
+    "sectors": {
+      "title": "Sectors",
+      "items": ["Oil & Gas", "Offshore & Marine", "Petrochemicals", "Energy & Utilities", "Shipbuilding", "Construction & Infrastructure"]
+    },
+    "cta": {
+      "title": "Looking for an NDT specialist?",
+      "body": "Contact Q4S and we will deliver the right certified professional for your project.",
+      "button": "Get in touch"
+    }
+  },
+  "news": {
+    "hero": {
+      "title": "News & Insights",
+      "subtitle": "Industry updates, Q4S news and insights from our experts."
+    },
+    "readMore": "Read more",
+    "publishedOn": "Published on",
+    "categories": {
+      "all": "All",
+      "industry": "Industry",
+      "company": "Q4S News",
+      "insights": "Insights"
+    },
+    "articles": [
+      {
+        "id": "1",
+        "title": "Growing demand for NDT inspectors in the energy sector",
+        "excerpt": "The energy transition is driving increasing demand for qualified NDT inspectors. Q4S sees this trend and responds with a growing network of certified professionals.",
+        "date": "2026-03-15",
+        "category": "industry",
+        "readTime": "4 min",
+        "content": "The energy transition is one of the key drivers behind the growing demand for NDT inspectors. Wind farms, solar plants and hydrogen installations require stringent quality controls, and demand for certified NDT professionals now exceeds supply.\n\nQ4S has been tracking this trend for several years. Our network of certified NDT inspectors grew by more than 30% in 2025. Yet the market for specialised technical talent remains tight — particularly for specialists with Level III certifications in UT and RT.\n\n**Why demand is increasing**\n\nThe energy transition is bringing new projects online, but ageing infrastructure also requires more frequent inspection. Stricter EU regulations are forcing companies to inspect more often and more thoroughly. At the same time, a wave of retiring inspectors has created a significant gap in supply.\n\n**What this means for clients**\n\nCompanies that rely on NDT inspectors for project planning are advised to engage early with a specialist agency like Q4S. We recommend securing NDT resources at least 8 weeks before project start.\n\nQ4S is happy to help you find the right NDT specialist for your project. Contact us for a no-obligation consultation."
+      },
+      {
+        "id": "2",
+        "title": "Q4S strengthens presence in the offshore market",
+        "excerpt": "Q4S has expanded its network with more than 50 certified offshore inspectors. This allows us to respond quickly and effectively to assignments in the North Sea region.",
+        "date": "2026-02-28",
+        "category": "company",
+        "readTime": "3 min",
+        "content": "Q4S has significantly strengthened its position in the offshore sector over the past 12 months. With the addition of more than 50 certified offshore inspectors to our network, we are better placed than ever to respond quickly and flexibly to assignments in the North Sea region and beyond.\n\n**New partnerships**\n\nAlongside expanding our freelance network, we have formed strategic partnerships with several Tier 1 contractors active in the UK and Norwegian offshore sectors. This enables us to deliver the right professionals quickly for international assignments too.\n\n**Focus on certified talent**\n\nQ4S screens all offshore professionals for valid offshore certificates (BOSIET, HUET, OPITO) and medical clearances. We now maintain a pool of more than 80 offshore-qualified inspectors across QA/QC, NDT and Source Inspection.\n\n**Future plans**\n\nIn 2026, Q4S will further expand its activities into the Scandinavian market. We welcome contacts with new clients and candidates in this segment. If you are active in offshore and looking for technical talent, please get in touch."
+      },
+      {
+        "id": "3",
+        "title": "Why source inspection is crucial for your supply chain",
+        "excerpt": "Source inspection prevents costly delays and quality issues. In this article, our experts explain why third-party inspection is an indispensable part of your supplier management.",
+        "date": "2026-02-10",
+        "category": "insights",
+        "readTime": "6 min",
+        "content": "In complex industrial projects, the quality of components and materials is fundamental to the success of the final result. Source inspection — inspecting goods at the supplier's premises before shipment — is one of the most effective tools for intercepting quality issues early.\n\n**What is source inspection?**\n\nSource inspection (also known as third-party inspection or vendor inspection) is the process whereby an independent inspector assesses the fabrication quality of ordered goods at the supplier on behalf of the client. This can apply to pressure vessels, piping, electrical equipment, steel structures and virtually any other industrial component.\n\n**The benefits**\n\nThe benefits of source inspection are numerous:\n\n- **Early problem detection**: Deviations are discovered before shipment, not upon receipt — saving significant rework and delay costs.\n- **Independent verification**: A third party has no interest in overlooking defects.\n- **Supplier management**: Suppliers perform better when they know independent oversight is in place.\n- **Documentation**: The inspector produces detailed reports that make the quality chain demonstrable for certifying authorities.\n\n**When to use source inspection?**\n\nSource inspection is particularly valuable for critical components, long lead times, first-time suppliers, or projects where non-conformities are especially costly.\n\nQ4S maintains a worldwide network of source inspectors with in-depth knowledge of industrial standards. Our inspectors are active in Europe, Asia, the Middle East and North America. Contact us for more information about our source inspection services."
+      },
+      {
+        "id": "4",
+        "title": "Q4S welcomes new recruiter specialised in QA/QC",
+        "excerpt": "To optimally serve our growing client portfolio, Q4S has appointed a new recruiter with over 10 years of experience in technical recruitment for the industrial sector.",
+        "date": "2026-01-20",
+        "category": "company",
+        "readTime": "2 min",
+        "content": "Q4S is growing, and we are pleased to announce that we have strengthened our team with a new senior recruiter. With over 10 years of experience in technical recruitment for the QA/QC and inspection sector, our new colleague brings a broad network and deep domain expertise.\n\n**Expanding capacity**\n\nGrowth in our client portfolio called for additional recruitment capacity. With our new recruiter on board, we can respond even faster and more carefully to client requests — including for urgent and complex vacancies.\n\n**Expertise in QA/QC and NDT**\n\nOur new team member specialises in recruiting QA/QC Engineers, Welding Inspectors, NDT specialists and Source Inspectors. Thanks to her extensive network in the sector, we expect to further reduce placement times and improve the quality of our matches.\n\nAre you looking for technical talent or a new challenge? We would love to hear from you. Email info@q4s.nl or call us on +31 (0) 85 7826818."
+      },
+      {
+        "id": "5",
+        "title": "Trends in technical recruitment 2026: what to expect",
+        "excerpt": "The labour market for technical professionals remains tight. We analyse the key trends and offer practical advice for both clients and candidates.",
+        "date": "2026-01-05",
+        "category": "insights",
+        "readTime": "5 min",
+        "content": "2026 promises to be another challenging year in the labour market for technical professionals. Q4S shares its observations and advice for both clients and candidates.\n\n**Trend 1: Growing scarcity in specialised roles**\n\nDemand for QA/QC inspectors, NDT specialists and Source Inspectors has exceeded supply for several years. In 2026 we expect this trend to continue, partly due to the start of major infrastructure projects and energy transition investments. Clients who start recruiting early have a considerable advantage.\n\n**Trend 2: Internationalisation of the labour market**\n\nMore and more technical professionals are willing to work on assignments abroad. Q4S is seeing growing interest in assignments in Scandinavia, the Middle East and Asia. For clients, this opens doors to a broader talent pool.\n\n**Trend 3: Importance of certifications**\n\nClients are setting ever-higher requirements for certifications. CSWIP, PCN, IWI and ASNT Level III certificates have become virtually mandatory for senior positions. Candidates who invest in their certifications have a clear competitive advantage.\n\n**Advice for clients**\n\nStart your recruitment process early. Work with a specialist agency that has access to a broad, certified candidate network. Q4S is ready to support you.\n\n**Advice for candidates**\n\nKeep your certifications current and be open to international assignments. A strong CV with demonstrable project experience in heavy industry remains the best investment."
+      },
+      {
+        "id": "6",
+        "title": "The importance of certified weld inspectors on major projects",
+        "excerpt": "Weld joints are critical components in infrastructure and industrial projects. Discover why certified weld inspectors are indispensable.",
+        "date": "2025-12-18",
+        "category": "industry",
+        "readTime": "5 min",
+        "content": "Weld joints are the backbone of industrial structures. Whether it is pipelines, pressure vessels, offshore platforms or bridges — the quality of the welds largely determines the safety and service life of the installation. Certified weld inspectors play a crucial role in this.\n\n**What does a weld inspector do?**\n\nA Welding Inspector (also known as Welding Quality Inspector) oversees all welding-related activities on a project. This includes:\n\n- **Pre-qualification**: Verification of welding procedures (WPS) and qualification certificates (PQR, WQT)\n- **In-process inspection**: Checks on preheat, interpass temperature, weld sequence and consumables used\n- **Post-weld inspection**: Visual inspection per EN 5817 or AWS D1.1, followed by NDT if required\n- **Documentation**: Maintaining weld registers, weld maps and inspection reports\n\n**Certified vs. non-certified**\n\nThe difference between a certified and non-certified weld inspector can be significant. Certifications such as IWI (International Welding Inspector) from the IIW or CWI (Certified Welding Inspector) from the AWS guarantee that the inspector has sufficient technical knowledge and is up to date with the latest standards.\n\nFor major industrial and infrastructure projects, a certified weld inspector is in many cases contractually required. Q4S has an extensive network of certified Welding Inspectors with experience across a range of sectors. Contact us for more information."
+      }
+    ]
+  },
+  "contact": {
+    "hero": {
+      "title": "Contact",
+      "subtitle": "We're here for clients and candidates. Feel free to get in touch."
+    },
+    "details": {
+      "title": "Contact Details",
+      "address": "Arnhemseweg 12, 2994LA Barendrecht, Netherlands",
+      "email": "info@q4s.nl",
+      "phone": "+31 (0) 85 7826818",
+      "kvk": "CoC: 69073287",
+      "btw": "VAT: NL857718137B01"
+    },
+    "form": {
+      "title": "Send us a message",
+      "name": "Name",
+      "email": "Email address",
+      "subject": "Subject",
+      "subjects": ["I'm looking for talent", "I'm looking for an assignment", "Question about NDT", "Other"],
+      "message": "Your message",
+      "submit": "Send message",
+      "submitting": "Sending...",
+      "success": "Your message has been sent. We will contact you as soon as possible.",
+      "error": "Something went wrong. Please try again or email info@q4s.nl."
+    },
+    "forEmployers": {
+      "title": "For clients",
+      "body": "Are you looking for technical talent for your project? Get in touch directly and we'll discuss your specific needs."
+    },
+    "forCandidates": {
+      "title": "For candidates",
+      "body": "Are you a technical specialist looking for a new challenge? Upload your CV or get in touch for an introductory meeting."
+    }
+  },
+  "footer": {
+    "tagline": "Technical Talent for Critical Projects",
+    "company": "Q4S B.V.",
+    "address": "Arnhemseweg 12, 2994LA Barendrecht",
+    "netherlands": "The Netherlands",
+    "email": "info@q4s.nl",
+    "phone": "+31 (0) 85 7826818",
+    "kvk": "CoC: 69073287",
+    "btw": "VAT: NL857718137B01",
+    "links": {
+      "title": "Navigation",
+      "home": "Home",
+      "about": "About Us",
+      "services": "Services",
+      "wayWeWork": "Way We Work",
+      "vacancies": "Vacancies",
+      "ndt": "NDT",
+      "news": "News",
+      "contact": "Contact"
+    },
+    "forEmployers": {
+      "title": "Clients",
+      "findTalent": "Find talent",
+      "services": "Our services",
+      "contact": "Get in touch"
+    },
+    "forCandidates": {
+      "title": "Candidates",
+      "vacancies": "View vacancies",
+      "uploadCv": "Upload CV",
+      "ndt": "NDT expertise"
+    },
+    "copyright": "© {year} Q4S B.V. All rights reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms & Conditions"
+  }
+}

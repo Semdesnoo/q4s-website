@@ -39,6 +39,7 @@ export default async function VacanciesPage({
 
       <VacanciesClient
         locale={locale}
+        vacancyList={t.raw("list") as Array<{ id: string; title: string; location: string; description: string }>}
         translations={{
           searchPlaceholder: t("search.placeholder"),
           filter: t("search.filter"),

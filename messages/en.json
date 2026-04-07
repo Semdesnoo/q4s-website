@@ -162,6 +162,12 @@
       "subtitle": "Transparent, efficient and always focused on the best result."
     },
     "forEmployersLabel": "For Clients",
+    "cta": {
+      "title": "Ready to get started?",
+      "body": "Get in touch or upload your CV directly.",
+      "contact": "Contact",
+      "uploadCv": "Upload CV"
+    },
     "intro": "At Q4S we believe in a clear and transparent approach. From first contact to successful placement — we keep you informed at every step.",
     "steps": [
       {
@@ -222,6 +228,84 @@
     "noResults": "No vacancies found for your search.",
     "applyNow": "Apply now",
     "learnMore": "More information",
+    "detail": {
+      "allVacancies": "All vacancies",
+      "postedOn": "Posted on",
+      "aboutRole": "About the role",
+      "responsibilities": "Responsibilities",
+      "requirements": "Requirements",
+      "niceToHave": "Nice to have",
+      "applyTitle": "Apply now",
+      "applyBody": "Send us your CV and motivation, or get in touch for more information.",
+      "applyNow": "Apply now",
+      "uploadCv": "Upload CV",
+      "detailsTitle": "Details",
+      "location": "Location",
+      "contractType": "Contract type",
+      "discipline": "Discipline",
+      "compensation": "Compensation",
+      "posted": "Posted",
+      "seeMore": "See more",
+      "allOpenVacancies": "View all open vacancies",
+      "allVacanciesBtn": "All vacancies"
+    },
+    "list": [
+      {
+        "id": "v1",
+        "title": "Pressure Equipment Inspector (Freelance / Project)",
+        "location": "South Holland, Netherlands",
+        "description": "For a project at a terminal we are looking for an experienced inspector who can independently carry out an inventory of pressure equipment and vessels. Project of approx. 3 months, approx. 300–400 vessels.",
+        "about": "For one of our clients at a terminal in South Holland, we are looking for an experienced pressure equipment inspector. It concerns a project of approximately 3 months (full-time), in which you will map approximately 300–400 vessels and pressure vessels. You work independently on location and report directly to the lead inspector. Project starts at short notice.",
+        "responsibilities": ["Inventorying pressure equipment and vessels on location","Recording technical data per vessel","Checking available documentation (incl. PED)","Preparing clear and structured reports","Reporting back to the lead inspector at the terminal","Maintaining a progress overview of inventoried vessels"],
+        "requirements": ["Experience as an inspector in an industrial environment","Familiar with pressure vessels and pressure equipment","Knowledge of the Pressure Equipment Directive (PED) is preferred","Ability to work independently and maintain overview","Good reporting skills in Dutch","Available for approx. 3 months full-time"],
+        "nice_to_have": ["IKT2 certification","Experience at terminals or petrochemical installations","Knowledge of relevant Dutch regulations for pressure equipment"],
+        "salary": "Market-rate day rate, depending on experience"
+      },
+      {
+        "id": "v2",
+        "title": "Quality Assurance Business Partner",
+        "location": "South Holland, Netherlands",
+        "description": "Q4S is looking for a strategic QA Business Partner who challenges management, transforms processes and brings quality policy from strategy to practice. Not an operational role — but a position at board level.",
+        "about": "Q4S is looking for a Quality Assurance Business Partner for a client in South Holland. Not an operational role — but a position where you challenge management, transform processes and bring quality policy from strategy to practice. You operate at both strategic and operational level and are the link between the board and the shop floor.",
+        "responsibilities": ["Acting as strategic sparring partner for management on quality matters","Building a future-proof quality framework","Translating complex contract requirements into workable solutions","Conducting audits and root cause analyses","Monitoring KPIs and reporting to board","Connecting teams and departments around quality objectives"],
+        "requirements": ["Extensive experience in quality management (ISO 9001 or equivalent)","At home in a technical or industrial environment","Strong in advising and connecting at board level","Both analytical and pragmatic","Excellent communication skills in Dutch and English"],
+        "nice_to_have": ["Lead Auditor certification ISO 9001","Experience with quality management in offshore or petrochemicals","Knowledge of risk management methodologies (FMEA, RCA)"],
+        "salary": "Market-rate, depending on experience — employment via secondment or direct hire"
+      },
+      {
+        "id": "v3",
+        "title": "Welder — Heavy Industry / Offshore",
+        "location": "Netherlands / International",
+        "description": "We are looking for welders with a passion for the trade and experience in heavy industry or offshore. MIG/MAG, SAW or TIG certified? Then we want to speak to you.",
+        "about": "We are looking for welders with a passion for the trade and experience in heavy industry or offshore. People who are proud of their work and know what quality means. You work on challenging projects in heavy industry, offshore, wind energy or shipbuilding, where quality and safety are paramount.",
+        "responsibilities": ["Performing welding activities in accordance with WPS procedures","Working on structural steel, special alloys or pipelines","Collaborating with welding inspectors and QC personnel","Maintaining weld registers and quality documentation","Identifying and reporting deviations","Complying with safety and quality standards on site"],
+        "requirements": ["Valid welding certificates: MIG/MAG (136/138), SAW (121) or TIG (141)","ISO 9606 or AWS D1.1 qualification","Minimum 3 years experience in heavy industry, offshore, wind energy or shipbuilding","Accustomed to working with WPS procedures and quality inspections","Willing to work on location or offshore"],
+        "nice_to_have": ["Experience with structural steel or special alloys","VCA certification","Offshore certificates (BOSIET, GWO)"],
+        "salary": "Market-rate, depending on certifications and experience"
+      },
+      {
+        "id": "v4",
+        "title": "Welding Coordinator Rail Infrastructure",
+        "location": "Netherlands",
+        "description": "As welding coordinator you manage welding projects in the railway network. You coordinate projects, advise based on expertise and ensure qualifications of staff.",
+        "about": "As Welding Coordinator Rail Infrastructure you manage welding projects in the Dutch railway network. You coordinate projects, advise based on your expertise and ensure qualifications of staff. You manage KPIs, plan activities and maintain contact with internal teams, clients and grid operators. A responsible full-time position in employment.",
+        "responsibilities": ["Managing and coordinating welding projects in rail infrastructure","Advising based on welding technical expertise","Ensuring qualifications and certifications of staff","Managing KPIs and monitoring quality standards","Planning activities and coordinating with internal teams","Maintaining contact with clients and grid operators"],
+        "requirements": ["MBO 3-4 level education, preferably with IWT/IWE course","Experience in rail as a welder, or experienced thermite welder with ambition","VCA-VOL certification","Knowledge of ISO 3834-2, RLN 120 and RLN 127","Excellent communication skills in Dutch","Solution-oriented and flexible"],
+        "nice_to_have": ["IWE (International Welding Engineer) qualification","Experience with project management in rail infrastructure","Knowledge of relevant rail standards and certifications"],
+        "salary": "Excellent salary + mobility budget or lease car + training opportunities"
+      },
+      {
+        "id": "v5",
+        "title": "Project Manager Field Services",
+        "location": "Rotterdam, Netherlands",
+        "description": "Do you ensure our Field Service Engineers can work worry-free worldwide? As Project Manager you are in control — from planning to delivery of international gearbox projects.",
+        "about": "From our office in Rotterdam, as Project Manager Field Services you have direct access to the workshop. You lead international service projects — from an emergency repair in Singapore to preventive maintenance in Norway. You are the point of contact for clients and stakeholders and work closely with a close-knit team of specialists.",
+        "responsibilities": ["Leading and coordinating international Field Service projects","Acting as point of contact for clients and stakeholders","Monitoring budget, planning and quality","Preparing project plans and HSE documentation","Work preparation for Field Service Engineers","Reporting project progress to management"],
+        "requirements": ["HBO level (Mechanical Engineering or technical)","Several years experience as Project Manager in a technical environment","Strong communication skills","Proficiency in Dutch and English","Proactive and customer-oriented attitude"],
+        "nice_to_have": ["IPMA certification","Experience with gearboxes or rotating mechanical equipment","Knowledge of international service logistics"],
+        "salary": "€ 3,839 – € 5,920 gross per month + 40 vacation days + mobility budget + remote work option"
+      }
+    ],
     "disciplines": {
       "qaqc": "QA/QC",
       "ndt": "NDT",

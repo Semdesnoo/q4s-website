@@ -16,7 +16,8 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale, id } = await params;
   const t = await getTranslations({ locale, namespace: "vacancies" });
-  const vacancy = vacancies.find((v) => v.id === id);
+  const list = t.raw("list") as Array<{ id: string; title: string }>;
+  const vacancy = list.find((v) => v.id === id);
   if (!vacancy) return { title: t("noResults") };
   return { title: `${vacancy.title} | ${t("hero.label")}` };
 }
@@ -27,10 +28,28 @@ export default async function VacancyDetailPage({
   params: Promise<{ locale: string; id: string }>;
 }) {
   const { locale, id } = await params;
-  const vacancy = vacancies.find((v) => v.id === id);
-  if (!vacancy) notFound();
-
   const t = await getTranslations({ locale, namespace: "vacancies" });
+
+  // Get translated content from JSON
+  const list = t.raw("list") as Array<{
+    id: string;
+    title: string;
+    location: string;
+    description: string;
+    about: string;
+    responsibilities: string[];
+    requirements: string[];
+    nice_to_have: string[];
+    salary: string;
+  }>;
+  const vacancyContent = list.find((v) => v.id === id);
+  if (!vacancyContent) notFound();
+
+  // Get static fields (type, discipline, posted)
+  const staticData = vacancies.find((v) => v.id === id);
+  if (!staticData) notFound();
+
+  const vacancy = { ...vacancyContent, ...staticData };
 
   function formatDate(dateStr: string) {
     return new Date(dateStr).toLocaleDateString(locale === "nl" ? "nl-NL" : "en-GB", {
@@ -51,16 +70,14 @@ export default async function VacancyDetailPage({
       {/* ─── HERO ─── */}
       <section className="bg-black text-white pt-[68px]">
         <div className="max-w-[1280px] mx-auto px-6 py-16 lg:py-24">
-          {/* Breadcrumb */}
           <Link
             href="/vacancies"
             className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.12em] text-white/40 hover:text-white transition-colors mb-10"
           >
             <ArrowLeft size={14} />
-            {locale === "nl" ? "Alle vacatures" : "All vacancies"}
+            {t("detail.allVacancies")}
           </Link>
 
-          {/* Badges */}
           <div className="flex flex-wrap gap-2 mb-6">
             <span className="text-[10px] font-semibold uppercase tracking-[0.15em] px-2.5 py-1 border border-white/15 text-white/50">
               {vacancy.discipline}
@@ -89,7 +106,7 @@ export default async function VacancyDetailPage({
             </span>
             <span className="flex items-center gap-2">
               <Clock size={14} />
-              {locale === "nl" ? "Geplaatst op" : "Posted on"} {formatDate(vacancy.posted)}
+              {t("detail.postedOn")} {formatDate(vacancy.posted)}
             </span>
           </div>
         </div>
@@ -101,18 +118,16 @@ export default async function VacancyDetailPage({
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
             {/* Main content */}
             <div className="lg:col-span-8">
-              {/* About */}
               <div className="mb-12">
                 <h2 className="text-sm font-black uppercase tracking-[0.15em] text-black mb-5">
-                  {locale === "nl" ? "Over de functie" : "About the role"}
+                  {t("detail.aboutRole")}
                 </h2>
                 <p className="text-base text-black/70 leading-relaxed">{vacancy.about}</p>
               </div>
 
-              {/* Responsibilities */}
               <div className="mb-12">
                 <h2 className="text-sm font-black uppercase tracking-[0.15em] text-black mb-5">
-                  {locale === "nl" ? "Werkzaamheden" : "Responsibilities"}
+                  {t("detail.responsibilities")}
                 </h2>
                 <ul className="space-y-3">
                   {vacancy.responsibilities.map((r, i) => (
@@ -124,10 +139,9 @@ export default async function VacancyDetailPage({
                 </ul>
               </div>
 
-              {/* Requirements */}
               <div className="mb-12">
                 <h2 className="text-sm font-black uppercase tracking-[0.15em] text-black mb-5">
-                  {locale === "nl" ? "Functie-eisen" : "Requirements"}
+                  {t("detail.requirements")}
                 </h2>
                 <ul className="space-y-3">
                   {vacancy.requirements.map((r, i) => (
@@ -139,11 +153,10 @@ export default async function VacancyDetailPage({
                 </ul>
               </div>
 
-              {/* Nice to have */}
               {vacancy.nice_to_have.length > 0 && (
                 <div className="mb-12">
                   <h2 className="text-sm font-black uppercase tracking-[0.15em] text-black mb-5">
-                    {locale === "nl" ? "Pré" : "Nice to have"}
+                    {t("detail.niceToHave")}
                   </h2>
                   <ul className="space-y-3">
                     {vacancy.nice_to_have.map((r, i) => (
@@ -160,64 +173,60 @@ export default async function VacancyDetailPage({
             {/* Sidebar */}
             <div className="lg:col-span-4">
               <div className="sticky top-24">
-                {/* Apply card */}
                 <div className="border border-black/10 p-8 mb-6">
                   <h3 className="text-lg font-black text-black mb-2 tracking-[-0.02em]">
-                    {locale === "nl" ? "Direct solliciteren" : "Apply now"}
+                    {t("detail.applyTitle")}
                   </h3>
                   <p className="text-sm text-black/50 leading-relaxed mb-6">
-                    {locale === "nl"
-                      ? "Stuur uw CV en motivatie naar ons toe of neem contact op voor meer informatie."
-                      : "Send us your CV and motivation, or get in touch for more information."}
+                    {t("detail.applyBody")}
                   </p>
                   <Link
                     href={{ pathname: "/contact", query: { vacancy: vacancy.id } }}
                     className="group flex items-center justify-center gap-2 w-full py-3 bg-[#e8430a] text-white text-xs font-semibold uppercase tracking-[0.1em] hover:bg-[#c73508] transition-colors mb-3"
                   >
-                    {locale === "nl" ? "Solliciteer nu" : "Apply now"}
+                    {t("detail.applyNow")}
                     <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
                   </Link>
                   <Link
                     href="/upload-cv"
                     className="flex items-center justify-center w-full py-3 border border-black/15 text-black text-xs font-semibold uppercase tracking-[0.1em] hover:border-black transition-colors"
                   >
-                    {locale === "nl" ? "CV uploaden" : "Upload CV"}
+                    {t("detail.uploadCv")}
                   </Link>
                 </div>
 
-                {/* Details card */}
                 <div className="border border-black/10 p-8">
                   <h3 className="text-sm font-black uppercase tracking-[0.15em] text-black mb-5">
-                    {locale === "nl" ? "Details" : "Details"}
+                    {t("detail.detailsTitle")}
                   </h3>
                   <dl className="space-y-4">
                     <div>
                       <dt className="text-[10px] font-semibold uppercase tracking-[0.15em] text-black/30 mb-1">
-                        {locale === "nl" ? "Locatie" : "Location"}
+                        {t("detail.location")}
                       </dt>
                       <dd className="text-sm font-medium text-black">{vacancy.location}</dd>
                     </div>
                     <div>
                       <dt className="text-[10px] font-semibold uppercase tracking-[0.15em] text-black/30 mb-1">
-                        {locale === "nl" ? "Contractvorm" : "Contract type"}
+                        {t("detail.contractType")}
                       </dt>
                       <dd className="text-sm font-medium text-black">{vacancy.type}</dd>
                     </div>
                     <div>
                       <dt className="text-[10px] font-semibold uppercase tracking-[0.15em] text-black/30 mb-1">
-                        {locale === "nl" ? "Discipline" : "Discipline"}
+                        {t("detail.discipline")}
                       </dt>
                       <dd className="text-sm font-medium text-black">{vacancy.discipline}</dd>
                     </div>
                     <div>
                       <dt className="text-[10px] font-semibold uppercase tracking-[0.15em] text-black/30 mb-1">
-                        {locale === "nl" ? "Vergoeding" : "Compensation"}
+                        {t("detail.compensation")}
                       </dt>
                       <dd className="text-sm font-medium text-black">{vacancy.salary}</dd>
                     </div>
                     <div>
                       <dt className="text-[10px] font-semibold uppercase tracking-[0.15em] text-black/30 mb-1">
-                        {locale === "nl" ? "Geplaatst" : "Posted"}
+                        {t("detail.posted")}
                       </dt>
                       <dd className="text-sm font-medium text-black">{formatDate(vacancy.posted)}</dd>
                     </div>
@@ -234,17 +243,17 @@ export default async function VacancyDetailPage({
         <div className="max-w-[1280px] mx-auto px-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
           <div>
             <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-white/30 mb-2">
-              {locale === "nl" ? "Meer bekijken" : "See more"}
+              {t("detail.seeMore")}
             </p>
             <h2 className="text-2xl font-black tracking-[-0.02em]">
-              {locale === "nl" ? "Bekijk alle openstaande vacatures" : "View all open vacancies"}
+              {t("detail.allOpenVacancies")}
             </h2>
           </div>
           <Link
             href="/vacancies"
             className="group inline-flex items-center gap-2 px-6 py-3.5 border border-white/20 text-white font-semibold text-sm uppercase tracking-[0.1em] hover:border-white transition-colors shrink-0"
           >
-            {locale === "nl" ? "Alle vacatures" : "All vacancies"}
+            {t("detail.allVacanciesBtn")}
             <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>

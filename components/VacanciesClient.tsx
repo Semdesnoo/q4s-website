@@ -3,10 +3,17 @@
 import { useState, useMemo } from "react";
 import { Link } from "@/i18n/navigation";
 import { Search, MapPin, Clock, ArrowRight } from "lucide-react";
-import { vacancies } from "@/lib/vacancies";
+import { vacancies as staticVacancies } from "@/lib/vacancies";
 
 const disciplines = ["QA/QC", "NDT", "Welding", "Inspection", "Engineering"];
 const types = ["Contract", "Permanent", "Freelance"];
+
+interface VacancyItem {
+  id: string;
+  title: string;
+  location: string;
+  description: string;
+}
 
 interface Props {
   translations: {
@@ -24,15 +31,22 @@ interface Props {
     openApplicationButton: string;
   };
   locale: string;
+  vacancyList: VacancyItem[];
 }
 
-export default function VacanciesClient({ translations: tr, locale }: Props) {
+export default function VacanciesClient({ translations: tr, locale, vacancyList }: Props) {
   const [query, setQuery] = useState("");
   const [discipline, setDiscipline] = useState("");
   const [type, setType] = useState("");
 
+  // Merge translated content with static fields (type, discipline, posted)
+  const merged = vacancyList.map((v) => {
+    const s = staticVacancies.find((s) => s.id === v.id);
+    return { ...v, type: s?.type ?? "", discipline: s?.discipline ?? "", posted: s?.posted ?? "" };
+  });
+
   const filtered = useMemo(() => {
-    return vacancies.filter((v) => {
+    return merged.filter((v) => {
       const q = query.toLowerCase();
       const matchQuery =
         !q ||
@@ -43,7 +57,7 @@ export default function VacanciesClient({ translations: tr, locale }: Props) {
       const matchType = !type || v.type === type;
       return matchQuery && matchDiscipline && matchType;
     });
-  }, [query, discipline, type]);
+  }, [query, discipline, type, merged]);
 
   function formatDate(dateStr: string) {
     const d = new Date(dateStr);

@@ -76,23 +76,23 @@ export default function WayWeWorkPage() {
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-12">
             <div>
               <h2 className="text-[clamp(32px,4.5vw,64px)] font-black leading-[0.95] tracking-[-0.04em] text-black mb-4">
-                Klaar om te starten?
+                {t("cta.title")}
               </h2>
-              <p className="text-black/65 max-w-lg leading-relaxed">Neem contact op of upload direct uw CV.</p>
+              <p className="text-black/65 max-w-lg leading-relaxed">{t("cta.body")}</p>
             </div>
             <div className="flex gap-3 shrink-0">
               <Link
                 href="/contact"
                 className="group inline-flex items-center gap-2 px-6 py-3.5 bg-black text-white font-semibold text-sm uppercase tracking-[0.1em] hover:bg-black/80 transition-colors"
               >
-                Contact
+                {t("cta.contact")}
                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link
                 href="/upload-cv"
                 className="group inline-flex items-center gap-2 px-6 py-3.5 border border-black/20 text-black font-semibold text-sm uppercase tracking-[0.1em] hover:border-black transition-colors"
               >
-                CV Uploaden
+                {t("cta.uploadCv")}
               </Link>
             </div>
           </div>

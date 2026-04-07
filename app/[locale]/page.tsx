@@ -181,7 +181,7 @@ export default function HomePage() {
               "
             </div>
             <blockquote className="text-[clamp(20px,3vw,36px)] font-bold leading-[1.2] tracking-[-0.02em] text-black mt-6 mb-10">
-              Q4S heeft ons binnen twee weken voorzien van drie hooggekwalificeerde inspectors.
+              Q4S heeft ons binnen twee weken voorzien van drie hooggekwalificeerde inspecteurs.
               Professioneel, snel en betrouwbaar — precies wat wij nodig hadden.
             </blockquote>
             <div className="flex items-center justify-center gap-4">
@@ -247,7 +247,7 @@ export default function HomePage() {
         <div className="max-w-[1280px] mx-auto px-6">
           <div className="flex flex-col lg:flex-row items-start lg:items-end justify-between gap-12">
             <div className="max-w-2xl">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-black/30 mb-6">
+              <p className="text-[13px] font-semibold uppercase tracking-[0.25em] text-black mb-6">
                 Laten we samenwerken
               </p>
               <h2 className="text-[clamp(36px,5.5vw,80px)] font-black leading-[0.95] tracking-[-0.04em] text-black">
@@ -271,7 +271,7 @@ export default function HomePage() {
               </Link>
             </div>
           </div>
-          <p className="text-sm text-black/60 max-w-xl mt-8 leading-relaxed">
+          <p className="text-base text-black max-w-xl mt-8 leading-relaxed">
             {t("cta.body")}
           </p>
         </div>
@@ -280,15 +280,12 @@ export default function HomePage() {
       {/* ─── MAP ─── */}
       <section className="bg-black">
         <div className="max-w-[1280px] mx-auto px-6 py-10">
-          <div className="flex items-center justify-between mb-6">
-            <p className="text-sm font-bold uppercase tracking-[0.25em] text-white">
-              Ons hoofdkantoor
-            </p>
+          <div className="flex items-center justify-center mb-6">
             <a
               href="https://maps.app.goo.gl/tYQRY1YnbHcG8aBR7"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm font-semibold uppercase tracking-[0.15em] text-white/80 hover:text-white transition-colors flex items-center gap-1"
+              className="text-[11px] sm:text-sm font-semibold uppercase tracking-[0.15em] text-white/80 hover:text-white transition-colors flex items-center gap-1"
             >
               Bekijk op Google Maps <ArrowUpRight size={14} />
             </a>

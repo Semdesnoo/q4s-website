@@ -1,13 +1,14 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { Diamond, Zap, Target, Sparkles } from "lucide-react";
 
 interface WhyItem {
   title: string;
   desc: string;
 }
 
-const icons = ["◈", "⚡", "◎", "✦"];
+const icons = [Diamond, Zap, Target, Sparkles];
 
 export default function WhyCards({ items }: { items: WhyItem[] }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -41,8 +42,8 @@ export default function WhyCards({ items }: { items: WhyItem[] }) {
           }}
         >
           {/* Icon */}
-          <span className="text-3xl text-[#e8430a] mb-8 block group-hover:scale-110 transition-transform duration-300">
-            {icons[i]}
+          <span className="text-[#e8430a] mb-8 block group-hover:scale-110 transition-transform duration-300 w-fit">
+            {(() => { const Icon = icons[i]; return <Icon size={28} strokeWidth={1.5} />; })()}
           </span>
 
           {/* Number */}

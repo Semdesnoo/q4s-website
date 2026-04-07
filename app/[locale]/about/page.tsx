@@ -55,7 +55,7 @@ export default function AboutPage() {
             </div>
             <div className="lg:col-span-5 space-y-0 border-t border-black/10">
               <div className="py-8 border-b border-black/10">
-                <p className="text-sm font-black uppercase tracking-[0.2em] text-black mb-4">
+                <p className="text-sm font-black uppercase tracking-[0.08em] text-[#e8430a] mb-4">
                   Missie
                 </p>
                 <p className="text-base text-black font-semibold leading-relaxed">
@@ -63,7 +63,7 @@ export default function AboutPage() {
                 </p>
               </div>
               <div className="py-8">
-                <p className="text-sm font-black uppercase tracking-[0.2em] text-black mb-4">
+                <p className="text-sm font-black uppercase tracking-[0.08em] text-[#e8430a] mb-4">
                   Visie
                 </p>
                 <p className="text-base text-black font-semibold leading-relaxed">

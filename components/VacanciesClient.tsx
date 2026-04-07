@@ -56,24 +56,24 @@ export default function VacanciesClient({ translations: tr, locale }: Props) {
   return (
     <>
       {/* Search + Filters */}
-      <div className="bg-white border-b border-black/10 sticky top-[68px] z-40">
-        <div className="max-w-[1280px] mx-auto px-6 py-4">
+      <div className="bg-black border-b border-white/10 sm:sticky top-[68px] z-40">
+        <div className="max-w-[1280px] mx-auto px-4 sm:px-6 py-4">
           <div className="flex flex-col sm:flex-row gap-3">
             <div className="relative flex-1">
-              <Search size={14} className="absolute left-4 top-1/2 -translate-y-1/2 text-black/30" />
+              <Search size={14} className="absolute left-4 top-1/2 -translate-y-1/2 text-white/30" />
               <input
                 type="text"
                 placeholder={tr.searchPlaceholder}
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                className="w-full h-11 pl-10 pr-4 border border-black/15 text-sm text-black placeholder-black/30 focus:outline-none focus:border-black bg-white"
+                className="w-full h-11 pl-10 pr-4 border border-white/15 text-sm text-white placeholder-white/30 focus:outline-none focus:border-[#e8430a] bg-transparent transition-colors duration-200"
               />
             </div>
             <div className="flex gap-3">
               <select
                 value={discipline}
                 onChange={(e) => setDiscipline(e.target.value)}
-                className="h-11 px-3 border border-black/15 text-sm text-black/60 bg-white focus:outline-none focus:border-black cursor-pointer"
+                className="h-11 px-3 border border-white/15 text-sm text-white/60 bg-black focus:outline-none focus:border-[#e8430a] cursor-pointer transition-colors duration-200"
               >
                 <option value="">{tr.allDisciplines}</option>
                 {disciplines.map((d) => (
@@ -83,7 +83,7 @@ export default function VacanciesClient({ translations: tr, locale }: Props) {
               <select
                 value={type}
                 onChange={(e) => setType(e.target.value)}
-                className="h-11 px-3 border border-black/15 text-sm text-black/60 bg-white focus:outline-none focus:border-black cursor-pointer"
+                className="h-11 px-3 border border-white/15 text-sm text-white/60 bg-black focus:outline-none focus:border-[#e8430a] cursor-pointer transition-colors duration-200"
               >
                 <option value="">{tr.allTypes}</option>
                 {types.map((tp) => (
@@ -92,7 +92,7 @@ export default function VacanciesClient({ translations: tr, locale }: Props) {
               </select>
             </div>
           </div>
-          <p className="text-[11px] text-black/30 mt-2 uppercase tracking-wider">
+          <p className="text-[11px] text-white/30 mt-2 uppercase tracking-[0.15em]">
             {filtered.length} {locale === "nl" ? "resultaten" : "results"}
           </p>
         </div>
@@ -100,7 +100,7 @@ export default function VacanciesClient({ translations: tr, locale }: Props) {
 
       {/* Vacancy list */}
       <div className="bg-white">
-        <div className="max-w-[1280px] mx-auto px-6 py-12">
+        <div className="max-w-[1280px] mx-auto px-4 sm:px-6 py-8 sm:py-12">
           {filtered.length === 0 ? (
             <p className="text-black/40 text-center py-20">{tr.noResults}</p>
           ) : (
@@ -111,7 +111,7 @@ export default function VacanciesClient({ translations: tr, locale }: Props) {
                   className="group border-b border-black/10 py-8 hover:bg-black/[0.02] transition-colors duration-200"
                 >
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6">
-                    <div className="flex-1">
+                    <div className="flex-1 min-w-0">
                       <div className="flex flex-wrap gap-2 mb-3">
                         <span className="text-[10px] font-semibold uppercase tracking-[0.15em] px-2.5 py-1 border border-black/15 text-black/50">
                           {v.discipline}
@@ -120,7 +120,7 @@ export default function VacanciesClient({ translations: tr, locale }: Props) {
                           {v.type}
                         </span>
                       </div>
-                      <h3 className="text-xl font-black text-black mb-2 tracking-[-0.02em]">
+                      <h3 className="text-lg sm:text-xl font-black text-black mb-2 tracking-[-0.02em]">
                         {v.title}
                       </h3>
                       <div className="flex flex-wrap gap-4 text-xs text-black/40 mb-3">

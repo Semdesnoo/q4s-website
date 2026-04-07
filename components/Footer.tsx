@@ -71,6 +71,11 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/ndt" className="text-base text-white/75 hover:text-white transition-colors duration-200">
+                  {t("forCandidates.ndt")}
+                </Link>
+              </li>
+              <li>
                 <Link href="/contact" className="text-base text-white/75 hover:text-white transition-colors duration-200">
                   {t("forEmployers.contact")}
                 </Link>
@@ -94,21 +99,16 @@ export default function Footer() {
                   {t("forCandidates.uploadCv")}
                 </Link>
               </li>
-              <li>
-                <Link href="/ndt" className="text-base text-white/75 hover:text-white transition-colors duration-200">
-                  {t("forCandidates.ndt")}
-                </Link>
-              </li>
             </ul>
           </div>
         </div>
 
         {/* Certificates */}
         <div className="border-t border-white/10 pt-8 mb-8">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-white/30 mb-5">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-white mb-5">
             Certificeringen &amp; Keurmerken
           </p>
-          <div className="flex flex-wrap gap-3">
+          <div className="grid grid-cols-3 gap-2 sm:flex sm:flex-wrap sm:gap-3">
             {[
               {
                 label: "ISO 9001:2015",
@@ -135,7 +135,7 @@ export default function Footer() {
               {
                 label: "SNA",
                 sub: "NEN 4400-1",
-                href: "https://docs.google.com/viewerng/viewer?url=http://q4s.nl/onewebmedia/SNA_VerklaringVanRegistratie%259-05-2023.pdf",
+                href: "https://docs.google.com/viewerng/viewer?url=http://q4s.nl/onewebmedia/SNA_VerklaringVanRegistratie%25209-05-2023.pdf",
                 icon: (
                   <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                     <rect x="3" y="3" width="18" height="18" rx="2"/>
@@ -149,14 +149,14 @@ export default function Footer() {
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center gap-3 px-4 py-3 border border-white/15 hover:border-white/50 hover:bg-white/5 transition-all duration-200"
+                className="group flex flex-col sm:flex-row items-center sm:items-center gap-1 sm:gap-3 px-2 sm:px-4 py-3 border border-white/15 hover:border-white/50 hover:bg-white/5 transition-all duration-200 text-center sm:text-left"
               >
-                <span className="text-white/50 group-hover:text-white transition-colors duration-200">
+                <span className="text-white/50 group-hover:text-white transition-colors duration-200 shrink-0">
                   {icon}
                 </span>
                 <div>
-                  <p className="text-sm font-black text-white leading-none">{label}</p>
-                  <p className="text-[11px] text-white/40 group-hover:text-white/60 mt-0.5 transition-colors">{sub}</p>
+                  <p className="text-xs sm:text-sm font-black text-white leading-none">{label}</p>
+                  <p className="text-[10px] sm:text-[11px] text-white/40 group-hover:text-white/60 mt-0.5 transition-colors">{sub}</p>
                 </div>
               </a>
             ))}
@@ -168,7 +168,7 @@ export default function Footer() {
           <p className="text-sm text-white/60">
             Powered by Q4S
           </p>
-          <div className="flex flex-wrap items-center gap-4 sm:gap-6">
+          <div className="hidden sm:flex flex-wrap items-center gap-4 sm:gap-6">
             <a href="mailto:info@q4s.nl" className="text-sm text-white/60 hover:text-white transition-colors duration-200">{t("email")}</a>
             <a href="tel:+31857826818" className="text-sm text-white/60 hover:text-white transition-colors duration-200">{t("phone")}</a>
             <span className="text-sm text-white/60">{t("kvk")}</span>

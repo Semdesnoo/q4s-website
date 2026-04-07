@@ -20,7 +20,7 @@ const logos = [
   { name: "Elia Group", file: "elia", ext: "png" },
   { name: "Feadship", file: "feadship", ext: "png" },
   { name: "Mercon", file: "mercon-missing", ext: "svg" },
-  { name: "AV Verwater", file: "verwater", ext: "png" },
+  { name: "Verwater", file: "verwater", ext: "png" },
   { name: "MME Group", file: "mme", ext: "png" },
   { name: "Sew Energy", file: "sew", ext: "png" },
   { name: "SMART", file: "smart", ext: "png" },
@@ -35,7 +35,7 @@ function LogoItem({ logo }: { logo: typeof logos[number] }) {
 
   if (failed) {
     return (
-      <div className="flex items-center justify-center h-10 px-4 min-w-[120px]">
+      <div className="flex items-center justify-center h-10 px-6 min-w-[140px]">
         <span className="text-sm font-bold uppercase tracking-wider text-white/60 whitespace-nowrap">
           {logo.name}
         </span>

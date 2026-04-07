@@ -110,7 +110,7 @@ export default function VacanciesClient({ translations: tr, locale }: Props) {
                   key={v.id}
                   className="group border-b border-black/10 py-8 hover:bg-black/[0.02] transition-colors duration-200"
                 >
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6">
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                     <div className="flex-1 min-w-0">
                       <div className="flex flex-wrap gap-2 mb-3">
                         <span className="text-[10px] font-semibold uppercase tracking-[0.15em] px-2.5 py-1 border border-black/15 text-black/50">
@@ -137,22 +137,22 @@ export default function VacanciesClient({ translations: tr, locale }: Props) {
                         {v.description}
                       </p>
                     </div>
-                    <div className="shrink-0 flex gap-3">
+                    <div className="flex gap-2 sm:gap-3 shrink-0">
                       <Link
                         href={{
                           pathname: "/vacancies/[id]",
                           params: { id: v.id },
                         }}
-                        className="group/btn inline-flex items-center gap-2 px-5 py-2.5 border border-black/20 text-black text-xs font-semibold uppercase tracking-[0.1em] hover:border-black transition-colors duration-200 whitespace-nowrap"
+                        className="group/btn inline-flex items-center gap-1.5 px-3 py-2 sm:px-5 sm:py-2.5 border border-black/20 text-black text-[10px] sm:text-xs font-semibold uppercase tracking-[0.08em] sm:tracking-[0.1em] hover:border-black transition-colors duration-200"
                       >
                         {tr.learnMore}
                       </Link>
                       <Link
                         href={{ pathname: "/contact", query: { vacancy: v.id } }}
-                        className="group/btn inline-flex items-center gap-2 px-5 py-2.5 bg-black text-white text-xs font-semibold uppercase tracking-[0.1em] hover:bg-black/80 transition-colors duration-200 whitespace-nowrap"
+                        className="group/btn inline-flex items-center gap-1.5 px-3 py-2 sm:px-5 sm:py-2.5 bg-black text-white text-[10px] sm:text-xs font-semibold uppercase tracking-[0.08em] sm:tracking-[0.1em] hover:bg-black/80 transition-colors duration-200"
                       >
                         {tr.applyNow}
-                        <ArrowRight size={14} className="group-hover/btn:translate-x-1 transition-transform" />
+                        <ArrowRight size={12} className="group-hover/btn:translate-x-1 transition-transform" />
                       </Link>
                     </div>
                   </div>

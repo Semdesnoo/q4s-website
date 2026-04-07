@@ -14,10 +14,11 @@ export async function generateMetadata({
 }: {
   params: Promise<{ locale: string; id: string }>;
 }): Promise<Metadata> {
-  const { id } = await params;
+  const { locale, id } = await params;
+  const t = await getTranslations({ locale, namespace: "vacancies" });
   const vacancy = vacancies.find((v) => v.id === id);
-  if (!vacancy) return { title: "Vacature niet gevonden" };
-  return { title: `${vacancy.title} | Q4S Vacatures` };
+  if (!vacancy) return { title: t("noResults") };
+  return { title: `${vacancy.title} | ${t("hero.label")}` };
 }
 
 export default async function VacancyDetailPage({

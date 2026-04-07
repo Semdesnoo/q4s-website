@@ -21,9 +21,12 @@
       "ctaEmployer": "Looking for talent?",
       "ctaCandidate": "Looking for a project?",
       "ctaEmployerSub": "Find the right QA/QC specialist",
-      "ctaCandidateSub": "Discover open assignments"
+      "ctaCandidateSub": "Discover open assignments",
+      "est": "EST. 2015"
     },
     "why": {
+      "label": "Why Q4S",
+      "aboutLink": "About us",
       "title": "Why Q4S?",
       "body": "Clients choose Q4S because we bring value, not complexity. We understand that every project is unique, and we adapt accordingly. From source inspection to NDT consultancy — our network of highly qualified professionals is ready for your most critical assignments.",
       "items": [
@@ -34,6 +37,7 @@
       ]
     },
     "services": {
+      "label": "Our Services",
       "title": "Our Expertise",
       "items": [
         { "title": "Recruitment & Selection", "desc": "Targeted recruitment of QA/QC professionals, field inspectors and technical specialists." },
@@ -46,11 +50,37 @@
     "clients": {
       "label": "Trusted by leading companies in the industry"
     },
+    "stats": {
+      "years": "Years of experience",
+      "placements": "Placements",
+      "clients": "Clients",
+      "satisfaction": "Client satisfaction"
+    },
+    "testimonial": {
+      "quote": "Q4S provided us with three highly qualified inspectors within two weeks. Professional, fast and reliable — exactly what we needed.",
+      "name": "Martin de Vries",
+      "role": "Project Manager, Technip Energies"
+    },
+    "sectors": {
+      "label": "Sectors",
+      "title": "Where precision makes the difference.",
+      "ndtLink": "NDT Expertise",
+      "items": [
+        { "title": "Oil & Gas", "desc": "Inspectors and QC engineers for upstream and downstream projects worldwide.", "tag": "Source Inspection" },
+        { "title": "Petrochemicals", "desc": "NDT specialists and quality assurance for refineries and chemical plants.", "tag": "NDT / QA" },
+        { "title": "Offshore", "desc": "Certified inspectors for offshore construction and FPSO projects.", "tag": "Marine & Offshore" },
+        { "title": "Industry", "desc": "QA/QC professionals for plant installations and mechanical engineering.", "tag": "Manufacturing" },
+        { "title": "Infrastructure", "desc": "Inspection and quality management for large civil and industrial construction projects.", "tag": "Construction" },
+        { "title": "Energy", "desc": "Specialists for wind, solar and conventional energy projects.", "tag": "Energy" }
+      ]
+    },
     "cta": {
+      "label": "Let's work together",
       "title": "Ready to work together?",
       "body": "Whether you're looking for technical talent or your next challenge as a specialist — Q4S connects you with the right party.",
       "employer": "Get in touch",
-      "candidate": "View vacancies"
+      "candidate": "View vacancies",
+      "mapsLink": "View on Google Maps"
     }
   },
   "about": {
@@ -83,6 +113,7 @@
   },
   "services": {
     "hero": {
+      "label": "Q4S Services",
       "title": "Our Services",
       "subtitle": "Specialist technical talent for your most critical projects."
     },
@@ -130,6 +161,7 @@
       "title": "Way We Work",
       "subtitle": "Transparent, efficient and always focused on the best result."
     },
+    "forEmployersLabel": "For Clients",
     "intro": "At Q4S we believe in a clear and transparent approach. From first contact to successful placement — we keep you informed at every step.",
     "steps": [
       {
@@ -175,6 +207,7 @@
   },
   "vacancies": {
     "hero": {
+      "label": "Q4S Vacancies",
       "title": "Vacancies & Assignments",
       "subtitle": "Discover open positions for technical specialists worldwide."
     },
@@ -185,6 +218,7 @@
       "allLocations": "All locations",
       "allTypes": "All contract types"
     },
+    "results": "results",
     "noResults": "No vacancies found for your search.",
     "applyNow": "Apply now",
     "learnMore": "More information",
@@ -282,6 +316,7 @@
   },
   "news": {
     "hero": {
+      "label": "Q4S News",
       "title": "News & Insights",
       "subtitle": "Industry updates, Q4S news and insights from our experts."
     },
@@ -386,6 +421,11 @@
   },
   "footer": {
     "tagline": "Technical Talent for Critical Projects",
+    "certificationsTitle": "Certifications & Quality Marks",
+    "iso9001Sub": "Certified",
+    "vcuSub": "Safety Certified",
+    "snaSub": "NEN 4400-1",
+    "poweredBy": "Powered by Q4S",
     "company": "Q4S B.V.",
     "address": "Arnhemseweg 12, 2994LA Barendrecht",
     "netherlands": "The Netherlands",

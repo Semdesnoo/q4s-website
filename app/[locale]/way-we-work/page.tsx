@@ -54,7 +54,7 @@ export default function WayWeWorkPage() {
       <section className="bg-white py-20 lg:py-28">
         <div className="max-w-[1280px] mx-auto px-6">
           <p className="text-sm font-semibold uppercase tracking-[0.25em] text-black mb-12">
-            Voor Opdrachtgevers
+            {t("forEmployersLabel")}
           </p>
           <EmployerSteps steps={steps} />
         </div>

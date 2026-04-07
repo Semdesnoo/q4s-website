@@ -15,6 +15,7 @@ interface Props {
     allDisciplines: string;
     allLocations: string;
     allTypes: string;
+    results: string;
     noResults: string;
     applyNow: string;
     learnMore: string;
@@ -93,7 +94,7 @@ export default function VacanciesClient({ translations: tr, locale }: Props) {
             </div>
           </div>
           <p className="text-[11px] text-white/30 mt-2 uppercase tracking-[0.15em]">
-            {filtered.length} {locale === "nl" ? "resultaten" : "results"}
+            {filtered.length} {tr.results}
           </p>
         </div>
       </div>

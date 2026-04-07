@@ -22,12 +22,13 @@ export default function HomePage() {
 
   const whyItems = t.raw("why.items") as Array<{ title: string; desc: string }>;
   const serviceItems = t.raw("services.items") as Array<{ title: string; desc: string }>;
+  const sectorItems = t.raw("sectors.items") as Array<{ title: string; desc: string; tag: string }>;
 
   const stats = [
-    { target: 10, suffix: "+", label: "Jaar ervaring" },
-    { target: 200, suffix: "+", label: "Plaatsingen" },
-    { target: 50, suffix: "+", label: "Opdrachtgevers" },
-    { target: 96, suffix: "%", label: "Klanttevredenheid" },
+    { target: 10, suffix: "+", label: t("stats.years") },
+    { target: 200, suffix: "+", label: t("stats.placements") },
+    { target: 50, suffix: "+", label: t("stats.clients") },
+    { target: 96, suffix: "%", label: t("stats.satisfaction") },
   ];
 
   return (
@@ -38,7 +39,7 @@ export default function HomePage() {
           {/* EST label */}
           <div className="flex justify-end mb-8">
             <span className="text-sm font-bold text-white/60 tracking-widest hidden sm:block">
-              EST. 2015
+              {t("hero.est")}
             </span>
           </div>
 
@@ -96,7 +97,7 @@ export default function HomePage() {
           <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-16 gap-6">
             <div>
               <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-black/30 mb-4">
-                Waarom Q4S
+                {t("why.label")}
               </p>
               <h2 className="text-[clamp(32px,4.5vw,60px)] font-black leading-[1.0] tracking-[-0.03em] text-black">
                 {t("why.title")}
@@ -106,7 +107,7 @@ export default function HomePage() {
               href="/about"
               className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.12em] text-black hover:text-black/50 transition-colors shrink-0"
             >
-              Meer over ons <ArrowUpRight size={16} />
+              {t("why.aboutLink")} <ArrowUpRight size={16} />
             </Link>
           </div>
           <WhyCards items={whyItems} />
@@ -119,7 +120,7 @@ export default function HomePage() {
           <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-16 gap-4">
             <div>
               <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-white/70 mb-4">
-                Onze Diensten
+                {t("services.label")}
               </p>
               <h2 className="text-[clamp(28px,4vw,52px)] font-black leading-[1.05] tracking-[-0.03em]">
                 {t("services.title")}
@@ -181,16 +182,15 @@ export default function HomePage() {
               "
             </div>
             <blockquote className="text-[clamp(20px,3vw,36px)] font-bold leading-[1.2] tracking-[-0.02em] text-black mt-6 mb-10">
-              Q4S heeft ons binnen twee weken voorzien van drie hooggekwalificeerde inspecteurs.
-              Professioneel, snel en betrouwbaar — precies wat wij nodig hadden.
+              {t("testimonial.quote")}
             </blockquote>
             <div className="flex items-center justify-center gap-4">
               <div className="w-10 h-10 rounded-full bg-black/10 flex items-center justify-center text-sm font-bold text-black/40">
                 M
               </div>
               <div className="text-left">
-                <p className="text-sm font-bold text-black">Martin de Vries</p>
-                <p className="text-xs text-black/40 uppercase tracking-wider">Project Manager, Technip Energies</p>
+                <p className="text-sm font-bold text-black">{t("testimonial.name")}</p>
+                <p className="text-xs text-black/40 uppercase tracking-wider">{t("testimonial.role")}</p>
               </div>
             </div>
           </div>
@@ -203,30 +203,22 @@ export default function HomePage() {
           <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-16 gap-4">
             <div>
               <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-white/70 mb-4">
-                Sectoren
+                {t("sectors.label")}
               </p>
               <h2 className="text-[clamp(28px,4vw,52px)] font-black leading-[1.05] tracking-[-0.03em] text-white">
-                Waar precisie het{" "}
-                verschil maakt.
+                {t("sectors.title")}
               </h2>
             </div>
             <Link
               href="/ndt"
               className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.15em] text-white/80 hover:text-white transition-colors shrink-0"
             >
-              NDT Specialisme <ArrowUpRight size={14} />
+              {t("sectors.ndtLink")} <ArrowUpRight size={14} />
             </Link>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-white/5">
-            {[
-              { title: "Oil & Gas", desc: "Inspectors en QC-engineers voor upstream en downstream projecten wereldwijd.", tag: "Source Inspection" },
-              { title: "Petrochemie", desc: "NDT-specialisten en kwaliteitsborging voor raffinaderijen en chemische installaties.", tag: "NDT / QA" },
-              { title: "Offshore", desc: "Gecertificeerde inspecteurs voor offshore constructie en FPSO-projecten.", tag: "Marine & Offshore" },
-              { title: "Industrie", desc: "QA/QC professionals voor fabrieksinstallaties en mechanische engineering.", tag: "Manufacturing" },
-              { title: "Infrastructuur", desc: "Inspectie en kwaliteitsmanagement voor grote civiele en industriële bouwprojecten.", tag: "Construction" },
-              { title: "Energie", desc: "Specialisten voor wind-, zonne- en conventionele energieprojecten.", tag: "Energy" },
-            ].map((sector, i) => (
+            {sectorItems.map((sector, i) => (
               <div key={i} className="bg-black p-8 group hover:bg-white/5 transition-colors duration-200">
                 <div className="flex items-start justify-between mb-6">
                   <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#e8430a] border border-[#e8430a]/30 px-2 py-1">
@@ -248,7 +240,7 @@ export default function HomePage() {
           <div className="flex flex-col lg:flex-row items-start lg:items-end justify-between gap-12">
             <div className="max-w-2xl">
               <p className="text-[13px] font-semibold uppercase tracking-[0.25em] text-black mb-6">
-                Laten we samenwerken
+                {t("cta.label")}
               </p>
               <h2 className="text-[clamp(36px,5.5vw,80px)] font-black leading-[0.95] tracking-[-0.04em] text-black">
                 {t("cta.title")}
@@ -287,7 +279,7 @@ export default function HomePage() {
               rel="noopener noreferrer"
               className="text-[11px] sm:text-sm font-semibold uppercase tracking-[0.15em] text-white/80 hover:text-white transition-colors flex items-center gap-1"
             >
-              Bekijk op Google Maps <ArrowUpRight size={14} />
+              {t("cta.mapsLink")} <ArrowUpRight size={14} />
             </a>
           </div>
         </div>

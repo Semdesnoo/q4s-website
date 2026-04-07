@@ -106,13 +106,13 @@ export default function Footer() {
         {/* Certificates */}
         <div className="border-t border-white/10 pt-8 mb-8">
           <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-white mb-5">
-            Certificeringen &amp; Keurmerken
+            {t("certificationsTitle")}
           </p>
           <div className="grid grid-cols-3 gap-2 sm:flex sm:flex-wrap sm:gap-3">
             {[
               {
                 label: "ISO 9001:2015",
-                sub: "Gecertificeerd",
+                sub: t("iso9001Sub"),
                 href: "https://docs.google.com/viewerng/viewer?url=http://q4s.nl/onewebmedia/ISO-9001-251980-2017-AQ-NLD-RvA-3-en-US-20240131-20240131144352.pdf",
                 icon: (
                   <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
@@ -123,7 +123,7 @@ export default function Footer() {
               },
               {
                 label: "VCU",
-                sub: "Veiligheid Gecertificeerd",
+                sub: t("vcuSub"),
                 href: "https://docs.google.com/viewerng/viewer?url=http://q4s.nl/onewebmedia/Signed_Cert_276993-2018-ASCC-NLD-RvA_ENG-20220210-20220211082743.pdf&_r=1",
                 icon: (
                   <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
@@ -134,7 +134,7 @@ export default function Footer() {
               },
               {
                 label: "SNA",
-                sub: "NEN 4400-1",
+                sub: t("snaSub"),
                 href: "https://docs.google.com/viewerng/viewer?url=http://q4s.nl/onewebmedia/SNA_VerklaringVanRegistratie%25209-05-2023.pdf",
                 icon: (
                   <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
@@ -166,7 +166,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <p className="text-sm text-white/60">
-            Powered by Q4S
+            {t("poweredBy")}
           </p>
           <div className="hidden sm:flex flex-wrap items-center gap-4 sm:gap-6">
             <a href="mailto:info@q4s.nl" className="text-sm text-white/60 hover:text-white transition-colors duration-200">{t("email")}</a>

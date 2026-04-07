@@ -26,7 +26,7 @@ export default async function VacanciesPage({
       <section className="bg-black text-white pt-[68px]">
         <div className="max-w-[1280px] mx-auto px-4 sm:px-6 py-8 lg:py-14">
           <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-white/60 mb-6 sm:mb-8">
-            Q4S Vacatures
+            {t("hero.label")}
           </p>
           <h1 className="text-[clamp(32px,7vw,96px)] font-black leading-[0.95] tracking-[-0.04em] text-white max-w-4xl">
             {t("hero.title")}
@@ -45,6 +45,7 @@ export default async function VacanciesPage({
           allDisciplines: t("search.allDisciplines"),
           allLocations: t("search.allLocations"),
           allTypes: t("search.allTypes"),
+          results: t("results"),
           noResults: t("noResults"),
           applyNow: t("applyNow"),
           learnMore: t("learnMore"),

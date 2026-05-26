@@ -6,6 +6,9 @@ import { ArrowRight, ArrowUpRight } from "lucide-react";
 import LogoSlider from "@/components/LogoSlider";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import WhyCards from "@/components/WhyCards";
+import HeroSection from "@/components/HeroSection";
+import ServiceRows from "@/components/ServiceRows";
+import FadeInView from "@/components/motion/FadeInView";
 
 export async function generateMetadata({
   params,
@@ -34,92 +37,54 @@ export default function HomePage() {
   return (
     <>
       {/* ─── HERO ─── */}
-      <section className="bg-black text-white pt-[68px] min-h-screen flex flex-col justify-between">
-        <div className="max-w-[1280px] mx-auto px-6 flex-1 flex flex-col justify-center py-10 lg:py-14">
-          {/* EST label */}
-          <div className="flex justify-end mb-8">
-            <span className="text-sm font-bold text-white/60 tracking-widest hidden sm:block">
-              {t("hero.est")}
-            </span>
-          </div>
-
-          {/* Main headline */}
-          <div className="mb-10 max-w-5xl">
-            <h1 className="text-[clamp(48px,8vw,104px)] font-black leading-[0.95] tracking-[-0.04em] text-white">
-              {t("hero.tagline")}
-            </h1>
-          </div>
-
-          {/* Sub row */}
-          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-10">
-            <div className="max-w-lg">
-              <p className="text-xl text-white/75 leading-relaxed mb-2">
-                {t("hero.slogan")}
-              </p>
-              <p className="text-base text-white/60 leading-relaxed">
-                {t("hero.intro")}
-              </p>
-            </div>
-            <div className="flex flex-col sm:flex-row gap-3 shrink-0">
-              <Link
-                href="/contact"
-                className="group inline-flex items-center gap-2 px-6 py-3.5 bg-[#e8430a] text-white font-semibold text-sm uppercase tracking-[0.1em] hover:bg-[#c73508] transition-colors duration-200"
-              >
-                {t("hero.ctaEmployer")}
-                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-              </Link>
-              <Link
-                href="/vacancies"
-                className="group inline-flex items-center gap-2 px-6 py-3.5 border border-white/20 text-white font-semibold text-sm uppercase tracking-[0.1em] hover:border-white/60 transition-colors duration-200"
-              >
-                {t("hero.ctaCandidate")}
-                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </div>
-          </div>
-        </div>
-
-      </section>
+      <HeroSection
+        tagline={t("hero.tagline")}
+        slogan={t("hero.slogan")}
+        intro={t("hero.intro")}
+        ctaEmployer={t("hero.ctaEmployer")}
+        ctaCandidate={t("hero.ctaCandidate")}
+        est={t("hero.est")}
+      />
 
       {/* ─── CLIENT LOGOS ─── */}
       <section className="bg-black border-t border-white/5 py-10">
-        <div className="max-w-[1280px] mx-auto px-6 mb-6">
+        <FadeInView className="max-w-[1280px] mx-auto px-6 mb-6">
           <p className="text-[12px] font-semibold uppercase tracking-[0.25em] text-white/60 text-center">
             {t("clients.label")}
           </p>
-        </div>
+        </FadeInView>
         <LogoSlider />
       </section>
 
       {/* ─── WHY Q4S ─── */}
       <section className="bg-white py-24 lg:py-32">
         <div className="max-w-[1280px] mx-auto px-6">
-          <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-16 gap-6">
+          <FadeInView className="flex flex-col lg:flex-row lg:items-end justify-between mb-16 gap-6">
             <div>
-              <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-black/30 mb-4">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-[#e8430a] mb-4">
                 {t("why.label")}
               </p>
-              <h2 className="text-[clamp(32px,4.5vw,60px)] font-black leading-[1.0] tracking-[-0.03em] text-black">
+              <h2 className="text-[clamp(32px,4.5vw,60px)] font-black leading-[1.0] tracking-[-0.03em] text-[#0d1f3c]">
                 {t("why.title")}
               </h2>
             </div>
             <Link
               href="/about"
-              className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.12em] text-black hover:text-black/50 transition-colors shrink-0"
+              className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.12em] text-gray-600 hover:text-[#e8430a] transition-colors shrink-0"
             >
               {t("why.aboutLink")} <ArrowUpRight size={16} />
             </Link>
-          </div>
+          </FadeInView>
           <WhyCards items={whyItems} />
         </div>
       </section>
 
-      {/* ─── SERVICES — FORME accordion style ─── */}
-      <section className="bg-black text-white py-24 lg:py-32">
+      {/* ─── SERVICES ─── */}
+      <section className="bg-[#0d1f3c] text-white py-24 lg:py-32">
         <div className="max-w-[1280px] mx-auto px-6">
-          <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-16 gap-4">
+          <FadeInView className="flex flex-col lg:flex-row lg:items-end justify-between mb-16 gap-4">
             <div>
-              <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-white/70 mb-4">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-[#e8430a] mb-4">
                 {t("services.label")}
               </p>
               <h2 className="text-[clamp(28px,4vw,52px)] font-black leading-[1.05] tracking-[-0.03em]">
@@ -128,44 +93,26 @@ export default function HomePage() {
             </div>
             <Link
               href="/services"
-              className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.15em] text-white/80 hover:text-white transition-colors shrink-0"
+              className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.15em] text-white/70 hover:text-white transition-colors shrink-0"
             >
               {t("services.learnMore")} <ArrowUpRight size={14} />
             </Link>
-          </div>
+          </FadeInView>
 
-          {/* Service rows — FORME arrow-list style */}
-          <div className="border-t border-white/10">
-            {serviceItems.map((item, i) => (
-              <Link
-                key={i}
-                href="/services"
-                className="group flex items-center justify-between py-7 border-b border-white/10 hover:px-4 transition-all duration-300"
-              >
-                <div className="flex items-center gap-6">
-                  <span className="text-base font-black text-white/25 w-8 shrink-0 group-hover:text-[#e8430a] group-hover:scale-110 transition-all duration-300 origin-left">{String(i + 1).padStart(2, "0")}</span>
-                  <div>
-                    <h3 className="text-lg lg:text-2xl font-bold text-white group-hover:text-white/80 transition-colors">{item.title}</h3>
-                    <p className="text-base text-white/65 mt-1 max-w-lg leading-relaxed">{item.desc}</p>
-                  </div>
-                </div>
-                <ArrowUpRight size={24} className="text-white/20 group-hover:text-[#e8430a] group-hover:scale-110 transition-all duration-300 shrink-0" />
-              </Link>
-            ))}
-          </div>
+          <ServiceRows items={serviceItems} />
         </div>
       </section>
 
-      {/* ─── STATS ─── */}
-      <section className="bg-black border-t border-white/5 py-20">
+      {/* ─── STATS — orange accent ─── */}
+      <section className="bg-[#e8430a] py-20">
         <div className="max-w-[1280px] mx-auto px-6">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-white/5">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-white/15">
             {stats.map((s) => (
-              <div key={s.label} className="bg-black px-8 py-10 text-center">
+              <div key={s.label} className="bg-[#e8430a] px-8 py-10 text-center">
                 <p className="text-[clamp(40px,5vw,72px)] font-black tracking-[-0.04em] text-white leading-none mb-2">
                   <AnimatedCounter target={s.target} suffix={s.suffix} duration={2000} />
                 </p>
-                <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-white/30">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-white/70">
                   {s.label}
                 </p>
               </div>
@@ -178,31 +125,39 @@ export default function HomePage() {
       <section className="bg-white py-24 lg:py-32">
         <div className="max-w-[1280px] mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="text-[120px] font-black text-[#e8430a] leading-none mb-0 select-none" style={{lineHeight: "0.7"}}>
-              "
-            </div>
-            <blockquote className="text-[clamp(20px,3vw,36px)] font-bold leading-[1.2] tracking-[-0.02em] text-black mt-6 mb-10">
-              {t("testimonial.quote")}
-            </blockquote>
-            <div className="flex items-center justify-center gap-4">
-              <div className="w-10 h-10 rounded-full bg-black/10 flex items-center justify-center text-sm font-bold text-black/40">
-                M
+            <FadeInView direction="none" duration={0.5}>
+              <div className="text-[120px] font-black text-[#e8430a] select-none quote-mark">
+                &ldquo;
               </div>
-              <div className="text-left">
-                <p className="text-sm font-bold text-black">{t("testimonial.name")}</p>
-                <p className="text-xs text-black/40 uppercase tracking-wider">{t("testimonial.role")}</p>
+            </FadeInView>
+            <FadeInView delay={0.15}>
+              <blockquote className="text-[clamp(20px,3vw,36px)] font-bold leading-[1.2] tracking-[-0.02em] text-[#0d1f3c] mt-6 mb-10">
+                {t("testimonial.quote")}
+              </blockquote>
+            </FadeInView>
+            <FadeInView delay={0.25}>
+              <div className="flex items-center justify-center gap-4">
+                <div className="w-10 h-10 rounded-full bg-[#0d1f3c]/10 flex items-center justify-center text-sm font-bold text-[#0d1f3c]/40">
+                  M
+                </div>
+                <div className="text-left">
+                  <p className="text-sm font-bold text-[#0d1f3c]">{t("testimonial.name")}</p>
+                  <p className="text-xs text-gray-400 uppercase tracking-wider">
+                    {t("testimonial.role")}
+                  </p>
+                </div>
               </div>
-            </div>
+            </FadeInView>
           </div>
         </div>
       </section>
 
       {/* ─── SECTOR HIGHLIGHTS ─── */}
-      <section className="bg-black text-white py-24 lg:py-32">
+      <section className="bg-[#0d1f3c] text-white py-24 lg:py-32">
         <div className="max-w-[1280px] mx-auto px-6">
-          <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-16 gap-4">
+          <FadeInView className="flex flex-col lg:flex-row lg:items-end justify-between mb-16 gap-4">
             <div>
-              <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-white/70 mb-4">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-[#e8430a] mb-4">
                 {t("sectors.label")}
               </p>
               <h2 className="text-[clamp(28px,4vw,52px)] font-black leading-[1.05] tracking-[-0.03em] text-white">
@@ -211,24 +166,30 @@ export default function HomePage() {
             </div>
             <Link
               href="/ndt"
-              className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.15em] text-white/80 hover:text-white transition-colors shrink-0"
+              className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.15em] text-white/70 hover:text-white transition-colors shrink-0"
             >
               {t("sectors.ndtLink")} <ArrowUpRight size={14} />
             </Link>
-          </div>
+          </FadeInView>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-white/5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-white/8">
             {sectorItems.map((sector, i) => (
-              <div key={i} className="bg-black p-8 group hover:bg-white/5 transition-colors duration-200">
-                <div className="flex items-start justify-between mb-6">
-                  <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#e8430a] border border-[#e8430a]/30 px-2 py-1">
-                    {sector.tag}
-                  </span>
-                  <span className="text-base font-black text-white/25 group-hover:text-[#e8430a] group-hover:scale-110 transition-all duration-300 origin-right">{String(i + 1).padStart(2, "0")}</span>
+              <FadeInView key={i} delay={i * 0.08} direction="up">
+                <div className="bg-[#0d1f3c] p-8 group hover:bg-white/5 transition-colors duration-300 h-full">
+                  <div className="flex items-start justify-between mb-6">
+                    <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#e8430a] border border-[#e8430a]/40 px-2 py-1">
+                      {sector.tag}
+                    </span>
+                    <span className="text-base font-black text-white/20 group-hover:text-[#e8430a] transition-colors duration-300">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                  </div>
+                  <h3 className="text-xl font-black text-white mb-3 tracking-[-0.02em]">
+                    {sector.title}
+                  </h3>
+                  <p className="text-base text-white/65 leading-relaxed">{sector.desc}</p>
                 </div>
-                <h3 className="text-xl font-black text-white mb-3 tracking-[-0.02em]">{sector.title}</h3>
-                <p className="text-base text-white/70 leading-relaxed">{sector.desc}</p>
-              </div>
+              </FadeInView>
             ))}
           </div>
         </div>
@@ -237,47 +198,49 @@ export default function HomePage() {
       {/* ─── BOTTOM CTA ─── */}
       <section className="bg-white py-24 lg:py-32">
         <div className="max-w-[1280px] mx-auto px-6">
-          <div className="flex flex-col lg:flex-row items-start lg:items-end justify-between gap-12">
+          <FadeInView className="flex flex-col lg:flex-row items-start lg:items-end justify-between gap-12">
             <div className="max-w-2xl">
-              <p className="text-[13px] font-semibold uppercase tracking-[0.25em] text-black mb-6">
+              <p className="text-[13px] font-semibold uppercase tracking-[0.25em] text-[#e8430a] mb-6">
                 {t("cta.label")}
               </p>
-              <h2 className="text-[clamp(36px,5.5vw,80px)] font-black leading-[0.95] tracking-[-0.04em] text-black">
+              <h2 className="text-[clamp(36px,5.5vw,80px)] font-black leading-[0.95] tracking-[-0.04em] text-[#0d1f3c]">
                 {t("cta.title")}
               </h2>
             </div>
             <div className="flex flex-col sm:flex-row gap-3 shrink-0">
               <Link
                 href="/contact"
-                className="group inline-flex items-center gap-2 px-6 py-3.5 bg-black text-white font-semibold text-sm uppercase tracking-[0.1em] hover:bg-black/80 transition-colors duration-200"
+                className="group inline-flex items-center gap-2 px-6 py-3.5 bg-[#e8430a] text-white font-semibold text-sm uppercase tracking-[0.1em] hover:bg-[#c73508] active:scale-95 transition-all duration-200"
               >
                 {t("cta.employer")}
                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link
                 href="/vacancies"
-                className="group inline-flex items-center gap-2 px-6 py-3.5 border border-black/20 text-black font-semibold text-sm uppercase tracking-[0.1em] hover:border-black transition-colors duration-200"
+                className="group inline-flex items-center gap-2 px-6 py-3.5 border border-gray-200 text-[#0d1f3c] font-semibold text-sm uppercase tracking-[0.1em] hover:border-[#0d1f3c] hover:bg-gray-50 active:scale-95 transition-all duration-200"
               >
                 {t("cta.candidate")}
                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
-          </div>
-          <p className="text-base text-black max-w-xl mt-8 leading-relaxed">
-            {t("cta.body")}
-          </p>
+          </FadeInView>
+          <FadeInView delay={0.15}>
+            <p className="text-base text-gray-500 max-w-xl mt-8 leading-relaxed">
+              {t("cta.body")}
+            </p>
+          </FadeInView>
         </div>
       </section>
 
       {/* ─── MAP ─── */}
-      <section className="bg-black">
+      <section className="bg-[#0d1f3c]">
         <div className="max-w-[1280px] mx-auto px-6 py-10">
           <div className="flex items-center justify-center mb-6">
             <a
               href="https://maps.app.goo.gl/tYQRY1YnbHcG8aBR7"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[11px] sm:text-sm font-semibold uppercase tracking-[0.15em] text-white/80 hover:text-white transition-colors flex items-center gap-1"
+              className="text-[11px] sm:text-sm font-semibold uppercase tracking-[0.15em] text-white/70 hover:text-white transition-colors flex items-center gap-1"
             >
               {t("cta.mapsLink")} <ArrowUpRight size={14} />
             </a>
@@ -288,7 +251,8 @@ export default function HomePage() {
             src="https://maps.google.com/maps?q=51.8593938,4.51334&output=embed&hl=nl&z=16"
             width="100%"
             height="100%"
-            style={{ border: 0, filter: "invert(90%) hue-rotate(180deg)" }}
+            className="map-iframe"
+            title="Q4S locatie op Google Maps"
             allowFullScreen
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"

@@ -6,9 +6,8 @@ export default function Footer() {
   const t = useTranslations("footer");
 
   return (
-    <footer className="bg-black text-white">
-      {/* Top border line */}
-      <div className="border-t border-white/10" />
+    <footer className="bg-[#0d1f3c] text-white">
+      <div className="border-t border-white/8" />
 
       <div className="max-w-[1280px] mx-auto px-6 py-16">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-10 lg:gap-16 mb-16">
@@ -21,14 +20,14 @@ export default function Footer() {
               height={60}
               className="h-14 w-auto object-contain invert mb-6"
             />
-            <p className="text-base text-white/70 leading-relaxed max-w-[200px]">
+            <p className="text-base text-white/60 leading-relaxed max-w-[200px]">
               {t("tagline")}
             </p>
           </div>
 
           {/* Navigation */}
           <div>
-            <h3 className="text-sm font-black uppercase tracking-[0.2em] text-white/80 mb-5">
+            <h3 className="text-sm font-black uppercase tracking-[0.2em] text-white/70 mb-5">
               {t("links.title")}
             </h3>
             <ul className="space-y-3">
@@ -44,7 +43,7 @@ export default function Footer() {
                   <li key={k}>
                     <Link
                       href={hrefs[k] as "/"}
-                      className="text-base text-white/75 hover:text-white transition-colors duration-200"
+                      className="text-base text-white/55 hover:text-white transition-colors duration-200"
                     >
                       {t(`links.${k}` as Parameters<typeof t>[0])}
                     </Link>
@@ -56,27 +55,27 @@ export default function Footer() {
 
           {/* For Employers */}
           <div>
-            <h3 className="text-sm font-black uppercase tracking-[0.2em] text-white/80 mb-5">
+            <h3 className="text-sm font-black uppercase tracking-[0.2em] text-white/70 mb-5">
               {t("forEmployers.title")}
             </h3>
             <ul className="space-y-3">
               <li>
-                <Link href="/vacancies" className="text-base text-white/75 hover:text-white transition-colors duration-200">
+                <Link href="/vacancies" className="text-base text-white/55 hover:text-white transition-colors duration-200">
                   {t("forEmployers.findTalent")}
                 </Link>
               </li>
               <li>
-                <Link href="/services" className="text-base text-white/75 hover:text-white transition-colors duration-200">
+                <Link href="/services" className="text-base text-white/55 hover:text-white transition-colors duration-200">
                   {t("forEmployers.services")}
                 </Link>
               </li>
               <li>
-                <Link href="/ndt" className="text-base text-white/75 hover:text-white transition-colors duration-200">
+                <Link href="/ndt" className="text-base text-white/55 hover:text-white transition-colors duration-200">
                   {t("forCandidates.ndt")}
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="text-base text-white/75 hover:text-white transition-colors duration-200">
+                <Link href="/contact" className="text-base text-white/55 hover:text-white transition-colors duration-200">
                   {t("forEmployers.contact")}
                 </Link>
               </li>
@@ -85,17 +84,17 @@ export default function Footer() {
 
           {/* For Candidates */}
           <div>
-            <h3 className="text-sm font-black uppercase tracking-[0.2em] text-white/80 mb-5">
+            <h3 className="text-sm font-black uppercase tracking-[0.2em] text-white/70 mb-5">
               {t("forCandidates.title")}
             </h3>
             <ul className="space-y-3">
               <li>
-                <Link href="/vacancies" className="text-base text-white/75 hover:text-white transition-colors duration-200">
+                <Link href="/vacancies" className="text-base text-white/55 hover:text-white transition-colors duration-200">
                   {t("forCandidates.vacancies")}
                 </Link>
               </li>
               <li>
-                <Link href="/upload-cv" className="text-base text-white/75 hover:text-white transition-colors duration-200">
+                <Link href="/upload-cv" className="text-base text-white/55 hover:text-white transition-colors duration-200">
                   {t("forCandidates.uploadCv")}
                 </Link>
               </li>
@@ -105,7 +104,7 @@ export default function Footer() {
 
         {/* Certificates */}
         <div className="border-t border-white/10 pt-8 mb-8">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-white mb-5">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-[#e8430a] mb-5">
             {t("certificationsTitle")}
           </p>
           <div className="grid grid-cols-3 gap-2 sm:flex sm:flex-wrap sm:gap-3">
@@ -149,14 +148,14 @@ export default function Footer() {
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex flex-col sm:flex-row items-center sm:items-center gap-1 sm:gap-3 px-2 sm:px-4 py-3 border border-white/15 hover:border-white/50 hover:bg-white/5 transition-all duration-200 text-center sm:text-left"
+                className="group flex flex-col sm:flex-row items-center sm:items-center gap-1 sm:gap-3 px-2 sm:px-4 py-3 border border-white/12 hover:border-[#e8430a] hover:bg-white/5 transition-all duration-200 text-center sm:text-left"
               >
-                <span className="text-white/50 group-hover:text-white transition-colors duration-200 shrink-0">
+                <span className="text-white/40 group-hover:text-[#e8430a] transition-colors duration-200 shrink-0">
                   {icon}
                 </span>
                 <div>
                   <p className="text-xs sm:text-sm font-black text-white leading-none">{label}</p>
-                  <p className="text-[10px] sm:text-[11px] text-white/40 group-hover:text-white/60 mt-0.5 transition-colors">{sub}</p>
+                  <p className="text-[10px] sm:text-[11px] text-white/35 group-hover:text-white/60 mt-0.5 transition-colors">{sub}</p>
                 </div>
               </a>
             ))}
@@ -165,14 +164,14 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-          <p className="text-sm text-white/60">
+          <p className="text-sm text-white/40">
             {t("poweredBy")}
           </p>
           <div className="hidden sm:flex flex-wrap items-center gap-4 sm:gap-6">
-            <a href="mailto:info@q4s.nl" className="text-sm text-white/60 hover:text-white transition-colors duration-200">{t("email")}</a>
-            <a href="tel:+31857826818" className="text-sm text-white/60 hover:text-white transition-colors duration-200">{t("phone")}</a>
-            <span className="text-sm text-white/60">{t("kvk")}</span>
-            <span className="text-sm text-white/60">{t("btw")}</span>
+            <a href="mailto:info@q4s.nl" className="text-sm text-white/40 hover:text-white transition-colors duration-200">{t("email")}</a>
+            <a href="tel:+31857826818" className="text-sm text-white/40 hover:text-white transition-colors duration-200">{t("phone")}</a>
+            <span className="text-sm text-white/40">{t("kvk")}</span>
+            <span className="text-sm text-white/40">{t("btw")}</span>
           </div>
         </div>
       </div>

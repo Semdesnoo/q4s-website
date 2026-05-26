@@ -2,8 +2,9 @@
 @import "tailwindcss";
 
 @theme {
-  /* Q4S Brand Colors — FORME-inspired */
+  /* Q4S Brand Colors */
   --color-q4s-black: #000000;
+  --color-q4s-navy: #0d1f3c;
   --color-q4s-darkgray: #111111;
   --color-q4s-anthracite: #222222;
   --color-q4s-gray: #555555;
@@ -50,13 +51,83 @@ h1, h2, h3, h4, h5, h6 {
   animation: marquee 40s linear infinite;
 }
 
+/* Hero ambient glows */
+.hero-glow-top {
+  background: radial-gradient(circle, rgba(232, 67, 10, 0.09) 0%, rgba(232, 67, 10, 0.03) 50%, transparent 70%);
+}
+
+.hero-glow-bottom {
+  background: radial-gradient(circle, rgba(232, 67, 10, 0.04) 0%, transparent 70%);
+}
+
+/* Hero headline word gap */
+.hero-headline {
+  gap: 0 0.22em;
+}
+
+/* Hero subtle grid pattern */
+.hero-grid-bg {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.022) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.022) 1px, transparent 1px);
+  background-size: 80px 80px;
+}
+
+/* Ambient hero glow breathing */
+@keyframes glow-breathe {
+  0%, 100% { opacity: 0.7; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.12); }
+}
+
+.hero-glow {
+  animation: glow-breathe 7s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+/* Premium button focus ring */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid rgba(232, 67, 10, 0.7);
+  outline-offset: 3px;
+}
+
+/* Testimonial quote mark */
+.quote-mark {
+  line-height: 0.7;
+}
+
+/* Map iframe */
+.map-iframe {
+  border: 0;
+  filter: invert(90%) hue-rotate(180deg);
+}
+
+/* Smooth scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #111;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #e8430a;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
   }
 
-  .animate-marquee {
+  .animate-marquee,
+  .hero-glow {
     animation: none;
   }
 }

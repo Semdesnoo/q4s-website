@@ -29,8 +29,28 @@ export default function ContactForm({ t }: Props) {
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setStatus("loading");
-    await new Promise((r) => setTimeout(r, 1200));
-    setStatus("success");
+
+    const form = e.currentTarget;
+    const name = (form.elements.namedItem("name") as HTMLInputElement).value;
+    const email = (form.elements.namedItem("email") as HTMLInputElement).value;
+    const subject = (form.elements.namedItem("subject") as HTMLSelectElement).value;
+    const message = (form.elements.namedItem("message") as HTMLTextAreaElement).value;
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, subject, message }),
+      });
+
+      if (res.ok) {
+        setStatus("success");
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
   }
 
   if (status === "success") {
@@ -57,19 +77,19 @@ export default function ContactForm({ t }: Props) {
         <label className={labelClass}>
           {t.name} <span className="text-[#e8430a]">*</span>
         </label>
-        <input type="text" required className={inputClass} />
+        <input type="text" name="name" required className={inputClass} />
       </div>
 
       <div>
         <label className={labelClass}>
           {t.email} <span className="text-[#e8430a]">*</span>
         </label>
-        <input type="email" required className={inputClass} />
+        <input type="email" name="email" required className={inputClass} />
       </div>
 
       <div>
         <label className={labelClass}>{t.subject}</label>
-        <select className="w-full h-11 px-4 border border-black/15 text-sm text-black/60 bg-white focus:outline-none focus:border-black cursor-pointer">
+        <select name="subject" className="w-full h-11 px-4 border border-black/15 text-sm text-black/60 bg-white focus:outline-none focus:border-black cursor-pointer">
           <option value="">—</option>
           {t.subjects.map((s) => (
             <option key={s} value={s}>{s}</option>
@@ -82,6 +102,7 @@ export default function ContactForm({ t }: Props) {
           {t.message} <span className="text-[#e8430a]">*</span>
         </label>
         <textarea
+          name="message"
           required
           rows={5}
           className="w-full px-4 py-3 border border-black/15 text-sm text-black focus:outline-none focus:border-black bg-white transition-colors resize-none"
@@ -91,7 +112,7 @@ export default function ContactForm({ t }: Props) {
       <button
         type="submit"
         disabled={status === "loading"}
-        className="w-full h-12 bg-black text-white text-xs font-semibold uppercase tracking-[0.15em] hover:bg-black/80 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+        className="w-full h-12 bg-[#e8430a] text-white text-xs font-semibold uppercase tracking-[0.15em] hover:bg-[#c73508] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
       >
         {status === "loading" ? t.submitting : t.submit}
       </button>

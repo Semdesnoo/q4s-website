@@ -65,10 +65,10 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 bg-white transition-all duration-300 ${
         scrolled
-          ? "bg-black/95 backdrop-blur-sm border-b border-white/10"
-          : "bg-black border-b border-white/10"
+          ? "shadow-[0_2px_24px_rgba(0,0,0,0.09)]"
+          : "border-b border-gray-100"
       }`}
       style={{ height: "68px" }}
     >
@@ -80,7 +80,7 @@ export default function Header() {
             alt="Q4S"
             width={120}
             height={60}
-            className="h-14 w-auto object-contain invert"
+            className="h-14 w-auto object-contain brightness-0"
             priority
           />
         </Link>
@@ -94,7 +94,7 @@ export default function Header() {
               onMouseEnter={() => setDienstenOpen(true)}
               onMouseLeave={() => setDienstenOpen(false)}
               className={`flex items-center gap-1 px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] transition-colors duration-200 ${
-                isDienstenActive ? "text-white" : "text-white/50 hover:text-white"
+                isDienstenActive ? "text-[#e8430a]" : "text-gray-600 hover:text-[#e8430a]"
               }`}
             >
               {t("services")}
@@ -108,7 +108,7 @@ export default function Header() {
             <div
               onMouseEnter={() => setDienstenOpen(true)}
               onMouseLeave={() => setDienstenOpen(false)}
-              className={`absolute top-full left-0 mt-0 w-52 bg-black border border-white/10 transition-all duration-200 ${
+              className={`absolute top-full left-0 mt-0 w-52 bg-white border border-gray-100 shadow-xl transition-all duration-200 ${
                 dienstenOpen
                   ? "opacity-100 translate-y-0 pointer-events-auto"
                   : "opacity-0 -translate-y-2 pointer-events-none"
@@ -120,10 +120,10 @@ export default function Header() {
                   <Link
                     key={key}
                     href={href as "/"}
-                    className={`block px-5 py-3.5 text-xs font-semibold uppercase tracking-[0.12em] transition-colors duration-150 border-b border-white/5 last:border-0 ${
+                    className={`block px-5 py-3.5 text-xs font-semibold uppercase tracking-[0.12em] transition-colors duration-150 border-b border-gray-50 last:border-0 ${
                       isActive
-                        ? "text-white bg-white/5"
-                        : "text-white/50 hover:text-white hover:bg-white/5"
+                        ? "text-[#e8430a] bg-orange-50"
+                        : "text-gray-600 hover:text-[#e8430a] hover:bg-gray-50"
                     }`}
                   >
                     {t(key)}
@@ -141,7 +141,7 @@ export default function Header() {
                 key={key}
                 href={href as "/"}
                 className={`px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] transition-colors duration-200 ${
-                  isActive ? "text-white" : "text-white/50 hover:text-white"
+                  isActive ? "text-[#e8430a]" : "text-gray-600 hover:text-[#e8430a]"
                 }`}
               >
                 {t(key)}
@@ -154,7 +154,7 @@ export default function Header() {
         <div className="hidden lg:flex items-center gap-3">
           <button
             onClick={switchLocale}
-            className="text-xs font-semibold uppercase tracking-[0.12em] text-white/50 hover:text-white transition-colors duration-200 px-2 py-1"
+            className="text-xs font-semibold uppercase tracking-[0.12em] text-gray-500 hover:text-gray-900 transition-colors duration-200 px-2 py-1"
           >
             {locale === "nl" ? "EN" : "NL"}
           </button>
@@ -170,13 +170,13 @@ export default function Header() {
         <div className="lg:hidden flex items-center gap-3">
           <button
             onClick={switchLocale}
-            className="text-xs font-semibold uppercase tracking-wider text-white/50 hover:text-white transition-colors px-2"
+            className="text-xs font-semibold uppercase tracking-wider text-gray-500 hover:text-gray-900 transition-colors px-2"
           >
             {locale === "nl" ? "EN" : "NL"}
           </button>
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className="p-1.5 text-white"
+            className="p-1.5 text-gray-700"
             aria-label="Menu"
           >
             {menuOpen ? <X size={22} /> : <Menu size={22} />}
@@ -186,13 +186,13 @@ export default function Header() {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="lg:hidden absolute top-[68px] left-0 right-0 bg-black border-t border-white/10">
+        <div className="lg:hidden absolute top-[68px] left-0 right-0 bg-white border-t border-gray-100 shadow-xl">
           <nav className="max-w-[1280px] mx-auto px-6 py-6 flex flex-col gap-0">
             {/* Diensten accordion */}
             <div>
               <button
                 onClick={() => setMobileDienstenOpen((v) => !v)}
-                className="w-full flex items-center justify-between py-3 text-sm font-semibold uppercase tracking-[0.12em] text-white/60 hover:text-white border-b border-white/10 transition-colors"
+                className="w-full flex items-center justify-between py-3 text-sm font-semibold uppercase tracking-[0.12em] text-gray-600 hover:text-[#e8430a] border-b border-gray-100 transition-colors"
               >
                 {t("services")}
                 <ChevronDown
@@ -201,12 +201,12 @@ export default function Header() {
                 />
               </button>
               {mobileDienstenOpen && (
-                <div className="pl-4 bg-white/2">
+                <div className="pl-4 bg-gray-50">
                   {dienstenItems.map(({ key, href }) => (
                     <Link
                       key={key}
                       href={href as "/"}
-                      className="block py-3 text-sm font-semibold uppercase tracking-[0.12em] text-white/50 hover:text-white border-b border-white/5 last:border-0 transition-colors"
+                      className="block py-3 text-sm font-semibold uppercase tracking-[0.12em] text-gray-500 hover:text-[#e8430a] border-b border-gray-100 last:border-0 transition-colors"
                     >
                       {t(key)}
                     </Link>
@@ -219,15 +219,15 @@ export default function Header() {
               <Link
                 key={key}
                 href={href as "/"}
-                className="py-3 text-sm font-semibold uppercase tracking-[0.12em] text-white/60 hover:text-white border-b border-white/10 last:border-0 transition-colors"
+                className="py-3 text-sm font-semibold uppercase tracking-[0.12em] text-gray-600 hover:text-[#e8430a] border-b border-gray-100 last:border-0 transition-colors"
               >
                 {t(key)}
               </Link>
             ))}
-            <div className="mt-5 pt-5 border-t border-white/10">
+            <div className="mt-5 pt-5 border-t border-gray-100">
               <Link
                 href="/vacancies"
-                className="block text-center py-2.5 text-xs font-semibold uppercase tracking-wider bg-[#e8430a] text-white"
+                className="block text-center py-2.5 text-xs font-semibold uppercase tracking-wider bg-[#e8430a] text-white hover:bg-[#c73508] transition-colors"
               >
                 {t("findTalent")}
               </Link>

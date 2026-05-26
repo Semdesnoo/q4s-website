@@ -25,15 +25,18 @@ export default async function ContactPage({
   return (
     <>
       {/* ─── HERO ─── */}
-      <section className="bg-black text-white pt-[68px]">
-        <div className="max-w-[1280px] mx-auto px-6 py-10 lg:py-14">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-white/60 mb-8">
+      <section className="bg-[#0d1f3c] text-white pt-[68px]">
+        <div className="max-w-[1280px] mx-auto px-6 py-14 lg:py-20">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-[#e8430a] mb-8">
             Q4S
           </p>
-          <h1 className="text-[clamp(48px,7vw,96px)] font-black leading-[0.95] tracking-[-0.04em] text-white max-w-4xl">
-            {t("hero.title")}
-          </h1>
-          <p className="text-xl text-white/75 max-w-xl mt-8 leading-relaxed">
+          <div className="flex gap-5 items-stretch">
+            <div className="w-1 bg-[#e8430a] shrink-0 self-stretch rounded-sm" />
+            <h1 className="text-[clamp(48px,7vw,96px)] font-black leading-[0.95] tracking-[-0.04em] text-white max-w-4xl">
+              {t("hero.title")}
+            </h1>
+          </div>
+          <p className="text-xl text-white/70 max-w-xl mt-8 leading-relaxed">
             {t("hero.subtitle")}
           </p>
         </div>
@@ -44,59 +47,59 @@ export default async function ContactPage({
         <div className="max-w-[1280px] mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             {/* Left: Contact details */}
-            <div className="space-y-0 border-t border-black/10">
-              <div className="py-8 border-b border-black/10">
-                <h2 className="text-sm font-black uppercase tracking-[0.2em] text-black mb-5">
+            <div className="space-y-0 border-t border-gray-100">
+              <div className="py-8 border-b border-gray-100">
+                <h2 className="text-sm font-black uppercase tracking-[0.2em] text-[#0d1f3c] mb-5">
                   {t("details.title")}
                 </h2>
                 <div className="space-y-4">
                   <div className="flex items-start gap-3">
-                    <MapPin size={16} className="text-black/50 mt-0.5 shrink-0" />
+                    <MapPin size={16} className="text-[#e8430a] mt-0.5 shrink-0" />
                     <div>
-                      <p className="text-base font-black text-black">Q4S B.V.</p>
-                      <p className="text-base text-black/70">{t("details.address")}</p>
+                      <p className="text-base font-black text-[#0d1f3c]">Q4S B.V.</p>
+                      <p className="text-base text-gray-500">{t("details.address")}</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-3">
-                    <Mail size={16} className="text-black/50 shrink-0" />
-                    <a href="mailto:info@q4s.nl" className="text-base font-semibold text-black hover:text-black/50 transition-colors">
+                    <Mail size={16} className="text-[#e8430a] shrink-0" />
+                    <a href="mailto:info@q4s.nl" className="text-base font-semibold text-[#0d1f3c] hover:text-[#e8430a] transition-colors">
                       {t("details.email")}
                     </a>
                   </div>
                   <div className="flex items-center gap-3">
-                    <Phone size={16} className="text-black/50 shrink-0" />
-                    <a href="tel:+31857826818" className="text-base font-semibold text-black hover:text-black/50 transition-colors">
+                    <Phone size={16} className="text-[#e8430a] shrink-0" />
+                    <a href="tel:+31857826818" className="text-base font-semibold text-[#0d1f3c] hover:text-[#e8430a] transition-colors">
                       {t("details.phone")}
                     </a>
                   </div>
-                  <div className="pt-3 border-t border-black/5 text-sm text-black/50 space-y-1">
+                  <div className="pt-3 border-t border-gray-100 text-sm text-gray-400 space-y-1">
                     <p>{t("details.kvk")}</p>
                     <p>{t("details.btw")}</p>
                   </div>
                 </div>
               </div>
 
-              <div className="py-8 border-b border-black/10">
-                <h3 className="text-sm font-black uppercase tracking-[0.2em] text-black mb-4">
+              <div className="py-8 border-b border-gray-100">
+                <h3 className="text-sm font-black uppercase tracking-[0.2em] text-[#0d1f3c] mb-4">
                   {t("forEmployers.title")}
                 </h3>
-                <p className="text-base text-black/80 mb-4 leading-relaxed">{t("forEmployers.body")}</p>
+                <p className="text-base text-gray-500 mb-4 leading-relaxed">{t("forEmployers.body")}</p>
                 <Link
                   href="/services"
-                  className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.12em] text-black hover:text-black/50 transition-colors"
+                  className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.12em] text-[#e8430a] hover:text-[#c73508] transition-colors"
                 >
                   Onze diensten <ArrowRight size={12} />
                 </Link>
               </div>
 
               <div className="py-8">
-                <h3 className="text-sm font-black uppercase tracking-[0.2em] text-black mb-4">
+                <h3 className="text-sm font-black uppercase tracking-[0.2em] text-[#0d1f3c] mb-4">
                   {t("forCandidates.title")}
                 </h3>
-                <p className="text-base text-black/80 mb-4 leading-relaxed">{t("forCandidates.body")}</p>
+                <p className="text-base text-gray-500 mb-4 leading-relaxed">{t("forCandidates.body")}</p>
                 <Link
                   href="/upload-cv"
-                  className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.12em] text-black hover:text-black/50 transition-colors"
+                  className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.12em] text-[#e8430a] hover:text-[#c73508] transition-colors"
                 >
                   CV uploaden <ArrowRight size={12} />
                 </Link>
@@ -104,7 +107,7 @@ export default async function ContactPage({
             </div>
 
             {/* Form */}
-            <div className="lg:col-span-2 border border-black/10 p-8 lg:p-10">
+            <div className="lg:col-span-2 border border-gray-100 p-8 lg:p-10 shadow-sm">
               <ContactForm
                 t={{
                   title: t("form.title"),

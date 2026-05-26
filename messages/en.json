@@ -43,7 +43,8 @@
         { "title": "Recruitment & Selection", "desc": "Targeted recruitment of QA/QC professionals, field inspectors and technical specialists." },
         { "title": "Secondment", "desc": "Flexible deployment of highly qualified technical personnel for the duration of your project." },
         { "title": "Source Inspection", "desc": "Specialised inspectors monitoring supplier performance on-site worldwide." },
-        { "title": "NDT Consultancy", "desc": "Experts in Non-Destructive Testing for weld inspection, material testing and system audits." }
+        { "title": "NDT Consultancy", "desc": "Experts in Non-Destructive Testing for weld inspection, material testing and system audits." },
+        { "title": "Project Execution", "desc": "Q4S takes on projects as the responsible delivery partner — from planning to handover, including full quality assurance." }
       ],
       "learnMore": "More about our services"
     },
@@ -152,6 +153,17 @@
         "title": "QA/QC Project Support",
         "desc": "We act as an extension of your quality organisation. Our QA/QC specialists ensure that your project meets all quality and compliance requirements.",
         "features": ["Development of quality plans (ITP)", "Audits and inspections during production", "Documentation management and traceability", "Support with certification and standards"]
+      },
+      {
+        "id": "project-execution",
+        "title": "Project Execution",
+        "desc": "Beyond supplying individual professionals, Q4S also takes on complete projects as the responsible delivery partner. We take full ownership of scope, quality and delivery — so you can focus on your core business.",
+        "features": [
+          "Full responsibility for project scope and quality",
+          "Assembling and managing the complete project team",
+          "End-to-end QA/QC planning, execution and reporting",
+          "Complete coordination of inspections, testing and documentation"
+        ]
       }
     ],
     "cta": {

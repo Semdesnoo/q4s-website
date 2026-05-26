@@ -67,6 +67,10 @@
         {
           "title": "NDT Consultancy",
           "desc": "Experts in Non-Destructive Testing voor lascontroles, materiaalonderzoek en systeem-audits."
+        },
+        {
+          "title": "Projectuitvoering",
+          "desc": "Q4S neemt projecten aan als eindverantwoordelijke partner — van planning tot oplevering, inclusief kwaliteitsborging."
         }
       ],
       "learnMore": "Meer over onze diensten"
@@ -212,6 +216,17 @@
           "Audits en inspecties tijdens productie",
           "Documentatiebeheer en traceerbaarheid",
           "Ondersteuning bij certificering en normen"
+        ]
+      },
+      {
+        "id": "projectuitvoering",
+        "title": "Projectuitvoering",
+        "desc": "Naast het leveren van individuele professionals neemt Q4S ook complete projecten aan als eindverantwoordelijke partner. Wij nemen de volledige verantwoordelijkheid voor scope, kwaliteit en oplevering — zodat u zich kunt richten op uw kernactiviteiten.",
+        "features": [
+          "Eindverantwoordelijkheid voor projectscope en kwaliteit",
+          "Samenstellen en aansturen van het volledige projectteam",
+          "QA/QC-planning, uitvoering en rapportage van A tot Z",
+          "Volledige coördinatie van inspecties, keuringen en documentatie"
         ]
       }
     ],

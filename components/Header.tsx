@@ -80,7 +80,7 @@ export default function Header() {
             alt="Q4S"
             width={120}
             height={60}
-            className="h-14 w-auto object-contain brightness-0"
+            className="h-14 w-auto object-contain"
             priority
           />
         </Link>
@@ -93,7 +93,7 @@ export default function Header() {
               href="/services"
               onMouseEnter={() => setDienstenOpen(true)}
               onMouseLeave={() => setDienstenOpen(false)}
-              className={`flex items-center gap-1 px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] transition-colors duration-200 ${
+              className={`flex items-center gap-1 px-4 py-2 text-xs font-bold uppercase tracking-[0.12em] transition-colors duration-200 ${
                 isDienstenActive ? "text-[#e8430a]" : "text-gray-600 hover:text-[#e8430a]"
               }`}
             >
@@ -120,7 +120,7 @@ export default function Header() {
                   <Link
                     key={key}
                     href={href as "/"}
-                    className={`block px-5 py-3.5 text-xs font-semibold uppercase tracking-[0.12em] transition-colors duration-150 border-b border-gray-50 last:border-0 ${
+                    className={`block px-5 py-3.5 text-xs font-bold uppercase tracking-[0.12em] transition-colors duration-150 border-b border-gray-50 last:border-0 ${
                       isActive
                         ? "text-[#e8430a] bg-orange-50"
                         : "text-gray-600 hover:text-[#e8430a] hover:bg-gray-50"
@@ -140,7 +140,7 @@ export default function Header() {
               <Link
                 key={key}
                 href={href as "/"}
-                className={`px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] transition-colors duration-200 ${
+                className={`px-4 py-2 text-xs font-bold uppercase tracking-[0.12em] transition-colors duration-200 ${
                   isActive ? "text-[#e8430a]" : "text-gray-600 hover:text-[#e8430a]"
                 }`}
               >
@@ -192,7 +192,7 @@ export default function Header() {
             <div>
               <button
                 onClick={() => setMobileDienstenOpen((v) => !v)}
-                className="w-full flex items-center justify-between py-3 text-sm font-semibold uppercase tracking-[0.12em] text-gray-600 hover:text-[#e8430a] border-b border-gray-100 transition-colors"
+                className="w-full flex items-center justify-between py-3 text-sm font-bold uppercase tracking-[0.12em] text-gray-600 hover:text-[#e8430a] border-b border-gray-100 transition-colors"
               >
                 {t("services")}
                 <ChevronDown
@@ -206,7 +206,7 @@ export default function Header() {
                     <Link
                       key={key}
                       href={href as "/"}
-                      className="block py-3 text-sm font-semibold uppercase tracking-[0.12em] text-gray-500 hover:text-[#e8430a] border-b border-gray-100 last:border-0 transition-colors"
+                      className="block py-3 text-sm font-bold uppercase tracking-[0.12em] text-gray-500 hover:text-[#e8430a] border-b border-gray-100 last:border-0 transition-colors"
                     >
                       {t(key)}
                     </Link>
@@ -219,7 +219,7 @@ export default function Header() {
               <Link
                 key={key}
                 href={href as "/"}
-                className="py-3 text-sm font-semibold uppercase tracking-[0.12em] text-gray-600 hover:text-[#e8430a] border-b border-gray-100 last:border-0 transition-colors"
+                className="py-3 text-sm font-bold uppercase tracking-[0.12em] text-gray-600 hover:text-[#e8430a] border-b border-gray-100 last:border-0 transition-colors"
               >
                 {t(key)}
               </Link>

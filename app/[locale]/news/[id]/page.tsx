@@ -39,6 +39,21 @@ export async function generateMetadata({
   return {
     title: `${article.title} | Q4S`,
     description: article.excerpt,
+    alternates: {
+      languages: {
+        nl: `/nl/nieuws/${id}`,
+        en: `/en/news/${id}`,
+        "x-default": `/nl/nieuws/${id}`,
+      },
+    },
+    openGraph: {
+      title: `${article.title} | Q4S`,
+      description: article.excerpt,
+      type: "article",
+      publishedTime: article.date,
+      authors: ["Q4S B.V."],
+      tags: [article.category],
+    },
   };
 }
 
@@ -127,8 +142,39 @@ export default async function NewsDetailPage({
 
   const otherArticles = articles.filter((a) => a.id !== article.id).slice(0, 3);
 
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: article.title,
+    description: article.excerpt,
+    datePublished: article.date,
+    dateModified: article.date,
+    author: {
+      "@type": "Organization",
+      name: "Q4S B.V.",
+      url: "https://q4s.nl",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Q4S B.V.",
+      url: "https://q4s.nl",
+      logo: { "@type": "ImageObject", url: "https://q4s.nl/q4s-logo.png" },
+    },
+    url: `https://q4s.nl/${locale === "nl" ? `nl/nieuws` : `en/news`}/${article.id}`,
+    inLanguage: locale === "nl" ? "nl-NL" : "en-GB",
+    articleSection: categoryLabels[article.category] ?? article.category,
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `https://q4s.nl/${locale === "nl" ? `nl/nieuws` : `en/news`}/${article.id}`,
+    },
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
       {/* ─── HERO ─── */}
       <section className="bg-black text-white pt-[68px]">
         <div className="max-w-[1280px] mx-auto px-6 py-16 lg:py-24">
@@ -138,7 +184,7 @@ export default async function NewsDetailPage({
             className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.12em] text-white/40 hover:text-white transition-colors mb-10"
           >
             <ArrowLeft size={14} />
-            {locale === "nl" ? "Alle artikelen" : "All articles"}
+            {t("allArticles")}
           </Link>
 
           {/* Category + meta */}
@@ -185,20 +231,16 @@ export default async function NewsDetailPage({
                     Q4S
                   </p>
                   <h3 className="text-xl font-black leading-tight tracking-[-0.02em] mb-4">
-                    {locale === "nl"
-                      ? "Op zoek naar technisch talent?"
-                      : "Looking for technical talent?"}
+                    {t("ctaTitle")}
                   </h3>
                   <p className="text-base text-white/75 leading-relaxed mb-6">
-                    {locale === "nl"
-                      ? "Q4S levert gecertificeerde QA/QC en NDT professionals voor uw kritieke projecten."
-                      : "Q4S delivers certified QA/QC and NDT professionals for your critical projects."}
+                    {t("ctaBody")}
                   </p>
                   <Link
                     href="/contact"
                     className="group flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.1em] text-[#e8430a] hover:text-white transition-colors"
                   >
-                    {locale === "nl" ? "Neem contact op" : "Get in touch"}
+                    {t("ctaLink")}
                     <ArrowRight size={12} className="group-hover:translate-x-1 transition-transform" />
                   </Link>
                 </div>
@@ -207,7 +249,7 @@ export default async function NewsDetailPage({
                 {otherArticles.length > 0 && (
                   <div>
                     <p className="text-sm font-black uppercase tracking-[0.2em] text-black mb-5">
-                      {locale === "nl" ? "Meer artikelen" : "More articles"}
+                      {t("moreArticles")}
                     </p>
                     <div className="space-y-0 border-t border-black/10">
                       {otherArticles.map((a) => (
@@ -217,7 +259,7 @@ export default async function NewsDetailPage({
                             pathname: "/news/[id]",
                             params: { id: a.id },
                           }}
-                          className="group block py-5 border-b border-black/10 hover:pl-2 transition-all duration-200"
+                          className="group block py-5 border-b border-black/10 transition-colors duration-200"
                         >
                           <p className="text-xs font-semibold uppercase tracking-[0.15em] text-[#e8430a] mb-2">
                             {categoryLabels[a.category] ?? a.category}

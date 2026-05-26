@@ -94,7 +94,7 @@ export default async function UploadCvPage({
                 </p>
                 <a
                   href="tel:+31857826818"
-                  className="block text-center py-3 bg-black text-white text-xs font-semibold uppercase tracking-[0.12em] hover:bg-black/80 transition-colors"
+                  className="block text-center py-3 bg-[#e8430a] text-white text-xs font-semibold uppercase tracking-[0.12em] hover:bg-[#c73508] transition-colors"
                 >
                   +31 (0) 85 7826818
                 </a>

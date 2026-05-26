@@ -11,7 +11,21 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "contact" });
-  return { title: t("hero.title") };
+  return {
+    title: t("hero.title"),
+    description: t("hero.subtitle"),
+    alternates: {
+      languages: {
+        nl: "/nl/contact",
+        en: "/en/contact",
+        "x-default": "/nl/contact",
+      },
+    },
+    openGraph: {
+      title: `${t("hero.title")} | Q4S`,
+      description: t("hero.subtitle"),
+    },
+  };
 }
 
 export default async function ContactPage({
@@ -25,7 +39,7 @@ export default async function ContactPage({
   return (
     <>
       {/* ─── HERO ─── */}
-      <section className="bg-[#0d1f3c] text-white pt-[68px]">
+      <section className="bg-[#000000] text-white pt-[68px]">
         <div className="max-w-[1280px] mx-auto px-6 py-14 lg:py-20">
           <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-[#e8430a] mb-8">
             Q4S
@@ -49,26 +63,26 @@ export default async function ContactPage({
             {/* Left: Contact details */}
             <div className="space-y-0 border-t border-gray-100">
               <div className="py-8 border-b border-gray-100">
-                <h2 className="text-sm font-black uppercase tracking-[0.2em] text-[#0d1f3c] mb-5">
+                <h2 className="text-sm font-black uppercase tracking-[0.2em] text-[#000000] mb-5">
                   {t("details.title")}
                 </h2>
                 <div className="space-y-4">
                   <div className="flex items-start gap-3">
                     <MapPin size={16} className="text-[#e8430a] mt-0.5 shrink-0" />
                     <div>
-                      <p className="text-base font-black text-[#0d1f3c]">Q4S B.V.</p>
+                      <p className="text-base font-black text-[#000000]">Q4S B.V.</p>
                       <p className="text-base text-gray-500">{t("details.address")}</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-3">
                     <Mail size={16} className="text-[#e8430a] shrink-0" />
-                    <a href="mailto:info@q4s.nl" className="text-base font-semibold text-[#0d1f3c] hover:text-[#e8430a] transition-colors">
+                    <a href="mailto:info@q4s.nl" className="text-base font-semibold text-[#000000] hover:text-[#e8430a] transition-colors">
                       {t("details.email")}
                     </a>
                   </div>
                   <div className="flex items-center gap-3">
                     <Phone size={16} className="text-[#e8430a] shrink-0" />
-                    <a href="tel:+31857826818" className="text-base font-semibold text-[#0d1f3c] hover:text-[#e8430a] transition-colors">
+                    <a href="tel:+31857826818" className="text-base font-semibold text-[#000000] hover:text-[#e8430a] transition-colors">
                       {t("details.phone")}
                     </a>
                   </div>
@@ -80,7 +94,7 @@ export default async function ContactPage({
               </div>
 
               <div className="py-8 border-b border-gray-100">
-                <h3 className="text-sm font-black uppercase tracking-[0.2em] text-[#0d1f3c] mb-4">
+                <h3 className="text-sm font-black uppercase tracking-[0.2em] text-[#000000] mb-4">
                   {t("forEmployers.title")}
                 </h3>
                 <p className="text-base text-gray-500 mb-4 leading-relaxed">{t("forEmployers.body")}</p>
@@ -88,12 +102,12 @@ export default async function ContactPage({
                   href="/services"
                   className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.12em] text-[#e8430a] hover:text-[#c73508] transition-colors"
                 >
-                  Onze diensten <ArrowRight size={12} />
+                  {t("forEmployers.link")} <ArrowRight size={12} />
                 </Link>
               </div>
 
               <div className="py-8">
-                <h3 className="text-sm font-black uppercase tracking-[0.2em] text-[#0d1f3c] mb-4">
+                <h3 className="text-sm font-black uppercase tracking-[0.2em] text-[#000000] mb-4">
                   {t("forCandidates.title")}
                 </h3>
                 <p className="text-base text-gray-500 mb-4 leading-relaxed">{t("forCandidates.body")}</p>
@@ -101,7 +115,7 @@ export default async function ContactPage({
                   href="/upload-cv"
                   className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.12em] text-[#e8430a] hover:text-[#c73508] transition-colors"
                 >
-                  CV uploaden <ArrowRight size={12} />
+                  {t("forCandidates.link")} <ArrowRight size={12} />
                 </Link>
               </div>
             </div>

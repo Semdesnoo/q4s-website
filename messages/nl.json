@@ -118,10 +118,13 @@
     },
     "mission": {
       "title": "Missie & Visie",
+      "missionLabel": "Missie",
+      "visionLabel": "Visie",
       "mission": "Wij verbinden hooggekwalificeerde technische professionals met kritieke projecten, waarbij kwaliteit, naleving en prestaties centraal staan.",
       "vision": "Wij streven ernaar de meest vertrouwde partner te zijn voor technische werving en projectondersteuning in de industriële sector."
     },
     "values": {
+      "label": "Kernwaarden",
       "title": "Onze Kernwaarden",
       "items": [
         {
@@ -143,6 +146,7 @@
       ]
     },
     "team": {
+      "label": "Ons Team",
       "title": "Onze Aanpak",
       "body": "Het Q4S-team bestaat uit ervaren professionals met een achtergrond in de technische industrie. Wij spreken de taal van onze opdrachtgevers én onze kandidaten. Dat maakt het verschil."
     }
@@ -453,6 +457,7 @@
   },
   "ndt": {
     "hero": {
+      "label": "Specialisme",
       "title": "NDT — Non-Destructive Testing",
       "subtitle": "Specialistisch NDT-talent voor de meest veeleisende industriële omgevingen."
     },
@@ -517,7 +522,8 @@
     "cta": {
       "title": "Op zoek naar een NDT-specialist?",
       "body": "Neem contact op met Q4S en wij leveren de juiste gecertificeerde professional voor uw project.",
-      "button": "Neem contact op"
+      "button": "Neem contact op",
+      "uploadCv": "CV Uploaden"
     }
   },
   "news": {
@@ -528,6 +534,11 @@
     },
     "readMore": "Lees meer",
     "publishedOn": "Gepubliceerd op",
+    "allArticles": "Alle artikelen",
+    "moreArticles": "Meer artikelen",
+    "ctaTitle": "Op zoek naar technisch talent?",
+    "ctaBody": "Q4S levert gecertificeerde QA/QC en NDT professionals voor uw kritieke projecten.",
+    "ctaLink": "Neem contact op",
     "categories": {
       "all": "Alles",
       "industry": "Industrie",
@@ -623,11 +634,13 @@
     },
     "forEmployers": {
       "title": "Voor opdrachtgevers",
-      "body": "Bent u op zoek naar technisch talent voor uw project? Neem direct contact op en wij bespreken uw specifieke behoeften."
+      "body": "Bent u op zoek naar technisch talent voor uw project? Neem direct contact op en wij bespreken uw specifieke behoeften.",
+      "link": "Onze diensten"
     },
     "forCandidates": {
       "title": "Voor kandidaten",
-      "body": "Bent u een technische specialist op zoek naar een nieuwe uitdaging? Upload uw CV of neem contact op voor een kennismakingsgesprek."
+      "body": "Bent u een technische specialist op zoek naar een nieuwe uitdaging? Upload uw CV of neem contact op voor een kennismakingsgesprek.",
+      "link": "CV uploaden"
     }
   },
   "footer": {

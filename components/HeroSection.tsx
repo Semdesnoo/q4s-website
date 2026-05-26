@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useEffect, useRef } from "react";
 import { Link } from "@/i18n/navigation";
 import { ArrowRight } from "lucide-react";
 
@@ -33,17 +34,32 @@ export default function HeroSection({
   est,
 }: Props) {
   const words = tagline.split(" ");
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  // Set video src after hydration so it never blocks the initial paint / LCP
+  useEffect(() => {
+    const v = videoRef.current;
+    if (!v) return;
+    v.src = "/media/home/hero/hero.mp4";
+    v.load();
+    v.play().catch(() => {});
+  }, []);
 
   return (
     <section className="bg-black text-white pt-[68px] min-h-screen flex flex-col relative overflow-hidden">
-      {/* Grid background */}
-      <div className="absolute inset-0 hero-grid-bg pointer-events-none" />
+      {/* Background video — src is set via useEffect to avoid blocking LCP */}
+      <video
+        ref={videoRef}
+        className="absolute inset-0 w-full h-full object-cover"
+        muted
+        loop
+        playsInline
+        preload="none"
+        aria-hidden="true"
+      />
 
-      {/* Ambient glow — top right */}
-      <div className="absolute top-[-15%] right-[-5%] w-[60vw] h-[60vw] max-w-[700px] max-h-[700px] rounded-full pointer-events-none hero-glow hero-glow-top" />
-
-      {/* Ambient glow — bottom left */}
-      <div className="absolute bottom-[-10%] left-[-5%] w-[40vw] h-[40vw] max-w-[500px] max-h-[500px] rounded-full pointer-events-none hero-glow-bottom" />
+      {/* Dark overlay so text stays readable */}
+      <div className="absolute inset-0 bg-black/60 pointer-events-none" />
 
       {/* Main content */}
       <div className="max-w-[1280px] mx-auto px-6 flex-1 flex flex-col justify-center py-16 lg:py-20 relative z-10">
@@ -66,10 +82,10 @@ export default function HeroSection({
         </motion.div>
 
         {/* Headline — word by word reveal */}
-        <div className="mb-10 max-w-5xl">
+        <div className="mb-10 max-w-5xl pb-6">
           <h1 className="text-[clamp(48px,8vw,104px)] font-black leading-[0.95] tracking-[-0.04em] text-white flex flex-wrap hero-headline">
             {words.map((word, i) => (
-              <span key={i} className="overflow-hidden inline-block">
+              <span key={i} className="overflow-hidden inline-block pb-[0.15em] mb-[-0.15em]">
                 <motion.span
                   className="inline-block"
                   custom={i}

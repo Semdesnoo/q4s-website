@@ -11,7 +11,21 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "ndt" });
-  return { title: t("hero.title") };
+  return {
+    title: t("hero.title"),
+    description: t("hero.subtitle"),
+    alternates: {
+      languages: {
+        nl: "/nl/ndt",
+        en: "/en/ndt",
+        "x-default": "/nl/ndt",
+      },
+    },
+    openGraph: {
+      title: `${t("hero.title")} | Q4S`,
+      description: t("hero.subtitle"),
+    },
+  };
 }
 
 export default function NdtPage() {
@@ -24,10 +38,10 @@ export default function NdtPage() {
   return (
     <>
       {/* ─── HERO ─── */}
-      <section className="bg-[#0d1f3c] text-white pt-[68px]">
+      <section className="bg-[#000000] text-white pt-[68px]">
         <div className="max-w-[1280px] mx-auto px-6 py-14 lg:py-20">
           <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-[#e8430a] mb-8">
-            Q4S — Specialisme
+            Q4S — {t("hero.label")}
           </p>
           <div className="flex gap-5 items-stretch">
             <div className="w-1 bg-[#e8430a] shrink-0 self-stretch rounded-sm" />
@@ -62,10 +76,10 @@ export default function NdtPage() {
                 key={m.code}
                 className="bg-white p-8 hover:bg-[#e8430a] transition-all duration-300 group cursor-default"
               >
-                <div className="inline-flex items-center justify-center w-12 h-12 bg-[#0d1f3c] group-hover:bg-white text-white group-hover:text-[#e8430a] font-black text-sm mb-6 transition-colors duration-300">
+                <div className="inline-flex items-center justify-center w-12 h-12 bg-[#000000] group-hover:bg-white text-white group-hover:text-[#e8430a] font-black text-sm mb-6 transition-colors duration-300">
                   {m.code}
                 </div>
-                <h3 className="text-lg font-black text-[#0d1f3c] group-hover:text-white mb-3 tracking-[-0.02em] transition-colors duration-300">
+                <h3 className="text-lg font-black text-[#000000] group-hover:text-white mb-3 tracking-[-0.02em] transition-colors duration-300">
                   {m.title}
                 </h3>
                 <p className="text-base text-gray-500 group-hover:text-white/90 leading-relaxed transition-colors duration-300">
@@ -78,7 +92,7 @@ export default function NdtPage() {
       </section>
 
       {/* ─── EXPERTISE + SECTORS ─── */}
-      <section className="bg-[#0d1f3c] text-white py-20 lg:py-28">
+      <section className="bg-[#000000] text-white py-20 lg:py-28">
         <div className="max-w-[1280px] mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             {/* Expertise */}
@@ -125,7 +139,7 @@ export default function NdtPage() {
         <div className="max-w-[1280px] mx-auto px-6">
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-12">
             <div>
-              <h2 className="text-[clamp(32px,4.5vw,64px)] font-black leading-[0.95] tracking-[-0.04em] text-[#0d1f3c] mb-4">
+              <h2 className="text-[clamp(32px,4.5vw,64px)] font-black leading-[0.95] tracking-[-0.04em] text-[#000000] mb-4">
                 {t("cta.title")}
               </h2>
               <p className="text-gray-500 max-w-lg leading-relaxed">{t("cta.body")}</p>
@@ -140,9 +154,9 @@ export default function NdtPage() {
               </Link>
               <Link
                 href="/upload-cv"
-                className="group inline-flex items-center gap-2 px-6 py-3.5 border border-gray-200 text-[#0d1f3c] font-semibold text-sm uppercase tracking-[0.1em] hover:border-[#0d1f3c] hover:bg-gray-50 transition-colors"
+                className="group inline-flex items-center gap-2 px-6 py-3.5 border border-gray-200 text-[#000000] font-semibold text-sm uppercase tracking-[0.1em] hover:border-[#000000] hover:bg-gray-50 transition-colors"
               >
-                CV Uploaden
+                {t("cta.uploadCv")}
               </Link>
             </div>
           </div>

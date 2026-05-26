@@ -64,7 +64,7 @@ export default function HomePage() {
               <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-[#e8430a] mb-4">
                 {t("why.label")}
               </p>
-              <h2 className="text-[clamp(32px,4.5vw,60px)] font-black leading-[1.0] tracking-[-0.03em] text-[#0d1f3c]">
+              <h2 className="text-[clamp(32px,4.5vw,60px)] font-black leading-[1.0] tracking-[-0.03em] text-[#000000]">
                 {t("why.title")}
               </h2>
             </div>
@@ -80,7 +80,7 @@ export default function HomePage() {
       </section>
 
       {/* ─── SERVICES ─── */}
-      <section className="bg-[#0d1f3c] text-white py-24 lg:py-32">
+      <section className="bg-[#000000] text-white py-24 lg:py-32">
         <div className="max-w-[1280px] mx-auto px-6">
           <FadeInView className="flex flex-col lg:flex-row lg:items-end justify-between mb-16 gap-4">
             <div>
@@ -131,17 +131,17 @@ export default function HomePage() {
               </div>
             </FadeInView>
             <FadeInView delay={0.15}>
-              <blockquote className="text-[clamp(20px,3vw,36px)] font-bold leading-[1.2] tracking-[-0.02em] text-[#0d1f3c] mt-6 mb-10">
+              <blockquote className="text-[clamp(20px,3vw,36px)] font-bold leading-[1.2] tracking-[-0.02em] text-[#000000] mt-6 mb-10">
                 {t("testimonial.quote")}
               </blockquote>
             </FadeInView>
             <FadeInView delay={0.25}>
               <div className="flex items-center justify-center gap-4">
-                <div className="w-10 h-10 rounded-full bg-[#0d1f3c]/10 flex items-center justify-center text-sm font-bold text-[#0d1f3c]/40">
+                <div className="w-10 h-10 rounded-full bg-[#000000]/10 flex items-center justify-center text-sm font-bold text-[#000000]/40">
                   M
                 </div>
                 <div className="text-left">
-                  <p className="text-sm font-bold text-[#0d1f3c]">{t("testimonial.name")}</p>
+                  <p className="text-sm font-bold text-[#000000]">{t("testimonial.name")}</p>
                   <p className="text-xs text-gray-400 uppercase tracking-wider">
                     {t("testimonial.role")}
                   </p>
@@ -153,7 +153,7 @@ export default function HomePage() {
       </section>
 
       {/* ─── SECTOR HIGHLIGHTS ─── */}
-      <section className="bg-[#0d1f3c] text-white py-24 lg:py-32">
+      <section className="bg-[#000000] text-white py-24 lg:py-32">
         <div className="max-w-[1280px] mx-auto px-6">
           <FadeInView className="flex flex-col lg:flex-row lg:items-end justify-between mb-16 gap-4">
             <div>
@@ -175,7 +175,7 @@ export default function HomePage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-white/8">
             {sectorItems.map((sector, i) => (
               <FadeInView key={i} delay={i * 0.08} direction="up">
-                <div className="bg-[#0d1f3c] p-8 group hover:bg-white/5 transition-colors duration-300 h-full">
+                <div className="bg-[#000000] p-8 group hover:bg-white/5 transition-colors duration-300 h-full">
                   <div className="flex items-start justify-between mb-6">
                     <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#e8430a] border border-[#e8430a]/40 px-2 py-1">
                       {sector.tag}
@@ -203,7 +203,7 @@ export default function HomePage() {
               <p className="text-[13px] font-semibold uppercase tracking-[0.25em] text-[#e8430a] mb-6">
                 {t("cta.label")}
               </p>
-              <h2 className="text-[clamp(36px,5.5vw,80px)] font-black leading-[0.95] tracking-[-0.04em] text-[#0d1f3c]">
+              <h2 className="text-[clamp(36px,5.5vw,80px)] font-black leading-[0.95] tracking-[-0.04em] text-[#000000]">
                 {t("cta.title")}
               </h2>
             </div>
@@ -217,7 +217,7 @@ export default function HomePage() {
               </Link>
               <Link
                 href="/vacancies"
-                className="group inline-flex items-center gap-2 px-6 py-3.5 border border-gray-200 text-[#0d1f3c] font-semibold text-sm uppercase tracking-[0.1em] hover:border-[#0d1f3c] hover:bg-gray-50 active:scale-95 transition-all duration-200"
+                className="group inline-flex items-center gap-2 px-6 py-3.5 border border-gray-200 text-[#000000] font-semibold text-sm uppercase tracking-[0.1em] hover:border-[#000000] hover:bg-gray-50 active:scale-95 transition-all duration-200"
               >
                 {t("cta.candidate")}
                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
@@ -233,7 +233,7 @@ export default function HomePage() {
       </section>
 
       {/* ─── MAP ─── */}
-      <section className="bg-[#0d1f3c]">
+      <section className="bg-[#000000]">
         <div className="max-w-[1280px] mx-auto px-6 py-10">
           <div className="flex items-center justify-center mb-6">
             <a

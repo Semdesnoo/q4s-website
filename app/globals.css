@@ -1,10 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&display=swap");
 @import "tailwindcss";
 
 @theme {
   /* Q4S Brand Colors */
   --color-q4s-black: #000000;
-  --color-q4s-navy: #0d1f3c;
+  --color-q4s-navy: #000000;
   --color-q4s-darkgray: #111111;
   --color-q4s-anthracite: #222222;
   --color-q4s-gray: #555555;
@@ -14,9 +13,6 @@
   --color-q4s-offwhite: #f7f7f7;
   --color-white: #ffffff;
   --color-q4s-orange: #e8430a;
-
-  /* Typography */
-  --font-sans: "Inter", system-ui, sans-serif;
 }
 
 * {

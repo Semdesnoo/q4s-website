@@ -12,7 +12,21 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "wayWeWork" });
-  return { title: t("hero.title") };
+  return {
+    title: t("hero.title"),
+    description: t("hero.subtitle"),
+    alternates: {
+      languages: {
+        nl: "/nl/onze-aanpak",
+        en: "/en/way-we-work",
+        "x-default": "/nl/onze-aanpak",
+      },
+    },
+    openGraph: {
+      title: `${t("hero.title")} | Q4S`,
+      description: t("hero.subtitle"),
+    },
+  };
 }
 
 export default function WayWeWorkPage() {
@@ -27,7 +41,7 @@ export default function WayWeWorkPage() {
   return (
     <>
       {/* ─── HERO ─── */}
-      <section className="bg-[#0d1f3c] text-white pt-[68px]">
+      <section className="bg-[#000000] text-white pt-[68px]">
         <div className="max-w-[1280px] mx-auto px-6 py-14 lg:py-20">
           <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-[#e8430a] mb-8">
             Q4S Process
@@ -64,7 +78,7 @@ export default function WayWeWorkPage() {
       </section>
 
       {/* ─── FOR CANDIDATES ─── */}
-      <section className="bg-[#0d1f3c] text-white py-20 lg:py-28">
+      <section className="bg-[#000000] text-white py-20 lg:py-28">
         <div className="max-w-[1280px] mx-auto px-6">
           <p className="text-sm font-semibold uppercase tracking-[0.25em] text-[#e8430a] mb-12">
             {t("forCandidates.title")}
@@ -78,7 +92,7 @@ export default function WayWeWorkPage() {
         <div className="max-w-[1280px] mx-auto px-6">
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-12">
             <div>
-              <h2 className="text-[clamp(32px,4.5vw,64px)] font-black leading-[0.95] tracking-[-0.04em] text-[#0d1f3c] mb-4">
+              <h2 className="text-[clamp(32px,4.5vw,64px)] font-black leading-[0.95] tracking-[-0.04em] text-[#000000] mb-4">
                 {t("cta.title")}
               </h2>
               <p className="text-gray-500 max-w-lg leading-relaxed">{t("cta.body")}</p>
@@ -93,7 +107,7 @@ export default function WayWeWorkPage() {
               </Link>
               <Link
                 href="/upload-cv"
-                className="group inline-flex items-center gap-2 px-6 py-3.5 border border-gray-200 text-[#0d1f3c] font-semibold text-sm uppercase tracking-[0.1em] hover:border-[#0d1f3c] hover:bg-gray-50 transition-colors"
+                className="group inline-flex items-center gap-2 px-6 py-3.5 border border-gray-200 text-[#000000] font-semibold text-sm uppercase tracking-[0.1em] hover:border-[#000000] hover:bg-gray-50 transition-colors"
               >
                 {t("cta.uploadCv")}
               </Link>

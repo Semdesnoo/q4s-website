@@ -12,7 +12,21 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "about" });
-  return { title: t("hero.title") };
+  return {
+    title: t("hero.title"),
+    description: t("hero.subtitle"),
+    alternates: {
+      languages: {
+        nl: "/nl/over-ons",
+        en: "/en/about",
+        "x-default": "/nl/over-ons",
+      },
+    },
+    openGraph: {
+      title: `${t("hero.title")} | Q4S`,
+      description: t("hero.subtitle"),
+    },
+  };
 }
 
 export default function AboutPage() {
@@ -22,10 +36,10 @@ export default function AboutPage() {
   return (
     <>
       {/* ─── HERO ─── */}
-      <section className="bg-[#0d1f3c] text-white pt-[68px]">
+      <section className="bg-[#000000] text-white pt-[68px]">
         <div className="max-w-[1280px] mx-auto px-6 py-14 lg:py-20">
           <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-[#e8430a] mb-8">
-            Q4S — Quality Force
+            Q4S — {t("mission.title")}
           </p>
           <div className="flex gap-5 items-stretch">
             <div className="w-1 bg-[#e8430a] shrink-0 self-stretch rounded-sm" />
@@ -45,9 +59,9 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
             <div className="lg:col-span-7">
               <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-[#e8430a] mb-8">
-                Ons Verhaal
+                {t("story.title")}
               </p>
-              <h2 className="text-[clamp(28px,4vw,52px)] font-black leading-[1.0] tracking-[-0.03em] text-[#0d1f3c] mb-8">
+              <h2 className="text-[clamp(28px,4vw,52px)] font-black leading-[1.0] tracking-[-0.03em] text-[#000000] mb-8">
                 {t("story.title")}
               </h2>
               {t("story.body").split("\n\n").map((para, i) => (
@@ -59,17 +73,17 @@ export default function AboutPage() {
             <div className="lg:col-span-5 space-y-0 border-t border-gray-100">
               <div className="py-8 border-b border-gray-100">
                 <p className="text-sm font-black uppercase tracking-[0.08em] text-[#e8430a] mb-4">
-                  Missie
+                  {t("mission.missionLabel")}
                 </p>
-                <p className="text-base text-[#0d1f3c] font-semibold leading-relaxed">
+                <p className="text-base text-[#000000] font-semibold leading-relaxed">
                   {t("mission.mission")}
                 </p>
               </div>
               <div className="py-8">
                 <p className="text-sm font-black uppercase tracking-[0.08em] text-[#e8430a] mb-4">
-                  Visie
+                  {t("mission.visionLabel")}
                 </p>
-                <p className="text-base text-[#0d1f3c] font-semibold leading-relaxed">
+                <p className="text-base text-[#000000] font-semibold leading-relaxed">
                   {t("mission.vision")}
                 </p>
               </div>
@@ -79,10 +93,10 @@ export default function AboutPage() {
       </section>
 
       {/* ─── VALUES ─── */}
-      <section className="bg-[#0d1f3c] text-white py-24 lg:py-32">
+      <section className="bg-[#000000] text-white py-24 lg:py-32">
         <div className="max-w-[1280px] mx-auto px-6">
           <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-[#e8430a] mb-6">
-            Kernwaarden
+            {t("values.label")}
           </p>
           <h2 className="text-[clamp(28px,4vw,52px)] font-black leading-[1.0] tracking-[-0.03em] text-white mb-16 max-w-lg">
             {t("values.title")}
@@ -97,9 +111,9 @@ export default function AboutPage() {
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-12">
             <div className="max-w-2xl">
               <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-[#e8430a] mb-6">
-                Ons Team
+                {t("team.label")}
               </p>
-              <h2 className="text-[clamp(32px,4.5vw,64px)] font-black leading-[0.95] tracking-[-0.04em] text-[#0d1f3c] mb-6">
+              <h2 className="text-[clamp(32px,4.5vw,64px)] font-black leading-[0.95] tracking-[-0.04em] text-[#000000] mb-6">
                 {t("team.title")}
               </h2>
               <p className="text-base text-gray-500 leading-relaxed max-w-lg">

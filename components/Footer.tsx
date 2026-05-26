@@ -6,7 +6,7 @@ export default function Footer() {
   const t = useTranslations("footer");
 
   return (
-    <footer className="bg-[#0d1f3c] text-white">
+    <footer className="bg-[#000000] text-white">
       <div className="border-t border-white/8" />
 
       <div className="max-w-[1280px] mx-auto px-6 py-16">
@@ -134,7 +134,7 @@ export default function Footer() {
               {
                 label: "SNA",
                 sub: t("snaSub"),
-                href: "https://docs.google.com/viewerng/viewer?url=http://q4s.nl/onewebmedia/SNA_VerklaringVanRegistratie%25209-05-2023.pdf",
+                href: "https://docs.google.com/viewerng/viewer?url=http://q4s.nl/onewebmedia/SNA_VerklaringVanRegistratie%25209-05-2023.pdf&_r=2",
                 icon: (
                   <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                     <rect x="3" y="3" width="18" height="18" rx="2"/>

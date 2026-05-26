@@ -186,7 +186,7 @@ export default function UploadCvForm({ t }: Props) {
       <button
         type="submit"
         disabled={status === "loading"}
-        className="w-full h-12 bg-black text-white text-xs font-semibold uppercase tracking-[0.15em] hover:bg-black/80 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+        className="w-full h-12 bg-[#e8430a] text-white text-xs font-semibold uppercase tracking-[0.15em] hover:bg-[#c73508] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
       >
         {status === "loading" ? t.submitting : t.submit}
       </button>

@@ -16,10 +16,24 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale, id } = await params;
   const t = await getTranslations({ locale, namespace: "vacancies" });
-  const list = t.raw("list") as Array<{ id: string; title: string }>;
+  const list = t.raw("list") as Array<{ id: string; title: string; description: string; location: string }>;
   const vacancy = list.find((v) => v.id === id);
   if (!vacancy) return { title: t("noResults") };
-  return { title: `${vacancy.title} | ${t("hero.label")}` };
+  return {
+    title: `${vacancy.title} | ${t("hero.label")}`,
+    description: vacancy.description,
+    alternates: {
+      languages: {
+        nl: `/nl/vacatures/${id}`,
+        en: `/en/vacancies/${id}`,
+        "x-default": `/nl/vacatures/${id}`,
+      },
+    },
+    openGraph: {
+      title: `${vacancy.title} | Q4S`,
+      description: vacancy.description,
+    },
+  };
 }
 
 export default async function VacancyDetailPage({
@@ -65,8 +79,46 @@ export default async function VacancyDetailPage({
     Permanent: "border-green-400/40 text-green-300",
   };
 
+  const jobPostingSchema = {
+    "@context": "https://schema.org",
+    "@type": "JobPosting",
+    title: vacancy.title,
+    description: vacancy.about,
+    datePosted: vacancy.posted,
+    hiringOrganization: {
+      "@type": "Organization",
+      name: "Q4S B.V.",
+      sameAs: "https://q4s.nl",
+      logo: "https://q4s.nl/q4s-logo.png",
+    },
+    jobLocation: {
+      "@type": "Place",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: vacancy.location,
+        addressCountry: "NL",
+      },
+    },
+    employmentType:
+      vacancy.type === "Permanent"
+        ? "FULL_TIME"
+        : vacancy.type === "Contract"
+        ? "CONTRACTOR"
+        : "OTHER",
+    baseSalary: vacancy.salary
+      ? { "@type": "MonetaryAmount", currency: "EUR", value: vacancy.salary }
+      : undefined,
+    industry: vacancy.discipline,
+    occupationalCategory: vacancy.discipline,
+    url: `https://q4s.nl/${locale === "nl" ? `nl/vacatures` : `en/vacancies`}/${vacancy.id}`,
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jobPostingSchema) }}
+      />
       {/* ─── HERO ─── */}
       <section className="bg-black text-white pt-[68px]">
         <div className="max-w-[1280px] mx-auto px-6 py-16 lg:py-24">

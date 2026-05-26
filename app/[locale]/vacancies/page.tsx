@@ -9,7 +9,21 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "vacancies" });
-  return { title: t("hero.title") };
+  return {
+    title: t("hero.title"),
+    description: t("hero.subtitle"),
+    alternates: {
+      languages: {
+        nl: "/nl/vacatures",
+        en: "/en/vacancies",
+        "x-default": "/nl/vacatures",
+      },
+    },
+    openGraph: {
+      title: `${t("hero.title")} | Q4S`,
+      description: t("hero.subtitle"),
+    },
+  };
 }
 
 export default async function VacanciesPage({
@@ -23,7 +37,7 @@ export default async function VacanciesPage({
   return (
     <>
       {/* ─── HERO ─── */}
-      <section className="bg-[#0d1f3c] text-white pt-[68px]">
+      <section className="bg-[#000000] text-white pt-[68px]">
         <div className="max-w-[1280px] mx-auto px-4 sm:px-6 py-14 lg:py-20">
           <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-[#e8430a] mb-8">
             {t("hero.label")}

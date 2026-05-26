@@ -123,9 +123,15 @@ export default function VacanciesClient({ translations: tr, locale, vacancyList 
               {filtered.map((v) => (
                 <div
                   key={v.id}
-                  className="group border-b border-black/10 py-8 hover:bg-black/[0.02] transition-colors duration-200"
+                  className="group relative border-b border-black/10 py-8 hover:bg-black/[0.02] transition-colors duration-200 cursor-pointer"
                 >
-                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                  {/* Full-row clickable area → vacancy detail */}
+                  <Link
+                    href={{ pathname: "/vacancies/[id]", params: { id: v.id } }}
+                    className="absolute inset-0 z-0"
+                    aria-label={v.title}
+                  />
+                  <div className="relative z-10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                     <div className="flex-1 min-w-0">
                       <div className="flex flex-wrap gap-2 mb-3">
                         <span className="text-[10px] font-semibold uppercase tracking-[0.15em] px-2.5 py-1 border border-black/15 text-black/50">
@@ -164,7 +170,7 @@ export default function VacanciesClient({ translations: tr, locale, vacancyList 
                       </Link>
                       <Link
                         href={{ pathname: "/contact", query: { vacancy: v.id } }}
-                        className="group/btn inline-flex items-center gap-1.5 px-3 py-2 sm:px-5 sm:py-2.5 bg-black text-white text-[10px] sm:text-xs font-semibold uppercase tracking-[0.08em] sm:tracking-[0.1em] hover:bg-black/80 transition-colors duration-200"
+                        className="group/btn inline-flex items-center gap-1.5 px-3 py-2 sm:px-5 sm:py-2.5 bg-[#e8430a] text-white text-[10px] sm:text-xs font-semibold uppercase tracking-[0.08em] sm:tracking-[0.1em] hover:bg-[#c73508] transition-colors duration-200"
                       >
                         {tr.applyNow}
                         <ArrowRight size={12} className="group-hover/btn:translate-x-1 transition-transform" />

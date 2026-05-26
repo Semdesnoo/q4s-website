@@ -12,7 +12,21 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "services" });
-  return { title: t("hero.title") };
+  return {
+    title: t("hero.title"),
+    description: t("hero.subtitle"),
+    alternates: {
+      languages: {
+        nl: "/nl/diensten",
+        en: "/en/services",
+        "x-default": "/nl/diensten",
+      },
+    },
+    openGraph: {
+      title: `${t("hero.title")} | Q4S`,
+      description: t("hero.subtitle"),
+    },
+  };
 }
 
 export default function ServicesPage() {
@@ -27,7 +41,7 @@ export default function ServicesPage() {
   return (
     <>
       {/* ─── HERO ─── */}
-      <section className="bg-[#0d1f3c] text-white pt-[68px]">
+      <section className="bg-[#000000] text-white pt-[68px]">
         <div className="max-w-[1280px] mx-auto px-6 py-14 lg:py-20">
           <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-[#e8430a] mb-8">
             {t("hero.label")}
@@ -61,7 +75,7 @@ export default function ServicesPage() {
       </section>
 
       {/* ─── CTA ─── */}
-      <section className="bg-[#0d1f3c] text-white py-24 lg:py-32">
+      <section className="bg-[#000000] text-white py-24 lg:py-32">
         <div className="max-w-[1280px] mx-auto px-6">
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-12">
             <div>

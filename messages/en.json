@@ -94,10 +94,13 @@
     },
     "mission": {
       "title": "Mission & Vision",
+      "missionLabel": "Mission",
+      "visionLabel": "Vision",
       "mission": "We connect highly qualified technical professionals with critical projects, with quality, compliance and performance at the centre.",
       "vision": "We strive to be the most trusted partner for technical recruitment and project support in the industrial sector."
     },
     "values": {
+      "label": "Core Values",
       "title": "Our Core Values",
       "items": [
         { "title": "Quality", "desc": "We deliver no compromises. Every professional we place meets the highest standards." },
@@ -107,6 +110,7 @@
       ]
     },
     "team": {
+      "label": "Our Team",
       "title": "Our Approach",
       "body": "The Q4S team consists of experienced professionals with a background in the technical industry. We speak the language of our clients and our candidates. That makes the difference."
     }
@@ -362,6 +366,7 @@
   },
   "ndt": {
     "hero": {
+      "label": "Specialism",
       "title": "NDT — Non-Destructive Testing",
       "subtitle": "Specialist NDT talent for the most demanding industrial environments."
     },
@@ -395,7 +400,8 @@
     "cta": {
       "title": "Looking for an NDT specialist?",
       "body": "Contact Q4S and we will deliver the right certified professional for your project.",
-      "button": "Get in touch"
+      "button": "Get in touch",
+      "uploadCv": "Upload CV"
     }
   },
   "news": {
@@ -406,6 +412,11 @@
     },
     "readMore": "Read more",
     "publishedOn": "Published on",
+    "allArticles": "All articles",
+    "moreArticles": "More articles",
+    "ctaTitle": "Looking for technical talent?",
+    "ctaBody": "Q4S delivers certified QA/QC and NDT professionals for your critical projects.",
+    "ctaLink": "Get in touch",
     "categories": {
       "all": "All",
       "industry": "Industry",
@@ -496,11 +507,13 @@
     },
     "forEmployers": {
       "title": "For clients",
-      "body": "Are you looking for technical talent for your project? Get in touch directly and we'll discuss your specific needs."
+      "body": "Are you looking for technical talent for your project? Get in touch directly and we'll discuss your specific needs.",
+      "link": "Our services"
     },
     "forCandidates": {
       "title": "For candidates",
-      "body": "Are you a technical specialist looking for a new challenge? Upload your CV or get in touch for an introductory meeting."
+      "body": "Are you a technical specialist looking for a new challenge? Upload your CV or get in touch for an introductory meeting.",
+      "link": "Upload CV"
     }
   },
   "footer": {

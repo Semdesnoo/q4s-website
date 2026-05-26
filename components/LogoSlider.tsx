@@ -35,8 +35,8 @@ function LogoItem({ logo }: { logo: typeof logos[number] }) {
 
   if (failed) {
     return (
-      <div className="flex items-center justify-center h-10 px-6 min-w-[140px]">
-        <span className="text-sm font-bold uppercase tracking-wider text-white/60 whitespace-nowrap">
+      <div className="flex items-center justify-center h-10 w-[180px] shrink-0">
+        <span className="text-[11px] font-bold uppercase tracking-[0.15em] text-white/50 whitespace-nowrap">
           {logo.name}
         </span>
       </div>
@@ -44,7 +44,7 @@ function LogoItem({ logo }: { logo: typeof logos[number] }) {
   }
 
   return (
-    <div className="flex items-center justify-center h-10 px-6 min-w-[140px]">
+    <div className="flex items-center justify-center h-10 w-[180px] shrink-0">
       <Image
         src={`/logos/${logo.file}.${logo.ext}`}
         alt={logo.name}

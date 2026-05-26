@@ -50,7 +50,7 @@ export default function WhyCards({ items }: { items: WhyItem[] }) {
           <motion.div
             key={i}
             variants={cardVariant}
-            className="group bg-white hover:bg-[#0d1f3c] transition-colors duration-500 p-10 flex flex-col cursor-default border border-gray-100 group-hover:border-[#0d1f3c]"
+            className="group bg-white hover:bg-[#000000] transition-colors duration-500 p-10 flex flex-col cursor-default border border-gray-100 group-hover:border-[#000000]"
           >
             <span className="text-[#e8430a] mb-8 block group-hover:scale-110 transition-transform duration-300 w-fit">
               <Icon size={28} strokeWidth={1.5} />
@@ -60,7 +60,7 @@ export default function WhyCards({ items }: { items: WhyItem[] }) {
               {String(i + 1).padStart(2, "0")}
             </span>
 
-            <h3 className="text-xl font-black text-[#0d1f3c] group-hover:text-white tracking-[-0.02em] mb-3 transition-colors duration-500">
+            <h3 className="text-xl font-black text-[#000000] group-hover:text-white tracking-[-0.02em] mb-3 transition-colors duration-500">
               {item.title}
             </h3>
 

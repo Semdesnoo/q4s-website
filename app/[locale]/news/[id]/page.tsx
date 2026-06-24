@@ -40,10 +40,11 @@ export async function generateMetadata({
     title: `${article.title} | Q4S`,
     description: article.excerpt,
     alternates: {
+      canonical: locale === "nl" ? `/nl/nieuws/${id}` : `/en/news/${id}`,
       languages: {
+        "x-default": `/nl/nieuws/${id}`,
         nl: `/nl/nieuws/${id}`,
         en: `/en/news/${id}`,
-        "x-default": `/nl/nieuws/${id}`,
       },
     },
     openGraph: {

@@ -13,10 +13,11 @@ export async function generateMetadata({
     title: t("hero.title"),
     description: t("hero.subtitle"),
     alternates: {
+      canonical: locale === "nl" ? "/nl/vacatures" : "/en/vacancies",
       languages: {
+        "x-default": "/nl/vacatures",
         nl: "/nl/vacatures",
         en: "/en/vacancies",
-        "x-default": "/nl/vacatures",
       },
     },
     openGraph: {

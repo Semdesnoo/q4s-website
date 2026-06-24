@@ -76,10 +76,10 @@ export default function Header() {
         {/* Logo */}
         <Link href="/" className="flex items-center shrink-0">
           <Image
-            src="/Q4S-Transparent.png"
+            src="/q4slogoOriginalNEW.jpg"
             alt="Q4S"
-            width={120}
-            height={60}
+            width={150}
+            height={111}
             className="h-14 w-auto object-contain"
             priority
           />

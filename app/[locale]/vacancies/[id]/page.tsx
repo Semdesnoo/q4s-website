@@ -23,10 +23,11 @@ export async function generateMetadata({
     title: `${vacancy.title} | ${t("hero.label")}`,
     description: vacancy.description,
     alternates: {
+      canonical: locale === "nl" ? `/nl/vacatures/${id}` : `/en/vacancies/${id}`,
       languages: {
+        "x-default": `/nl/vacatures/${id}`,
         nl: `/nl/vacatures/${id}`,
         en: `/en/vacancies/${id}`,
-        "x-default": `/nl/vacatures/${id}`,
       },
     },
     openGraph: {

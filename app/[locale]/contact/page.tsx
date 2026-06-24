@@ -15,10 +15,11 @@ export async function generateMetadata({
     title: t("hero.title"),
     description: t("hero.subtitle"),
     alternates: {
+      canonical: `/${locale}/contact`,
       languages: {
+        "x-default": "/nl/contact",
         nl: "/nl/contact",
         en: "/en/contact",
-        "x-default": "/nl/contact",
       },
     },
     openGraph: {

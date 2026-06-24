@@ -136,17 +136,9 @@ export default function HomePage() {
               </blockquote>
             </FadeInView>
             <FadeInView delay={0.25}>
-              <div className="flex items-center justify-center gap-4">
-                <div className="w-10 h-10 rounded-full bg-[#000000]/10 flex items-center justify-center text-sm font-bold text-[#000000]/40">
-                  M
-                </div>
-                <div className="text-left">
-                  <p className="text-sm font-bold text-[#000000]">{t("testimonial.name")}</p>
-                  <p className="text-xs text-gray-400 uppercase tracking-wider">
-                    {t("testimonial.role")}
-                  </p>
-                </div>
-              </div>
+              <p className="text-xs text-gray-400 uppercase tracking-wider text-center">
+                {t("testimonial.role")}
+              </p>
             </FadeInView>
           </div>
         </div>

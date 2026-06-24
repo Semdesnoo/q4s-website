@@ -59,7 +59,6 @@
     },
     "testimonial": {
       "quote": "Q4S provided us with three highly qualified inspectors within two weeks. Professional, fast and reliable — exactly what we needed.",
-      "name": "Martin de Vries",
       "role": "Project Manager, Technip Energies"
     },
     "sectors": {
@@ -120,7 +119,7 @@
     "hero": {
       "label": "Q4S Services",
       "title": "Our Services",
-      "subtitle": "Specialist technical talent for your most critical projects."
+      "subtitle": "Technical recruitment, secondment, NDT consultancy and source inspection for the industrial sector."
     },
     "intro": "Q4S offers a full spectrum of recruitment and secondment solutions for the industrial and infrastructure sector. We deliver professionals who not only master the technology, but also understand what is at stake.",
     "items": [
@@ -231,7 +230,7 @@
     "hero": {
       "label": "Q4S Vacancies",
       "title": "Vacancies & Assignments",
-      "subtitle": "Discover open positions for technical specialists worldwide."
+      "subtitle": "Open positions for QA/QC inspectors, NDT specialists and technical personnel in the Netherlands and internationally."
     },
     "search": {
       "placeholder": "Search by job title, location or discipline...",
@@ -380,7 +379,7 @@
     "hero": {
       "label": "Specialism",
       "title": "NDT — Non-Destructive Testing",
-      "subtitle": "Specialist NDT talent for the most demanding industrial environments."
+      "subtitle": "Certified NDT inspectors (Level II & III) for secondment and project support in the industrial sector."
     },
     "intro": "Non-Destructive Testing is a critical discipline in industrial quality surveillance. Q4S delivers certified NDT inspectors and consultants who can perform the most complex inspections — from offshore platforms to petrochemical installations.",
     "methods": {

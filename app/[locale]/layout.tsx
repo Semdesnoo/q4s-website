@@ -22,21 +22,30 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "home" });
+
+  const defaultTitle =
+    locale === "nl"
+      ? "Q4S | Technische Werving & Detachering | QA/QC Specialisten"
+      : "Q4S | Technical Recruitment & Secondment | QA/QC Specialists";
+
+  const defaultDescription =
+    locale === "nl"
+      ? "Q4S is gespecialiseerd in technische werving en detachering voor de industriële sector. Wij plaatsen QA/QC inspecteurs, NDT-specialisten en technisch personeel voor kritieke projecten in Nederland en internationaal."
+      : "Q4S specialises in technical recruitment and secondment for the industrial sector. We place QA/QC inspectors, NDT specialists and technical personnel for critical projects in the Netherlands and internationally.";
 
   return {
     title: {
-      default: "Q4S — Technical Talent for Critical Projects",
+      default: defaultTitle,
       template: "%s | Q4S",
     },
-    description: t("hero.intro"),
+    description: defaultDescription,
     metadataBase: new URL("https://q4s.nl"),
     alternates: {
       canonical: locale === "nl" ? "/nl" : "/en",
       languages: {
+        "x-default": "/nl",
         nl: "/nl",
         en: "/en",
-        "x-default": "/nl",
       },
     },
     openGraph: {
@@ -76,15 +85,15 @@ export default async function LocaleLayout({
 
   const organizationSchema = {
     "@context": "https://schema.org",
-    "@type": ["Organization", "LocalBusiness", "ProfessionalService"],
+    "@type": ["Organization", "EmploymentAgency", "LocalBusiness"],
     name: "Q4S B.V.",
     alternateName: "Q4S",
     url: "https://q4s.nl",
     logo: "https://q4s.nl/q4s-logo.png",
     description:
       locale === "nl"
-        ? "Q4S B.V. verbindt hooggekwalificeerde technische professionals met complexe industriële en infrastructuurprojecten. Gespecialiseerd in QA/QC, NDT, Source Inspection en technische werving."
-        : "Q4S B.V. connects highly qualified technical professionals with complex industrial and infrastructure projects. Specialised in QA/QC, NDT, Source Inspection and technical recruitment.",
+        ? "Q4S B.V. is gespecialiseerd in technische werving en detachering voor de industriële sector. Wij plaatsen QA/QC inspecteurs, NDT-specialisten en technisch personeel voor kritieke projecten in Nederland en internationaal."
+        : "Q4S B.V. specialises in technical recruitment and secondment for the industrial sector. We place QA/QC inspectors, NDT specialists and technical personnel for critical projects in the Netherlands and internationally.",
     foundingDate: "2015",
     address: {
       "@type": "PostalAddress",
@@ -102,12 +111,60 @@ export default async function LocaleLayout({
     },
     sameAs: [],
     areaServed: ["NL", "BE", "DE", "NO", "GB"],
-    serviceType: [
+    knowsAbout: [
       "Technical Recruitment",
-      "QA/QC Staffing",
-      "NDT Consultancy",
-      "Source Inspection",
       "Technical Secondment",
+      "QA/QC",
+      "NDT",
+      "Source Inspection",
+      "Welding Inspection",
+      "Detachering",
+    ],
+    makesOffer: [
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: locale === "nl" ? "Technische Werving & Selectie" : "Technical Recruitment & Selection",
+          description:
+            locale === "nl"
+              ? "Gerichte werving van QA/QC professionals, NDT-inspecteurs en technische specialisten voor vaste en tijdelijke posities."
+              : "Targeted recruitment of QA/QC professionals, NDT inspectors and technical specialists for permanent and temporary positions.",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: locale === "nl" ? "Detachering Technisch Personeel" : "Technical Staffing & Secondment",
+          description:
+            locale === "nl"
+              ? "Flexibele detachering van hooggekwalificeerd technisch personeel voor industriële projecten. Volledig ontzorgd — contract, loon en verzekering."
+              : "Flexible secondment of highly qualified technical personnel for industrial projects. Fully managed — contract, payroll and insurance.",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: locale === "nl" ? "NDT Consultancy" : "NDT Consultancy",
+          description:
+            locale === "nl"
+              ? "Gecertificeerde NDT-inspecteurs (Level II & III) voor UT, RT, MT, PT en visuele inspectie."
+              : "Certified NDT inspectors (Level II & III) for UT, RT, MT, PT and visual inspection.",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Source Inspection & Expediting",
+          description:
+            locale === "nl"
+              ? "Onafhankelijke source inspecteurs die leveranciersprestaties bewaken bij leveranciers wereldwijd."
+              : "Independent source inspectors monitoring supplier performance at supplier sites worldwide.",
+        },
+      },
     ],
   };
 

@@ -86,7 +86,6 @@
     },
     "testimonial": {
       "quote": "Q4S heeft ons binnen twee weken voorzien van drie hooggekwalificeerde inspecteurs. Professioneel, snel en betrouwbaar — precies wat wij nodig hadden.",
-      "name": "Martin de Vries",
       "role": "Project Manager, Technip Energies"
     },
     "sectors": {
@@ -159,7 +158,7 @@
     "hero": {
       "label": "Q4S Diensten",
       "title": "Onze Diensten",
-      "subtitle": "Specialistisch technisch talent voor uw meest kritieke projecten."
+      "subtitle": "Technische werving, detachering, NDT consultancy en source inspection voor de industriële sector."
     },
     "intro": "Q4S biedt een volledig spectrum aan recruitment- en detacheringsoplossingen voor de industriële en infrastructuursector. Wij leveren professionals die niet alleen de techniek beheersen, maar ook begrijpen wat er op het spel staat.",
     "items": [
@@ -311,7 +310,7 @@
     "hero": {
       "label": "Q4S Vacatures",
       "title": "Vacatures & Opdrachten",
-      "subtitle": "Ontdek openstaande posities voor technische specialists wereldwijd."
+      "subtitle": "Openstaande posities voor QA/QC inspecteurs, NDT-specialisten en technisch personeel in Nederland en internationaal."
     },
     "search": {
       "placeholder": "Zoek op functietitel, locatie of discipline...",
@@ -474,7 +473,7 @@
     "hero": {
       "label": "Specialisme",
       "title": "NDT — Non-Destructive Testing",
-      "subtitle": "Specialistisch NDT-talent voor de meest veeleisende industriële omgevingen."
+      "subtitle": "Gecertificeerde NDT-inspecteurs (Level II & III) voor detachering en projectondersteuning in de industriële sector."
     },
     "intro": "Non-Destructive Testing is een kritieke discipline in de industriële kwaliteitsbewaking. Q4S levert gecertificeerde NDT-inspecteurs en -consultants die de meest complexe inspecties kunnen uitvoeren — van offshore platforms tot petrochemische installaties.",
     "methods": {

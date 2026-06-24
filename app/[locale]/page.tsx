@@ -157,7 +157,7 @@ export default function HomePage() {
               </h2>
             </div>
             <Link
-              href="/ndt"
+              href={{ pathname: "/services", hash: "ndt" }}
               className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.15em] text-white/70 hover:text-white transition-colors shrink-0"
             >
               {t("sectors.ndtLink")} <ArrowUpRight size={14} />

@@ -14,7 +14,6 @@ const staticRoutes: SitemapEntry[] = [
   { nl: "/nl",             en: "/en",             priority: 1.0,  changeFrequency: "daily"   },
   { nl: "/nl/diensten",    en: "/en/services",    priority: 1.0,  changeFrequency: "weekly"  },
   { nl: "/nl/vacatures",   en: "/en/vacancies",   priority: 0.95, changeFrequency: "daily"   },
-  { nl: "/nl/ndt",         en: "/en/ndt",         priority: 0.85, changeFrequency: "monthly" },
   { nl: "/nl/over-ons",    en: "/en/about",       priority: 0.8,  changeFrequency: "monthly" },
   { nl: "/nl/nieuws",      en: "/en/news",        priority: 0.8,  changeFrequency: "weekly"  },
   { nl: "/nl/contact",     en: "/en/contact",     priority: 0.8,  changeFrequency: "monthly" },

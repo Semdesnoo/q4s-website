@@ -1,20 +1,14 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { useTranslations, useLocale } from "next-intl";
-import { usePathname, useRouter } from "next/navigation";
-import { Menu, X, ChevronDown } from "lucide-react";
-import { Link } from "@/i18n/navigation";
+import { useParams } from "next/navigation";
+import { Menu, X } from "lucide-react";
+import { Link, usePathname, useRouter } from "@/i18n/navigation";
 
-const dienstenItems = [
-  { key: "ourServices", href: "/services" },
-  { key: "wayWeWork", href: "/way-we-work" },
-  { key: "ndt", href: "/ndt" },
-  { key: "vacancies", href: "/vacancies" },
-] as const;
-
-const topNavKeys = [
+const navItems = [
+  { key: "services", href: "/services" },
   { key: "about", href: "/about" },
   { key: "news", href: "/news" },
   { key: "contact", href: "/contact" },
@@ -24,12 +18,10 @@ export default function Header() {
   const t = useTranslations("nav");
   const locale = useLocale();
   const pathname = usePathname();
+  const params = useParams();
   const router = useRouter();
   const [menuOpen, setMenuOpen] = useState(false);
-  const [dienstenOpen, setDienstenOpen] = useState(false);
-  const [mobileDienstenOpen, setMobileDienstenOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -39,29 +31,18 @@ export default function Header() {
 
   useEffect(() => {
     setMenuOpen(false);
-    setDienstenOpen(false);
-    setMobileDienstenOpen(false);
   }, [pathname]);
-
-  useEffect(() => {
-    function handleClick(e: MouseEvent) {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
-        setDienstenOpen(false);
-      }
-    }
-    document.addEventListener("mousedown", handleClick);
-    return () => document.removeEventListener("mousedown", handleClick);
-  }, []);
 
   function switchLocale() {
     const next = locale === "nl" ? "en" : "nl";
-    const pathWithoutLocale = pathname.replace(/^\/(nl|en)/, "") || "/";
-    router.push(`/${next}${pathWithoutLocale}`);
+    router.replace(
+      { pathname, params } as unknown as Parameters<typeof router.replace>[0],
+      { locale: next }
+    );
   }
 
-  const isDienstenActive = dienstenItems.some(({ href }) =>
-    pathname.includes(href.replace(/^\//, ""))
-  );
+  const isActive = (href: string) =>
+    pathname === href || pathname.startsWith(href + "/");
 
   return (
     <header
@@ -87,83 +68,39 @@ export default function Header() {
 
         {/* Desktop Nav */}
         <nav className="hidden lg:flex items-center gap-0">
-          {/* Diensten dropdown */}
-          <div ref={dropdownRef} className="relative">
+          {navItems.map(({ key, href }) => (
             <Link
-              href="/services"
-              onMouseEnter={() => setDienstenOpen(true)}
-              onMouseLeave={() => setDienstenOpen(false)}
-              className={`flex items-center gap-1 px-4 py-2 text-xs font-bold uppercase tracking-[0.12em] transition-colors duration-200 ${
-                isDienstenActive ? "text-[#e8430a]" : "text-gray-600 hover:text-[#e8430a]"
+              key={key}
+              href={href}
+              className={`px-4 py-2 text-xs font-bold uppercase tracking-[0.12em] transition-colors duration-200 ${
+                isActive(href) ? "text-[#e8430a]" : "text-gray-600 hover:text-[#e8430a]"
               }`}
             >
-              {t("services")}
-              <ChevronDown
-                size={12}
-                className={`transition-transform duration-200 ${dienstenOpen ? "rotate-180" : ""}`}
-              />
+              {t(key)}
             </Link>
-
-            {/* Dropdown panel */}
-            <div
-              onMouseEnter={() => setDienstenOpen(true)}
-              onMouseLeave={() => setDienstenOpen(false)}
-              className={`absolute top-full left-0 mt-0 w-52 bg-white border border-gray-100 shadow-xl transition-all duration-200 ${
-                dienstenOpen
-                  ? "opacity-100 translate-y-0 pointer-events-auto"
-                  : "opacity-0 -translate-y-2 pointer-events-none"
-              }`}
-            >
-              {dienstenItems.map(({ key, href }) => {
-                const isActive = pathname.includes(href.replace(/^\//, ""));
-                return (
-                  <Link
-                    key={key}
-                    href={href as "/"}
-                    className={`block px-5 py-3.5 text-xs font-bold uppercase tracking-[0.12em] transition-colors duration-150 border-b border-gray-50 last:border-0 ${
-                      isActive
-                        ? "text-[#e8430a] bg-orange-50"
-                        : "text-gray-600 hover:text-[#e8430a] hover:bg-gray-50"
-                    }`}
-                  >
-                    {t(key)}
-                  </Link>
-                );
-              })}
-            </div>
-          </div>
-
-          {/* Top-level nav items */}
-          {topNavKeys.map(({ key, href }) => {
-            const isActive = pathname.includes(href.replace(/^\//, ""));
-            return (
-              <Link
-                key={key}
-                href={href as "/"}
-                className={`px-4 py-2 text-xs font-bold uppercase tracking-[0.12em] transition-colors duration-200 ${
-                  isActive ? "text-[#e8430a]" : "text-gray-600 hover:text-[#e8430a]"
-                }`}
-              >
-                {t(key)}
-              </Link>
-            );
-          })}
+          ))}
         </nav>
 
-        {/* Right side: CTA + Lang switcher */}
+        {/* Right side: CTA buttons + Lang switcher */}
         <div className="hidden lg:flex items-center gap-3">
+          <Link
+            href="/vacancies"
+            className="px-5 py-2 text-xs font-semibold uppercase tracking-[0.1em] bg-[#e8430a] text-white hover:bg-[#c73508] transition-colors duration-200"
+          >
+            {t("vacancies")}
+          </Link>
+          <Link
+            href="/way-we-work"
+            className="px-5 py-2 text-xs font-semibold uppercase tracking-[0.1em] border border-gray-300 text-gray-700 hover:border-[#000000] hover:text-[#000000] transition-colors duration-200"
+          >
+            {t("forClients")}
+          </Link>
           <button
             onClick={switchLocale}
             className="text-xs font-semibold uppercase tracking-[0.12em] text-gray-500 hover:text-gray-900 transition-colors duration-200 px-2 py-1"
           >
             {locale === "nl" ? "EN" : "NL"}
           </button>
-          <Link
-            href="/vacancies"
-            className="px-5 py-2 text-xs font-semibold uppercase tracking-[0.1em] bg-[#e8430a] text-white hover:bg-[#c73508] transition-colors duration-200"
-          >
-            {t("findTalent")}
-          </Link>
         </div>
 
         {/* Mobile */}
@@ -188,48 +125,27 @@ export default function Header() {
       {menuOpen && (
         <div className="lg:hidden absolute top-[68px] left-0 right-0 bg-white border-t border-gray-100 shadow-xl">
           <nav className="max-w-[1280px] mx-auto px-6 py-6 flex flex-col gap-0">
-            {/* Diensten accordion */}
-            <div>
-              <button
-                onClick={() => setMobileDienstenOpen((v) => !v)}
-                className="w-full flex items-center justify-between py-3 text-sm font-bold uppercase tracking-[0.12em] text-gray-600 hover:text-[#e8430a] border-b border-gray-100 transition-colors"
-              >
-                {t("services")}
-                <ChevronDown
-                  size={14}
-                  className={`transition-transform duration-200 ${mobileDienstenOpen ? "rotate-180" : ""}`}
-                />
-              </button>
-              {mobileDienstenOpen && (
-                <div className="pl-4 bg-gray-50">
-                  {dienstenItems.map(({ key, href }) => (
-                    <Link
-                      key={key}
-                      href={href as "/"}
-                      className="block py-3 text-sm font-bold uppercase tracking-[0.12em] text-gray-500 hover:text-[#e8430a] border-b border-gray-100 last:border-0 transition-colors"
-                    >
-                      {t(key)}
-                    </Link>
-                  ))}
-                </div>
-              )}
-            </div>
-
-            {topNavKeys.map(({ key, href }) => (
+            {navItems.map(({ key, href }) => (
               <Link
                 key={key}
-                href={href as "/"}
+                href={href}
                 className="py-3 text-sm font-bold uppercase tracking-[0.12em] text-gray-600 hover:text-[#e8430a] border-b border-gray-100 last:border-0 transition-colors"
               >
                 {t(key)}
               </Link>
             ))}
-            <div className="mt-5 pt-5 border-t border-gray-100">
+            <div className="mt-5 pt-5 border-t border-gray-100 flex flex-col gap-3">
               <Link
                 href="/vacancies"
                 className="block text-center py-2.5 text-xs font-semibold uppercase tracking-wider bg-[#e8430a] text-white hover:bg-[#c73508] transition-colors"
               >
-                {t("findTalent")}
+                {t("vacancies")}
+              </Link>
+              <Link
+                href="/way-we-work"
+                className="block text-center py-2.5 text-xs font-semibold uppercase tracking-wider border border-gray-300 text-gray-700 hover:border-[#000000] hover:text-[#000000] transition-colors"
+              >
+                {t("forClients")}
               </Link>
             </div>
           </nav>

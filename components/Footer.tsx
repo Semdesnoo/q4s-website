@@ -70,7 +70,7 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/ndt" className="text-base text-white/55 hover:text-white transition-colors duration-200">
+                <Link href={{ pathname: "/services", hash: "ndt" }} className="text-base text-white/55 hover:text-white transition-colors duration-200">
                   {t("forCandidates.ndt")}
                 </Link>
               </li>

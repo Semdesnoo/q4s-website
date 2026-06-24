@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Q4S — Technical Talent for Critical Projects",
+  title: "Q4S — Technical Talent for Your Projects",
   description: "Q4S verbindt hooggekwalificeerde technische professionals met complexe industriële en infrastructuurprojecten.",
 };
 

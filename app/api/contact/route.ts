@@ -17,7 +17,7 @@ export async function POST(req: NextRequest) {
   }
 
   const { error } = await resend.emails.send({
-    from: process.env.MAIL_FROM ?? "Q4S Website <onboarding@resend.dev>",
+    from: process.env.MAIL_FROM ?? "Q4S Website <noreply@q4s.nl>",
     to: process.env.CONTACT_MAIL_TO ?? "info@q4s.nl",
     replyTo: email,
     subject: subject ? `Contact: ${subject}` : `Nieuw contactbericht van ${name}`,

@@ -241,12 +241,6 @@ export default function HomePage() {
                 {t("sectors.title")}
               </h2>
             </div>
-            <Link
-              href={{ pathname: "/services", hash: "ndt" }}
-              className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.15em] text-white/70 hover:text-white transition-colors shrink-0"
-            >
-              {t("sectors.ndtLink")} <ArrowUpRight size={14} />
-            </Link>
           </FadeInView>
 
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-5">

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Phone, X, ArrowRight } from "lucide-react";
 import { useLocale } from "next-intl";
 
@@ -15,8 +15,16 @@ export default function RecruiterCard() {
   const locale = useLocale();
   const [closed, setClosed] = useState(false);
   const [imgFailed, setImgFailed] = useState(false);
+  const [visible, setVisible] = useState(false);
 
-  if (closed) return null;
+  // Verschijn pas na 1,8s, zodat de entree-animatie op een al-geladen pagina
+  // opvalt en mensen zien dat het kaartje weggeklikt kan worden.
+  useEffect(() => {
+    const t = setTimeout(() => setVisible(true), 1800);
+    return () => clearTimeout(t);
+  }, []);
+
+  if (closed || !visible) return null;
 
   const closeLabel = locale === "nl" ? "Sluiten" : "Close";
 

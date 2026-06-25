@@ -83,7 +83,7 @@ export default function HeroSection({
 
         {/* Headline — word by word reveal */}
         <div className="mb-10 max-w-5xl pb-6">
-          <h1 className="text-[clamp(48px,8vw,104px)] font-black leading-[0.95] tracking-[-0.04em] text-white flex flex-wrap hero-headline">
+          <h1 className="text-[clamp(40px,8vw,104px)] font-black leading-[0.95] tracking-[-0.04em] text-white flex flex-wrap hero-headline">
             {words.map((word, i) => (
               <span key={i} className="overflow-hidden inline-block pb-[0.15em] mb-[-0.15em]">
                 <motion.span

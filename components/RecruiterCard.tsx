@@ -18,11 +18,10 @@ export default function RecruiterCard() {
 
   if (closed) return null;
 
-  const label = locale === "nl" ? "Jouw contactpersoon" : "Your contact person";
   const closeLabel = locale === "nl" ? "Sluiten" : "Close";
 
   return (
-    <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 w-[224px] sm:w-[252px] animate-[recruiter-rise_0.5s_cubic-bezier(0.16,1,0.3,1)_both] motion-reduce:animate-none">
+    <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 w-[244px] sm:w-[284px] animate-[recruiter-rise_0.5s_cubic-bezier(0.16,1,0.3,1)_both] motion-reduce:animate-none">
       <style>{`
         @keyframes recruiter-rise{0%{opacity:0;transform:translateY(16px) scale(.96)}100%{opacity:1;transform:translateY(0) scale(1)}}
         @keyframes recruiter-pulse{0%{transform:scale(1);opacity:.6}70%{opacity:0}100%{transform:scale(1.4);opacity:0}}
@@ -42,8 +41,8 @@ export default function RecruiterCard() {
         </button>
 
         {/* Body: avatar + name/role */}
-        <div className="flex items-center gap-3 p-3.5 pr-9 sm:p-4 sm:pr-9">
-          <div className="relative h-11 w-11 shrink-0 sm:h-12 sm:w-12">
+        <div className="flex items-center gap-4 p-4 pr-10 sm:p-5 sm:pr-10">
+          <div className="relative h-12 w-12 shrink-0 sm:h-14 sm:w-14">
             {/* Pulsing availability ring */}
             <span
               aria-hidden="true"
@@ -66,20 +65,17 @@ export default function RecruiterCard() {
           </div>
 
           <div className="min-w-0">
-            <p className="hidden text-[10px] font-semibold uppercase tracking-[0.22em] text-[#e8430a] sm:block">
-              {label}
-            </p>
-            <p className="truncate text-[15px] font-black leading-tight tracking-[-0.02em] text-white sm:mt-0.5">
+            <p className="text-base font-black leading-tight tracking-[-0.02em] text-white">
               {NAME}
             </p>
-            <p className="text-xs font-medium text-white/60">{ROLE}</p>
+            <p className="mt-1.5 text-[13px] font-medium leading-snug text-white/65">{ROLE}</p>
           </div>
         </div>
 
         {/* Primary CTA bar */}
         <a
           href={PHONE_HREF}
-          aria-label={`${label}: ${NAME} — ${PHONE_LABEL}`}
+          aria-label={`${NAME} — ${PHONE_LABEL}`}
           className="group flex items-center gap-2.5 bg-[#e8430a] px-3.5 py-3 transition-colors duration-200 hover:bg-[#c73508] focus-visible:bg-[#c73508] focus-visible:outline-none sm:px-4"
         >
           <Phone

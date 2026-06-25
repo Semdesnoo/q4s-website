@@ -5,7 +5,7 @@ import { Phone, X, ArrowRight } from "lucide-react";
 import { useLocale } from "next-intl";
 
 const NAME = "Gjil de Jong";
-const ROLE = "Recruiter";
+const ROLE = "Talent & Business Consultant";
 const INITIALS = "GdJ";
 const PHONE_HREF = "tel:+31683859566";
 const PHONE_LABEL = "+31 6 83859566";
@@ -18,7 +18,7 @@ export default function RecruiterCard() {
 
   if (closed) return null;
 
-  const label = locale === "nl" ? "Jouw recruiter" : "Your recruiter";
+  const label = locale === "nl" ? "Jouw contactpersoon" : "Your contact person";
   const closeLabel = locale === "nl" ? "Sluiten" : "Close";
 
   return (

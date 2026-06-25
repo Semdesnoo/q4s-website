@@ -3,7 +3,7 @@ import { Phone } from "lucide-react";
 // Inline recruiter contact block (Gjil de Jong) for the contact & CV-upload pages.
 // Server component — no hooks, safe to render inside the server-rendered pages.
 export default function RecruiterContact({ locale }: { locale: string }) {
-  const label = locale === "nl" ? "Jouw recruiter" : "Your recruiter";
+  const label = locale === "nl" ? "Jouw contactpersoon" : "Your contact person";
 
   return (
     <div>
@@ -21,7 +21,7 @@ export default function RecruiterContact({ locale }: { locale: string }) {
         />
         <div>
           <p className="text-base font-black text-[#000000] leading-tight">Gjil de Jong</p>
-          <p className="text-sm text-gray-500">Recruiter</p>
+          <p className="text-sm text-gray-500">Talent &amp; Business Consultant</p>
         </div>
       </div>
       <a

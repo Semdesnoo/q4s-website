@@ -350,6 +350,9 @@
       "subtitle": "Join the Q4S network and discover your next challenge."
     },
     "intro": "Are you an experienced QA/QC professional, NDT inspector, field inspector or technical specialist? Leave your details and we will contact you as soon as a suitable assignment is available.",
+    "heroEyebrow": "Q4S Candidates",
+    "callTitle": "Call us directly?",
+    "callBody": "Get in touch directly with one of our recruiters.",
     "form": {
       "firstName": "First name",
       "lastName": "Last name",
@@ -421,6 +424,7 @@
     }
   },
   "news": {
+    "notFound": "Article not found",
     "hero": {
       "label": "Q4S News",
       "title": "News & Insights",

@@ -430,6 +430,9 @@
       "subtitle": "Word onderdeel van het Q4S-netwerk en ontdek uw volgende uitdaging."
     },
     "intro": "Bent u een ervaren QA/QC professional, NDT-inspector, veldinspecteur of technisch specialist? Laat uw gegevens achter en wij nemen contact op zodra er een passende opdracht beschikbaar is.",
+    "heroEyebrow": "Q4S Kandidaten",
+    "callTitle": "Direct bellen?",
+    "callBody": "Neem direct contact op met een van onze recruiters.",
     "form": {
       "firstName": "Voornaam",
       "lastName": "Achternaam",
@@ -546,6 +549,7 @@
     }
   },
   "news": {
+    "notFound": "Artikel niet gevonden",
     "hero": {
       "label": "Q4S Nieuws",
       "title": "Nieuws & Inzichten",

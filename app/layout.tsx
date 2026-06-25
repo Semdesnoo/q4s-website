@@ -3,7 +3,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Q4S — Technical Talent for Your Projects",
-  description: "Q4S verbindt hooggekwalificeerde technische professionals met complexe industriële en infrastructuurprojecten.",
+  description: "Q4S connects highly qualified technical professionals with complex industrial and infrastructure projects.",
 };
 
 export default function RootLayout({

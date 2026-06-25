@@ -13,7 +13,7 @@ export async function POST(req: NextRequest) {
   const { name, email, subject, message } = body;
 
   if (!name || !email || !message) {
-    return NextResponse.json({ error: "Verplichte velden ontbreken" }, { status: 400 });
+    return NextResponse.json({ error: "Required fields are missing" }, { status: 400 });
   }
 
   const { error } = await resend.emails.send({

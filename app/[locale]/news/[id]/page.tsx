@@ -35,7 +35,7 @@ export async function generateMetadata({
   const t = await getTranslations({ locale, namespace: "news" });
   const articles = t.raw("articles") as Article[];
   const article = articles.find((a) => a.id === id);
-  if (!article) return { title: "Artikel niet gevonden" };
+  if (!article) return { title: t("notFound") };
   return {
     title: `${article.title} | Q4S`,
     description: article.excerpt,

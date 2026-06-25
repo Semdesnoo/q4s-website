@@ -28,7 +28,7 @@ export default async function UploadCvPage({
       <section className="bg-black text-white pt-14 lg:pt-[68px]">
         <div className="max-w-[1280px] mx-auto px-6 py-10 lg:py-14">
           <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-white/60 mb-8">
-            Q4S Kandidaten
+            {t("heroEyebrow")}
           </p>
           <h1 className="text-[clamp(48px,7vw,96px)] font-black leading-[0.95] tracking-[-0.04em] text-white max-w-4xl">
             {t("hero.title")}
@@ -88,10 +88,10 @@ export default async function UploadCvPage({
               </div>
               <div className="py-8">
                 <h3 className="text-xl font-black text-black tracking-[-0.02em] mb-4">
-                  Direct bellen?
+                  {t("callTitle")}
                 </h3>
                 <p className="text-base text-black/75 mb-5 leading-relaxed">
-                  Neem direct contact op met een van onze recruiters.
+                  {t("callBody")}
                 </p>
                 <a
                   href="tel:+31857826818"

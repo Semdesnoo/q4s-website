@@ -1,4 +1,4 @@
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
 import { Link } from "@/i18n/navigation";
@@ -24,6 +24,7 @@ export async function generateMetadata({
 
 export default function HomePage() {
   const t = useTranslations("home");
+  const locale = useLocale();
 
   const whyItems = t.raw("why.items") as Array<{ title: string; desc: string }>;
   const serviceItems = t.raw("services.items") as Array<{ title: string; desc: string }>;
@@ -345,11 +346,11 @@ export default function HomePage() {
         </div>
         <div className="w-full h-[400px] relative">
           <iframe
-            src="https://maps.google.com/maps?q=51.8593938,4.51334&output=embed&hl=nl&z=16"
+            src={`https://maps.google.com/maps?q=51.8593938,4.51334&output=embed&hl=${locale === "nl" ? "nl" : "en"}&z=16`}
             width="100%"
             height="100%"
             className="map-iframe"
-            title="Q4S locatie op Google Maps"
+            title={locale === "nl" ? "Q4S locatie op Google Maps" : "Q4S location on Google Maps"}
             allowFullScreen
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"

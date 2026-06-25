@@ -1,6 +1,7 @@
 "use client";
 
 import { Phone, Mail } from "lucide-react";
+import { useLocale } from "next-intl";
 
 function LinkedInIcon({ size }: { size: number }) {
   return (
@@ -29,18 +30,19 @@ const buttons = [
     icon: (size: number) => <LinkedInIcon size={size} />,
     label: "LinkedIn",
     href: "https://www.linkedin.com/company/q4s/?viewAsMember=true",
-    title: "Q4S op LinkedIn",
+    title: "Q4S on LinkedIn",
   },
 ];
 
 export default function FloatingContact() {
+  const locale = useLocale();
   return (
     <div className="fixed right-0 top-1/3 -translate-y-1/2 z-50 flex flex-col gap-1.5">
       {buttons.map(({ icon, label, href, title }) => (
         <a
           key={label}
           href={href}
-          title={title}
+          title={label === "LinkedIn" ? (locale === "nl" ? "Q4S op LinkedIn" : "Q4S on LinkedIn") : title}
           target={href.startsWith("http") ? "_blank" : undefined}
           rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
           className="group flex items-center justify-center w-8 h-8 sm:w-12 sm:h-12 bg-[#e8430a] hover:bg-[#c73508] transition-colors duration-200"

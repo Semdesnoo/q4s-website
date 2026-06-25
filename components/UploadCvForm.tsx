@@ -65,8 +65,7 @@ export default function UploadCvForm({ t }: Props) {
             <polyline points="20 6 9 17 4 12" />
           </svg>
         </div>
-        <p className="text-xl font-black text-black tracking-[-0.02em] mb-2">{t.success}</p>
-        <p className="text-base text-black/60">We nemen zo snel mogelijk contact met u op.</p>
+        <p className="text-xl font-black text-black tracking-[-0.02em]">{t.success}</p>
       </div>
     );
   }

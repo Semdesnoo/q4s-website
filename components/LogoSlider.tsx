@@ -44,7 +44,7 @@ function LogoItem({ logo }: { logo: (typeof logos)[number] }) {
       <img
         src={`/logos/${logo.file}.svg`}
         alt={logo.name}
-        loading="lazy"
+        loading="eager"
         decoding="async"
         onError={() => setFailed(true)}
         className="max-h-[48px] sm:max-h-[72px] max-w-[150px] sm:max-w-[240px] w-auto object-contain"

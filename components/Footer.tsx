@@ -134,7 +134,7 @@ export default function Footer() {
               {
                 label: "SNA",
                 sub: t("snaSub"),
-                href: "https://docs.google.com/viewerng/viewer?url=http://q4s.nl/onewebmedia/SNA_VerklaringVanRegistratie%25209-05-2023.pdf&_r=2",
+                href: "/SNA_VerklaringVanRegistratie.pdf",
                 icon: (
                   <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                     <rect x="3" y="3" width="18" height="18" rx="2"/>

@@ -46,7 +46,7 @@ export default async function NewsPage({
   return (
     <>
       {/* ─── HERO ─── */}
-      <section className="bg-black text-white pt-[68px]">
+      <section className="bg-black text-white pt-14 lg:pt-[68px]">
         <div className="max-w-[1280px] mx-auto px-6 py-10 lg:py-14">
           <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-[#e8430a] mb-8">
             {t("hero.label")}

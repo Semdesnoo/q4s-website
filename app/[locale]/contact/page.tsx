@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Link } from "@/i18n/navigation";
 import { Mail, Phone, MapPin, ArrowRight } from "lucide-react";
 import ContactForm from "@/components/ContactForm";
+import RecruiterContact from "@/components/RecruiterContact";
 
 export async function generateMetadata({
   params,
@@ -40,7 +41,7 @@ export default async function ContactPage({
   return (
     <>
       {/* ─── HERO ─── */}
-      <section className="bg-[#000000] text-white pt-[68px]">
+      <section className="bg-[#000000] text-white pt-14 lg:pt-[68px]">
         <div className="max-w-[1280px] mx-auto px-6 py-14 lg:py-20">
           <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-[#e8430a] mb-8">
             Q4S
@@ -92,6 +93,10 @@ export default async function ContactPage({
                     <p>{t("details.btw")}</p>
                   </div>
                 </div>
+              </div>
+
+              <div className="py-8 border-b border-gray-100">
+                <RecruiterContact locale={locale} />
               </div>
 
               <div className="py-8 border-b border-gray-100">

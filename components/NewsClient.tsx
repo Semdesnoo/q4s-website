@@ -107,7 +107,7 @@ export default function NewsClient({ articles, readMore, publishedOn, categories
   return (
     <>
       {/* Category filter */}
-      <div className="bg-black sticky top-[68px] z-40 border-b border-white/10">
+      <div className="bg-black sticky top-14 lg:top-[68px] z-40 border-b border-white/10">
         <div className="max-w-[1280px] mx-auto px-6">
           <div className="flex gap-0 overflow-x-auto">
             {cats.map((c) => (

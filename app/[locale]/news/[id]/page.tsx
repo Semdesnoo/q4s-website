@@ -177,7 +177,7 @@ export default async function NewsDetailPage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
       />
       {/* ─── HERO ─── */}
-      <section className="bg-black text-white pt-[68px]">
+      <section className="bg-black text-white pt-14 lg:pt-[68px]">
         <div className="max-w-[1280px] mx-auto px-6 py-16 lg:py-24">
           {/* Breadcrumb */}
           <Link

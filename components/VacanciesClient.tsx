@@ -71,7 +71,7 @@ export default function VacanciesClient({ translations: tr, locale, vacancyList 
   return (
     <>
       {/* Search + Filters */}
-      <div className="bg-black border-b border-white/10 sm:sticky top-[68px] z-40">
+      <div className="bg-black border-b border-white/10 sm:sticky top-14 lg:top-[68px] z-40">
         <div className="max-w-[1280px] mx-auto px-4 sm:px-6 py-4">
           <div className="flex flex-col sm:flex-row gap-3">
             <div className="relative flex-1">

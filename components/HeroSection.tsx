@@ -46,7 +46,7 @@ export default function HeroSection({
   }, []);
 
   return (
-    <section className="bg-black text-white pt-[68px] min-h-screen flex flex-col relative overflow-hidden">
+    <section className="bg-black text-white pt-14 lg:pt-[68px] min-h-screen flex flex-col relative overflow-hidden">
       {/* Background video — src is set via useEffect to avoid blocking LCP */}
       <video
         ref={videoRef}

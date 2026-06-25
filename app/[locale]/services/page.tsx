@@ -47,7 +47,7 @@ export default function ServicesPage() {
   return (
     <>
       {/* ─── HERO ─── */}
-      <section className="bg-[#000000] text-white pt-[68px]">
+      <section className="bg-[#000000] text-white pt-14 lg:pt-[68px]">
         <div className="max-w-[1280px] mx-auto px-6 py-14 lg:py-20">
           <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-[#e8430a] mb-8">
             {t("hero.label")}
@@ -81,7 +81,7 @@ export default function ServicesPage() {
       </section>
 
       {/* ─── NDT — intro ─── */}
-      <section id="ndt" className="bg-white pt-12 pb-4 border-t border-gray-100 scroll-mt-[68px]">
+      <section id="ndt" className="bg-white pt-12 pb-4 border-t border-gray-100 scroll-mt-14 lg:scroll-mt-[68px]">
         <div className="max-w-[1280px] mx-auto px-6">
           <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-[#e8430a] mb-6">
             {tn("hero.label")}

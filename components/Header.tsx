@@ -46,12 +46,11 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 bg-white transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 bg-white transition-all duration-300 h-14 lg:h-[68px] ${
         scrolled
           ? "shadow-[0_2px_24px_rgba(0,0,0,0.09)]"
           : "border-b border-gray-100"
       }`}
-      style={{ height: "68px" }}
     >
       <div className="max-w-[1280px] mx-auto px-6 h-full flex items-center justify-between">
         {/* Logo */}
@@ -61,7 +60,7 @@ export default function Header() {
             alt="Q4S"
             width={150}
             height={111}
-            className="h-14 w-auto object-contain"
+            className="h-10 lg:h-14 w-auto object-contain"
             priority
           />
         </Link>
@@ -123,7 +122,7 @@ export default function Header() {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="lg:hidden absolute top-[68px] left-0 right-0 bg-white border-t border-gray-100 shadow-xl">
+        <div className="lg:hidden absolute top-14 left-0 right-0 bg-white border-t border-gray-100 shadow-xl">
           <nav className="max-w-[1280px] mx-auto px-6 py-6 flex flex-col gap-0">
             {navItems.map(({ key, href }) => (
               <Link

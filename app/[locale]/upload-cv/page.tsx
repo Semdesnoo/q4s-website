@@ -1,6 +1,7 @@
 import { getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
 import UploadCvForm from "@/components/UploadCvForm";
+import RecruiterContact from "@/components/RecruiterContact";
 
 export async function generateMetadata({
   params,
@@ -24,7 +25,7 @@ export default async function UploadCvPage({
   return (
     <>
       {/* ─── HERO ─── */}
-      <section className="bg-black text-white pt-[68px]">
+      <section className="bg-black text-white pt-14 lg:pt-[68px]">
         <div className="max-w-[1280px] mx-auto px-6 py-10 lg:py-14">
           <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-white/60 mb-8">
             Q4S Kandidaten
@@ -98,6 +99,10 @@ export default async function UploadCvPage({
                 >
                   +31 (0) 85 7826818
                 </a>
+
+                <div className="mt-6 pt-6 border-t border-black/10">
+                  <RecruiterContact locale={locale} />
+                </div>
               </div>
             </div>
           </div>

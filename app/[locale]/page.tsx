@@ -47,9 +47,9 @@ export default function HomePage() {
       />
 
       {/* ─── CLIENT LOGOS ─── */}
-      <section className="bg-black border-t border-white/5 py-10">
+      <section className="bg-white border-t border-gray-100 py-10">
         <FadeInView className="max-w-[1280px] mx-auto px-6 mb-6">
-          <p className="text-[12px] font-semibold uppercase tracking-[0.25em] text-white/60 text-center">
+          <p className="text-[12px] font-semibold uppercase tracking-[0.25em] text-gray-400 text-center">
             {t("clients.label")}
           </p>
         </FadeInView>

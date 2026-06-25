@@ -1,42 +1,37 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 
 const logos = [
-  { name: "Bilfinger", file: "bilfinger", ext: "png" },
-  { name: "Smulders", file: "smulders", ext: "png" },
-  { name: "Damen", file: "damen", ext: "png" },
-  { name: "DEME", file: "deme", ext: "png" },
-  { name: "HSM Offshore Energy", file: "hsm", ext: "png" },
-  { name: "IHC", file: "ihc", ext: "png" },
-  { name: "Intero", file: "intero", ext: "png" },
-  { name: "J de Jonge", file: "de-jonge", ext: "png" },
-  { name: "Kiwa", file: "kiwa", ext: "png" },
-  { name: "Eiffage", file: "eiffage", ext: "png" },
-  { name: "Hollandia", file: "hollandia", ext: "png" },
-  { name: "Huisman", file: "huisman-missing", ext: "svg" },
-  { name: "One Dyas", file: "one-dyas", ext: "png" },
-  { name: "Elia Group", file: "elia", ext: "png" },
-  { name: "Feadship", file: "feadship", ext: "png" },
-  { name: "Mercon", file: "mercon-missing", ext: "svg" },
-  { name: "Verwater", file: "verwater", ext: "png" },
-  { name: "MME Group", file: "mme", ext: "png" },
-  { name: "Sew Energy", file: "sew", ext: "png" },
-  { name: "SMART", file: "smart", ext: "png" },
-  { name: "SPIE", file: "spie", ext: "png" },
-  { name: "Strukton", file: "strukton", ext: "png" },
-  { name: "Van Oord", file: "van-oord", ext: "png" },
-  { name: "IV Offshore & Energy", file: "im-offshore", ext: "png" },
-];
+  { name: "Bilfinger", file: "bilfinger" },
+  { name: "Smulders", file: "smulders" },
+  { name: "Damen", file: "damen" },
+  { name: "DEME", file: "deme" },
+  { name: "IHC", file: "ihc" },
+  { name: "Intero", file: "intero" },
+  { name: "J de Jonge", file: "J-de-jonge" },
+  { name: "Kiwa", file: "kiwa" },
+  { name: "Hollandia", file: "hollandia" },
+  { name: "One Dyas", file: "one-dyas" },
+  { name: "Elia Group", file: "elia" },
+  { name: "Feadship", file: "feadship" },
+  { name: "Mercon", file: "mercon" },
+  { name: "Verwater", file: "verwater" },
+  { name: "Sew Energy", file: "sew" },
+  { name: "SPIE", file: "spie" },
+  { name: "Strukton", file: "strukton" },
+  { name: "Van Oord", file: "van-oord" },
+  { name: "IV Offshore & Energy", file: "im-offshore" },
+  { name: "Robust Structures", file: "robust-structures" },
+] as const;
 
-function LogoItem({ logo }: { logo: typeof logos[number] }) {
+function LogoItem({ logo }: { logo: (typeof logos)[number] }) {
   const [failed, setFailed] = useState(false);
 
   if (failed) {
     return (
-      <div className="flex items-center justify-center h-10 w-[180px] shrink-0">
-        <span className="text-[11px] font-bold uppercase tracking-[0.15em] text-white/50 whitespace-nowrap">
+      <div className="flex items-center justify-center h-12 w-[180px] shrink-0">
+        <span className="text-[11px] font-bold uppercase tracking-[0.15em] text-gray-400 whitespace-nowrap">
           {logo.name}
         </span>
       </div>
@@ -44,14 +39,15 @@ function LogoItem({ logo }: { logo: typeof logos[number] }) {
   }
 
   return (
-    <div className="flex items-center justify-center h-10 w-[180px] shrink-0">
-      <Image
-        src={`/logos/${logo.file}.${logo.ext}`}
+    <div className="flex items-center justify-center h-12 w-[180px] shrink-0 px-4">
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src={`/logos/${logo.file}.svg`}
         alt={logo.name}
-        width={120}
-        height={40}
-        className="object-contain h-8 w-auto opacity-30 brightness-0 invert hover:opacity-60 transition-all duration-300"
+        loading="lazy"
+        decoding="async"
         onError={() => setFailed(true)}
+        className="max-h-9 max-w-[140px] w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
       />
     </div>
   );

@@ -116,8 +116,8 @@ export default function HeroSection({
           transition={{ duration: 0.7, delay: 1.05, ease: EASE }}
         >
           <div className="max-w-lg">
-            <p className="text-xl text-white/70 leading-relaxed mb-2">{slogan}</p>
-            <p className="text-base text-white/45 leading-relaxed">{intro}</p>
+            <p className="text-xl text-white/90 leading-relaxed mb-2">{slogan}</p>
+            <p className="text-base text-white/80 leading-relaxed">{intro}</p>
           </div>
           <div className="flex flex-col sm:flex-row gap-3 shrink-0">
             <Link

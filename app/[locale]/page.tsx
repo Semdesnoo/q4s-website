@@ -254,7 +254,11 @@ export default function HomePage() {
               const Icon = sectorIcons[i % sectorIcons.length];
               return (
                 <FadeInView key={i} delay={i * 0.07} direction="up">
-                  <div className="group relative flex h-full flex-col items-center text-center">
+                  <Link
+                    href="/services"
+                    aria-label={sector.title}
+                    className="group relative flex h-full flex-col items-center text-center"
+                  >
                     {/* Card */}
                     <div className="relative w-full aspect-square overflow-hidden bg-white/[0.03] transition-colors duration-300 group-hover:bg-white/[0.06]">
                       {/* Corner-line overlay: inline SVG, 4 diagonal lines from corners toward center */}
@@ -286,7 +290,7 @@ export default function HomePage() {
                       {sector.title}
                       <span className="pointer-events-none absolute -bottom-1.5 left-1/2 h-px w-0 -translate-x-1/2 bg-[#e8430a] transition-all duration-300 ease-out group-hover:w-6" />
                     </h3>
-                  </div>
+                  </Link>
                 </FadeInView>
               );
             })}

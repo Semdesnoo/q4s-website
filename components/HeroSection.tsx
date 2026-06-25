@@ -33,7 +33,13 @@ export default function HeroSection({
   ctaCandidate,
   est,
 }: Props) {
-  const words = tagline.split(" ");
+  const rawWords = tagline.split(" ");
+  // Houd de laatste twee woorden bij elkaar op één regel (bv. "Uw Projecten" /
+  // "Your Projects"), zodat ze nooit los over twee regels breken.
+  const words =
+    rawWords.length > 2
+      ? [...rawWords.slice(0, -2), rawWords.slice(-2).join(" ")]
+      : rawWords;
   const videoRef = useRef<HTMLVideoElement>(null);
 
   // Set video src after hydration so it never blocks the initial paint / LCP

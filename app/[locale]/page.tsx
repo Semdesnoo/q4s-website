@@ -2,13 +2,15 @@ import { useTranslations } from "next-intl";
 import { getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
 import { Link } from "@/i18n/navigation";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Fuel, FlaskConical, Ship, Factory, Building2, Zap } from "lucide-react";
 import LogoSlider from "@/components/LogoSlider";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import WhyCards from "@/components/WhyCards";
 import HeroSection from "@/components/HeroSection";
 import ServiceRows from "@/components/ServiceRows";
 import FadeInView from "@/components/motion/FadeInView";
+
+const sectorIcons = [Fuel, FlaskConical, Ship, Factory, Building2, Zap];
 
 export async function generateMetadata({
   params,
@@ -103,6 +105,89 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ─── CV UPLOAD CTA — contained orange card ─── */}
+      <section className="bg-white py-24 lg:py-32">
+        <style>{`
+          .cvcta-line,
+          .cvcta-arrow {
+            stroke-dasharray: 360;
+            stroke-dashoffset: 360;
+            opacity: 0.28;
+            transition: stroke-dashoffset 0.7s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.5s ease-out;
+          }
+          .cvcta-arrow { opacity: 0.18; }
+          .cvcta:hover .cvcta-line { stroke-dashoffset: 0; opacity: 0.6; }
+          .cvcta:hover .cvcta-arrow { stroke-dashoffset: 0; opacity: 0.95; }
+          @media (prefers-reduced-motion: reduce) {
+            .cvcta-line,
+            .cvcta-arrow {
+              transition: opacity 0.3s ease-out;
+              stroke-dashoffset: 0;
+            }
+          }
+        `}</style>
+        <div className="max-w-[1280px] mx-auto px-6">
+          <FadeInView direction="up" className="flex justify-center">
+            <Link
+              href="/upload-cv"
+              aria-label={t("cvUpload.title")}
+              className="cvcta group relative block w-full max-w-[560px] overflow-hidden bg-[#e8430a] outline-none focus-visible:ring-4 focus-visible:ring-[#000000]/30 transition-transform duration-300 ease-out hover:-translate-y-1"
+            >
+              {/* Inner padded layout: heading top, button bottom */}
+              <div className="relative z-10 flex min-h-[480px] flex-col px-8 py-12 sm:px-12 sm:py-14">
+                {/* Eyebrow + heading */}
+                <div>
+                  <p className="mb-5 text-[11px] font-semibold uppercase tracking-[0.28em] text-white/70">
+                    CV
+                  </p>
+                  <h2 className="max-w-[14ch] text-[clamp(30px,5.2vw,52px)] font-black leading-[0.98] tracking-[-0.03em] text-white">
+                    {t("cvUpload.title")}
+                  </h2>
+                </div>
+
+                {/* Spacer pushes button toward the bottom */}
+                <div className="flex-1" />
+
+                {/* Button zone with decorative flap lines framing it */}
+                <div className="relative mt-12 flex items-center justify-center">
+                  {/* Decorative "upload flap" SVG — draws/opens on hover */}
+                  <svg
+                    aria-hidden="true"
+                    viewBox="0 0 320 200"
+                    fill="none"
+                    preserveAspectRatio="xMidYMid meet"
+                    className="pointer-events-none absolute inset-0 -z-0 mx-auto h-full w-full max-w-[420px] text-white"
+                  >
+                    {/* Upper opening flaps (drop-zone opening upward) */}
+                    <path className="cvcta-line" d="M70 78 L160 30 L250 78" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" vectorEffect="non-scaling-stroke" />
+                    <path className="cvcta-line" d="M44 96 L160 8 L276 96" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" vectorEffect="non-scaling-stroke" />
+                    {/* Upward arrow motif rising out of the button */}
+                    <path className="cvcta-arrow" d="M160 150 L160 64 M132 92 L160 64 L188 92" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" vectorEffect="non-scaling-stroke" />
+                    {/* Lower framing strokes (drop-zone base) */}
+                    <path className="cvcta-line" d="M44 132 L160 192 L276 132" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" vectorEffect="non-scaling-stroke" />
+                  </svg>
+
+                  {/* The button itself — inverts white -> dark on hover */}
+                  <span className="relative z-10 inline-flex items-center justify-center gap-2.5 bg-white px-8 py-4 text-[13px] font-semibold uppercase tracking-[0.18em] text-[#000000] transition-colors duration-300 ease-out group-hover:bg-[#000000] group-hover:text-white">
+                    <svg
+                      aria-hidden="true"
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      className="-mt-px transition-transform duration-300 ease-out group-hover:-translate-y-0.5"
+                    >
+                      <path d="M12 16V4M7 9l5-5 5 5M5 20h14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                    {t("cvUpload.button")}
+                  </span>
+                </div>
+              </div>
+            </Link>
+          </FadeInView>
+        </div>
+      </section>
+
       {/* ─── STATS — orange accent ─── */}
       <section className="bg-[#e8430a] py-20">
         <div className="max-w-[1280px] mx-auto px-6">
@@ -164,25 +249,47 @@ export default function HomePage() {
             </Link>
           </FadeInView>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-white/8">
-            {sectorItems.map((sector, i) => (
-              <FadeInView key={i} delay={i * 0.08} direction="up">
-                <div className="bg-[#000000] p-8 group hover:bg-white/5 transition-colors duration-300 h-full">
-                  <div className="flex items-start justify-between mb-6">
-                    <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#e8430a] border border-[#e8430a]/40 px-2 py-1">
-                      {sector.tag}
-                    </span>
-                    <span className="text-base font-black text-white/20 group-hover:text-[#e8430a] transition-colors duration-300">
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-5">
+            {sectorItems.map((sector, i) => {
+              const Icon = sectorIcons[i % sectorIcons.length];
+              return (
+                <FadeInView key={i} delay={i * 0.07} direction="up">
+                  <div className="group relative flex h-full flex-col items-center text-center">
+                    {/* Card */}
+                    <div className="relative w-full aspect-square overflow-hidden bg-white/[0.03] transition-colors duration-300 group-hover:bg-white/[0.06]">
+                      {/* Corner-line overlay: inline SVG, 4 diagonal lines from corners toward center */}
+                      <svg
+                        aria-hidden="true"
+                        viewBox="0 0 100 100"
+                        preserveAspectRatio="none"
+                        fill="none"
+                        className="pointer-events-none absolute inset-0 h-full w-full scale-90 text-[#e8430a] opacity-0 transition-all duration-500 ease-out group-hover:scale-100 group-hover:opacity-100"
+                      >
+                        <line x1="0" y1="0" x2="26" y2="26" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" vectorEffect="non-scaling-stroke" />
+                        <line x1="100" y1="0" x2="74" y2="26" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" vectorEffect="non-scaling-stroke" />
+                        <line x1="0" y1="100" x2="26" y2="74" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" vectorEffect="non-scaling-stroke" />
+                        <line x1="100" y1="100" x2="74" y2="74" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" vectorEffect="non-scaling-stroke" />
+                      </svg>
+
+                      {/* Centered icon */}
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <Icon
+                          aria-hidden="true"
+                          strokeWidth={1.5}
+                          className="h-9 w-9 sm:h-10 sm:w-10 text-[#e8430a] transition-transform duration-500 ease-out group-hover:scale-125"
+                        />
+                      </div>
+                    </div>
+
+                    {/* Title below the card */}
+                    <h3 className="relative mt-4 inline-block text-sm sm:text-base font-black tracking-[-0.02em] text-white transition-colors duration-300 group-hover:text-[#e8430a]">
+                      {sector.title}
+                      <span className="pointer-events-none absolute -bottom-1.5 left-1/2 h-px w-0 -translate-x-1/2 bg-[#e8430a] transition-all duration-300 ease-out group-hover:w-6" />
+                    </h3>
                   </div>
-                  <h3 className="text-xl font-black text-white mb-3 tracking-[-0.02em]">
-                    {sector.title}
-                  </h3>
-                  <p className="text-base text-white/65 leading-relaxed">{sector.desc}</p>
-                </div>
-              </FadeInView>
-            ))}
+                </FadeInView>
+              );
+            })}
           </div>
         </div>
       </section>

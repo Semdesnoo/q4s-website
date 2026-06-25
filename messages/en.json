@@ -82,6 +82,10 @@
       "employer": "Get in touch",
       "candidate": "View vacancies",
       "mapsLink": "View on Google Maps"
+    },
+    "cvUpload": {
+      "title": "Leave your CV in two clicks",
+      "button": "Upload your CV"
     }
   },
   "about": {

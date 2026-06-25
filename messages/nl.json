@@ -109,6 +109,10 @@
       "employer": "Neem contact op",
       "candidate": "Bekijk vacatures",
       "mapsLink": "Bekijk op Google Maps"
+    },
+    "cvUpload": {
+      "title": "Laat in twee klikken je CV achter",
+      "button": "Upload jouw CV"
     }
   },
   "about": {

@@ -30,7 +30,7 @@ function LogoItem({ logo }: { logo: (typeof logos)[number] }) {
 
   if (failed) {
     return (
-      <div className="flex items-center justify-center h-12 w-[180px] shrink-0">
+      <div className="flex items-center justify-center h-12 w-[200px] shrink-0">
         <span className="text-[11px] font-bold uppercase tracking-[0.15em] text-gray-400 whitespace-nowrap">
           {logo.name}
         </span>
@@ -39,7 +39,7 @@ function LogoItem({ logo }: { logo: (typeof logos)[number] }) {
   }
 
   return (
-    <div className="flex items-center justify-center h-12 w-[180px] shrink-0 px-4">
+    <div className="flex items-center justify-center h-12 w-[200px] shrink-0 px-4">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={`/logos/${logo.file}.svg`}
@@ -47,7 +47,7 @@ function LogoItem({ logo }: { logo: (typeof logos)[number] }) {
         loading="lazy"
         decoding="async"
         onError={() => setFailed(true)}
-        className="max-h-9 max-w-[140px] w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+        className="max-h-11 max-w-[168px] w-auto object-contain"
       />
     </div>
   );

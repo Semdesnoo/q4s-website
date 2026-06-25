@@ -8,6 +8,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import FloatingContact from "@/components/FloatingContact";
+import RecruiterCard from "@/components/RecruiterCard";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -180,6 +181,7 @@ export default async function LocaleLayout({
         <NextIntlClientProvider messages={messages}>
           <ScrollToTop />
           <FloatingContact />
+          <RecruiterCard />
           <Header />
           <main className="flex-1">{children}</main>
           <Footer />

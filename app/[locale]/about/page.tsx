@@ -111,13 +111,13 @@ export default function AboutPage() {
       {/* ─── TEAM GRID ─── */}
       <section className="bg-white pt-24 lg:pt-32">
         <div className="max-w-[1280px] mx-auto px-6">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-[#e8430a] mb-6">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-[#e8430a] mb-6 text-center">
             {t("teamGrid.label")}
           </p>
-          <h2 className="text-[clamp(28px,4vw,52px)] font-black leading-[1.0] tracking-[-0.03em] text-[#000000] mb-16 max-w-2xl">
+          <h2 className="text-[clamp(28px,4vw,52px)] font-black leading-[1.0] tracking-[-0.03em] text-[#000000] mb-16 text-center max-w-2xl mx-auto">
             {t("teamGrid.title")}
           </h2>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {team.map((member) => (
               <TeamCard key={member.name} member={member} />
             ))}

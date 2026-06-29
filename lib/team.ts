@@ -12,23 +12,27 @@ export interface TeamMember {
 }
 
 // Vul hier het Q4S-team aan. Zet de foto's in public/team/ en verwijs ernaar
-// via `photo`. Velden die je weglaat (bv. email) tonen simpelweg geen icoon.
+// via `photo`. Velden die je weglaat (bv. photo) tonen een nette fallback.
 export const team: TeamMember[] = [
+  {
+    name: "Simon van Houten",
+    role: "Mede Oprichter",
+    email: "simon.vanhouten@q4s.nl",
+    phone: "+31 6 81599581",
+    whatsapp: "31681599581",
+  },
+  {
+    name: "Paul Boomsma",
+    role: "Mede Oprichter",
+    email: "paul.boomsma@q4s.nl",
+    phone: "+31 6 28641249",
+    whatsapp: "31628641249",
+  },
   {
     name: "Gjil de Jong",
     role: "Talent & Business Consultant",
+    email: "Gjil.deJong@q4s.nl",
     phone: "+31 6 83859566",
     whatsapp: "31683859566",
-    photo: "gjil-de-jong.png",
   },
-  // Voorbeeld — kopieer dit blok per teamlid en vul de echte gegevens in:
-  // {
-  //   name: "Naam Achternaam",
-  //   role: "Functie",
-  //   region: "Regio",
-  //   email: "naam@q4s.nl",
-  //   phone: "+31 6 12345678",
-  //   whatsapp: "31612345678",
-  //   photo: "naam-achternaam.jpg",
-  // },
 ];

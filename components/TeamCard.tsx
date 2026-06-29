@@ -23,7 +23,7 @@ export default function TeamCard({ member }: { member: TeamMember }) {
     .toUpperCase();
 
   const iconLink =
-    "flex h-9 w-9 items-center justify-center bg-white/10 text-white transition-colors duration-200 hover:bg-[#e8430a]";
+    "flex h-10 w-10 items-center justify-center bg-[#e8430a]/15 text-[#e8430a] transition-colors duration-200 hover:bg-[#e8430a] hover:text-white";
 
   return (
     <div className="group relative aspect-[3/4] overflow-hidden bg-[#111418]">

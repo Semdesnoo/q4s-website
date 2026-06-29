@@ -113,6 +113,11 @@
     "cvUpload": {
       "title": "Laat je CV achter in twee klikken",
       "button": "Upload jouw CV"
+    },
+    "employerCta": {
+      "eyebrow": "Opdrachtgevers",
+      "title": "Vind het juiste talent voor uw project",
+      "button": "Plaats uw opdracht"
     }
   },
   "about": {
@@ -491,7 +496,7 @@
       "why": {
         "title": "Waarom samenwerken met Q4S?",
         "items": [
-          "Direct toegang tot een netwerk van gekwalificeerde QA/QC- en NDT-specialisten",
+          "Direct toegang tot een netwerk van gekwalificeerde specialisten in o.a. QA/QC en NDT",
           "Snel geschakeld — vaak binnen enkele dagen voorgedragen kandidaten",
           "Volledig ontzorgd: werving, detachering, contract en compliance",
           "Eén vast aanspreekpunt gedurende het hele traject"

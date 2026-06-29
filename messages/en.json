@@ -86,6 +86,11 @@
     "cvUpload": {
       "title": "Leave your CV in two clicks",
       "button": "Upload your CV"
+    },
+    "employerCta": {
+      "eyebrow": "Clients",
+      "title": "Find the right talent for your project",
+      "button": "Submit your assignment"
     }
   },
   "about": {
@@ -397,7 +402,7 @@
       "why": {
         "title": "Why work with Q4S?",
         "items": [
-          "Direct access to a network of qualified QA/QC and NDT specialists",
+          "Direct access to a network of qualified specialists in e.g. QA/QC and NDT",
           "Fast turnaround — candidates often proposed within days",
           "Fully managed: recruitment, secondment, contract and compliance",
           "One dedicated point of contact throughout"

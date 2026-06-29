@@ -110,29 +110,37 @@ export default function HomePage() {
       <section className="bg-white py-24 lg:py-32">
         <style>{`
           .cvcta-line,
-          .cvcta-arrow {
+          .cvcta-arrow,
+          .empcta-line,
+          .empcta-arrow {
             stroke-dasharray: 360;
             stroke-dashoffset: 360;
             opacity: 0.28;
             transition: stroke-dashoffset 0.7s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.5s ease-out;
           }
-          .cvcta-arrow { opacity: 0.18; }
-          .cvcta:hover .cvcta-line { stroke-dashoffset: 0; opacity: 0.6; }
-          .cvcta:hover .cvcta-arrow { stroke-dashoffset: 0; opacity: 0.95; }
+          .cvcta-arrow,
+          .empcta-arrow { opacity: 0.18; }
+          .cvcta:hover .cvcta-line,
+          .empcta:hover .empcta-line { stroke-dashoffset: 0; opacity: 0.6; }
+          .cvcta:hover .cvcta-arrow,
+          .empcta:hover .empcta-arrow { stroke-dashoffset: 0; opacity: 0.95; }
           @media (prefers-reduced-motion: reduce) {
             .cvcta-line,
-            .cvcta-arrow {
+            .cvcta-arrow,
+            .empcta-line,
+            .empcta-arrow {
               transition: opacity 0.3s ease-out;
               stroke-dashoffset: 0;
             }
           }
         `}</style>
         <div className="max-w-[1280px] mx-auto px-6">
-          <FadeInView direction="up" className="flex justify-center">
+          <FadeInView direction="up" className="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-5xl mx-auto">
+            {/* Kandidaten — CV uploaden */}
             <Link
               href="/upload-cv"
               aria-label={t("cvUpload.title")}
-              className="cvcta group relative block w-full max-w-[560px] overflow-hidden bg-[#e8430a] outline-none focus-visible:ring-4 focus-visible:ring-[#000000]/30 transition-transform duration-300 ease-out hover:-translate-y-1"
+              className="cvcta group relative block overflow-hidden bg-[#e8430a] outline-none focus-visible:ring-4 focus-visible:ring-[#000000]/30 transition-transform duration-300 ease-out hover:-translate-y-1"
             >
               {/* Inner padded layout: heading top, button bottom */}
               <div className="relative z-10 flex min-h-[480px] flex-col px-8 py-12 sm:px-12 sm:py-14">
@@ -181,6 +189,56 @@ export default function HomePage() {
                       <path d="M12 16V4M7 9l5-5 5 5M5 20h14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                     {t("cvUpload.button")}
+                  </span>
+                </div>
+              </div>
+            </Link>
+
+            {/* Opdrachtgevers — opdracht plaatsen */}
+            <Link
+              href={{ pathname: "/upload-cv", hash: "opdrachtgever" }}
+              aria-label={t("employerCta.title")}
+              className="empcta group relative block overflow-hidden bg-[#000000] ring-1 ring-white/10 outline-none focus-visible:ring-4 focus-visible:ring-[#e8430a]/40 transition-transform duration-300 ease-out hover:-translate-y-1"
+            >
+              <div className="relative z-10 flex min-h-[480px] flex-col px-8 py-12 sm:px-12 sm:py-14">
+                <div>
+                  <p className="mb-5 text-[11px] font-semibold uppercase tracking-[0.28em] text-[#e8430a]">
+                    {t("employerCta.eyebrow")}
+                  </p>
+                  <h2 className="max-w-[14ch] text-[clamp(30px,5.2vw,52px)] font-black leading-[0.98] tracking-[-0.03em] text-white">
+                    {t("employerCta.title")}
+                  </h2>
+                </div>
+
+                <div className="flex-1" />
+
+                <div className="relative mt-12 flex items-center justify-center">
+                  {/* Decoratief "zoek talent"-vergrootglas — tekent zich op hover */}
+                  <svg
+                    aria-hidden="true"
+                    viewBox="0 0 320 200"
+                    fill="none"
+                    preserveAspectRatio="xMidYMid meet"
+                    className="pointer-events-none absolute inset-0 -z-0 mx-auto h-full w-full max-w-[420px] text-[#e8430a]"
+                  >
+                    <circle className="empcta-line" cx="150" cy="76" r="46" stroke="currentColor" strokeWidth="1.5" vectorEffect="non-scaling-stroke" />
+                    <line className="empcta-line" x1="184" y1="110" x2="226" y2="152" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" vectorEffect="non-scaling-stroke" />
+                    <path className="empcta-arrow" d="M130 76 L145 91 L172 58" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" vectorEffect="non-scaling-stroke" />
+                  </svg>
+
+                  {/* Knop — oranje, klapt om naar wit op hover */}
+                  <span className="relative z-10 inline-flex items-center justify-center gap-2.5 bg-[#e8430a] px-8 py-4 text-[13px] font-semibold uppercase tracking-[0.18em] text-white transition-colors duration-300 ease-out group-hover:bg-white group-hover:text-[#000000]">
+                    {t("employerCta.button")}
+                    <svg
+                      aria-hidden="true"
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      className="transition-transform duration-300 ease-out group-hover:translate-x-1"
+                    >
+                      <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
                   </span>
                 </div>
               </div>

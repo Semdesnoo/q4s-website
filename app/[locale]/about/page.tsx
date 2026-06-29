@@ -4,6 +4,8 @@ import type { Metadata } from "next";
 import { Link } from "@/i18n/navigation";
 import { ArrowRight } from "lucide-react";
 import ValueRows from "@/components/ValueRows";
+import TeamCard from "@/components/TeamCard";
+import { team } from "@/lib/team";
 
 export async function generateMetadata({
   params,
@@ -103,6 +105,23 @@ export default function AboutPage() {
             {t("values.title")}
           </h2>
           <ValueRows items={values} />
+        </div>
+      </section>
+
+      {/* ─── TEAM GRID ─── */}
+      <section className="bg-white pt-24 lg:pt-32">
+        <div className="max-w-[1280px] mx-auto px-6">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-[#e8430a] mb-6">
+            {t("teamGrid.label")}
+          </p>
+          <h2 className="text-[clamp(28px,4vw,52px)] font-black leading-[1.0] tracking-[-0.03em] text-[#000000] mb-16 max-w-2xl">
+            {t("teamGrid.title")}
+          </h2>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-5">
+            {team.map((member) => (
+              <TeamCard key={member.name} member={member} />
+            ))}
+          </div>
         </div>
       </section>
 

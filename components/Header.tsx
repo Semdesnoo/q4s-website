@@ -89,7 +89,7 @@ export default function Header() {
             {t("vacancies")}
           </Link>
           <Link
-            href="/way-we-work"
+            href={{ pathname: "/upload-cv", hash: "opdrachtgever" }}
             className="px-5 py-2 text-xs font-semibold uppercase tracking-[0.1em] border border-gray-300 text-gray-700 hover:border-[#000000] hover:text-[#000000] transition-colors duration-200"
           >
             {t("forClients")}
@@ -141,7 +141,7 @@ export default function Header() {
                 {t("vacancies")}
               </Link>
               <Link
-                href="/way-we-work"
+                href={{ pathname: "/upload-cv", hash: "opdrachtgever" }}
                 className="block text-center py-2.5 text-xs font-semibold uppercase tracking-wider border border-gray-300 text-gray-700 hover:border-[#000000] hover:text-[#000000] transition-colors"
               >
                 {t("forClients")}

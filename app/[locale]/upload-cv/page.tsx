@@ -1,6 +1,8 @@
 import { getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
 import UploadCvForm from "@/components/UploadCvForm";
+import EmployerForm from "@/components/EmployerForm";
+import RegisterTabs from "@/components/RegisterTabs";
 import RecruiterContact from "@/components/RecruiterContact";
 
 export async function generateMetadata({
@@ -21,6 +23,96 @@ export default async function UploadCvPage({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "uploadCv" });
   const whyItems = t.raw("why.items") as string[];
+  const employerWhyItems = t.raw("employer.why.items") as string[];
+
+  const sidebar = (whyTitle: string, items: string[]) => (
+    <div className="space-y-0 border-t border-black/10">
+      <div className="py-8 border-b border-black/10">
+        <h3 className="text-xl font-black text-black tracking-[-0.02em] mb-5">{whyTitle}</h3>
+        <ul className="space-y-4">
+          {items.map((item, i) => (
+            <li key={i} className="flex items-start gap-3">
+              <div className="w-1.5 h-1.5 rounded-full bg-[#e8430a] mt-2 shrink-0" />
+              <span className="text-base text-black/80 leading-relaxed">{item}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div className="py-8">
+        <h3 className="text-xl font-black text-black tracking-[-0.02em] mb-4">{t("callTitle")}</h3>
+        <p className="text-base text-black/75 mb-5 leading-relaxed">{t("callBody")}</p>
+        <a
+          href="tel:+31857826818"
+          className="block text-center py-3 bg-[#e8430a] text-white text-xs font-semibold uppercase tracking-[0.12em] hover:bg-[#c73508] transition-colors"
+        >
+          +31 (0) 85 7826818
+        </a>
+        <div className="mt-6 pt-6 border-t border-black/10">
+          <RecruiterContact locale={locale} />
+        </div>
+      </div>
+    </div>
+  );
+
+  const candidateContent = (
+    <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+      <div className="lg:col-span-2 border border-black/10 p-8 lg:p-10">
+        <h2 className="text-2xl font-black text-black mb-2 tracking-[-0.03em]">{t("candidateTitle")}</h2>
+        <p className="text-base text-black/65 mb-8 leading-relaxed">{t("intro")}</p>
+        <UploadCvForm
+          t={{
+            firstName: t("form.firstName"),
+            lastName: t("form.lastName"),
+            email: t("form.email"),
+            phone: t("form.phone"),
+            discipline: t("form.discipline"),
+            experience: t("form.experience"),
+            availability: t("form.availability"),
+            location: t("form.location"),
+            message: t("form.message"),
+            cvUpload: t("form.cvUpload"),
+            cvUploadDesc: t("form.cvUploadDesc"),
+            submit: t("form.submit"),
+            submitting: t("form.submitting"),
+            success: t("form.success"),
+            error: t("form.error"),
+            required: t("form.required"),
+            disciplines: t.raw("form.disciplines") as string[],
+            availabilities: t.raw("form.availabilities") as string[],
+          }}
+        />
+      </div>
+      {sidebar(t("why.title"), whyItems)}
+    </div>
+  );
+
+  const employerContent = (
+    <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+      <div className="lg:col-span-2 border border-black/10 p-8 lg:p-10">
+        <h2 className="text-2xl font-black text-black mb-2 tracking-[-0.03em]">{t("employer.title")}</h2>
+        <p className="text-base text-black/65 mb-8 leading-relaxed">{t("employer.intro")}</p>
+        <EmployerForm
+          t={{
+            firstName: t("employer.form.firstName"),
+            lastName: t("employer.form.lastName"),
+            company: t("employer.form.company"),
+            email: t("employer.form.email"),
+            phone: t("employer.form.phone"),
+            sector: t("employer.form.sector"),
+            request: t("employer.form.request"),
+            fileUpload: t("employer.form.fileUpload"),
+            fileUploadDesc: t("employer.form.fileUploadDesc"),
+            submit: t("employer.form.submit"),
+            submitting: t("employer.form.submitting"),
+            success: t("employer.form.success"),
+            error: t("employer.form.error"),
+            sectors: t.raw("employer.form.sectors") as string[],
+          }}
+        />
+      </div>
+      {sidebar(t("employer.why.title"), employerWhyItems)}
+    </div>
+  );
 
   return (
     <>
@@ -42,70 +134,12 @@ export default async function UploadCvPage({
       {/* ─── FORM SECTION ─── */}
       <section className="bg-white py-20 lg:py-28">
         <div className="max-w-[1280px] mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-            {/* Form */}
-            <div className="lg:col-span-2 border border-black/10 p-8 lg:p-10">
-              <h2 className="text-2xl font-black text-black mb-2 tracking-[-0.03em]">{t("hero.title")}</h2>
-              <p className="text-base text-black/65 mb-8 leading-relaxed">{t("intro")}</p>
-              <UploadCvForm
-                t={{
-                  firstName: t("form.firstName"),
-                  lastName: t("form.lastName"),
-                  email: t("form.email"),
-                  phone: t("form.phone"),
-                  discipline: t("form.discipline"),
-                  experience: t("form.experience"),
-                  availability: t("form.availability"),
-                  location: t("form.location"),
-                  message: t("form.message"),
-                  cvUpload: t("form.cvUpload"),
-                  cvUploadDesc: t("form.cvUploadDesc"),
-                  submit: t("form.submit"),
-                  submitting: t("form.submitting"),
-                  success: t("form.success"),
-                  error: t("form.error"),
-                  required: t("form.required"),
-                  disciplines: t.raw("form.disciplines") as string[],
-                  availabilities: t.raw("form.availabilities") as string[],
-                }}
-              />
-            </div>
-
-            {/* Sidebar */}
-            <div className="space-y-0 border-t border-black/10">
-              <div className="py-8 border-b border-black/10">
-                <h3 className="text-xl font-black text-black tracking-[-0.02em] mb-5">
-                  {t("why.title")}
-                </h3>
-                <ul className="space-y-4">
-                  {whyItems.map((item, i) => (
-                    <li key={i} className="flex items-start gap-3">
-                      <div className="w-1.5 h-1.5 rounded-full bg-[#e8430a] mt-2 shrink-0" />
-                      <span className="text-base text-black/80 leading-relaxed">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="py-8">
-                <h3 className="text-xl font-black text-black tracking-[-0.02em] mb-4">
-                  {t("callTitle")}
-                </h3>
-                <p className="text-base text-black/75 mb-5 leading-relaxed">
-                  {t("callBody")}
-                </p>
-                <a
-                  href="tel:+31857826818"
-                  className="block text-center py-3 bg-[#e8430a] text-white text-xs font-semibold uppercase tracking-[0.12em] hover:bg-[#c73508] transition-colors"
-                >
-                  +31 (0) 85 7826818
-                </a>
-
-                <div className="mt-6 pt-6 border-t border-black/10">
-                  <RecruiterContact locale={locale} />
-                </div>
-              </div>
-            </div>
-          </div>
+          <RegisterTabs
+            candidateLabel={t("tabs.candidate")}
+            employerLabel={t("tabs.employer")}
+            candidate={candidateContent}
+            employer={employerContent}
+          />
         </div>
       </section>
     </>

@@ -128,7 +128,7 @@
       "title": "Missie & Visie",
       "missionLabel": "Missie",
       "visionLabel": "Visie",
-      "mission": "Wij verbinden hooggekwalificeerde technische professionals met kritieke projecten, waarbij kwaliteit, naleving en prestaties centraal staan.",
+      "mission": "Wij verbinden technische professionals met kritieke projecten, waarbij kwaliteit, naleving en prestaties centraal staan.",
       "vision": "Wij streven ernaar de meest vertrouwde partner te zijn voor technische werving en projectondersteuning in de industriële sector."
     },
     "values": {
@@ -157,6 +157,10 @@
       "label": "Ons Team",
       "title": "Onze Aanpak",
       "body": "Het Q4S-team bestaat uit ervaren professionals met een achtergrond in de technische industrie. Wij spreken de taal van onze opdrachtgevers én onze kandidaten. Dat maakt het verschil."
+    },
+    "teamGrid": {
+      "label": "Ons team",
+      "title": "Maak kennis met het Q4S-team"
     }
   },
   "services": {
@@ -426,11 +430,16 @@
   },
   "uploadCv": {
     "hero": {
-      "title": "CV Uploaden & Inschrijven",
-      "subtitle": "Word onderdeel van het Q4S-netwerk en ontdek uw volgende uitdaging."
+      "title": "Sluit je aan bij Q4S",
+      "subtitle": "Kandidaat of opdrachtgever — meld u aan en wij brengen het juiste talent en de juiste opdracht samen."
     },
     "intro": "Bent u een ervaren QA/QC professional, NDT-inspector, veldinspecteur of technisch specialist? Laat uw gegevens achter en wij nemen contact op zodra er een passende opdracht beschikbaar is.",
-    "heroEyebrow": "Q4S Kandidaten",
+    "heroEyebrow": "Aanmelden",
+    "candidateTitle": "CV Uploaden & Inschrijven",
+    "tabs": {
+      "candidate": "Ik ben kandidaat",
+      "employer": "Ik ben opdrachtgever"
+    },
     "callTitle": "Direct bellen?",
     "callBody": "Neem direct contact op met een van onze recruiters.",
     "form": {
@@ -475,6 +484,43 @@
         "Zowel korte als lange termijn opdrachten nationaal en internationaal",
         "Snel en transparant proces"
       ]
+    },
+    "employer": {
+      "title": "Opdracht aanmelden",
+      "intro": "Op zoek naar gekwalificeerd technisch talent voor uw project? Laat uw opdracht achter en wij laten u weten of en hoe Q4S u kan helpen.",
+      "why": {
+        "title": "Waarom samenwerken met Q4S?",
+        "items": [
+          "Direct toegang tot een netwerk van gekwalificeerde QA/QC- en NDT-specialisten",
+          "Snel geschakeld — vaak binnen enkele dagen voorgedragen kandidaten",
+          "Volledig ontzorgd: werving, detachering, contract en compliance",
+          "Eén vast aanspreekpunt gedurende het hele traject"
+        ]
+      },
+      "form": {
+        "firstName": "Voornaam",
+        "lastName": "Achternaam",
+        "company": "Bedrijfsnaam",
+        "email": "E-mailadres",
+        "phone": "Telefoonnummer",
+        "sector": "Branche / sector",
+        "request": "Welk profiel of welke opdracht zoekt u?",
+        "fileUpload": "Upload opdracht of vacature (optioneel)",
+        "fileUploadDesc": "PDF, DOC of DOCX, max. 5 MB",
+        "submit": "Verstuur aanmelding",
+        "submitting": "Versturen...",
+        "success": "Bedankt voor uw aanmelding! Wij nemen zo snel mogelijk contact met u op om te laten weten of wij u kunnen helpen.",
+        "error": "Er is iets misgegaan. Probeer het opnieuw of neem direct contact op.",
+        "sectors": [
+          "Oil & Gas",
+          "Petrochemie",
+          "Offshore",
+          "Industrie",
+          "Infrastructuur",
+          "Energie",
+          "Anders"
+        ]
+      }
     }
   },
   "ndt": {
@@ -581,11 +627,11 @@
       {
         "id": "2",
         "title": "Q4S versterkt aanwezigheid in de offshore-markt",
-        "excerpt": "Q4S heeft haar netwerk uitgebreid met meer dan 50 gecertificeerde offshore-inspecteurs. Dit stelt ons in staat om snel en effectief te reageren op opdrachten in de North Sea-regio.",
+        "excerpt": "Q4S heeft haar netwerk uitgebreid met meerdere gecertificeerde offshore-inspecteurs. Dit stelt ons in staat om snel en effectief te reageren op opdrachten in de North Sea-regio.",
         "date": "2026-02-28",
         "category": "company",
         "readTime": "3 min",
-        "content": "Q4S heeft de afgelopen 12 maanden haar positie in de offshore-sector aanzienlijk versterkt. Met de toevoeging van meer dan 50 gecertificeerde offshore-inspecteurs aan ons netwerk zijn wij beter dan ooit in staat om snel en flexibel te reageren op opdrachten in de Noordzee-regio en daarbuiten.\n\n**Nieuwe partnerships**\n\nNaast uitbreiding van ons freelancenetwerk hebben wij strategische samenwerkingsverbanden gesloten met meerdere Tier 1-aannemers actief in de Britse en Noorse offshore-sector. Dit stelt ons in staat om ook voor internationale opdrachten snel de juiste professionals te leveren.\n\n**Focus op gecertificeerd talent**\n\nQ4S screent alle offshore-professionals op geldige offshore-certificaten (BOSIET, HUET, OPITO) en medische keuringen. Wij beschikken inmiddels over een pool van meer dan 80 offshore-gekwalificeerde inspecteurs in QA/QC, NDT en Source Inspection.\n\n**Toekomstplannen**\n\nIn 2026 breidt Q4S haar activiteiten verder uit naar de Skandinavische markt. Wij verwelkomen de contacten met nieuwe opdrachtgevers en kandidaten in dit segment. Bent u actief in offshore en op zoek naar technisch talent? Neem gerust contact op."
+        "content": "Q4S heeft de afgelopen 12 maanden haar positie in de offshore-sector aanzienlijk versterkt. Met de toevoeging van meerdere gecertificeerde offshore-inspecteurs aan ons netwerk zijn wij beter dan ooit in staat om snel en flexibel te reageren op opdrachten in de Noordzee-regio en daarbuiten.\n\n**Nieuwe partnerships**\n\nNaast uitbreiding van ons freelancenetwerk hebben wij strategische samenwerkingsverbanden gesloten met meerdere Tier 1-aannemers actief in de Britse en Noorse offshore-sector. Dit stelt ons in staat om ook voor internationale opdrachten snel de juiste professionals te leveren.\n\n**Focus op gecertificeerd talent**\n\nQ4S screent alle offshore-professionals op geldige offshore-certificaten (o.a. BOSIET, HUET, OPITO) en medische keuringen. Wij beschikken inmiddels over een aanzienlijke pool van offshore-gekwalificeerde inspecteurs in QA/QC, NDT en Source Inspection.\n\n**Toekomstplannen**\n\nIn 2026 breidt Q4S haar activiteiten verder uit naar de Skandinavische markt. Wij verwelkomen de contacten met nieuwe opdrachtgevers en kandidaten in dit segment. Bent u actief in offshore en op zoek naar technisch talent? Neem gerust contact op."
       },
       {
         "id": "3",

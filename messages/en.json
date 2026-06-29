@@ -101,7 +101,7 @@
       "title": "Mission & Vision",
       "missionLabel": "Mission",
       "visionLabel": "Vision",
-      "mission": "We connect highly qualified technical professionals with critical projects, with quality, compliance and performance at the centre.",
+      "mission": "We connect technical professionals with critical projects, with quality, compliance and performance at the centre.",
       "vision": "We strive to be the most trusted partner for technical recruitment and project support in the industrial sector."
     },
     "values": {
@@ -118,6 +118,10 @@
       "label": "Our Team",
       "title": "Our Approach",
       "body": "The Q4S team consists of experienced professionals with a background in the technical industry. We speak the language of our clients and our candidates. That makes the difference."
+    },
+    "teamGrid": {
+      "label": "Our team",
+      "title": "Meet the Q4S team"
     }
   },
   "services": {
@@ -346,11 +350,16 @@
   },
   "uploadCv": {
     "hero": {
-      "title": "Upload CV & Register",
-      "subtitle": "Join the Q4S network and discover your next challenge."
+      "title": "Join Q4S",
+      "subtitle": "Candidate or client — register and we bring the right talent and the right assignment together."
     },
     "intro": "Are you an experienced QA/QC professional, NDT inspector, field inspector or technical specialist? Leave your details and we will contact you as soon as a suitable assignment is available.",
-    "heroEyebrow": "Q4S Candidates",
+    "heroEyebrow": "Register",
+    "candidateTitle": "Upload CV & Register",
+    "tabs": {
+      "candidate": "I'm a candidate",
+      "employer": "I'm a client"
+    },
     "callTitle": "Call us directly?",
     "callBody": "Get in touch directly with one of our recruiters.",
     "form": {
@@ -381,6 +390,43 @@
         "Both short and long-term assignments nationally and internationally",
         "Fast and transparent process"
       ]
+    },
+    "employer": {
+      "title": "Submit an assignment",
+      "intro": "Looking for qualified technical talent for your project? Leave your assignment and we'll let you know whether and how Q4S can help.",
+      "why": {
+        "title": "Why work with Q4S?",
+        "items": [
+          "Direct access to a network of qualified QA/QC and NDT specialists",
+          "Fast turnaround — candidates often proposed within days",
+          "Fully managed: recruitment, secondment, contract and compliance",
+          "One dedicated point of contact throughout"
+        ]
+      },
+      "form": {
+        "firstName": "First name",
+        "lastName": "Last name",
+        "company": "Company name",
+        "email": "Email address",
+        "phone": "Phone number",
+        "sector": "Industry / sector",
+        "request": "What profile or assignment are you looking for?",
+        "fileUpload": "Upload assignment or vacancy (optional)",
+        "fileUploadDesc": "PDF, DOC or DOCX, max. 5 MB",
+        "submit": "Send request",
+        "submitting": "Sending...",
+        "success": "Thank you for your request! We'll get in touch as soon as possible to let you know whether we can help.",
+        "error": "Something went wrong. Please try again or contact us directly.",
+        "sectors": [
+          "Oil & Gas",
+          "Petrochemicals",
+          "Offshore",
+          "Industry",
+          "Infrastructure",
+          "Energy",
+          "Other"
+        ]
+      }
     }
   },
   "ndt": {
@@ -456,11 +502,11 @@
       {
         "id": "2",
         "title": "Q4S strengthens presence in the offshore market",
-        "excerpt": "Q4S has expanded its network with more than 50 certified offshore inspectors. This allows us to respond quickly and effectively to assignments in the North Sea region.",
+        "excerpt": "Q4S has expanded its network with several certified offshore inspectors. This allows us to respond quickly and effectively to assignments in the North Sea region.",
         "date": "2026-02-28",
         "category": "company",
         "readTime": "3 min",
-        "content": "Q4S has significantly strengthened its position in the offshore sector over the past 12 months. With the addition of more than 50 certified offshore inspectors to our network, we are better placed than ever to respond quickly and flexibly to assignments in the North Sea region and beyond.\n\n**New partnerships**\n\nAlongside expanding our freelance network, we have formed strategic partnerships with several Tier 1 contractors active in the UK and Norwegian offshore sectors. This enables us to deliver the right professionals quickly for international assignments too.\n\n**Focus on certified talent**\n\nQ4S screens all offshore professionals for valid offshore certificates (BOSIET, HUET, OPITO) and medical clearances. We now maintain a pool of more than 80 offshore-qualified inspectors across QA/QC, NDT and Source Inspection.\n\n**Future plans**\n\nIn 2026, Q4S will further expand its activities into the Scandinavian market. We welcome contacts with new clients and candidates in this segment. If you are active in offshore and looking for technical talent, please get in touch."
+        "content": "Q4S has significantly strengthened its position in the offshore sector over the past 12 months. With the addition of several certified offshore inspectors to our network, we are better placed than ever to respond quickly and flexibly to assignments in the North Sea region and beyond.\n\n**New partnerships**\n\nAlongside expanding our freelance network, we have formed strategic partnerships with several Tier 1 contractors active in the UK and Norwegian offshore sectors. This enables us to deliver the right professionals quickly for international assignments too.\n\n**Focus on certified talent**\n\nQ4S screens all offshore professionals for valid offshore certificates (incl. BOSIET, HUET, OPITO) and medical clearances. We now maintain a substantial pool of offshore-qualified inspectors across QA/QC, NDT and Source Inspection.\n\n**Future plans**\n\nIn 2026, Q4S will further expand its activities into the Scandinavian market. We welcome contacts with new clients and candidates in this segment. If you are active in offshore and looking for technical talent, please get in touch."
       },
       {
         "id": "3",

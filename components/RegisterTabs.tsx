@@ -24,7 +24,7 @@ export default function RegisterTabs({
   }, []);
 
   const tabBtn = (active: boolean) =>
-    `flex-1 py-3 px-4 text-xs font-semibold uppercase tracking-[0.12em] transition-colors duration-200 ${
+    `flex-1 py-3 px-2 sm:px-4 text-[11px] sm:text-xs font-semibold uppercase tracking-[0.06em] sm:tracking-[0.12em] leading-tight transition-colors duration-200 ${
       active ? "bg-[#e8430a] text-white" : "bg-transparent text-black/55 hover:text-black"
     }`;
 

@@ -60,7 +60,7 @@ export default function Header() {
             alt="Q4S"
             width={150}
             height={111}
-            className="h-10 lg:h-14 w-auto object-contain"
+            className="h-12 lg:h-14 w-auto object-contain"
             priority
           />
         </Link>

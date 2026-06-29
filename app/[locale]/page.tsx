@@ -6,6 +6,7 @@ import { ArrowRight, ArrowUpRight, Fuel, FlaskConical, Ship, Factory, Building2,
 import LogoSlider from "@/components/LogoSlider";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import WhyCards from "@/components/WhyCards";
+import MobileSlider from "@/components/MobileSlider";
 import HeroSection from "@/components/HeroSection";
 import ServiceRows from "@/components/ServiceRows";
 import FadeInView from "@/components/motion/FadeInView";
@@ -135,7 +136,8 @@ export default function HomePage() {
           }
         `}</style>
         <div className="max-w-[1280px] mx-auto px-6">
-          <FadeInView direction="up" className="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-5xl mx-auto">
+          <FadeInView direction="up">
+            <MobileSlider gridClassName="lg:grid-cols-2 sm:gap-6 sm:max-w-5xl sm:mx-auto" slideBasis="basis-[88%]">
             {/* Kandidaten — CV uploaden */}
             <Link
               href="/upload-cv"
@@ -243,6 +245,7 @@ export default function HomePage() {
                 </div>
               </div>
             </Link>
+            </MobileSlider>
           </FadeInView>
         </div>
       </section>

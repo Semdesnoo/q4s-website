@@ -223,7 +223,7 @@ export const ORG_ID = "https://q4s.nl/#organization";
 
 **`app/[locale]/layout.tsx:89-172`:**
 - `"@id": ORG_ID` toevoegen
-- `sameAs: ["https://www.linkedin.com/company/q4s/", "<GBP-URL>"]` — zónder `?viewAsMember=true` (sessieparameter). GBP: `https://maps.google.com/?cid=10301226640163227198` of de lange place-URL.
+- `sameAs: ["https://www.linkedin.com/company/q4s/", "<GBP-URL>"]` — zónder `?viewAsMember=true` (sessieparameter). GBP: `https://maps.google.com/?cid=10301446474152191550`. **Let op:** in de oorspronkelijke audit stond hier `cid=10301226640163227198`; dat nummer was fout. De juiste waarde is berekend uit de hex-CID `0x8ef616fd248aa63e` in de Maps-link op de contactsectie en geeft een 200. Beide items zijn per 2026-07-27 doorgevoerd.
 - `telephone: "+31857826818"` op **topniveau** (staat nu alleen genest in `contactPoint`), in E.164 gelijk aan de `tel:`-links
 - `image: "https://q4s.nl/q4s-logo.png"` (het nieuwe bestand uit 1.5)
 - `geo: { "@type": "GeoCoordinates", latitude: 51.8593938, longitude: 4.51334 }` — neem **exact** de coördinaten uit `app/[locale]/page.tsx:410`, want die komen uit het GBP zelf. Gok niet, en gebruik geen Nominatim-waarden: schema en GBP moeten letterlijk gelijk zijn.

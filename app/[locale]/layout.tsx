@@ -151,8 +151,13 @@ export default async function LocaleLayout({
     },
     // Zonder sameAs kan Google Q4S niet als entiteit herkennen. De ?viewAsMember-
     // parameter is een sessieparameter en hoort er niet in.
-    // TODO Q4S: voeg hier de Google Business Profile-URL aan toe zodra die geclaimd is.
-    sameAs: ["https://www.linkedin.com/company/q4s/"],
+    // De cid-URL is het Google Business Profile op Arnhemseweg 12 (door Q4S
+    // bevestigd). Samen met `geo` en `hasMap` verwijzen alle lokale signalen
+    // nu naar dezelfde vestiging.
+    sameAs: [
+      "https://www.linkedin.com/company/q4s/",
+      "https://maps.google.com/?cid=10301446474152191550",
+    ],
     areaServed: ["NL", "BE", "DE", "NO", "GB"],
     knowsAbout: [
       "Technical Recruitment",

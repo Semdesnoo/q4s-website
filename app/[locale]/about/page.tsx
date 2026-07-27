@@ -1,5 +1,6 @@
+import { use } from "react";
 import { useTranslations } from "next-intl";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
 import { Link } from "@/i18n/navigation";
 import { ArrowRight } from "lucide-react";
@@ -32,7 +33,13 @@ export async function generateMetadata({
   };
 }
 
-export default function AboutPage() {
+export default function AboutPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  setRequestLocale(use(params).locale);
+
   const t = useTranslations("about");
   const values = t.raw("values.items") as Array<{ title: string; desc: string }>;
 

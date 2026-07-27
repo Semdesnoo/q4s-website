@@ -1,5 +1,6 @@
+import { use } from "react";
 import { useTranslations } from "next-intl";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
 import { Link } from "@/i18n/navigation";
 import { ArrowRight } from "lucide-react";
@@ -30,7 +31,13 @@ export async function generateMetadata({
   };
 }
 
-export default function WayWeWorkPage() {
+export default function WayWeWorkPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  setRequestLocale(use(params).locale);
+
   const t = useTranslations("wayWeWork");
   const steps = t.raw("steps") as Array<{ step: string; title: string; desc: string }>;
   const candidateSteps = t.raw("forCandidates.steps") as Array<{

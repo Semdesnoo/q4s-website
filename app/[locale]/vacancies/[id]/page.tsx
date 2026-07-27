@@ -1,9 +1,11 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { ArrowLeft, ArrowRight, MapPin, Clock, Briefcase, CheckCircle } from "lucide-react";
 import { vacancies } from "@/lib/vacancies";
+import { absoluteUrl, LOGO_URL, SITE_URL } from "@/lib/site";
+import { jsonLd, ORG_ID } from "@/lib/schema";
 
 export async function generateStaticParams() {
   return vacancies.map((v) => ({ id: v.id }));
@@ -43,6 +45,7 @@ export default async function VacancyDetailPage({
   params: Promise<{ locale: string; id: string }>;
 }) {
   const { locale, id } = await params;
+  setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "vacancies" });
 
   // Get translated content from JSON
@@ -87,10 +90,13 @@ export default async function VacancyDetailPage({
     description: vacancy.about,
     datePosted: vacancy.posted,
     hiringOrganization: {
+      // Verwijst naar de volledige Organization uit de layout. `name` blijft
+      // staan: Google's JobPosting-docs verwachten dat veld expliciet.
+      "@id": ORG_ID,
       "@type": "Organization",
       name: "Q4S B.V.",
-      sameAs: "https://q4s.nl",
-      logo: "https://q4s.nl/q4s-logo.png",
+      sameAs: SITE_URL,
+      logo: LOGO_URL,
     },
     jobLocation: {
       "@type": "Place",
@@ -111,14 +117,14 @@ export default async function VacancyDetailPage({
       : undefined,
     industry: vacancy.discipline,
     occupationalCategory: vacancy.discipline,
-    url: `https://q4s.nl/${locale === "nl" ? `nl/vacatures` : `en/vacancies`}/${vacancy.id}`,
+    url: absoluteUrl(`/${locale === "nl" ? "nl/vacatures" : "en/vacancies"}/${vacancy.id}`),
   };
 
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jobPostingSchema) }}
+        dangerouslySetInnerHTML={jsonLd(jobPostingSchema)}
       />
       {/* ─── HERO ─── */}
       <section className="bg-black text-white pt-14 lg:pt-[68px]">

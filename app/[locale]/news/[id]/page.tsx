@@ -1,8 +1,10 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { ArrowLeft, ArrowRight, Clock } from "lucide-react";
+import { absoluteUrl } from "@/lib/site";
+import { jsonLd, ORG_ID } from "@/lib/schema";
 
 interface Article {
   id: string;
@@ -64,6 +66,7 @@ export default async function NewsDetailPage({
   params: Promise<{ locale: string; id: string }>;
 }) {
   const { locale, id } = await params;
+  setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "news" });
   const articles = t.raw("articles") as Article[];
   const article = articles.find((a) => a.id === id);
@@ -150,23 +153,14 @@ export default async function NewsDetailPage({
     description: article.excerpt,
     datePublished: article.date,
     dateModified: article.date,
-    author: {
-      "@type": "Organization",
-      name: "Q4S B.V.",
-      url: "https://q4s.nl",
-    },
-    publisher: {
-      "@type": "Organization",
-      name: "Q4S B.V.",
-      url: "https://q4s.nl",
-      logo: { "@type": "ImageObject", url: "https://q4s.nl/q4s-logo.png" },
-    },
-    url: `https://q4s.nl/${locale === "nl" ? `nl/nieuws` : `en/news`}/${article.id}`,
+    author: { "@id": ORG_ID },
+    publisher: { "@id": ORG_ID },
+    url: absoluteUrl(`/${locale === "nl" ? "nl/nieuws" : "en/news"}/${article.id}`),
     inLanguage: locale === "nl" ? "nl-NL" : "en-GB",
     articleSection: categoryLabels[article.category] ?? article.category,
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `https://q4s.nl/${locale === "nl" ? `nl/nieuws` : `en/news`}/${article.id}`,
+      "@id": absoluteUrl(`/${locale === "nl" ? "nl/nieuws" : "en/news"}/${article.id}`),
     },
   };
 
@@ -174,7 +168,7 @@ export default async function NewsDetailPage({
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+        dangerouslySetInnerHTML={jsonLd(articleSchema)}
       />
       {/* ─── HERO ─── */}
       <section className="bg-black text-white pt-14 lg:pt-[68px]">

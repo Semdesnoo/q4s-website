@@ -1,24 +1,35 @@
 import type { MetadataRoute } from "next";
 import { vacancies } from "@/lib/vacancies";
+import { SITE_URL } from "@/lib/site";
 
-const base = "https://q4s.nl";
+const base = SITE_URL;
 
 type SitemapEntry = {
   nl: string;
   en: string;
   priority?: number;
   changeFrequency?: MetadataRoute.Sitemap[0]["changeFrequency"];
+  /**
+   * Datum waarop de INHOUD van deze pagina voor het laatst inhoudelijk wijzigde
+   * (ISO, YYYY-MM-DD). Werk dit handmatig bij als je de pagina aanpast.
+   *
+   * Bewust géén `new Date()`: dat meldde bij elke deploy dat alle 16 pagina's
+   * zojuist gewijzigd waren, ook bij een CSS-tweak. Google negeert `lastmod`
+   * domeinbreed zodra het structureel onbetrouwbaar blijkt — en dan verlies je
+   * het signaal ook voor de pagina's die écht veranderd zijn.
+   */
+  lastModified: string;
 };
 
 const staticRoutes: SitemapEntry[] = [
-  { nl: "/nl",             en: "/en",             priority: 1.0,  changeFrequency: "daily"   },
-  { nl: "/nl/diensten",    en: "/en/services",    priority: 1.0,  changeFrequency: "weekly"  },
-  { nl: "/nl/vacatures",   en: "/en/vacancies",   priority: 0.95, changeFrequency: "daily"   },
-  { nl: "/nl/over-ons",    en: "/en/about",       priority: 0.8,  changeFrequency: "monthly" },
-  { nl: "/nl/nieuws",      en: "/en/news",        priority: 0.8,  changeFrequency: "weekly"  },
-  { nl: "/nl/contact",     en: "/en/contact",     priority: 0.8,  changeFrequency: "monthly" },
-  { nl: "/nl/onze-aanpak", en: "/en/way-we-work", priority: 0.7,  changeFrequency: "monthly" },
-  { nl: "/nl/cv-uploaden", en: "/en/upload-cv",   priority: 0.6,  changeFrequency: "monthly" },
+  { nl: "/nl",             en: "/en",             priority: 1.0,  changeFrequency: "daily",   lastModified: "2026-07-27" },
+  { nl: "/nl/diensten",    en: "/en/services",    priority: 1.0,  changeFrequency: "weekly",  lastModified: "2026-07-27" },
+  { nl: "/nl/vacatures",   en: "/en/vacancies",   priority: 0.95, changeFrequency: "daily",   lastModified: "2026-07-27" },
+  { nl: "/nl/over-ons",    en: "/en/about",       priority: 0.8,  changeFrequency: "monthly", lastModified: "2026-06-29" },
+  { nl: "/nl/nieuws",      en: "/en/news",        priority: 0.8,  changeFrequency: "weekly",  lastModified: "2026-03-15" },
+  { nl: "/nl/contact",     en: "/en/contact",     priority: 0.8,  changeFrequency: "monthly", lastModified: "2026-07-27" },
+  { nl: "/nl/onze-aanpak", en: "/en/way-we-work", priority: 0.7,  changeFrequency: "monthly", lastModified: "2026-05-26" },
+  { nl: "/nl/cv-uploaden", en: "/en/upload-cv",   priority: 0.6,  changeFrequency: "monthly", lastModified: "2026-07-27" },
 ];
 
 const newsArticles = [
@@ -44,14 +55,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entries.push(
       {
         url: `${base}${route.nl}`,
-        lastModified: new Date(),
+        lastModified: new Date(route.lastModified),
         priority: route.priority,
         changeFrequency: route.changeFrequency,
         alternates,
       },
       {
         url: `${base}${route.en}`,
-        lastModified: new Date(),
+        lastModified: new Date(route.lastModified),
         priority: route.priority,
         changeFrequency: route.changeFrequency,
         alternates,

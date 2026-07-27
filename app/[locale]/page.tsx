@@ -1,5 +1,6 @@
+import { use } from "react";
 import { useTranslations, useLocale } from "next-intl";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
 import { Link } from "@/i18n/navigation";
 import { ArrowRight, ArrowUpRight, Fuel, FlaskConical, Ship, Factory, Building2, Zap } from "lucide-react";
@@ -23,7 +24,15 @@ export async function generateMetadata({
   return { title: "Q4S — " + t("hero.tagline") };
 }
 
-export default function HomePage() {
+export default function HomePage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  // `use()` in plaats van `await`: dit blijft een sync component, want
+  // useTranslations werkt niet in een async server component.
+  setRequestLocale(use(params).locale);
+
   const t = useTranslations("home");
   const locale = useLocale();
 

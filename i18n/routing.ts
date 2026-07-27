@@ -3,6 +3,11 @@ import { defineRouting } from "next-intl/routing";
 export const routing = defineRouting({
   locales: ["nl", "en"],
   defaultLocale: "nl",
+  // De proxy zet standaard óók een HTTP `Link`-header met hreflang. Die botste
+  // met de expliciete hreflang uit generateMetadata: andere host, andere
+  // x-default. Twee tegenstrijdige clusters per URL. De HTML-variant is
+  // compleet en correct, dus de header kan uit.
+  alternateLinks: false,
   pathnames: {
     "/": "/",
     "/about": { nl: "/over-ons", en: "/about" },

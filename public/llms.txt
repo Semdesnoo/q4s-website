@@ -27,31 +27,32 @@ Oil & Gas, Offshore & Marine, Petrochemicals, Energy & Utilities, Shipbuilding, 
 ## Key Facts
 
 - Founded: 2015
-- Certifications: ISO 9001, VCA, SNA NEN 4400-1
+- Certifications: ISO 9001, VCU, SNA NEN 4400-1
 - KvK: 69073287
 - 10+ years experience, 200+ placements, 50+ clients, 96% client satisfaction
 
 ## Pages
 
-- Homepage (NL): https://q4s.nl/nl
-- Homepage (EN): https://q4s.nl/en
-- About (NL): https://q4s.nl/nl/over-ons
-- About (EN): https://q4s.nl/en/about
-- Services (NL): https://q4s.nl/nl/diensten
-- Services (EN): https://q4s.nl/en/services
-- Way We Work (NL): https://q4s.nl/nl/onze-aanpak
-- Way We Work (EN): https://q4s.nl/en/way-we-work
-- NDT Expertise (NL): https://q4s.nl/nl/ndt
-- NDT Expertise (EN): https://q4s.nl/en/ndt
-- Vacancies (NL): https://q4s.nl/nl/vacatures
-- Vacancies (EN): https://q4s.nl/en/vacancies
-- News (NL): https://q4s.nl/nl/nieuws
-- News (EN): https://q4s.nl/en/news
-- Contact: https://q4s.nl/nl/contact
+- Homepage (NL): https://www.q4s.nl/nl
+- Homepage (EN): https://www.q4s.nl/en
+- About (NL): https://www.q4s.nl/nl/over-ons
+- About (EN): https://www.q4s.nl/en/about
+- Services, incl. NDT expertise (NL): https://www.q4s.nl/nl/diensten
+- Services, incl. NDT expertise (EN): https://www.q4s.nl/en/services
+- Way We Work (NL): https://www.q4s.nl/nl/onze-aanpak
+- Way We Work (EN): https://www.q4s.nl/en/way-we-work
+- Vacancies (NL): https://www.q4s.nl/nl/vacatures
+- Vacancies (EN): https://www.q4s.nl/en/vacancies
+- Upload CV (NL): https://www.q4s.nl/nl/cv-uploaden
+- Upload CV (EN): https://www.q4s.nl/en/upload-cv
+- News (NL): https://www.q4s.nl/nl/nieuws
+- News (EN): https://www.q4s.nl/en/news
+- Contact (NL): https://www.q4s.nl/nl/contact
+- Contact (EN): https://www.q4s.nl/en/contact
 
 ## Contact
 
 - Address: Arnhemseweg 12, 2994LA Barendrecht, Netherlands
 - Email: info@q4s.nl
 - Phone: +31 (0) 85 7826818
-- Website: https://q4s.nl
+- Website: https://www.q4s.nl

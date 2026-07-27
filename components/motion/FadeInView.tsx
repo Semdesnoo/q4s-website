@@ -13,6 +13,12 @@ interface Props {
   duration?: number;
   once?: boolean;
   amount?: number;
+  /**
+   * Zet de animatie uit. Gebruik dit boven de vouw: `initial` wordt als inline
+   * style in de server-HTML geschreven, en een element met opacity:0 telt niet
+   * mee als LCP-kandidaat. Onder de vouw is dat geen probleem.
+   */
+  disabled?: boolean;
 }
 
 export default function FadeInView({
@@ -23,9 +29,14 @@ export default function FadeInView({
   duration = 0.65,
   once = true,
   amount = 0.1,
+  disabled = false,
 }: Props) {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once, amount });
+
+  if (disabled) {
+    return <div className={className}>{children}</div>;
+  }
 
   const offsets: Record<string, { x?: number; y?: number }> = {
     up: { y: 40 },

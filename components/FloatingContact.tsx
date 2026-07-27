@@ -18,7 +18,9 @@ const buttons = [
     icon: (size: number) => <Phone size={size} className="text-white shrink-0" />,
     label: "Bellen",
     href: "tel:+31857826818",
-    title: "+31 085 7826818",
+    // Was "+31 085 7826818" — landcode én nationale voorloop-0 is een ongeldig
+    // nummer en botst met de notatie in de footer en het schema.
+    title: "+31 85 782 6818",
   },
   {
     icon: (size: number) => <Mail size={size} className="text-white shrink-0" />,

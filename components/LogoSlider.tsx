@@ -41,10 +41,20 @@ function LogoItem({ logo }: { logo: (typeof logos)[number] }) {
   return (
     <div className="flex items-center justify-center h-[64px] sm:h-[88px] shrink-0 px-4 sm:px-10">
       {/* eslint-disable-next-line @next/next/no-img-element */}
+      {/*
+        `loading="lazy"` is hier geen detail: met `eager` promoveert React 19
+        deze 40 <img>-elementen tot 21 <link rel="preload"> in de HTML-response —
+        samen ~817 KB gzip, voor een strip die volledig onder de vouw staat.
+        Die preloads concurreren rechtstreeks met het font en de hydratie-chunks
+        om de LCP. Expliciete width/height voorkomen layout shift.
+      */}
       <img
         src={`/logos/${logo.file}.svg`}
-        alt={logo.name}
-        loading="eager"
+        alt={`Logo ${logo.name} — opdrachtgever van Q4S`}
+        width={240}
+        height={72}
+        loading="lazy"
+        fetchPriority="low"
         decoding="async"
         onError={() => setFailed(true)}
         className="max-h-[48px] sm:max-h-[72px] max-w-[150px] sm:max-w-[240px] w-auto object-contain"

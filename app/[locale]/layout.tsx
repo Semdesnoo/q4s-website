@@ -1,9 +1,13 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { NextIntlClientProvider } from "next-intl";
-import { getMessages, getTranslations } from "next-intl/server";
+import { getMessages, setRequestLocale } from "next-intl/server";
 import { Inter } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { routing } from "@/i18n/routing";
+import { LOGO_URL, SITE_URL } from "@/lib/site";
+import { jsonLd, ORG_ID } from "@/lib/schema";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
@@ -40,7 +44,7 @@ export async function generateMetadata({
       template: "%s | Q4S",
     },
     description: defaultDescription,
-    metadataBase: new URL("https://q4s.nl"),
+    metadataBase: new URL(SITE_URL),
     alternates: {
       canonical: locale === "nl" ? "/nl" : "/en",
       languages: {
@@ -78,6 +82,12 @@ export default async function LocaleLayout({
     notFound();
   }
 
+  // Zonder dit leest next-intl de locale uit de request-headers en wordt élke
+  // route dynamisch gerenderd — live betekende dat `Cache-Control: no-store` en
+  // een serverfunctie in Washington DC voor Nederlandse bezoekers. TTFB is de
+  // grootste vaste component van LCP, dus dit is puur snelheidswinst.
+  setRequestLocale(locale);
+
   const allMessages = await getMessages();
   // Only send the "nav" namespace to the client — Header is the only client
   // component that calls useTranslations(). All other client components
@@ -87,10 +97,17 @@ export default async function LocaleLayout({
   const organizationSchema = {
     "@context": "https://schema.org",
     "@type": ["Organization", "EmploymentAgency", "LocalBusiness"],
+    // Gedeelde identifier: JobPosting en Article verwijzen hiernaar in plaats van
+    // een eigen kale Organization te herhalen. Zonder dit ziet Google vier losse
+    // "Q4S B.V."-knopen en telt het adres, oprichtingsjaar en knowsAbout niet mee
+    // voor de geloofwaardigheid van de werkgever in Google for Jobs.
+    "@id": ORG_ID,
     name: "Q4S B.V.",
     alternateName: "Q4S",
-    url: "https://q4s.nl",
-    logo: "https://q4s.nl/q4s-logo.png",
+    url: SITE_URL,
+    logo: LOGO_URL,
+    image: LOGO_URL,
+    telephone: "+31857826818",
     description:
       locale === "nl"
         ? "Q4S B.V. is gespecialiseerd in technische werving en detachering voor de industriële sector. Wij plaatsen QA/QC inspecteurs, NDT-specialisten en technisch personeel voor kritieke projecten in Nederland en internationaal."
@@ -99,18 +116,43 @@ export default async function LocaleLayout({
     address: {
       "@type": "PostalAddress",
       streetAddress: "Arnhemseweg 12",
-      postalCode: "2994LA",
+      // Mét spatie — dat is de notatie die KvK, Google Business Profile en
+      // telefoonboek.nl hanteren. NAP-consistentie telt voor lokale rankings.
+      postalCode: "2994 LA",
       addressLocality: "Barendrecht",
+      addressRegion: "Zuid-Holland",
       addressCountry: "NL",
     },
+    // Exact de coördinaten uit de Maps-embed op de homepage (page.tsx) — die
+    // komen uit het Google Business Profile zelf. Schema en GBP moeten letterlijk
+    // gelijk zijn; een eigen geocoding-gok maakt het signaal juist zwakker.
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: 51.8593938,
+      longitude: 4.51334,
+    },
+    hasMap: "https://maps.app.goo.gl/tYQRY1YnbHcG8aBR7",
+    identifier: [
+      { "@type": "PropertyValue", name: "KvK", value: "69073287" },
+    ],
+    vatID: "NL857718137B01",
+    founder: [
+      { "@type": "Person", name: "Simon van Houten" },
+      { "@type": "Person", name: "Paul Boomsma" },
+    ],
     contactPoint: {
       "@type": "ContactPoint",
-      telephone: "+31-85-7826818",
+      // Zelfde E.164-notatie als op topniveau en als in alle tel:-links.
+      // Twee formats voor hetzelfde nummer verzwakt het NAP-signaal.
+      telephone: "+31857826818",
       email: "info@q4s.nl",
       contactType: "customer service",
       availableLanguage: ["Dutch", "English"],
     },
-    sameAs: [],
+    // Zonder sameAs kan Google Q4S niet als entiteit herkennen. De ?viewAsMember-
+    // parameter is een sessieparameter en hoort er niet in.
+    // TODO Q4S: voeg hier de Google Business Profile-URL aan toe zodra die geclaimd is.
+    sameAs: ["https://www.linkedin.com/company/q4s/"],
     areaServed: ["NL", "BE", "DE", "NO", "GB"],
     knowsAbout: [
       "Technical Recruitment",
@@ -174,7 +216,7 @@ export default async function LocaleLayout({
       <head>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+          dangerouslySetInnerHTML={jsonLd(organizationSchema)}
         />
       </head>
       <body className="min-h-full flex flex-col antialiased">
@@ -186,6 +228,8 @@ export default async function LocaleLayout({
           <main className="flex-1">{children}</main>
           <Footer />
         </NextIntlClientProvider>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );

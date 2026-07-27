@@ -16,11 +16,17 @@ interface Props {
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
+// Bewust géén `opacity` in deze varianten. Framer Motion schrijft `initial`
+// als inline style in de server-gerenderde HTML; met opacity:0 stond de hele
+// H1 daar als onzichtbare tekst. Een element met opacity 0 telt niet mee als
+// LCP-kandidaat, dus de LCP schoof op tot ná de hydratie — en tekstextractors
+// (GPTBot, ClaudeBot, OG-scrapers) lazen een verborgen kop.
+// De `overflow-hidden`-wrapper per woord verzorgt de reveal al; transform
+// alleen levert visueel hetzelfde effect zonder die twee bijwerkingen.
 const WORD_VARIANT = {
-  hidden: { y: "110%", opacity: 0 },
+  hidden: { y: "110%" },
   show: (i: number) => ({
     y: "0%",
-    opacity: 1,
     transition: { duration: 0.8, delay: 0.15 + i * 0.07, ease: EASE },
   }),
 };
@@ -89,7 +95,17 @@ export default function HeroSection({
 
         {/* Headline — word by word reveal */}
         <div className="mb-10 max-w-5xl pb-6">
-          <h1 className="text-[clamp(48px,8vw,104px)] font-black leading-[0.95] tracking-[-0.04em] text-white flex flex-wrap hero-headline">
+          {/*
+            aria-label + de spaties hieronder: de woorden staan elk in een eigen
+            span en de spatiëring komt uit CSS (globals.css `gap`). In de ruwe
+            HTML-string plakten ze daardoor aan elkaar — "TechnischTalentvoorUw
+            Projecten". Googlebot herstelt dat na rendering, maar crawlers die
+            de HTML platweg parsen niet.
+          */}
+          <h1
+            aria-label={tagline}
+            className="text-[clamp(48px,8vw,104px)] font-black leading-[0.95] tracking-[-0.04em] text-white flex flex-wrap hero-headline"
+          >
             {words.map((word, i) => (
               <span key={i} className="overflow-hidden inline-block pb-[0.15em] mb-[-0.15em]">
                 <motion.span
@@ -101,6 +117,7 @@ export default function HeroSection({
                 >
                   {word}
                 </motion.span>
+                {i < words.length - 1 ? " " : null}
               </span>
             ))}
           </h1>
@@ -115,10 +132,13 @@ export default function HeroSection({
         />
 
         {/* Sub-row: slogan + CTAs */}
+        {/* Ook hier transform-only: dit blok staat boven de vouw en bevat de
+            twee CTA's. Met opacity:0 in de SSR-HTML waren die voor tekst-
+            extractie onzichtbaar en telden ze niet mee voor LCP. */}
         <motion.div
           className="flex flex-col lg:flex-row lg:items-end justify-between gap-10"
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ y: 24 }}
+          animate={{ y: 0 }}
           transition={{ duration: 0.7, delay: 1.05, ease: EASE }}
         >
           <div className="max-w-lg">

@@ -1,5 +1,6 @@
+import { use } from "react";
 import { useTranslations } from "next-intl";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
 import { Link } from "@/i18n/navigation";
 import { ArrowRight, Flame, Anchor, FlaskConical, Zap, Ship, HardHat } from "lucide-react";
@@ -30,7 +31,13 @@ export async function generateMetadata({
   };
 }
 
-export default function ServicesPage() {
+export default function ServicesPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  setRequestLocale(use(params).locale);
+
   const t = useTranslations("services");
   const tn = useTranslations("ndt");
   const items = t.raw("items") as Array<{

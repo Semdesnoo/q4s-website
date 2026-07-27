@@ -60,6 +60,7 @@ export default async function UploadCvPage({
         <h2 className="text-2xl font-black text-black mb-2 tracking-[-0.03em]">{t("candidateTitle")}</h2>
         <p className="text-base text-black/65 mb-8 leading-relaxed">{t("intro")}</p>
         <UploadCvForm
+          locale={locale}
           t={{
             firstName: t("form.firstName"),
             lastName: t("form.lastName"),
@@ -77,6 +78,7 @@ export default async function UploadCvPage({
             success: t("form.success"),
             error: t("form.error"),
             required: t("form.required"),
+            verify: t("form.verify"),
             disciplines: t.raw("form.disciplines") as string[],
             availabilities: t.raw("form.availabilities") as string[],
           }}
@@ -92,6 +94,7 @@ export default async function UploadCvPage({
         <h2 className="text-2xl font-black text-black mb-2 tracking-[-0.03em]">{t("employer.title")}</h2>
         <p className="text-base text-black/65 mb-8 leading-relaxed">{t("employer.intro")}</p>
         <EmployerForm
+          locale={locale}
           t={{
             firstName: t("employer.form.firstName"),
             lastName: t("employer.form.lastName"),
@@ -106,6 +109,7 @@ export default async function UploadCvPage({
             submitting: t("employer.form.submitting"),
             success: t("employer.form.success"),
             error: t("employer.form.error"),
+            verify: t("employer.form.verify"),
             sectors: t.raw("employer.form.sectors") as string[],
           }}
         />

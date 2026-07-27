@@ -464,6 +464,7 @@
       "success": "Bedankt voor uw aanmelding! Wij nemen zo snel mogelijk contact met u op.",
       "error": "Er is iets misgegaan. Probeer het opnieuw of neem direct contact op.",
       "required": "Verplicht veld",
+      "verify": "Bevestig eerst dat u geen robot bent.",
       "disciplines": [
         "QA/QC Inspector",
         "NDT Inspector",
@@ -516,6 +517,7 @@
         "submitting": "Versturen...",
         "success": "Bedankt voor uw aanmelding! Wij nemen zo snel mogelijk contact met u op om te laten weten of wij u kunnen helpen.",
         "error": "Er is iets misgegaan. Probeer het opnieuw of neem direct contact op.",
+        "verify": "Bevestig eerst dat u geen robot bent.",
         "sectors": [
           "Oil & Gas",
           "Petrochemie",
@@ -704,7 +706,8 @@
       "submit": "Verstuur bericht",
       "submitting": "Versturen...",
       "success": "Uw bericht is verstuurd. Wij nemen zo snel mogelijk contact met u op.",
-      "error": "Er is iets misgegaan. Probeer het opnieuw of stuur een e-mail naar info@q4s.nl."
+      "error": "Er is iets misgegaan. Probeer het opnieuw of stuur een e-mail naar info@q4s.nl.",
+      "verify": "Bevestig eerst dat u geen robot bent."
     },
     "forEmployers": {
       "title": "Voor opdrachtgevers",

@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
+import { verifyTurnstile, clientIp } from "@/lib/turnstile";
 
 // Escape user-provided values before embedding them in the HTML email.
 const esc = (s: string) =>
@@ -16,14 +17,19 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "RESEND_API_KEY is not set" }, { status: 500 });
   }
 
-  const resend = new Resend(apiKey);
-
   const body = await req.json();
-  const { name, email, subject, message } = body;
+  const { name, email, subject, message, turnstileToken } = body;
+
+  const verification = await verifyTurnstile(turnstileToken, clientIp(req));
+  if (!verification.ok) {
+    return NextResponse.json({ error: verification.error }, { status: verification.status });
+  }
 
   if (!name || !email || !message) {
     return NextResponse.json({ error: "Required fields are missing" }, { status: 400 });
   }
+
+  const resend = new Resend(apiKey);
 
   const emailEsc = esc(email);
 

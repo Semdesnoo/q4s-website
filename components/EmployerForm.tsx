@@ -2,8 +2,10 @@
 
 import { useState, useRef } from "react";
 import { Upload, AlertCircle } from "lucide-react";
+import Turnstile, { TURNSTILE_ENABLED } from "./Turnstile";
 
 interface Props {
+  locale: string;
   t: {
     firstName: string;
     lastName: string;
@@ -18,6 +20,7 @@ interface Props {
     submitting: string;
     success: string;
     error: string;
+    verify: string;
     sectors: string[];
   };
 }
@@ -28,24 +31,41 @@ const inputClass =
 const labelClass =
   "block text-[11px] font-semibold uppercase tracking-[0.15em] text-black/40 mb-2";
 
-export default function EmployerForm({ t }: Props) {
+export default function EmployerForm({ locale, t }: Props) {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [file, setFile] = useState<File | null>(null);
+  const [token, setToken] = useState<string | null>(null);
+  // Een Turnstile-token is eenmalig; na een mislukte poging bouwen we de
+  // widget opnieuw op door de key te wijzigen.
+  const [attempt, setAttempt] = useState(0);
   const fileRef = useRef<HTMLInputElement>(null);
+
+  function resetVerification() {
+    setToken(null);
+    setAttempt((n) => n + 1);
+  }
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    if (TURNSTILE_ENABLED && !token) return;
     setStatus("loading");
 
     const form = e.currentTarget;
     const data = new FormData(form);
     if (file) data.set("file", file);
+    if (token) data.set("turnstileToken", token);
 
     try {
       const res = await fetch("/api/submit-assignment", { method: "POST", body: data });
-      setStatus(res.ok ? "success" : "error");
+      if (res.ok) {
+        setStatus("success");
+      } else {
+        setStatus("error");
+        resetVerification();
+      }
     } catch {
       setStatus("error");
+      resetVerification();
     }
   }
 
@@ -161,9 +181,21 @@ export default function EmployerForm({ t }: Props) {
         </div>
       </div>
 
+      {TURNSTILE_ENABLED && (
+        <div>
+          <Turnstile
+            key={attempt}
+            locale={locale}
+            onVerify={setToken}
+            onExpire={() => setToken(null)}
+          />
+          {!token && <p className="text-xs text-black/40 mt-2">{t.verify}</p>}
+        </div>
+      )}
+
       <button
         type="submit"
-        disabled={status === "loading"}
+        disabled={status === "loading" || (TURNSTILE_ENABLED && !token)}
         className="w-full h-12 bg-[#e8430a] text-white text-xs font-semibold uppercase tracking-[0.15em] hover:bg-[#c73508] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
       >
         {status === "loading" ? t.submitting : t.submit}

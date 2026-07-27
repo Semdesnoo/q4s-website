@@ -384,6 +384,7 @@
       "success": "Thank you for your registration! We will contact you as soon as possible.",
       "error": "Something went wrong. Please try again or contact us directly.",
       "required": "Required field",
+      "verify": "Please confirm you are not a robot first.",
       "disciplines": ["QA/QC Inspector", "NDT Inspector", "Welding Inspector", "Source Inspector", "Expeditor", "QC Engineer", "Inspection Coordinator", "Other"],
       "availabilities": ["Immediately available", "Within 1 month", "Within 3 months", "Looking for permanent position"]
     },
@@ -422,6 +423,7 @@
         "submitting": "Sending...",
         "success": "Thank you for your request! We'll get in touch as soon as possible to let you know whether we can help.",
         "error": "Something went wrong. Please try again or contact us directly.",
+        "verify": "Please confirm you are not a robot first.",
         "sectors": [
           "Oil & Gas",
           "Petrochemicals",
@@ -574,7 +576,8 @@
       "submit": "Send message",
       "submitting": "Sending...",
       "success": "Your message has been sent. We will contact you as soon as possible.",
-      "error": "Something went wrong. Please try again or email info@q4s.nl."
+      "error": "Something went wrong. Please try again or email info@q4s.nl.",
+      "verify": "Please confirm you are not a robot first."
     },
     "forEmployers": {
       "title": "For clients",

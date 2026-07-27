@@ -2,8 +2,10 @@
 
 import { useState } from "react";
 import { CheckCircle, AlertCircle } from "lucide-react";
+import Turnstile, { TURNSTILE_ENABLED } from "./Turnstile";
 
 interface Props {
+  locale: string;
   t: {
     title: string;
     name: string;
@@ -15,6 +17,7 @@ interface Props {
     submitting: string;
     success: string;
     error: string;
+    verify: string;
   };
 }
 
@@ -23,11 +26,21 @@ const inputClass =
 
 const labelClass = "block text-[11px] font-semibold uppercase tracking-[0.15em] text-black/40 mb-2";
 
-export default function ContactForm({ t }: Props) {
+export default function ContactForm({ locale, t }: Props) {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [token, setToken] = useState<string | null>(null);
+  // Een Turnstile-token is eenmalig; na een mislukte poging bouwen we de
+  // widget opnieuw op door de key te wijzigen.
+  const [attempt, setAttempt] = useState(0);
+
+  function resetVerification() {
+    setToken(null);
+    setAttempt((n) => n + 1);
+  }
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    if (TURNSTILE_ENABLED && !token) return;
     setStatus("loading");
 
     const form = e.currentTarget;
@@ -40,16 +53,18 @@ export default function ContactForm({ t }: Props) {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, subject, message }),
+        body: JSON.stringify({ name, email, subject, message, turnstileToken: token }),
       });
 
       if (res.ok) {
         setStatus("success");
       } else {
         setStatus("error");
+        resetVerification();
       }
     } catch {
       setStatus("error");
+      resetVerification();
     }
   }
 
@@ -109,9 +124,21 @@ export default function ContactForm({ t }: Props) {
         />
       </div>
 
+      {TURNSTILE_ENABLED && (
+        <div>
+          <Turnstile
+            key={attempt}
+            locale={locale}
+            onVerify={setToken}
+            onExpire={() => setToken(null)}
+          />
+          {!token && <p className="text-xs text-black/40 mt-2">{t.verify}</p>}
+        </div>
+      )}
+
       <button
         type="submit"
-        disabled={status === "loading"}
+        disabled={status === "loading" || (TURNSTILE_ENABLED && !token)}
         className="w-full h-12 bg-[#e8430a] text-white text-xs font-semibold uppercase tracking-[0.15em] hover:bg-[#c73508] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
       >
         {status === "loading" ? t.submitting : t.submit}

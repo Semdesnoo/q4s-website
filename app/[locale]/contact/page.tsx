@@ -129,6 +129,7 @@ export default async function ContactPage({
             {/* Form */}
             <div className="lg:col-span-2 border border-gray-100 p-8 lg:p-10 shadow-sm">
               <ContactForm
+                locale={locale}
                 t={{
                   title: t("form.title"),
                   name: t("form.name"),
@@ -140,6 +141,7 @@ export default async function ContactPage({
                   submitting: t("form.submitting"),
                   success: t("form.success"),
                   error: t("form.error"),
+                  verify: t("form.verify"),
                 }}
               />
             </div>

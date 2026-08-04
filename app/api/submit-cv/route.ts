@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 import { verifyTurnstile, clientIp } from "@/lib/turnstile";
+import { sendToDashboard } from "@/lib/dashboard";
 
 // Escape user-provided values before embedding them in the HTML email.
 const esc = (s: string) =>
@@ -32,17 +33,22 @@ export async function POST(req: NextRequest) {
   const firstName = data.get("firstName") as string;
   const lastName = data.get("lastName") as string;
   const email = data.get("email") as string;
-  const phone = (data.get("phone") as string) || "—";
   const discipline = data.get("discipline") as string;
   const availability = data.get("availability") as string;
-  const location = (data.get("location") as string) || "—";
   const message = (data.get("message") as string) || "";
   const cvFile = data.get("cv") as File | null;
 
+  // Rauwe waarden gaan naar het dashboard; de "—" is puur opmaak voor de e-mail.
+  const rawPhone = (data.get("phone") as string) || "";
+  const rawLocation = (data.get("location") as string) || "";
+  const phone = rawPhone || "—";
+  const location = rawLocation || "—";
+
   const attachments: { filename: string; content: Buffer }[] = [];
+  let cvBuffer: Buffer | null = null;
   if (cvFile && cvFile.size > 0) {
-    const buffer = Buffer.from(await cvFile.arrayBuffer());
-    attachments.push({ filename: cvFile.name, content: buffer });
+    cvBuffer = Buffer.from(await cvFile.arrayBuffer());
+    attachments.push({ filename: cvFile.name, content: cvBuffer });
   }
 
   const emailEsc = esc(email);
@@ -133,5 +139,25 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 
-  return NextResponse.json({ ok: true });
+  // Pas ná een geslaagde mail doorsturen naar het dashboard. Zou het andersom
+  // staan, dan zou een kandidaat die na een mailfout opnieuw verzendt twee keer
+  // in "Binnengekomen CV's" belanden.
+  const dashboard = await sendToDashboard({
+    firstName,
+    lastName,
+    email,
+    phone: rawPhone,
+    discipline,
+    availability,
+    location: rawLocation,
+    cv: cvBuffer
+      ? { buffer: cvBuffer, filename: cvFile!.name, type: cvFile!.type }
+      : null,
+  });
+
+  // Bewust geen foutstatus bij `dashboard === "failed"`: de mail is verstuurd,
+  // dus de sollicitatie is binnen. De kandidaat een foutmelding tonen zou hem
+  // laten herkansen en een dubbele inschrijving opleveren. De mislukking staat
+  // in de Vercel-logs, herkenbaar aan de prefix [dashboard].
+  return NextResponse.json({ ok: true, dashboard });
 }

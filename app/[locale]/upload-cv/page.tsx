@@ -91,6 +91,8 @@ export default async function UploadCvPage({
             error: t("form.error"),
             required: t("form.required"),
             verify: t("form.verify"),
+            fileTooLarge: t("form.fileTooLarge"),
+            fileRequired: t("form.fileRequired"),
             disciplines: t.raw("form.disciplines") as string[],
             availabilities: t.raw("form.availabilities") as string[],
           }}

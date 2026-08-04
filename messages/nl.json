@@ -569,7 +569,7 @@
       "location": "Huidige locatie",
       "message": "Aanvullende informatie (optioneel)",
       "cvUpload": "Upload uw CV",
-      "cvUploadDesc": "PDF, DOC of DOCX, max. 5 MB",
+      "cvUploadDesc": "PDF, DOC of DOCX, max. 4 MB",
       "submit": "Verstuur aanmelding",
       "submitting": "Versturen...",
       "success": "Bedankt voor uw aanmelding! Wij nemen zo snel mogelijk contact met u op.",
@@ -591,7 +591,9 @@
         "Binnen 1 maand",
         "Binnen 3 maanden",
         "Op zoek naar vast dienstverband"
-      ]
+      ],
+      "fileTooLarge": "Dit bestand is groter dan 4 MB. Verklein het of mail het naar cv@q4s.nl.",
+      "fileRequired": "Upload je CV om je inschrijving af te ronden."
     },
     "why": {
       "title": "Waarom inschrijven bij Q4S?",

@@ -24,10 +24,19 @@ interface Props {
     error: string;
     required: string;
     verify: string;
+    fileTooLarge: string;
+    fileRequired: string;
     disciplines: string[];
     availabilities: string[];
   };
 }
+
+/**
+ * Vercel weigert request-bodies boven ~4,5 MB. Op 4 MB gaan zitten laat ruimte
+ * voor de overige formuliervelden en de multipart-overhead. Zonder deze grens
+ * kreeg een kandidaat met een groot CV een generieke foutmelding zonder uitleg.
+ */
+const MAX_CV_BYTES = 4 * 1024 * 1024;
 
 const inputClass =
   "w-full h-11 px-4 border border-black/15 text-sm text-black focus:outline-none focus:border-black bg-white transition-colors";
@@ -38,6 +47,7 @@ const labelClass =
 export default function UploadCvForm({ locale, t }: Props) {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [file, setFile] = useState<File | null>(null);
+  const [fileError, setFileError] = useState<string | null>(null);
   const [token, setToken] = useState<string | null>(null);
   // Een Turnstile-token is eenmalig; na een mislukte poging bouwen we de
   // widget opnieuw op door de key te wijzigen.
@@ -49,9 +59,29 @@ export default function UploadCvForm({ locale, t }: Props) {
     setAttempt((n) => n + 1);
   }
 
+  function selectFile(chosen: File | null) {
+    if (chosen && chosen.size > MAX_CV_BYTES) {
+      setFile(null);
+      setFileError(t.fileTooLarge);
+      return;
+    }
+    setFile(chosen);
+    setFileError(null);
+  }
+
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     if (TURNSTILE_ENABLED && !token) return;
+
+    // Het CV staat als verplicht gelabeld, maar de echte <input> is verborgen
+    // en heeft geen `required` — de browser kan er dus niet op controleren.
+    // Zonder deze guard kwam een inzending zónder CV gewoon door, en meldde de
+    // e-mail alsnog "CV bijgevoegd".
+    if (!file) {
+      setFileError(t.fileRequired);
+      return;
+    }
+
     setStatus("loading");
 
     const form = e.currentTarget;
@@ -184,9 +214,15 @@ export default function UploadCvForm({ locale, t }: Props) {
             type="file"
             accept=".pdf,.doc,.docx"
             className="hidden"
-            onChange={(e) => setFile(e.target.files?.[0] ?? null)}
+            onChange={(e) => selectFile(e.target.files?.[0] ?? null)}
           />
         </div>
+        {fileError && (
+          <p className="flex items-start gap-2 mt-2 text-sm text-[#c73508]">
+            <AlertCircle size={16} className="mt-0.5 shrink-0" />
+            {fileError}
+          </p>
+        )}
       </div>
 
       <div>

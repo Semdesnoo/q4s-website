@@ -569,7 +569,7 @@
       "location": "Current location",
       "message": "Additional information (optional)",
       "cvUpload": "Upload your CV",
-      "cvUploadDesc": "PDF, DOC or DOCX, max. 5 MB",
+      "cvUploadDesc": "PDF, DOC or DOCX, max. 4 MB",
       "submit": "Submit registration",
       "submitting": "Submitting...",
       "success": "Thank you for your registration! We will contact you as soon as possible.",
@@ -591,7 +591,9 @@
         "Within 1 month",
         "Within 3 months",
         "Looking for permanent position"
-      ]
+      ],
+      "fileTooLarge": "This file is larger than 4 MB. Please compress it or email it to cv@q4s.nl.",
+      "fileRequired": "Upload your CV to complete your registration."
     },
     "why": {
       "title": "Why register with Q4S?",

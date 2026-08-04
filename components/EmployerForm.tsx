@@ -16,6 +16,7 @@ interface Props {
     request: string;
     fileUpload: string;
     fileUploadDesc: string;
+    fileTooLarge: string;
     submit: string;
     submitting: string;
     success: string;
@@ -31,9 +32,13 @@ const inputClass =
 const labelClass =
   "block text-[11px] font-semibold uppercase tracking-[0.15em] text-black/40 mb-2";
 
+/** Zelfde grens als bij het CV-formulier: Vercel weigert bodies boven ~4,5 MB. */
+const MAX_FILE_BYTES = 4 * 1024 * 1024;
+
 export default function EmployerForm({ locale, t }: Props) {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [file, setFile] = useState<File | null>(null);
+  const [fileError, setFileError] = useState<string | null>(null);
   const [token, setToken] = useState<string | null>(null);
   // Een Turnstile-token is eenmalig; na een mislukte poging bouwen we de
   // widget opnieuw op door de key te wijzigen.
@@ -43,6 +48,16 @@ export default function EmployerForm({ locale, t }: Props) {
   function resetVerification() {
     setToken(null);
     setAttempt((n) => n + 1);
+  }
+
+  function selectFile(chosen: File | null) {
+    if (chosen && chosen.size > MAX_FILE_BYTES) {
+      setFile(null);
+      setFileError(t.fileTooLarge);
+      return;
+    }
+    setFile(chosen);
+    setFileError(null);
   }
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -176,9 +191,15 @@ export default function EmployerForm({ locale, t }: Props) {
             type="file"
             accept=".pdf,.doc,.docx"
             className="hidden"
-            onChange={(e) => setFile(e.target.files?.[0] ?? null)}
+            onChange={(e) => selectFile(e.target.files?.[0] ?? null)}
           />
         </div>
+        {fileError && (
+          <p className="flex items-start gap-2 mt-2 text-sm text-[#c73508]">
+            <AlertCircle size={16} className="mt-0.5 shrink-0" />
+            {fileError}
+          </p>
+        )}
       </div>
 
       {TURNSTILE_ENABLED && (

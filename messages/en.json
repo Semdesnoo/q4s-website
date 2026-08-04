@@ -625,7 +625,7 @@
         "sector": "Industry / sector",
         "request": "What profile or assignment are you looking for?",
         "fileUpload": "Upload assignment or vacancy (optional)",
-        "fileUploadDesc": "PDF, DOC or DOCX, max. 5 MB",
+        "fileUploadDesc": "PDF, DOC or DOCX, max. 4 MB",
         "submit": "Send request",
         "submitting": "Sending...",
         "success": "Thank you for your request! We'll get in touch as soon as possible to let you know whether we can help.",
@@ -639,7 +639,8 @@
           "Infrastructure",
           "Energy",
           "Other"
-        ]
+        ],
+        "fileTooLarge": "This file is larger than 4 MB. Please compress it or email it to info@q4s.nl."
       }
     }
   },

@@ -625,7 +625,7 @@
         "sector": "Branche / sector",
         "request": "Welk profiel of welke opdracht zoekt u?",
         "fileUpload": "Upload opdracht of vacature (optioneel)",
-        "fileUploadDesc": "PDF, DOC of DOCX, max. 5 MB",
+        "fileUploadDesc": "PDF, DOC of DOCX, max. 4 MB",
         "submit": "Verstuur aanmelding",
         "submitting": "Versturen...",
         "success": "Bedankt voor uw aanmelding! Wij nemen zo snel mogelijk contact met u op om te laten weten of wij u kunnen helpen.",
@@ -639,7 +639,8 @@
           "Infrastructuur",
           "Energie",
           "Anders"
-        ]
+        ],
+        "fileTooLarge": "Dit bestand is groter dan 4 MB. Verklein het of mail het naar info@q4s.nl."
       }
     }
   },

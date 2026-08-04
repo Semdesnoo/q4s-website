@@ -119,6 +119,7 @@ export default async function UploadCvPage({
             request: t("employer.form.request"),
             fileUpload: t("employer.form.fileUpload"),
             fileUploadDesc: t("employer.form.fileUploadDesc"),
+            fileTooLarge: t("employer.form.fileTooLarge"),
             submit: t("employer.form.submit"),
             submitting: t("employer.form.submitting"),
             success: t("employer.form.success"),

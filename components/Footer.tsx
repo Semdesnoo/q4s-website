@@ -107,50 +107,40 @@ export default function Footer() {
           <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-[#e8430a] mb-5">
             {t("certificationsTitle")}
           </p>
-          <div className="grid grid-cols-3 gap-2 sm:flex sm:flex-wrap sm:gap-3">
+          <div className="flex flex-wrap gap-3">
             {[
               {
-                label: "ISO 9001:2015",
-                sub: t("iso9001Sub"),
+                label: "ISO 9001:2015 — DNV",
                 href: "https://docs.google.com/viewerng/viewer?url=http://q4s.nl/onewebmedia/ISO-9001-251980-2017-AQ-NLD-RvA-3-en-US-20240131-20240131144352.pdf",
-                logo: "/logos/cert/dnv.png",
-                logoAlt: "DNV",
+                logo: "/logos/cert/dnv-white.png",
               },
               {
                 label: "VCU",
-                sub: t("vcuSub"),
                 href: "https://docs.google.com/viewerng/viewer?url=http://q4s.nl/onewebmedia/Signed_Cert_276993-2018-ASCC-NLD-RvA_ENG-20220210-20220211082743.pdf&_r=1",
-                logo: "/logos/cert/vcu.svg",
-                logoAlt: "VCU",
+                logo: "/logos/cert/vcu-white.png",
               },
               {
-                label: "SNA",
-                sub: t("snaSub"),
+                label: "SNA — NEN 4400-1",
                 href: "/SNA_VerklaringVanRegistratie.pdf",
-                logo: "/logos/cert/sna-round.svg",
-                logoAlt: "SNA — Stichting Normering Arbeid",
+                logo: "/logos/cert/sna-white.png",
               },
-            ].map(({ label, sub, href, logo, logoAlt }) => (
+            ].map(({ label, href, logo }) => (
               <a
                 key={label}
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex flex-col sm:flex-row items-center sm:items-center gap-2 sm:gap-3 px-2 sm:px-4 py-3 border border-white/12 hover:border-[#e8430a] hover:bg-white/5 transition-all duration-200 text-center sm:text-left"
+                aria-label={label}
+                title={label}
+                className="group flex h-20 w-20 shrink-0 items-center justify-center rounded-lg border border-white/12 hover:border-[#e8430a] hover:bg-white/5 transition-all duration-200"
               >
-                <span className="flex h-10 w-16 shrink-0 items-center justify-center overflow-hidden rounded bg-white px-1.5">
-                  <Image
-                    src={logo}
-                    alt={logoAlt}
-                    width={64}
-                    height={40}
-                    className="max-h-8 max-w-full w-auto object-contain"
-                  />
-                </span>
-                <div>
-                  <p className="text-xs sm:text-sm font-black text-white leading-none">{label}</p>
-                  <p className="text-[10px] sm:text-[11px] text-white/35 group-hover:text-white/60 mt-0.5 transition-colors">{sub}</p>
-                </div>
+                <Image
+                  src={logo}
+                  alt={label}
+                  width={64}
+                  height={64}
+                  className="max-h-14 max-w-14 w-auto object-contain opacity-80 group-hover:opacity-100 transition-opacity"
+                />
               </a>
             ))}
           </div>

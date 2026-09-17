@@ -113,45 +113,39 @@ export default function Footer() {
                 label: "ISO 9001:2015",
                 sub: t("iso9001Sub"),
                 href: "https://docs.google.com/viewerng/viewer?url=http://q4s.nl/onewebmedia/ISO-9001-251980-2017-AQ-NLD-RvA-3-en-US-20240131-20240131144352.pdf",
-                icon: (
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                    <circle cx="12" cy="12" r="10"/>
-                    <path d="M9 12l2 2 4-4"/>
-                  </svg>
-                ),
+                logo: "/logos/cert/dnv.png",
+                logoAlt: "DNV",
               },
               {
                 label: "VCU",
                 sub: t("vcuSub"),
                 href: "https://docs.google.com/viewerng/viewer?url=http://q4s.nl/onewebmedia/Signed_Cert_276993-2018-ASCC-NLD-RvA_ENG-20220210-20220211082743.pdf&_r=1",
-                icon: (
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                    <path d="M9 12l2 2 4-4"/>
-                  </svg>
-                ),
+                logo: "/logos/cert/vcu.svg",
+                logoAlt: "VCU",
               },
               {
                 label: "SNA",
                 sub: t("snaSub"),
                 href: "/SNA_VerklaringVanRegistratie.pdf",
-                icon: (
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                    <rect x="3" y="3" width="18" height="18" rx="2"/>
-                    <path d="M9 12l2 2 4-4"/>
-                  </svg>
-                ),
+                logo: "/logos/cert/sna-round.svg",
+                logoAlt: "SNA — Stichting Normering Arbeid",
               },
-            ].map(({ label, sub, href, icon }) => (
+            ].map(({ label, sub, href, logo, logoAlt }) => (
               <a
                 key={label}
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex flex-col sm:flex-row items-center sm:items-center gap-1 sm:gap-3 px-2 sm:px-4 py-3 border border-white/12 hover:border-[#e8430a] hover:bg-white/5 transition-all duration-200 text-center sm:text-left"
+                className="group flex flex-col sm:flex-row items-center sm:items-center gap-2 sm:gap-3 px-2 sm:px-4 py-3 border border-white/12 hover:border-[#e8430a] hover:bg-white/5 transition-all duration-200 text-center sm:text-left"
               >
-                <span className="text-white/40 group-hover:text-[#e8430a] transition-colors duration-200 shrink-0">
-                  {icon}
+                <span className="flex h-10 w-16 shrink-0 items-center justify-center overflow-hidden rounded bg-white px-1.5">
+                  <Image
+                    src={logo}
+                    alt={logoAlt}
+                    width={64}
+                    height={40}
+                    className="max-h-8 max-w-full w-auto object-contain"
+                  />
                 </span>
                 <div>
                   <p className="text-xs sm:text-sm font-black text-white leading-none">{label}</p>

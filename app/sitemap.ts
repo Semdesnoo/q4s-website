@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { vacancies } from "@/lib/vacancies";
+import { fetchFeedVacancies } from "@/lib/vacancy-feed";
 import { SITE_URL } from "@/lib/site";
 
 const base = SITE_URL;
@@ -41,7 +42,8 @@ const newsArticles = [
   { id: "6", date: "2025-12-18" },
 ];
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const feedVacancies = await fetchFeedVacancies();
   const entries: MetadataRoute.Sitemap = [];
 
   for (const route of staticRoutes) {
@@ -89,6 +91,33 @@ export default function sitemap(): MetadataRoute.Sitemap {
       {
         url: `${base}/en/vacancies/${v.id}`,
         lastModified: new Date(v.posted),
+        priority: 0.8,
+        changeFrequency: "weekly",
+        alternates,
+      }
+    );
+  }
+
+  // Feed vacancies from the Q4S dashboard
+  for (const fv of feedVacancies) {
+    const alternates = {
+      languages: {
+        "x-default": `${base}/nl/vacatures/${fv.id}`,
+        nl: `${base}/nl/vacatures/${fv.id}`,
+        en: `${base}/en/vacancies/${fv.id}`,
+      },
+    };
+    entries.push(
+      {
+        url: `${base}/nl/vacatures/${fv.id}`,
+        lastModified: fv.posted ? new Date(fv.posted) : new Date(),
+        priority: 0.8,
+        changeFrequency: "weekly",
+        alternates,
+      },
+      {
+        url: `${base}/en/vacancies/${fv.id}`,
+        lastModified: fv.posted ? new Date(fv.posted) : new Date(),
         priority: 0.8,
         changeFrequency: "weekly",
         alternates,

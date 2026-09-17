@@ -1,6 +1,7 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
 import VacanciesClient from "@/components/VacanciesClient";
+import { fetchFeedVacancies } from "@/lib/vacancy-feed";
 
 export async function generateMetadata({
   params,
@@ -36,6 +37,59 @@ export default async function VacanciesPage({
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "vacancies" });
 
+  // Static vacancies from messages JSON (legacy, currently empty)
+  const staticList = t.raw("list") as Array<{
+    id: string;
+    title: string;
+    location: string;
+    description: string;
+  }>;
+
+  // Live vacancies from the Q4S dashboard API
+  const feedVacancies = await fetchFeedVacancies();
+
+  // Merge: feed vacancies first, then static (feed wins on duplicate id)
+  const seenIds = new Set<string>();
+  const merged: Array<{
+    id: string;
+    source: "feed" | "legacy";
+    title: string;
+    location: string;
+    description: string;
+    discipline: string;
+    type: string;
+    posted: string;
+  }> = [];
+
+  for (const fv of feedVacancies) {
+    seenIds.add(fv.id);
+    merged.push({
+      id: fv.id,
+      source: "feed",
+      title: fv.title,
+      location: fv.location,
+      description: fv.description,
+      discipline: fv.discipline,
+      type: fv.type,
+      posted: fv.posted,
+    });
+  }
+
+  for (const sv of staticList) {
+    if (!seenIds.has(sv.id)) {
+      merged.push({
+        id: sv.id,
+        source: "legacy",
+        title: sv.title,
+        location: sv.location,
+        description: sv.description,
+        discipline: "",
+        type: "",
+        posted: "",
+      });
+    }
+  }
+
   return (
     <>
       {/* ─── HERO ─── */}
@@ -58,7 +112,7 @@ export default async function VacanciesPage({
 
       <VacanciesClient
         locale={locale}
-        vacancyList={t.raw("list") as Array<{ id: string; title: string; location: string; description: string }>}
+        vacancyList={merged}
         translations={{
           searchPlaceholder: t("search.placeholder"),
           filter: t("search.filter"),

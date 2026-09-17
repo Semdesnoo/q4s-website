@@ -3,16 +3,19 @@
 import { useState, useMemo } from "react";
 import { Link } from "@/i18n/navigation";
 import { Search, MapPin, Clock, ArrowRight } from "lucide-react";
-import { vacancies as staticVacancies } from "@/lib/vacancies";
 
-const disciplines = ["QA/QC", "NDT", "Welding", "Inspection", "Engineering"];
-const types = ["Contract", "Permanent", "Freelance"];
+const disciplines = ["QA/QC", "NDT", "NDO / NDT", "Welding", "Inspection", "Engineering"];
+const types = ["Contract", "Permanent", "Freelance", "Fulltime"];
 
 interface VacancyItem {
   id: string;
+  source: "feed" | "legacy";
   title: string;
   location: string;
   description: string;
+  discipline: string;
+  type: string;
+  posted: string;
 }
 
 interface Props {
@@ -39,14 +42,8 @@ export default function VacanciesClient({ translations: tr, locale, vacancyList 
   const [discipline, setDiscipline] = useState("");
   const [type, setType] = useState("");
 
-  // Merge translated content with static fields (type, discipline, posted)
-  const merged = vacancyList.map((v) => {
-    const s = staticVacancies.find((s) => s.id === v.id);
-    return { ...v, type: s?.type ?? "", discipline: s?.discipline ?? "", posted: s?.posted ?? "" };
-  });
-
   const filtered = useMemo(() => {
-    return merged.filter((v) => {
+    return vacancyList.filter((v) => {
       const q = query.toLowerCase();
       const matchQuery =
         !q ||
@@ -57,10 +54,12 @@ export default function VacanciesClient({ translations: tr, locale, vacancyList 
       const matchType = !type || v.type === type;
       return matchQuery && matchDiscipline && matchType;
     });
-  }, [query, discipline, type, merged]);
+  }, [query, discipline, type, vacancyList]);
 
   function formatDate(dateStr: string) {
+    if (!dateStr) return "";
     const d = new Date(dateStr);
+    if (isNaN(d.getTime())) return dateStr;
     return d.toLocaleDateString(locale === "nl" ? "nl-NL" : "en-GB", {
       day: "numeric",
       month: "long",
@@ -134,25 +133,33 @@ export default function VacanciesClient({ translations: tr, locale, vacancyList 
                   <div className="relative z-10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                     <div className="flex-1 min-w-0">
                       <div className="flex flex-wrap gap-2 mb-3">
-                        <span className="text-[10px] font-semibold uppercase tracking-[0.15em] px-2.5 py-1 border border-black/15 text-black/50">
-                          {v.discipline}
-                        </span>
-                        <span className="text-[10px] font-semibold uppercase tracking-[0.15em] px-2.5 py-1 border border-black/15 text-black/50">
-                          {v.type}
-                        </span>
+                        {v.discipline && (
+                          <span className="text-[10px] font-semibold uppercase tracking-[0.15em] px-2.5 py-1 border border-black/15 text-black/50">
+                            {v.discipline}
+                          </span>
+                        )}
+                        {v.type && (
+                          <span className="text-[10px] font-semibold uppercase tracking-[0.15em] px-2.5 py-1 border border-black/15 text-black/50">
+                            {v.type}
+                          </span>
+                        )}
                       </div>
                       <h3 className="text-lg sm:text-xl font-black text-black mb-2 tracking-[-0.02em]">
                         {v.title}
                       </h3>
                       <div className="flex flex-wrap gap-4 text-xs text-black/40 mb-3">
-                        <span className="flex items-center gap-1.5">
-                          <MapPin size={12} />
-                          {v.location}
-                        </span>
-                        <span className="flex items-center gap-1.5">
-                          <Clock size={12} />
-                          {formatDate(v.posted)}
-                        </span>
+                        {v.location && (
+                          <span className="flex items-center gap-1.5">
+                            <MapPin size={12} />
+                            {v.location}
+                          </span>
+                        )}
+                        {v.posted && (
+                          <span className="flex items-center gap-1.5">
+                            <Clock size={12} />
+                            {formatDate(v.posted)}
+                          </span>
+                        )}
                       </div>
                       <p className="text-sm text-black/50 leading-relaxed line-clamp-2 max-w-2xl">
                         {v.description}
@@ -169,7 +176,7 @@ export default function VacanciesClient({ translations: tr, locale, vacancyList 
                         {tr.learnMore}
                       </Link>
                       <Link
-                        href={{ pathname: "/contact", query: { vacancy: v.id } }}
+                        href={{ pathname: "/upload-cv", query: { vacancy: v.id } }}
                         className="group/btn inline-flex items-center gap-1.5 px-3 py-2 sm:px-5 sm:py-2.5 bg-[#e8430a] text-white text-[10px] sm:text-xs font-semibold uppercase tracking-[0.08em] sm:tracking-[0.1em] hover:bg-[#c73508] transition-colors duration-200"
                       >
                         {tr.applyNow}

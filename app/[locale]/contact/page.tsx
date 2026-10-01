@@ -85,7 +85,7 @@ export default async function ContactPage({
                   </div>
                   <div className="flex items-center gap-3">
                     <Phone size={16} className="text-[#e8430a] shrink-0" />
-                    <a href="tel:+31857826818" className="text-base font-semibold text-[#000000] hover:text-[#e8430a] transition-colors">
+                    <a href="tel:+316857826818" className="text-base font-semibold text-[#000000] hover:text-[#e8430a] transition-colors">
                       {t("details.phone")}
                     </a>
                   </div>

@@ -107,7 +107,7 @@ export default async function LocaleLayout({
     url: SITE_URL,
     logo: LOGO_URL,
     image: LOGO_URL,
-    telephone: "+31857826818",
+    telephone: "+316857826818",
     description:
       locale === "nl"
         ? "Q4S B.V. is gespecialiseerd in technische werving en detachering voor de industriële sector. Wij plaatsen QA/QC inspecteurs, NDT-specialisten en technisch personeel voor kritieke projecten in Nederland en internationaal."
@@ -144,7 +144,7 @@ export default async function LocaleLayout({
       "@type": "ContactPoint",
       // Zelfde E.164-notatie als op topniveau en als in alle tel:-links.
       // Twee formats voor hetzelfde nummer verzwakt het NAP-signaal.
-      telephone: "+31857826818",
+      telephone: "+316857826818",
       email: "info@q4s.nl",
       contactType: "customer service",
       availableLanguage: ["Dutch", "English"],

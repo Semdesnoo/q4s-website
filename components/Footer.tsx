@@ -153,7 +153,7 @@ export default function Footer() {
           </p>
           <div className="hidden sm:flex flex-wrap items-center gap-4 sm:gap-6">
             <a href="mailto:info@q4s.nl" className="text-sm text-white/40 hover:text-white transition-colors duration-200">{t("email")}</a>
-            <a href="tel:+31857826818" className="text-sm text-white/40 hover:text-white transition-colors duration-200">{t("phone")}</a>
+            <a href="tel:+316857826818" className="text-sm text-white/40 hover:text-white transition-colors duration-200">{t("phone")}</a>
             <span className="text-sm text-white/40">{t("kvk")}</span>
             <span className="text-sm text-white/40">{t("btw")}</span>
           </div>

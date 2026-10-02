@@ -28,6 +28,7 @@ export const team: TeamMember[] = [
     email: "paul.boomsma@q4s.nl",
     phone: "+31 6 28641249",
     whatsapp: "31628641249",
+    photo: "paul-boomsma.jpg",
   },
   {
     name: "Gjil de Jong",

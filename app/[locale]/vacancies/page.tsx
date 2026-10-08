@@ -31,7 +31,7 @@ export default async function VacanciesPage({
   }>;
 
   // Live vacancies from the Q4S dashboard API
-  const feedVacancies = await fetchFeedVacancies();
+  const feedVacancies = await fetchFeedVacancies(locale);
 
   // Merge: feed vacancies first, then static (feed wins on duplicate id)
   const seenIds = new Set<string>();

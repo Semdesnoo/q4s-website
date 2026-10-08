@@ -39,9 +39,12 @@ export interface FeedVacancyDetail extends FeedVacancy {
  * Fetch all published vacancies from the dashboard. Returns [] on failure
  * so the page always renders (possibly empty).
  */
-export async function fetchFeedVacancies(): Promise<FeedVacancy[]> {
+/** `locale === "en"` vraagt de Engelse vertaling op (dashboard vertaalt + cachet; valt terug op NL). */
+const langQuery = (locale?: string) => (locale === "en" ? "?lang=en" : "");
+
+export async function fetchFeedVacancies(locale?: string): Promise<FeedVacancy[]> {
   try {
-    const res = await fetch(FEED_URL, {
+    const res = await fetch(`${FEED_URL}${langQuery(locale)}`, {
       next: { revalidate: 60 }, // ISR: revalidate every 60s
     });
     if (!res.ok) return [];
@@ -70,10 +73,11 @@ export async function fetchFeedVacancies(): Promise<FeedVacancy[]> {
  * Fetch a single vacancy by slug for the detail page.
  */
 export async function fetchFeedVacancy(
-  slug: string
+  slug: string,
+  locale?: string
 ): Promise<FeedVacancyDetail | null> {
   try {
-    const res = await fetch(`${DETAIL_URL}/${slug}`, {
+    const res = await fetch(`${DETAIL_URL}/${slug}${langQuery(locale)}`, {
       next: { revalidate: 60 },
     });
     if (!res.ok) return null;

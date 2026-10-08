@@ -30,7 +30,7 @@ export async function generateMetadata({
 
   // Feed eerst, anders de statische (legacy) lijst.
   const list = t.raw("list") as Array<{ id: string; title: string; description: string; location: string }>;
-  const vacancy = (await fetchFeedVacancy(id)) ?? list.find((v) => v.id === id);
+  const vacancy = (await fetchFeedVacancy(id, locale)) ?? list.find((v) => v.id === id);
   if (!vacancy) return { title: t("noResults") };
 
   // "Quality Manager (CSA) – Vacature Rotterdam | Q4S": functietitel + zoekwoord "vacature" + plaats.
@@ -56,7 +56,7 @@ export default async function VacancyDetailPage({
   const t = await getTranslations({ locale, namespace: "vacancies" });
 
   // Try feed vacancy first
-  const feedVacancy = await fetchFeedVacancy(id);
+  const feedVacancy = await fetchFeedVacancy(id, locale);
 
   if (feedVacancy) {
     return renderVacancy({

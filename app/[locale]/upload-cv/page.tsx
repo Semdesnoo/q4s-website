@@ -54,10 +54,10 @@ export default async function UploadCvPage({
         <h3 className="text-xl font-black text-black tracking-[-0.02em] mb-4">{t("callTitle")}</h3>
         <p className="text-base text-black/75 mb-5 leading-relaxed">{t("callBody")}</p>
         <a
-          href="tel:+316857826818"
+          href="tel:+31857826818"
           className="block text-center py-3 bg-[#e8430a] text-white text-xs font-semibold uppercase tracking-[0.12em] hover:bg-[#c73508] transition-colors"
         >
-          +31 6 85 782 6818
+          +31 (0) 85 782 6818
         </a>
         <div className="mt-6 pt-6 border-t border-black/10">
           <RecruiterContact locale={locale} />

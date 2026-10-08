@@ -157,7 +157,6 @@ export async function POST(req: NextRequest) {
   await sendAutoReply(resend, {
     to: email,
     firstName,
-    locale: (data.get("locale") as string) || "nl",
     vacancyTitle: vacancy?.title,
   });
 

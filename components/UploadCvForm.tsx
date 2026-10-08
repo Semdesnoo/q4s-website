@@ -121,7 +121,6 @@ export default function UploadCvForm({ locale, t, vacancy }: Props) {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-5">
-      <input type="hidden" name="locale" value={locale} />
       {vacancy && (
         <div className="border-l-4 border-[#e8430a] bg-[#fff4f0] px-5 py-4">
           <p className="text-[11px] font-semibold uppercase tracking-[0.15em] text-black/50">{t.applyingFor}</p>

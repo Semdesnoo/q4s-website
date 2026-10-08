@@ -1,12 +1,13 @@
 import { use } from "react";
 import { useTranslations } from "next-intl";
-import { getTranslations, setRequestLocale } from "next-intl/server";
+import { setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
 import { Link } from "@/i18n/navigation";
 import { ArrowRight } from "lucide-react";
 import ValueRows from "@/components/ValueRows";
 import TeamCard from "@/components/TeamCard";
 import { team } from "@/lib/team";
+import { pageMetadata } from "@/lib/seo";
 
 export async function generateMetadata({
   params,
@@ -14,23 +15,7 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "about" });
-  return {
-    title: t("hero.title"),
-    description: t("hero.subtitle"),
-    alternates: {
-      canonical: locale === "nl" ? "/nl/over-ons" : "/en/about",
-      languages: {
-        "x-default": "/nl/over-ons",
-        nl: "/nl/over-ons",
-        en: "/en/about",
-      },
-    },
-    openGraph: {
-      title: `${t("hero.title")} | Q4S`,
-      description: t("hero.subtitle"),
-    },
-  };
+  return pageMetadata(locale, "about", "/about");
 }
 
 export default function AboutPage({

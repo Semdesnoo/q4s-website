@@ -740,5 +740,40 @@
     "services": "Our services",
     "contact": "Get in touch",
     "home": "Back to home"
+  },
+  "seo": {
+    "home": {
+      "title": "Technical Recruitment & Secondment | QA/QC and NDT | Q4S",
+      "description": "Q4S recruits and seconds QA/QC inspectors, NDT specialists, welding inspectors and technical staff for steel construction, offshore and industry."
+    },
+    "services": {
+      "title": "Hire Technical Staff: Secondment & Recruitment | Q4S",
+      "description": "Technical secondment, recruitment, NDT consultancy and source inspection. Q4S supplies certified QA/QC and NDT inspectors for your project."
+    },
+    "vacancies": {
+      "title": "QA/QC, NDT and Welding Inspector Jobs | Q4S",
+      "description": "Current vacancies and assignments for QA/QC inspectors, NDT specialists, welding inspectors and technical staff in the Netherlands and abroad."
+    },
+    "about": {
+      "title": "About Q4S | Technical Recruitment Agency, Rotterdam Area",
+      "description": "Q4S is a technical recruitment and secondment agency based in Barendrecht near Rotterdam, specialised in QA/QC, NDT and inspection for industry and offshore."
+    },
+    "news": {
+      "title": "News & Insights on Technical Recruitment | Q4S",
+      "description": "News, trends and expertise on QA/QC, NDT inspection, welding inspection and technical recruitment in industry, energy and offshore. By the Q4S specialists."
+    },
+    "contact": {
+      "title": "Contact | Q4S Technical Recruitment, Barendrecht",
+      "description": "Q4S B.V., Arnhemseweg 12, Barendrecht (Rotterdam area). Call +31 (0) 85 782 6818 or email info@q4s.nl for technical staff or a new assignment."
+    },
+    "wayWeWork": {
+      "title": "How We Work: Recruiting Technical Staff | Q4S",
+      "description": "How Q4S works: from intake and screening to placement and aftercare. The right QA/QC, NDT or inspection specialist for your project, fast and transparent."
+    },
+    "uploadCv": {
+      "title": "Upload Your CV | QA/QC and NDT Inspector Jobs | Q4S",
+      "description": "Upload your CV to Q4S and find your next assignment as a QA/QC inspector, NDT specialist, welding inspector or technical specialist. Clients can post requests here."
+    },
+    "vacancySuffix": "Vacancy"
   }
 }

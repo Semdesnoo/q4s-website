@@ -5,6 +5,7 @@ import { Link } from "@/i18n/navigation";
 import { ArrowLeft, ArrowRight, Clock } from "lucide-react";
 import { absoluteUrl } from "@/lib/site";
 import { jsonLd, ORG_ID } from "@/lib/schema";
+import { metaDescription, openGraphFor } from "@/lib/seo";
 
 interface Article {
   id: string;
@@ -39,8 +40,8 @@ export async function generateMetadata({
   const article = articles.find((a) => a.id === id);
   if (!article) return { title: t("notFound") };
   return {
-    title: `${article.title} | Q4S`,
-    description: article.excerpt,
+    title: article.title, // layout-template voegt " | Q4S" toe
+    description: metaDescription(article.excerpt),
     alternates: {
       canonical: locale === "nl" ? `/nl/nieuws/${id}` : `/en/news/${id}`,
       languages: {
@@ -50,8 +51,7 @@ export async function generateMetadata({
       },
     },
     openGraph: {
-      title: `${article.title} | Q4S`,
-      description: article.excerpt,
+      ...openGraphFor(locale, locale === "nl" ? `/nl/nieuws/${id}` : `/en/news/${id}`, `${article.title} | Q4S`, metaDescription(article.excerpt)),
       type: "article",
       publishedTime: article.date,
       authors: ["Q4S B.V."],

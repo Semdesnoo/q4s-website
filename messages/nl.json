@@ -740,5 +740,40 @@
     "services": "Onze diensten",
     "contact": "Neem contact op",
     "home": "Terug naar home"
+  },
+  "seo": {
+    "home": {
+      "title": "Technische Detachering & Werving | QA/QC en NDT | Q4S",
+      "description": "Q4S detacheert en werft QA/QC-inspecteurs, NDT-specialisten, lasinspecteurs en technisch personeel voor staalbouw, offshore en industrie. Vanuit Barendrecht."
+    },
+    "services": {
+      "title": "Technisch Personeel Inhuren & Detacheren | Q4S",
+      "description": "Technische detachering, werving en selectie, NDT-consultancy en source inspection. Q4S levert gecertificeerde QA/QC- en NDT-inspecteurs voor uw project."
+    },
+    "vacancies": {
+      "title": "Vacatures QA/QC, NDT en Lasinspecteur | Q4S",
+      "description": "Actuele vacatures en opdrachten voor QA/QC-inspecteurs, NDT-specialisten, lasinspecteurs en technisch personeel in Nederland en internationaal."
+    },
+    "about": {
+      "title": "Over Q4S | Technisch Detacheringsbureau Barendrecht",
+      "description": "Q4S is een technisch detacherings- en wervingsbureau uit Barendrecht, regio Rotterdam. Gespecialiseerd in QA/QC, NDT en inspectie voor industrie en offshore."
+    },
+    "news": {
+      "title": "Nieuws & Kennis over Technische Werving | Q4S",
+      "description": "Nieuws, trends en vakkennis over QA/QC, NDT-inspectie, lasinspectie en technische werving in industrie, energie en offshore. Door de specialisten van Q4S."
+    },
+    "contact": {
+      "title": "Contact | Q4S Technische Detachering Barendrecht",
+      "description": "Q4S B.V., Arnhemseweg 12, Barendrecht (regio Rotterdam). Bel +31 (0) 85 782 6818 of mail info@q4s.nl voor technisch personeel of een nieuwe opdracht."
+    },
+    "wayWeWork": {
+      "title": "Onze Aanpak: Technisch Personeel Werven | Q4S",
+      "description": "Zo werkt Q4S: van intake en screening tot plaatsing en nazorg. Snel en transparant de juiste QA/QC-, NDT- of inspectiespecialist voor uw project."
+    },
+    "uploadCv": {
+      "title": "CV Uploaden | Werk als QA/QC- of NDT-inspecteur | Q4S",
+      "description": "Upload je CV bij Q4S en vind je volgende opdracht als QA/QC-inspecteur, NDT-specialist, lasinspecteur of technisch specialist. Opdrachtgevers melden hier hun vraag."
+    },
+    "vacancySuffix": "Vacature"
   }
 }

@@ -1,10 +1,11 @@
 import { use } from "react";
 import { useTranslations } from "next-intl";
-import { getTranslations, setRequestLocale } from "next-intl/server";
+import { setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
 import { Link } from "@/i18n/navigation";
 import { ArrowRight, Flame, Anchor, FlaskConical, Zap, Ship, HardHat } from "lucide-react";
 import ServiceItems from "@/components/ServiceItems";
+import { pageMetadata } from "@/lib/seo";
 
 export async function generateMetadata({
   params,
@@ -12,23 +13,7 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "services" });
-  return {
-    title: t("hero.title"),
-    description: t("hero.subtitle"),
-    alternates: {
-      canonical: locale === "nl" ? "/nl/diensten" : "/en/services",
-      languages: {
-        "x-default": "/nl/diensten",
-        nl: "/nl/diensten",
-        en: "/en/services",
-      },
-    },
-    openGraph: {
-      title: `${t("hero.title")} | Q4S`,
-      description: t("hero.subtitle"),
-    },
-  };
+  return pageMetadata(locale, "services", "/services");
 }
 
 export default function ServicesPage({

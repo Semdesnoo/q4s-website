@@ -7,6 +7,8 @@ import { vacancies } from "@/lib/vacancies";
 import { fetchFeedVacancy, fetchFeedVacancies } from "@/lib/vacancy-feed";
 import { absoluteUrl, LOGO_URL, SITE_URL } from "@/lib/site";
 import { jsonLd, ORG_ID } from "@/lib/schema";
+import { alternatesFor } from "@/lib/alternates";
+import { metaDescription, openGraphFor } from "@/lib/seo";
 
 export async function generateStaticParams() {
   // Static vacancies (legacy)
@@ -24,47 +26,23 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale, id } = await params;
   const t = await getTranslations({ locale, namespace: "vacancies" });
+  const seo = await getTranslations({ locale, namespace: "seo" });
 
-  // Try feed first
-  const feedVacancy = await fetchFeedVacancy(id);
-  if (feedVacancy) {
-    return {
-      title: `${feedVacancy.title} | ${t("hero.label")}`,
-      description: feedVacancy.description,
-      alternates: {
-        canonical: locale === "nl" ? `/nl/vacatures/${id}` : `/en/vacancies/${id}`,
-        languages: {
-          "x-default": `/nl/vacatures/${id}`,
-          nl: `/nl/vacatures/${id}`,
-          en: `/en/vacancies/${id}`,
-        },
-      },
-      openGraph: {
-        title: `${feedVacancy.title} | Q4S`,
-        description: feedVacancy.description,
-      },
-    };
-  }
-
-  // Fallback to static
+  // Feed eerst, anders de statische (legacy) lijst.
   const list = t.raw("list") as Array<{ id: string; title: string; description: string; location: string }>;
-  const vacancy = list.find((v) => v.id === id);
+  const vacancy = (await fetchFeedVacancy(id)) ?? list.find((v) => v.id === id);
   if (!vacancy) return { title: t("noResults") };
+
+  // "Quality Manager (CSA) – Vacature Rotterdam | Q4S": functietitel + zoekwoord "vacature" + plaats.
+  const where = vacancy.location ? ` ${vacancy.location.split(",")[0].trim()}` : "";
+  const title = `${vacancy.title.replace(/\s*\/\s*/g, "/")} – ${seo("vacancySuffix")}${where} | Q4S`;
+  const description = metaDescription(vacancy.description);
+  const alternates = alternatesFor("/vacancies/[id]", locale, { id });
   return {
-    title: `${vacancy.title} | ${t("hero.label")}`,
-    description: vacancy.description,
-    alternates: {
-      canonical: locale === "nl" ? `/nl/vacatures/${id}` : `/en/vacancies/${id}`,
-      languages: {
-        "x-default": `/nl/vacatures/${id}`,
-        nl: `/nl/vacatures/${id}`,
-        en: `/en/vacancies/${id}`,
-      },
-    },
-    openGraph: {
-      title: `${vacancy.title} | Q4S`,
-      description: vacancy.description,
-    },
+    title: { absolute: title },
+    description,
+    alternates,
+    openGraph: openGraphFor(locale, alternates.canonical, title, description),
   };
 }
 

@@ -2,6 +2,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
 import VacanciesClient from "@/components/VacanciesClient";
 import { fetchFeedVacancies } from "@/lib/vacancy-feed";
+import { pageMetadata } from "@/lib/seo";
 
 export async function generateMetadata({
   params,
@@ -9,23 +10,7 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "vacancies" });
-  return {
-    title: t("hero.title"),
-    description: t("hero.subtitle"),
-    alternates: {
-      canonical: locale === "nl" ? "/nl/vacatures" : "/en/vacancies",
-      languages: {
-        "x-default": "/nl/vacatures",
-        nl: "/nl/vacatures",
-        en: "/en/vacancies",
-      },
-    },
-    openGraph: {
-      title: `${t("hero.title")} | Q4S`,
-      description: t("hero.subtitle"),
-    },
-  };
+  return pageMetadata(locale, "vacancies", "/vacancies");
 }
 
 export default async function VacanciesPage({

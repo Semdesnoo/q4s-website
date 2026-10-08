@@ -1,10 +1,10 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
-import { alternatesFor } from "@/lib/alternates";
 import UploadCvForm from "@/components/UploadCvForm";
 import EmployerForm from "@/components/EmployerForm";
 import RegisterTabs from "@/components/RegisterTabs";
 import RecruiterContact from "@/components/RecruiterContact";
+import { pageMetadata } from "@/lib/seo";
 
 export async function generateMetadata({
   params,
@@ -12,18 +12,7 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "uploadCv" });
-  const title = t("hero.title");
-  const description = t("hero.subtitle");
-
-  return {
-    title,
-    description,
-    // Zonder dit erft de pagina het alternates-blok van de layout en
-    // canonicaliseert hij naar de homepage — zie lib/alternates.ts.
-    alternates: alternatesFor("/upload-cv", locale),
-    openGraph: { title: `${title} | Q4S`, description },
-  };
+  return pageMetadata(locale, "uploadCv", "/upload-cv");
 }
 
 export default async function UploadCvPage({

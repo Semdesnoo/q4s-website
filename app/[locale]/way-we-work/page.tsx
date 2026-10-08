@@ -1,10 +1,11 @@
 import { use } from "react";
 import { useTranslations } from "next-intl";
-import { getTranslations, setRequestLocale } from "next-intl/server";
+import { setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
 import { Link } from "@/i18n/navigation";
 import { ArrowRight } from "lucide-react";
 import { EmployerSteps, CandidateSteps } from "@/components/WayWeWorkSteps";
+import { pageMetadata } from "@/lib/seo";
 
 export async function generateMetadata({
   params,
@@ -12,23 +13,7 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "wayWeWork" });
-  return {
-    title: t("hero.title"),
-    description: t("hero.subtitle"),
-    alternates: {
-      canonical: locale === "nl" ? "/nl/onze-aanpak" : "/en/way-we-work",
-      languages: {
-        "x-default": "/nl/onze-aanpak",
-        nl: "/nl/onze-aanpak",
-        en: "/en/way-we-work",
-      },
-    },
-    openGraph: {
-      title: `${t("hero.title")} | Q4S`,
-      description: t("hero.subtitle"),
-    },
-  };
+  return pageMetadata(locale, "wayWeWork", "/way-we-work");
 }
 
 export default function WayWeWorkPage({

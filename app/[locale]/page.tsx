@@ -1,6 +1,6 @@
 import { use } from "react";
 import { useTranslations, useLocale } from "next-intl";
-import { getTranslations, setRequestLocale } from "next-intl/server";
+import { setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
 import { Link } from "@/i18n/navigation";
 import { ArrowRight, ArrowUpRight, Fuel, FlaskConical, Ship, Factory, Building2, Zap } from "lucide-react";
@@ -12,6 +12,9 @@ import HeroSection from "@/components/HeroSection";
 import { fetchFeedVacancies } from "@/lib/vacancy-feed";
 import ServiceRows from "@/components/ServiceRows";
 import FadeInView from "@/components/motion/FadeInView";
+import { pageMetadata } from "@/lib/seo";
+import { jsonLd, ORG_ID } from "@/lib/schema";
+import { SITE_URL } from "@/lib/site";
 
 const sectorIcons = [Fuel, FlaskConical, Ship, Factory, Building2, Zap];
 
@@ -21,8 +24,7 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "home" });
-  return { title: "Q4S — " + t("hero.tagline") };
+  return pageMetadata(locale, "home", "/");
 }
 
 export default function HomePage({
@@ -52,6 +54,20 @@ export default function HomePage({
 
   return (
     <>
+      {/* WebSite-schema: Google's signaal voor de sitenaam boven zoekresultaten. Bewust zonder SearchAction (sinds 2024 uitgezet). */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={jsonLd({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "@id": `${SITE_URL}/#website`,
+          url: `${SITE_URL}/`,
+          name: "Q4S",
+          alternateName: ["Q4S B.V.", "Q4S Detachering"],
+          inLanguage: locale === "nl" ? "nl-NL" : "en",
+          publisher: { "@id": ORG_ID },
+        })}
+      />
       {/* ─── HERO ─── */}
       <HeroSection
         tagline={t("hero.tagline")}

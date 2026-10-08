@@ -4,6 +4,7 @@ import { Link } from "@/i18n/navigation";
 import { Mail, Phone, MapPin, ArrowRight } from "lucide-react";
 import ContactForm from "@/components/ContactForm";
 import RecruiterContact from "@/components/RecruiterContact";
+import { pageMetadata } from "@/lib/seo";
 
 export async function generateMetadata({
   params,
@@ -11,23 +12,7 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "contact" });
-  return {
-    title: t("hero.title"),
-    description: t("hero.subtitle"),
-    alternates: {
-      canonical: `/${locale}/contact`,
-      languages: {
-        "x-default": "/nl/contact",
-        nl: "/nl/contact",
-        en: "/en/contact",
-      },
-    },
-    openGraph: {
-      title: `${t("hero.title")} | Q4S`,
-      description: t("hero.subtitle"),
-    },
-  };
+  return pageMetadata(locale, "contact", "/contact");
 }
 
 export default async function ContactPage({

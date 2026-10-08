@@ -4,6 +4,7 @@ import { verifyTurnstile, clientIp } from "@/lib/turnstile";
 import { sendToDashboard } from "@/lib/dashboard";
 import { fetchFeedVacancy } from "@/lib/vacancy-feed";
 import { absoluteUrl } from "@/lib/site";
+import { sendAutoReply } from "@/lib/autoreply";
 
 // Escape user-provided values before embedding them in the HTML email.
 const esc = (s: string) =>
@@ -151,6 +152,14 @@ export async function POST(req: NextRequest) {
     console.error("Resend error:", error);
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
+
+  // Ontvangstbevestiging naar de kandidaat (afzender info@q4s.nl). Faalt stil.
+  await sendAutoReply(resend, {
+    to: email,
+    firstName,
+    locale: (data.get("locale") as string) || "nl",
+    vacancyTitle: vacancy?.title,
+  });
 
   // Pas ná een geslaagde mail doorsturen naar het dashboard. Zou het andersom
   // staan, dan zou een kandidaat die na een mailfout opnieuw verzendt twee keer

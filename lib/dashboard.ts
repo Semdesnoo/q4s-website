@@ -89,6 +89,10 @@ export type CandidateSubmission = {
   discipline: string;
   availability: string;
   location: string;
+  /** Slug van de vacature waarop gesolliciteerd is → dashboard maakt een sollicitatie aan. */
+  vacancySlug?: string;
+  /** Vrij tekstveld van het formulier ("Aanvullende informatie"). */
+  motivation?: string;
   /** Het CV zoals aangeleverd; wordt als bestand meegestuurd. */
   cv: { buffer: Buffer; filename: string; type: string } | null;
 };
@@ -114,6 +118,8 @@ export async function sendToDashboard(
     toCode(submission.availability, AVAILABILITY_LOOKUP, "ONBEKEND")
   );
   fd.append("location", submission.location);
+  if (submission.vacancySlug) fd.append("vacancySlug", submission.vacancySlug);
+  if (submission.motivation) fd.append("motivation", submission.motivation);
 
   if (submission.cv) {
     const blob = new Blob([new Uint8Array(submission.cv.buffer)], {

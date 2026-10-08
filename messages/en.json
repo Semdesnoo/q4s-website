@@ -450,7 +450,8 @@
         "Looking for permanent position"
       ],
       "fileTooLarge": "This file is larger than 4 MB. Please compress it or email it to cv@q4s.nl.",
-      "fileRequired": "Upload your CV to complete your registration."
+      "fileRequired": "Upload your CV to complete your registration.",
+      "applyingFor": "You are applying for"
     },
     "why": {
       "title": "Why register with Q4S?",

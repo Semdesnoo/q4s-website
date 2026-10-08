@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 import { verifyTurnstile, clientIp } from "@/lib/turnstile";
 import { sendToDashboard } from "@/lib/dashboard";
+import { fetchFeedVacancy } from "@/lib/vacancy-feed";
+import { absoluteUrl } from "@/lib/site";
 
 // Escape user-provided values before embedding them in the HTML email.
 const esc = (s: string) =>
@@ -38,6 +40,12 @@ export async function POST(req: NextRequest) {
   const message = (data.get("message") as string) || "";
   const cvFile = data.get("cv") as File | null;
 
+  // Vacature uit het formulier: alleen vertrouwen als het dashboard 'm als
+  // gepubliceerde vacature kent — titel komt van de server, niet van de browser.
+  const rawSlug = ((data.get("vacancySlug") as string) || "").trim();
+  const vacancy = rawSlug ? await fetchFeedVacancy(rawSlug) : null;
+  const vacancyUrl = vacancy ? absoluteUrl(`/nl/vacatures/${vacancy.id}`) : "";
+
   // Rauwe waarden gaan naar het dashboard; de "—" is puur opmaak voor de e-mail.
   const rawPhone = (data.get("phone") as string) || "";
   const rawLocation = (data.get("location") as string) || "";
@@ -55,6 +63,9 @@ export async function POST(req: NextRequest) {
   const phoneEsc = esc(phone);
 
   const rows: [string, string][] = [
+    ...(vacancy
+      ? ([["Vacature", `<a href="${esc(vacancyUrl)}" style="color:#e8430a; text-decoration:none; font-weight:bold;">${esc(vacancy.title)}</a>`]] as [string, string][])
+      : []),
     ["Naam", esc(`${firstName} ${lastName}`.trim())],
     ["E-mail", `<a href="mailto:${emailEsc}" style="color:#e8430a; text-decoration:none;">${emailEsc}</a>`],
     ["Telefoon", phone !== "—" ? `<a href="tel:${phoneEsc.replace(/\s/g, "")}" style="color:#e8430a; text-decoration:none;">${phoneEsc}</a>` : "—"],
@@ -84,12 +95,12 @@ export async function POST(req: NextRequest) {
               <td style="background-color:#000000; padding:30px 36px;">
                 <div style="height:3px; width:44px; background-color:#e8430a; margin-bottom:18px;"></div>
                 <p style="margin:0; color:#e8430a; font-size:11px; font-weight:bold; letter-spacing:2.5px; text-transform:uppercase;">Q4S — Nieuwe sollicitatie</p>
-                <h1 style="margin:8px 0 0; color:#ffffff; font-size:25px; font-weight:bold; letter-spacing:-0.5px;">Nieuwe CV-inschrijving</h1>
+                <h1 style="margin:8px 0 0; color:#ffffff; font-size:25px; font-weight:bold; letter-spacing:-0.5px;">${vacancy ? `Sollicitatie: ${esc(vacancy.title)}` : "Nieuwe CV-inschrijving"}</h1>
               </td>
             </tr>
             <tr>
               <td style="padding:28px 36px 4px;">
-                <p style="margin:0; color:#555555; font-size:15px; line-height:1.55;">Er is een nieuwe CV-inschrijving binnengekomen via het formulier op q4s.nl. Het CV zit als bijlage bij deze e-mail.</p>
+                <p style="margin:0; color:#555555; font-size:15px; line-height:1.55;">${vacancy ? `Er is een sollicitatie binnengekomen op de vacature <strong>${esc(vacancy.title)}</strong> via q4s.nl. De kandidaat staat in het dashboard gekoppeld aan deze vacature. Het CV zit als bijlage bij deze e-mail.` : "Er is een nieuwe CV-inschrijving binnengekomen via het formulier op q4s.nl. Het CV zit als bijlage bij deze e-mail."}</p>
               </td>
             </tr>
             <tr>
@@ -129,7 +140,9 @@ export async function POST(req: NextRequest) {
     from: process.env.MAIL_FROM ?? "Q4S Website <noreply@q4s.nl>",
     to: process.env.CV_MAIL_TO ?? "cv@q4s.nl",
     replyTo: email,
-    subject: `Nieuw CV: ${firstName} ${lastName} — ${discipline}`,
+    subject: vacancy
+      ? `Sollicitatie ${vacancy.title}: ${firstName} ${lastName}`
+      : `Nieuw CV: ${firstName} ${lastName} — ${discipline}`,
     html,
     attachments,
   });
@@ -150,6 +163,8 @@ export async function POST(req: NextRequest) {
     discipline,
     availability,
     location: rawLocation,
+    vacancySlug: vacancy?.id,
+    motivation: message,
     cv: cvBuffer
       ? { buffer: cvBuffer, filename: cvFile!.name, type: cvFile!.type }
       : null,

@@ -5,6 +5,7 @@ import EmployerForm from "@/components/EmployerForm";
 import RegisterTabs from "@/components/RegisterTabs";
 import RecruiterContact from "@/components/RecruiterContact";
 import { pageMetadata } from "@/lib/seo";
+import { fetchFeedVacancy } from "@/lib/vacancy-feed";
 
 export async function generateMetadata({
   params,
@@ -17,11 +18,18 @@ export async function generateMetadata({
 
 export default async function UploadCvPage({
   params,
+  searchParams,
 }: {
   params: Promise<{ locale: string }>;
+  searchParams: Promise<{ vacancy?: string | string[] }>;
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
+  // "Direct solliciteren" linkt naar ?vacancy=<slug>. Alleen een vacature die
+  // écht gepubliceerd staat wordt gekoppeld; een onbekende slug = gewone inschrijving.
+  const slug = (await searchParams).vacancy;
+  const feedVacancy = typeof slug === "string" && slug ? await fetchFeedVacancy(slug, locale) : null;
+  const vacancy = feedVacancy ? { slug: feedVacancy.id, title: feedVacancy.title } : null;
   const t = await getTranslations({ locale, namespace: "uploadCv" });
   const whyItems = t.raw("why.items") as string[];
   const employerWhyItems = t.raw("employer.why.items") as string[];
@@ -62,6 +70,7 @@ export default async function UploadCvPage({
         <p className="text-base text-black/65 mb-8 leading-relaxed">{t("intro")}</p>
         <UploadCvForm
           locale={locale}
+          vacancy={vacancy}
           t={{
             firstName: t("form.firstName"),
             lastName: t("form.lastName"),
@@ -82,6 +91,7 @@ export default async function UploadCvPage({
             verify: t("form.verify"),
             fileTooLarge: t("form.fileTooLarge"),
             fileRequired: t("form.fileRequired"),
+            applyingFor: t("form.applyingFor"),
             disciplines: t.raw("form.disciplines") as string[],
             availabilities: t.raw("form.availabilities") as string[],
           }}

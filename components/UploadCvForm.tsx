@@ -6,6 +6,8 @@ import Turnstile, { TURNSTILE_ENABLED } from "./Turnstile";
 
 interface Props {
   locale: string;
+  /** Gezet bij "Direct solliciteren" op een vacature: koppelt de inzending aan die vacature. */
+  vacancy?: { slug: string; title: string } | null;
   t: {
     firstName: string;
     lastName: string;
@@ -26,6 +28,7 @@ interface Props {
     verify: string;
     fileTooLarge: string;
     fileRequired: string;
+    applyingFor: string;
     disciplines: string[];
     availabilities: string[];
   };
@@ -44,7 +47,7 @@ const inputClass =
 const labelClass =
   "block text-[11px] font-semibold uppercase tracking-[0.15em] text-black/40 mb-2";
 
-export default function UploadCvForm({ locale, t }: Props) {
+export default function UploadCvForm({ locale, t, vacancy }: Props) {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [file, setFile] = useState<File | null>(null);
   const [fileError, setFileError] = useState<string | null>(null);
@@ -118,6 +121,14 @@ export default function UploadCvForm({ locale, t }: Props) {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-5">
+      {vacancy && (
+        <div className="border-l-4 border-[#e8430a] bg-[#fff4f0] px-5 py-4">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.15em] text-black/50">{t.applyingFor}</p>
+          <p className="text-lg font-black text-black tracking-[-0.02em]">{vacancy.title}</p>
+          <input type="hidden" name="vacancySlug" value={vacancy.slug} />
+        </div>
+      )}
+
       {status === "error" && (
         <div className="flex items-center gap-2 p-4 border border-red-200 text-sm text-red-600">
           <AlertCircle size={16} />

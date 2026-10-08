@@ -450,7 +450,8 @@
         "Op zoek naar vast dienstverband"
       ],
       "fileTooLarge": "Dit bestand is groter dan 4 MB. Verklein het of mail het naar cv@q4s.nl.",
-      "fileRequired": "Upload je CV om je inschrijving af te ronden."
+      "fileRequired": "Upload je CV om je inschrijving af te ronden.",
+      "applyingFor": "Je solliciteert op"
     },
     "why": {
       "title": "Waarom inschrijven bij Q4S?",

@@ -130,7 +130,7 @@ export default function VacanciesClient({ translations: tr, locale, vacancyList 
                     className="absolute inset-0 z-0"
                     aria-label={v.title}
                   />
-                  <div className="relative z-10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                  <div className="pointer-events-none relative z-10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                     <div className="flex-1 min-w-0">
                       <div className="flex flex-wrap gap-2 mb-3">
                         {v.discipline && (
@@ -165,7 +165,7 @@ export default function VacanciesClient({ translations: tr, locale, vacancyList 
                         {v.description}
                       </p>
                     </div>
-                    <div className="flex gap-2 sm:gap-3 shrink-0">
+                    <div className="pointer-events-auto flex gap-2 sm:gap-3 shrink-0">
                       <Link
                         href={{
                           pathname: "/vacancies/[id]",

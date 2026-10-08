@@ -2,36 +2,27 @@ import type { Resend } from "resend";
 
 /**
  * Automatische ontvangstbevestiging naar de kandidaat na een CV-inzending/sollicitatie.
+ * Altijd Engels (internationale kandidaten). Twee varianten: sollicitatie op een
+ * vacature, of een open sollicitatie (CV uploaden zonder vacature).
  * Afzender info@q4s.nl; antwoorden komen ook daar binnen. Een fout hier mag de
  * inzending nooit laten mislukken (die is al binnen) — alleen loggen.
  */
 
+const PHONE = "+31 6 83859566";
+const PHONE_TEL = "+31683859566";
+
 const esc = (s: string) =>
   String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 
-const COPY = {
-  nl: {
-    subject: (v?: string) => (v ? `Bedankt voor je sollicitatie: ${v}` : "Bedankt voor het opsturen van je CV"),
-    hello: (n: string) => `Beste ${n},`,
-    body: (v?: string) =>
-      `Bedankt voor het opsturen van je CV${v ? ` voor de functie <strong>${esc(v)}</strong>` : ""}. We hebben je gegevens goed ontvangen en proberen je sollicitatie zo spoedig mogelijk te verwerken. Een van onze recruiters neemt contact met je op.`,
-    questions: "Heb je in de tussentijd vragen? Reageer gerust op deze e-mail of bel ons op",
-    regards: "Met vriendelijke groet,",
-  },
-  en: {
-    subject: (v?: string) => (v ? `Thank you for applying: ${v}` : "Thank you for sending your CV"),
-    hello: (n: string) => `Dear ${n},`,
-    body: (v?: string) =>
-      `Thank you for sending your CV${v ? ` for the position of <strong>${esc(v)}</strong>` : ""}. We have received your details and will process your application as soon as possible. One of our recruiters will be in touch.`,
-    questions: "Any questions in the meantime? Simply reply to this email or call us on",
-    regards: "Kind regards,",
-  },
-};
+export function autoReplyEmail(opts: { firstName: string; vacancyTitle?: string }) {
+  const v = opts.vacancyTitle;
+  const subject = v ? `Thank you for your application: ${v}` : "Thank you for your open application";
+  const body = v
+    ? `Thank you for applying for the position of <strong>${esc(v)}</strong> and for sending us your CV. We have received your application and will process it as soon as possible. One of our recruiters will contact you about the next steps.`
+    : `Thank you for sending us your CV. We have received your open application and will process it as soon as possible. We will add your profile to our talent pool, and as soon as a suitable assignment comes up, one of our recruiters will contact you.`;
 
-export function autoReplyEmail(opts: { firstName: string; locale?: string; vacancyTitle?: string }) {
-  const c = opts.locale === "en" ? COPY.en : COPY.nl;
   const html = `<!DOCTYPE html>
-<html lang="${opts.locale === "en" ? "en" : "nl"}">
+<html lang="en">
   <body style="margin:0; padding:0; background-color:#f4f4f5; font-family:Arial, Helvetica, sans-serif;">
     <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#f4f4f5; padding:32px 12px;">
       <tr><td align="center">
@@ -41,14 +32,14 @@ export function autoReplyEmail(opts: { firstName: string; locale?: string; vacan
             <p style="margin:0; color:#ffffff; font-size:22px; font-weight:bold; letter-spacing:-0.5px;">Q4S</p>
           </td></tr>
           <tr><td style="padding:32px 36px 8px; color:#222222; font-size:15px; line-height:1.65;">
-            <p style="margin:0 0 16px;">${esc(c.hello(opts.firstName || ""))}</p>
-            <p style="margin:0 0 16px;">${c.body(opts.vacancyTitle)}</p>
-            <p style="margin:0 0 24px;">${c.questions} <a href="tel:+31857826818" style="color:#e8430a; text-decoration:none;">+31 (0) 85 782 6818</a>.</p>
-            <p style="margin:0;">${c.regards}<br><strong>Team Q4S</strong></p>
+            <p style="margin:0 0 16px;">Dear ${esc(opts.firstName || "applicant")},</p>
+            <p style="margin:0 0 16px;">${body}</p>
+            <p style="margin:0 0 24px;">Any questions in the meantime? Simply reply to this email or call us on <a href="tel:${PHONE_TEL}" style="color:#e8430a; text-decoration:none;">${PHONE}</a>.</p>
+            <p style="margin:0;">Kind regards,<br><strong>Team Q4S</strong></p>
           </td></tr>
           <tr><td style="padding:24px 36px 28px;">
             <p style="margin:0; color:#9a9a9a; font-size:12px; line-height:1.6; border-top:1px solid #eeeeee; padding-top:18px;">
-              Q4S B.V. &middot; Arnhemseweg 12, 2994 LA Barendrecht &middot; <a href="https://www.q4s.nl" style="color:#e8430a; text-decoration:none;">www.q4s.nl</a> &middot; info@q4s.nl
+              Q4S B.V. &middot; Arnhemseweg 12, 2994 LA Barendrecht, the Netherlands &middot; <a href="https://www.q4s.nl" style="color:#e8430a; text-decoration:none;">www.q4s.nl</a> &middot; info@q4s.nl
             </p>
           </td></tr>
         </table>
@@ -56,12 +47,12 @@ export function autoReplyEmail(opts: { firstName: string; locale?: string; vacan
     </table>
   </body>
 </html>`;
-  return { subject: c.subject(opts.vacancyTitle), html };
+  return { subject, html };
 }
 
 export async function sendAutoReply(
   resend: Resend,
-  opts: { to: string; firstName: string; locale?: string; vacancyTitle?: string }
+  opts: { to: string; firstName: string; vacancyTitle?: string }
 ): Promise<string | null> {
   const { subject, html } = autoReplyEmail(opts);
   const { error } = await resend.emails.send({

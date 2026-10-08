@@ -9,6 +9,7 @@ import { routing } from "@/i18n/routing";
 import { LOGO_URL, SITE_URL } from "@/lib/site";
 import { jsonLd, ORG_ID } from "@/lib/schema";
 import Header from "@/components/Header";
+import { fetchFeedVacancies } from "@/lib/vacancy-feed";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import FloatingContact from "@/components/FloatingContact";
@@ -229,7 +230,7 @@ export default async function LocaleLayout({
           <ScrollToTop />
           <FloatingContact />
           <RecruiterCard />
-          <Header />
+          <Header vacancyCount={(await fetchFeedVacancies()).length} />
           <main className="flex-1">{children}</main>
           <Footer />
         </NextIntlClientProvider>

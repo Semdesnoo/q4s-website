@@ -14,7 +14,7 @@ const navItems = [
   { key: "contact", href: "/contact" },
 ] as const;
 
-export default function Header() {
+export default function Header({ vacancyCount = 0 }: { vacancyCount?: number }) {
   const t = useTranslations("nav");
   const locale = useLocale();
   const pathname = usePathname();
@@ -84,15 +84,15 @@ export default function Header() {
         <div className="hidden lg:flex items-center gap-3">
           <Link
             href="/vacancies"
-            className="px-5 py-2 text-xs font-semibold uppercase tracking-[0.1em] bg-[#e8430a] text-white hover:bg-[#c73508] transition-colors duration-200"
+            className="inline-flex items-center gap-2.5 px-5 py-2 text-xs font-semibold uppercase tracking-[0.1em] bg-[#e8430a] text-white hover:bg-[#c73508] transition-colors duration-200"
           >
+            {vacancyCount > 0 && (
+              <>
+                <span>{vacancyCount}</span>
+                <span aria-hidden className="h-3.5 w-px bg-white/60" />
+              </>
+            )}
             {t("vacancies")}
-          </Link>
-          <Link
-            href={{ pathname: "/upload-cv", hash: "opdrachtgever" }}
-            className="px-5 py-2 text-xs font-semibold uppercase tracking-[0.1em] border border-gray-300 text-gray-700 hover:border-[#000000] hover:text-[#000000] transition-colors duration-200"
-          >
-            {t("forClients")}
           </Link>
           <button
             onClick={switchLocale}
@@ -136,15 +136,15 @@ export default function Header() {
             <div className="mt-5 pt-5 border-t border-gray-100 flex flex-col gap-3">
               <Link
                 href="/vacancies"
-                className="block text-center py-2.5 text-xs font-semibold uppercase tracking-wider bg-[#e8430a] text-white hover:bg-[#c73508] transition-colors"
+                className="flex items-center justify-center gap-2.5 py-2.5 text-xs font-semibold uppercase tracking-wider bg-[#e8430a] text-white hover:bg-[#c73508] transition-colors"
               >
-                {t("vacancies")}
-              </Link>
-              <Link
-                href={{ pathname: "/upload-cv", hash: "opdrachtgever" }}
-                className="block text-center py-2.5 text-xs font-semibold uppercase tracking-wider border border-gray-300 text-gray-700 hover:border-[#000000] hover:text-[#000000] transition-colors"
-              >
-                {t("forClients")}
+                {vacancyCount > 0 && (
+              <>
+                <span>{vacancyCount}</span>
+                <span aria-hidden className="h-3.5 w-px bg-white/60" />
+              </>
+            )}
+            {t("vacancies")}
               </Link>
             </div>
           </nav>

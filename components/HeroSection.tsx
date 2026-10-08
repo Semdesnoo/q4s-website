@@ -11,6 +11,7 @@ interface Props {
   intro: string;
   ctaEmployer: string;
   ctaCandidate: string;
+  vacancyCount: number;
   est: string;
 }
 
@@ -37,6 +38,7 @@ export default function HeroSection({
   intro,
   ctaEmployer,
   ctaCandidate,
+  vacancyCount,
   est,
 }: Props) {
   const rawWords = tagline.split(" ");
@@ -148,15 +150,21 @@ export default function HeroSection({
           <div className="flex flex-col sm:flex-row gap-3 shrink-0">
             <Link
               href="/contact"
-              className="group inline-flex items-center gap-2 px-6 py-3.5 bg-[#e8430a] text-white font-semibold text-sm uppercase tracking-[0.1em] hover:bg-[#c73508] active:scale-95 transition-all duration-200"
+              className="group inline-flex items-center gap-2 px-6 py-3.5 border border-white/20 text-white font-semibold text-sm uppercase tracking-[0.1em] hover:border-white/50 hover:bg-white/5 active:scale-95 transition-all duration-200"
             >
               {ctaEmployer}
               <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-200" />
             </Link>
             <Link
               href="/vacancies"
-              className="group inline-flex items-center gap-2 px-6 py-3.5 border border-white/20 text-white font-semibold text-sm uppercase tracking-[0.1em] hover:border-white/50 hover:bg-white/5 active:scale-95 transition-all duration-200"
+              className="group inline-flex items-center gap-2.5 px-6 py-3.5 bg-[#e8430a] text-white font-semibold text-sm uppercase tracking-[0.1em] hover:bg-[#c73508] active:scale-95 transition-all duration-200"
             >
+              {vacancyCount > 0 && (
+                <>
+                  <span>{vacancyCount}</span>
+                  <span aria-hidden className="h-4 w-px bg-white/60" />
+                </>
+              )}
               {ctaCandidate}
               <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-200" />
             </Link>

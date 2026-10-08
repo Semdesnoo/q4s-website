@@ -9,6 +9,7 @@ import AnimatedCounter from "@/components/AnimatedCounter";
 import WhyCards from "@/components/WhyCards";
 import MobileSlider from "@/components/MobileSlider";
 import HeroSection from "@/components/HeroSection";
+import { fetchFeedVacancies } from "@/lib/vacancy-feed";
 import ServiceRows from "@/components/ServiceRows";
 import FadeInView from "@/components/motion/FadeInView";
 
@@ -34,6 +35,8 @@ export default function HomePage({
   setRequestLocale(use(params).locale);
 
   const t = useTranslations("home");
+  const tNav = useTranslations("nav");
+  const vacancyCount = use(fetchFeedVacancies()).length;
   const locale = useLocale();
 
   const whyItems = t.raw("why.items") as Array<{ title: string; desc: string }>;
@@ -55,7 +58,8 @@ export default function HomePage({
         slogan={t("hero.slogan")}
         intro={t("hero.intro")}
         ctaEmployer={t("hero.ctaEmployer")}
-        ctaCandidate={t("hero.ctaCandidate")}
+        ctaCandidate={tNav("vacancies")}
+        vacancyCount={vacancyCount}
         est={t("hero.est")}
       />
 

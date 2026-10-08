@@ -62,7 +62,7 @@ export function autoReplyEmail(opts: { firstName: string; locale?: string; vacan
 export async function sendAutoReply(
   resend: Resend,
   opts: { to: string; firstName: string; locale?: string; vacancyTitle?: string }
-): Promise<void> {
+): Promise<string | null> {
   const { subject, html } = autoReplyEmail(opts);
   const { error } = await resend.emails.send({
     from: process.env.AUTOREPLY_FROM ?? "Q4S <info@q4s.nl>",
@@ -72,4 +72,5 @@ export async function sendAutoReply(
     html,
   });
   if (error) console.error("[autoreply] mislukt voor", opts.to, error.message);
+  return error ? error.message : null;
 }

@@ -55,7 +55,7 @@ export async function generateMetadata({
       },
     },
     openGraph: {
-      siteName: "Q4S",
+      siteName: "Q4S Project Partners",
       locale: locale === "nl" ? "nl_NL" : "en_US",
       alternateLocale: locale === "nl" ? "en_US" : "nl_NL",
     },
@@ -104,7 +104,7 @@ export default async function LocaleLayout({
     // voor de geloofwaardigheid van de werkgever in Google for Jobs.
     "@id": ORG_ID,
     name: "Q4S B.V.",
-    alternateName: "Q4S",
+    alternateName: ["Q4S Project Partners", "Q4S"],
     url: SITE_URL,
     logo: LOGO_URL,
     image: LOGO_URL,

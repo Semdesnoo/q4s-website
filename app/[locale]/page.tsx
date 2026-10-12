@@ -62,8 +62,8 @@ export default function HomePage({
           "@type": "WebSite",
           "@id": `${SITE_URL}/#website`,
           url: `${SITE_URL}/`,
-          name: "Q4S",
-          alternateName: ["Q4S B.V.", "Q4S Detachering"],
+          name: "Q4S Project Partners",
+          alternateName: ["Q4S", "Q4S B.V.", "Q4S Detachering"],
           inLanguage: locale === "nl" ? "nl-NL" : "en",
           publisher: { "@id": ORG_ID },
         })}

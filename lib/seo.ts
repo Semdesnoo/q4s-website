@@ -16,7 +16,7 @@ export function openGraphFor(locale: string, path: string, title: string, descri
     title,
     description,
     url: absoluteUrl(path),
-    siteName: "Q4S",
+    siteName: "Q4S Project Partners",
     locale: locale === "nl" ? "nl_NL" : "en_US",
     alternateLocale: locale === "nl" ? "en_US" : "nl_NL",
     type: "website" as const,

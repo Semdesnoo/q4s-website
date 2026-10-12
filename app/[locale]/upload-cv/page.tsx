@@ -4,7 +4,8 @@ import UploadCvForm from "@/components/UploadCvForm";
 import EmployerForm from "@/components/EmployerForm";
 import RegisterTabs from "@/components/RegisterTabs";
 import RecruiterContact from "@/components/RecruiterContact";
-import { pageMetadata } from "@/lib/seo";
+import { openGraphFor, pageMetadata } from "@/lib/seo";
+import { absoluteUrl } from "@/lib/site";
 import { fetchFeedVacancy } from "@/lib/vacancy-feed";
 
 export async function generateMetadata({
@@ -13,7 +14,21 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  return pageMetadata(locale, "uploadCv", "/upload-cv");
+  const meta = await pageMetadata(locale, "uploadCv", "/upload-cv");
+  // Deze link gaat mee in elke LinkedIn-vacaturepost: daar een rustige kaart met
+  // alleen ons logo en "Solliciteer nu bij Q4S" (geen banner, geen omschrijving;
+  // LinkedIn valt anders terug op de meta-description).
+  const title = locale === "nl" ? "Solliciteer nu bij Q4S" : "Apply now at Q4S";
+  return {
+    ...meta,
+    description: undefined,
+    openGraph: {
+      ...openGraphFor(locale, String(meta.alternates?.canonical ?? "/"), title, ""),
+      description: undefined,
+      images: [{ url: absoluteUrl("/og-logo.png"), width: 600, height: 600, alt: "Q4S" }],
+    },
+    twitter: { card: "summary", title, images: [absoluteUrl("/og-logo.png")] },
+  };
 }
 
 export default async function UploadCvPage({
